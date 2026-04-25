@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Iron Edge × Brass-Navy Design Tokens ─────────────────────────────── */
+:root {
+  --font-display: 'Oswald', sans-serif;
+  --font-body: 'Archivo', sans-serif;
+
+  /* Palette */
+  --color-brass:        hsl(38, 85%, 55%);
+  --color-brass-dark:   hsl(34, 75%, 42%);
+  --color-steel-deep:   hsl(220, 30%, 10%);
+  --color-steel-mid:    hsl(220, 20%, 18%);
+  --color-steel-light:  hsl(220, 15%, 28%);
+  --color-off-white:    hsl(40, 20%, 96%);
+  --color-warm-gray:    hsl(220, 10%, 55%);
+
+  /* Spacing */
+  --space-section: clamp(4rem, 3rem + 4vw, 7rem);
+
+  /* Zero-radius (Iron Edge rule) */
+  --radius: 0px;
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-steel-deep);
+  color: var(--color-off-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Typography ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* ── Utility classes ────────────────────────────────────────────────────── */
+.iron-label {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+.btn-brass {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background-color: var(--color-brass);
+  color: var(--color-steel-deep);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid var(--color-brass);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.btn-brass:hover {
+  background-color: var(--color-brass-dark);
+  border-color: var(--color-brass-dark);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background-color: transparent;
+  color: var(--color-off-white);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid hsl(220, 15%, 38%);
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+.btn-outline:hover {
+  border-color: var(--color-brass);
+  color: var(--color-brass);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-steel-deep); }
+::-webkit-scrollbar-thumb { background: var(--color-steel-light); }
