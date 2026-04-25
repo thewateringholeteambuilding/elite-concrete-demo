@@ -64,11 +64,66 @@ export default function Gallery() {
               marginBottom: '1rem',
             }}
           >
-            THE WORK
+            BEFORE THE FORMS. AFTER THE CURE.
           </h1>
           <p style={{ color: 'hsl(220, 10%, 60%)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '520px' }}>
-            Foundations, driveways, walls, and decorative concrete across Maui. License C-27903. BBB A+.
+            487 projects across Maui. Foundations, driveways, walls, and decorative concrete. License C-27903. BBB A+.
           </p>
+        </div>
+      </section>
+
+      {/* ── Gallery metrics strip ───────────────────────────────────── */}
+      <section
+        aria-label="Portfolio metrics"
+        style={{
+          backgroundColor: 'hsl(220, 20%, 13%)',
+          borderBottom: '1px solid hsl(220, 15%, 22%)',
+          padding: '2rem 1.5rem',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '1.5rem',
+          }}
+          className="metrics-grid"
+        >
+          {[
+            { value: '487', label: 'Projects Completed' },
+            { value: '13', label: 'Maui Towns Served' },
+            { value: 'A+', label: 'BBB Rating' },
+            { value: '5.0', label: 'Google Rating' },
+          ].map((m) => (
+            <div key={m.label} style={{ textAlign: 'center' }}>
+              <p
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '2rem',
+                  fontWeight: 700,
+                  color: 'hsl(38, 85%, 55%)',
+                  lineHeight: 1,
+                  marginBottom: '0.3rem',
+                }}
+              >
+                {m.value}
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.65rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  color: 'hsl(220, 10%, 50%)',
+                }}
+              >
+                {m.label}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -164,10 +219,10 @@ export default function Gallery() {
               marginBottom: '1rem',
             }}
           >
-            PLANNING A CONCRETE JOB?
+            YOUR SLAB. YOUR TIMELINE. ONE CREW.
           </h2>
           <p style={{ color: 'hsl(220, 10%, 55%)', marginBottom: '2.5rem', lineHeight: 1.7 }}>
-            Free estimates for residential and commercial work across Maui. Call or send a project brief.
+            Driveway replacement, new foundation, retaining wall, or commercial slab. Free estimates across Maui.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="/contact" className="btn-brass">Get a Free Estimate</a>
@@ -178,12 +233,22 @@ export default function Gallery() {
 
       <style>{`
         @media (max-width: 768px) {
+          .metrics-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
           .gallery-grid {
             grid-template-columns: 1fr !important;
           }
           .gallery-wide {
             grid-column: 1 !important;
           }
+        }
+        .gallery-grid figure {
+          border-left: 3px solid transparent;
+          transition: border-color 300ms ease;
+        }
+        .gallery-grid figure:hover {
+          border-left-color: hsl(38, 85%, 55%);
         }
         .gallery-img:hover {
           transform: scale(1.03);

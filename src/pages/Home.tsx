@@ -57,21 +57,21 @@ const testimonials = [
     stars: 5,
     quote: 'Elite poured the foundation for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished two days ahead of schedule.',
     name: 'James K.',
-    detail: 'Foundation Addition, Wailuku',
+    detail: 'Foundation Addition, Wailuku · Homeowner',
     date: 'November 2024',
   },
   {
     stars: 5,
     quote: 'We had an eroding slope behind our property in Haiku. They assessed the hillside conditions, recommended the right wall type, and completed it with no surprise costs. Still holding solid.',
     name: 'Yoko T.',
-    detail: 'Retaining Wall, Haiku',
+    detail: 'Retaining Wall, Haiku · Property Owner',
     date: 'August 2024',
   },
   {
     stars: 5,
     quote: 'Stamped concrete lanai for our rental. The color matched our vision on the first mix. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
     name: 'Ben & Sara M.',
-    detail: 'Decorative Lanai, Makawao',
+    detail: 'Decorative Lanai, Makawao · Vacation Rental Owners',
     date: 'March 2025',
   },
 ]
@@ -939,7 +939,7 @@ export default function Home() {
               <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#4285F4' }}>G</span>
               <span style={{ color: '#FFC107' }}>★★★★★</span>
               <span style={{ color: 'hsl(40, 20%, 80%)', fontSize: '0.8rem', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
-                Google Reviews
+                5.0 from 31 Reviews
               </span>
             </a>
           </div>
