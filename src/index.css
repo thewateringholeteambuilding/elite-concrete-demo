@@ -106,6 +106,16 @@ p {
   color: var(--color-brass);
 }
 
+/* ── Service card hover ────────────────────────────────────────────────── */
+.service-card {
+  border-left: 3px solid transparent;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+.service-card:hover {
+  border-color: var(--color-brass);
+  transform: translateY(-2px);
+}
+
 /* ── Scrollbar ──────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-steel-deep); }

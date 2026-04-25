@@ -8,7 +8,7 @@ const CTA_IMG    = 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?au
 const stats = [
   { value: 'A+',    label: 'BBB Rating' },
   { value: 'C-27903', label: 'Hawaii License' },
-  { value: '500+',  label: 'Maui Projects' },
+  { value: '487',   label: 'Maui Projects' },
   { value: '100%',  label: 'Insured Crew' },
 ]
 
@@ -17,31 +17,37 @@ const services = [
   {
     title: 'Concrete Foundations',
     desc: 'Stem walls, grade beams, and slab-on-grade poured to Hawaii State seismic code. Red volcanic soil documented and drainage verified before any form goes up.',
+    ideal: 'Homeowners adding square footage, new builds, ADU projects',
     img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Driveways & Parking',
     desc: 'Broom-finish, exposed aggregate, or stamped. Sub-base compacted to spec. Drainage slopes away from structure. Built for Maui rain events, not mainland averages.',
+    ideal: 'Residential replacements, new construction, rental properties',
     img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Retaining Walls',
     desc: 'Gravity and poured-wall systems engineered for Wailuku hillsides and Iao Valley slopes. Drainage core standard on every job.',
+    ideal: 'Hillside lots, erosion control, tiered landscaping',
     img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Decorative Concrete',
     desc: 'Stamped, stained, and polished finishes for lanais, pool decks, and commercial lobbies. Pattern and color matched to your design before the pour.',
+    ideal: 'Vacation rentals, restaurant patios, residential upgrades',
     img: 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Commercial Slabs',
     desc: 'Warehouse floors, loading docks, and retail pads. Floor flatness specs documented. Joints cut at 24 hours. Re-temp protection on high-heat Maui afternoons.',
+    ideal: 'Warehouses, retail build-outs, loading facilities',
     img: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Concrete Sawing',
     desc: 'Precision saw-cutting for control joints, utility openings, and slab removal. Dust and slurry managed on-site. Available for contractor and owner-direct projects.',
+    ideal: 'GCs needing sub work, utility installs, slab demolition',
     img: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=800&q=80',
   },
 ]
@@ -301,6 +307,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Industry Affiliations Strip ────────────────────────────────── */}
+      <section
+        aria-label="Industry affiliations"
+        style={{
+          backgroundColor: 'hsl(220, 30%, 10%)',
+          padding: '2rem 1.5rem',
+          borderBottom: '1px solid hsl(220, 15%, 18%)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1rem',
+          }}
+        >
+          {[
+            { icon: '⬡', label: 'Licensed Hawaii Contractor' },
+            { icon: '◆', label: 'ACI Concrete Practices' },
+            { icon: '★', label: 'BBB Accredited Business' },
+            { icon: '◉', label: 'Fully Insured & Bonded' },
+          ].map((a) => (
+            <div
+              key={a.label}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                padding: '0.75rem 1rem',
+                backgroundColor: 'hsl(220, 20%, 13%)',
+                border: '1px solid hsl(220, 15%, 22%)',
+              }}
+            >
+              <span style={{ fontSize: '1.1rem', color: 'hsl(38, 85%, 55%)' }}>{a.icon}</span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.65rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'hsl(220, 10%, 55%)',
+                }}
+              >
+                {a.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── Services — 2-col layout: list nav left + featured card right ─ */}
       <section
         aria-labelledby="services-heading"
@@ -361,6 +420,9 @@ export default function Home() {
                 </h3>
                 <p style={{ color: 'hsl(40, 20%, 80%)', fontSize: '0.9rem', lineHeight: 1.65, maxWidth: '400px' }}>
                   {services[0].desc}
+                </p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginTop: '0.75rem' }}>
+                  Ideal for: <span style={{ color: 'hsl(220, 10%, 55%)' }}>{services[0].ideal}</span>
                 </p>
               </div>
             </div>
@@ -571,6 +633,57 @@ export default function Home() {
                 Serving all of Maui County
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Service Area Strip ────────────────────────────────────────────── */}
+      <section
+        aria-label="Service area"
+        style={{
+          backgroundColor: 'hsl(220, 20%, 13%)',
+          padding: '2.5rem 1.5rem',
+          borderTop: '1px solid hsl(220, 15%, 22%)',
+          borderBottom: '1px solid hsl(220, 15%, 22%)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'hsl(38, 85%, 55%)',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Serving All of Maui County
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.5rem' }}>
+            {[
+              'Wailuku', 'Kahului', 'Kihei', 'Wailea', 'Lahaina',
+              'Makawao', 'Haiku', 'Paia', 'Pukalani', 'Kula',
+              'Sprecklesville', 'Napili', 'Kapalua',
+            ].map((town) => (
+              <span
+                key={town}
+                style={{
+                  padding: '0.35rem 0.85rem',
+                  backgroundColor: 'hsl(220, 20%, 18%)',
+                  border: '1px solid hsl(220, 15%, 28%)',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.7rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  color: 'hsl(40, 20%, 80%)',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {town}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -794,12 +907,14 @@ export default function Home() {
 interface ServiceItem {
   title: string
   desc: string
+  ideal: string
   img: string
 }
 
 function ServiceCard({ service }: { service: ServiceItem }) {
   return (
     <div
+      className="service-card"
       style={{
         position: 'relative',
         overflow: 'hidden',
@@ -830,6 +945,9 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         </h3>
         <p style={{ color: 'hsl(40, 20%, 75%)', fontSize: '0.8rem', lineHeight: 1.6 }}>
           {service.desc}
+        </p>
+        <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginTop: '0.5rem' }}>
+          Ideal for: <span style={{ color: 'hsl(220, 10%, 55%)' }}>{service.ideal}</span>
         </p>
       </div>
     </div>
