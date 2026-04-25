@@ -510,6 +510,19 @@ export default function Home() {
         >
           {/* Left: numbered steps */}
           <div>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.65rem',
+                fontWeight: 600,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+                color: 'hsl(38, 85%, 55%)',
+                marginBottom: '1rem',
+              }}
+            >
+              FORM. POUR. FINISH.
+            </p>
             <h2
               id="how-heading"
               style={{
@@ -541,10 +554,10 @@ export default function Home() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
-                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote.' },
-                { num: '02', title: 'Mix Engineering', desc: '3,500 PSI minimum. Water-cement ratio adjusted for Maui humidity and pour-day temps.' },
-                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. No sub-subcontracting.' },
-                { num: '04', title: 'Licensed & Insured', desc: 'Hawaii Contractor License C-27903. Full liability and workers comp on every project.' },
+                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Compaction tested to 95% modified Proctor.' },
+                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for Maui humidity and pour-day temps. #4 rebar at 12-inch centers standard.' },
+                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting.' },
+                { num: '04', title: 'Licensed & Insured', desc: 'Hawaii Contractor License C-27903. $2M general liability. Full workers comp on every project.' },
               ].map((step) => (
                 <div
                   key={step.num}
@@ -654,6 +667,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Owner Credibility Strip ──────────────────────────────────────── */}
+      <section
+        aria-label="Owner-operated business"
+        style={{
+          backgroundColor: 'hsl(220, 20%, 13%)',
+          padding: '3rem 1.5rem',
+          borderTop: '1px solid hsl(220, 15%, 22%)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '2rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          {/* Initials badge */}
+          <div
+            style={{
+              width: '64px',
+              height: '64px',
+              backgroundColor: 'hsl(38, 85%, 55%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '1.4rem',
+                fontWeight: 700,
+                color: 'hsl(220, 30%, 10%)',
+                letterSpacing: '0.05em',
+              }}
+            >
+              EC
+            </span>
+          </div>
+          <div style={{ flex: 1, minWidth: '200px' }}>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                color: 'hsl(40, 20%, 96%)',
+                marginBottom: '0.3rem',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+              }}
+            >
+              Owner-Operated. Owner on Every Job.
+            </p>
+            <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem', lineHeight: 1.65 }}>
+              The person who answers the phone is the person who runs the crew. One point of contact from estimate through final walkthrough. No project managers, no call centers, no handoffs.
+            </p>
+          </div>
+          <a
+            href="tel:+18082813018"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              color: 'hsl(38, 85%, 55%)',
+              textDecoration: 'none',
+              fontFamily: 'var(--font-display)',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              letterSpacing: '0.05em',
+              flexShrink: 0,
+            }}
+          >
+            <Phone size={15} />
+            (808) 281-3018
+          </a>
+        </div>
+      </section>
+
       {/* ── Service Area Strip ────────────────────────────────────────────── */}
       <section
         aria-label="Service area"
@@ -736,9 +831,9 @@ export default function Home() {
             className="recent-work-grid"
           >
             {[
-              { name: 'Kehalani Residence Foundation', town: 'Wailuku', scope: '2,400 sq ft slab-on-grade, 28 stem wall footings, seismic tie-downs' },
-              { name: 'Maui Lani Driveway Replacement', town: 'Kahului', scope: 'Remove and repour 1,800 sq ft exposed aggregate, new drainage slope' },
-              { name: 'Wailea Resort Retaining Wall', town: 'Wailea', scope: '120 linear ft poured wall, engineered drainage core, 6 ft height' },
+              { name: 'Kehalani Residence Foundation', town: 'Wailuku', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.' },
+              { name: 'Maui Lani Driveway Replacement', town: 'Kahului', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.' },
+              { name: 'Wailea Resort Retaining Wall', town: 'Wailea', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.' },
             ].map((project) => (
               <div
                 key={project.name}
@@ -922,6 +1017,61 @@ export default function Home() {
               Leave a Google Review
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ── Warranty Commitment Block ────────────────────────────────────── */}
+      <section
+        aria-label="Workmanship warranty"
+        style={{
+          backgroundColor: 'hsl(38, 85%, 55%)',
+          padding: '3.5rem 1.5rem',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            textAlign: 'center',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 600,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: 'hsl(220, 30%, 10%)',
+              marginBottom: '1rem',
+              opacity: 0.6,
+            }}
+          >
+            Our Commitment
+          </p>
+          <h2
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
+              fontWeight: 700,
+              color: 'hsl(220, 30%, 10%)',
+              lineHeight: 1.05,
+              marginBottom: '1.25rem',
+            }}
+          >
+            WORKMANSHIP WARRANTY ON EVERY POUR.
+          </h2>
+          <p
+            style={{
+              color: 'hsl(220, 30%, 20%)',
+              fontSize: '1rem',
+              lineHeight: 1.7,
+              maxWidth: '560px',
+              margin: '0 auto',
+            }}
+          >
+            Every project carries a written workmanship warranty. If something cracks, settles, or fails within the warranty period, we come back and make it right. No fine print, no exclusions for normal use.
+          </p>
         </div>
       </section>
 
