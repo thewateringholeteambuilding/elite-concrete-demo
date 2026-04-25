@@ -58,18 +58,21 @@ const testimonials = [
     quote: 'Elite poured the foundation for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished two days ahead of schedule.',
     name: 'James K.',
     detail: 'Foundation Addition, Wailuku',
+    date: 'November 2024',
   },
   {
     stars: 5,
     quote: 'We had an eroding slope behind our property in Haiku. They assessed the hillside conditions, recommended the right wall type, and completed it with no surprise costs. Still holding solid.',
     name: 'Yoko T.',
     detail: 'Retaining Wall, Haiku',
+    date: 'August 2024',
   },
   {
     stars: 5,
     quote: 'Stamped concrete lanai for our rental. The color matched our vision on the first mix. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
     name: 'Ben & Sara M.',
     detail: 'Decorative Lanai, Makawao',
+    date: 'March 2025',
   },
 ]
 
@@ -208,6 +211,7 @@ export default function Home() {
               height={840}
               fetchPriority="high"
               loading="eager"
+              className="hero-ken-burns"
               style={{
                 width: '100%',
                 aspectRatio: '4/5',
@@ -516,11 +520,24 @@ export default function Home() {
                 marginBottom: '1rem',
               }}
             >
-              EVERY JOB, SAME SEQUENCE
+              ONE CREW. ONE SEQUENCE. EVERY JOB.
             </h2>
-            <p style={{ color: 'hsl(220, 10%, 55%)', lineHeight: 1.75, marginBottom: '2.5rem', fontSize: '1rem' }}>
-              Concrete in Hawaii is not standard mainland work. Salt air corrodes rebar. Volcanic soil drains differently than mainland clay. Maui's afternoon heat can accelerate set on a slab you have one shot to finish. We've been reading these conditions from Central Maui out to Upcountry for years.
-            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
+              {[
+                { phrase: 'Salt Air Corrodes Rebar.', expansion: 'Every pour uses corrosion-rated steel and cover depths above code minimum.' },
+                { phrase: 'Volcanic Soil Drains Different.', expansion: 'Sub-base spec changes from Wailuku clay to Upcountry cinder. We test before we quote.' },
+                { phrase: 'Maui Heat Accelerates Set.', expansion: 'Afternoon pours get adjusted water-cement ratios. One shot to finish means no guessing.' },
+              ].map((pillar) => (
+                <div key={pillar.phrase}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.95rem', fontWeight: 700, color: 'hsl(40, 20%, 96%)', marginBottom: '0.2rem' }}>
+                    {pillar.phrase}
+                  </p>
+                  <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem', lineHeight: 1.6 }}>
+                    {pillar.expansion}
+                  </p>
+                </div>
+              ))}
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
@@ -688,6 +705,89 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Recent Work Strip ──────────────────────────────────────────── */}
+      <section
+        aria-label="Recent projects"
+        style={{
+          backgroundColor: 'hsl(220, 30%, 10%)',
+          padding: 'var(--space-section) 1.5rem',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'hsl(38, 85%, 55%)',
+              marginBottom: '2rem',
+            }}
+          >
+            Recent Work
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '1.5rem',
+            }}
+            className="recent-work-grid"
+          >
+            {[
+              { name: 'Kehalani Residence Foundation', town: 'Wailuku', scope: '2,400 sq ft slab-on-grade, 28 stem wall footings, seismic tie-downs' },
+              { name: 'Maui Lani Driveway Replacement', town: 'Kahului', scope: 'Remove and repour 1,800 sq ft exposed aggregate, new drainage slope' },
+              { name: 'Wailea Resort Retaining Wall', town: 'Wailea', scope: '120 linear ft poured wall, engineered drainage core, 6 ft height' },
+            ].map((project) => (
+              <div
+                key={project.name}
+                style={{
+                  padding: '1.75rem',
+                  backgroundColor: 'hsl(220, 20%, 13%)',
+                  borderTop: '3px solid hsl(38, 85%, 55%)',
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    color: 'hsl(40, 20%, 96%)',
+                    marginBottom: '0.35rem',
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {project.name}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'hsl(38, 85%, 55%)',
+                    marginBottom: '0.75rem',
+                  }}
+                >
+                  {project.town}, Maui
+                </p>
+                <p
+                  style={{
+                    color: 'hsl(220, 10%, 55%)',
+                    fontSize: '0.85rem',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {project.scope}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
       <section
         aria-labelledby="testimonials-heading"
@@ -720,10 +820,10 @@ export default function Home() {
                   marginBottom: '0.5rem',
                 }}
               >
-                FROM MAUI CLIENTS
+                487 POURS. ZERO SURPRISES.
               </h2>
               <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.9rem' }}>
-                Real jobs, real outcomes.
+                Real jobs. Real outcomes. Real Maui clients.
               </p>
             </div>
             <a
@@ -804,7 +904,7 @@ export default function Home() {
                         letterSpacing: '0.05em',
                       }}
                     >
-                      {t.detail}
+                      {t.detail} · {t.date}
                     </span>
                   </cite>
                 </figcaption>
@@ -876,6 +976,16 @@ export default function Home() {
       </section>
 
       <style>{`
+        @keyframes kenBurnsZoom {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.06); }
+        }
+        .hero-ken-burns {
+          animation: kenBurnsZoom 12s ease-in-out infinite alternate;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-ken-burns { animation: none; }
+        }
         @media (max-width: 768px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
@@ -897,6 +1007,9 @@ export default function Home() {
           .testimonials-header {
             flex-direction: column !important;
             align-items: flex-start !important;
+          }
+          .recent-work-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>
