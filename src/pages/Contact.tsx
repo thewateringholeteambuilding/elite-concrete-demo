@@ -17,6 +17,16 @@ export default function Contact() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+
+    // Honeypot: real users leave this empty; bots fill it.
+    const honeypot = (e.currentTarget as HTMLFormElement).elements.namedItem(
+      "company_website"
+    ) as HTMLInputElement | null
+    if (honeypot && honeypot.value.trim() !== "") {
+      setSubmitted(true)
+      return
+    }
+
     setSubmitted(true)
   }
 
@@ -26,27 +36,27 @@ export default function Contact() {
       <section
         aria-labelledby="contact-heading"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           padding: '5rem 1.5rem 4rem',
-          borderBottom: '1px solid hsl(220, 15%, 18%)',
+          borderBottom: '1px solid var(--color-steel-light)',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <p className="iron-label" style={{ marginBottom: '1rem' }}>§ Contact</p>
+          <p className="iron-label" style={{ marginBottom: '1rem' }}>Contact</p>
           <h1
             id="contact-heading"
             style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2.5rem, 1.5rem + 5vw, 5rem)',
               fontWeight: 700,
-              color: 'hsl(40, 20%, 96%)',
+              color: 'var(--color-off-white)',
               marginBottom: '1.25rem',
             }}
           >
             LET'S TALK<br />
-            <span style={{ color: 'hsl(38, 85%, 55%)' }}>CONCRETE.</span>
+            <span style={{ color: 'var(--color-brass)' }}>CONCRETE.</span>
           </h1>
-          <p style={{ color: 'hsl(220, 10%, 60%)', fontSize: '1.05rem', lineHeight: 1.75, maxWidth: '520px' }}>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '1.05rem', lineHeight: 1.75, maxWidth: '520px' }}>
             Free estimates for Maui concrete work. Owner answers the phone. Call direct or use the form below.
           </p>
         </div>
@@ -56,7 +66,7 @@ export default function Contact() {
       <section
         aria-label="Contact information and form"
         style={{
-          backgroundColor: 'hsl(220, 20%, 13%)',
+          backgroundColor: 'var(--color-steel-mid)',
           padding: 'var(--space-section) 1.5rem',
         }}
       >
@@ -78,7 +88,7 @@ export default function Contact() {
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.5rem',
                 fontWeight: 700,
-                color: 'hsl(40, 20%, 96%)',
+                color: 'var(--color-off-white)',
                 marginBottom: '2rem',
                 textTransform: 'uppercase',
               }}
@@ -93,17 +103,17 @@ export default function Contact() {
                   style={{
                     width: '36px',
                     height: '36px',
-                    backgroundColor: 'hsl(38, 85%, 55%)',
+                    backgroundColor: 'var(--color-brass)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0,
                   }}
                 >
-                  <Phone size={16} color="hsl(220, 30%, 10%)" />
+                  <Phone size={16} color="var(--color-steel-deep)" />
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginBottom: '0.25rem' }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.25rem' }}>
                     Phone
                   </p>
                   <a
@@ -112,14 +122,14 @@ export default function Contact() {
                       fontFamily: 'var(--font-display)',
                       fontSize: '1.2rem',
                       fontWeight: 700,
-                      color: 'hsl(40, 20%, 96%)',
+                      color: 'var(--color-off-white)',
                       textDecoration: 'none',
                       letterSpacing: '0.03em',
                     }}
                   >
                     (808) 281-3018
                   </a>
-                  <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.8rem', marginTop: '0.2rem' }}>Owner answers directly</p>
+                  <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', marginTop: '0.2rem' }}>Owner answers directly</p>
                 </div>
               </div>
 
@@ -129,21 +139,21 @@ export default function Contact() {
                   style={{
                     width: '36px',
                     height: '36px',
-                    backgroundColor: 'hsl(220, 20%, 22%)',
-                    border: '1px solid hsl(220, 15%, 30%)',
+                    backgroundColor: 'var(--color-steel-mid)',
+                    border: '1px solid var(--color-steel-light)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0,
                   }}
                 >
-                  <MapPin size={16} color="hsl(38, 85%, 55%)" />
+                  <MapPin size={16} color="var(--color-brass)" />
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginBottom: '0.25rem' }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.25rem' }}>
                     Address
                   </p>
-                  <p style={{ color: 'hsl(40, 20%, 85%)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                  <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.95rem', lineHeight: 1.6 }}>
                     750 Malaihi Rd<br />Wailuku, HI 96793
                   </p>
                 </div>
@@ -155,21 +165,21 @@ export default function Contact() {
                   style={{
                     width: '36px',
                     height: '36px',
-                    backgroundColor: 'hsl(220, 20%, 22%)',
-                    border: '1px solid hsl(220, 15%, 30%)',
+                    backgroundColor: 'var(--color-steel-mid)',
+                    border: '1px solid var(--color-steel-light)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0,
                   }}
                 >
-                  <Mail size={16} color="hsl(38, 85%, 55%)" />
+                  <Mail size={16} color="var(--color-brass)" />
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginBottom: '0.25rem' }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.25rem' }}>
                     License & Rating
                   </p>
-                  <p style={{ color: 'hsl(40, 20%, 85%)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                  <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.95rem', lineHeight: 1.6 }}>
                     Hawaii License C-27903<br />BBB A+ Rating
                   </p>
                 </div>
@@ -181,21 +191,21 @@ export default function Contact() {
                   style={{
                     width: '36px',
                     height: '36px',
-                    backgroundColor: 'hsl(220, 20%, 22%)',
-                    border: '1px solid hsl(220, 15%, 30%)',
+                    backgroundColor: 'var(--color-steel-mid)',
+                    border: '1px solid var(--color-steel-light)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0,
                   }}
                 >
-                  <Clock size={16} color="hsl(38, 85%, 55%)" />
+                  <Clock size={16} color="var(--color-brass)" />
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginBottom: '0.25rem' }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.25rem' }}>
                     Hours
                   </p>
-                  <p style={{ color: 'hsl(40, 20%, 85%)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                  <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.95rem', lineHeight: 1.6 }}>
                     Mon-Fri: 7am - 5pm<br />Saturday: By appointment
                   </p>
                 </div>
@@ -222,8 +232,8 @@ export default function Contact() {
             {submitted ? (
               <div
                 style={{
-                  backgroundColor: 'hsl(220, 20%, 18%)',
-                  borderTop: '3px solid hsl(38, 85%, 55%)',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  borderTop: '3px solid var(--color-brass)',
                   padding: '3rem 2rem',
                   textAlign: 'center',
                 }}
@@ -233,13 +243,13 @@ export default function Contact() {
                     fontFamily: 'var(--font-display)',
                     fontSize: '2rem',
                     fontWeight: 700,
-                    color: 'hsl(38, 85%, 55%)',
+                    color: 'var(--color-brass)',
                     marginBottom: '1rem',
                   }}
                 >
                   MESSAGE RECEIVED.
                 </p>
-                <p style={{ color: 'hsl(220, 10%, 60%)', lineHeight: 1.7 }}>
+                <p style={{ color: 'var(--color-warm-gray)', lineHeight: 1.7 }}>
                   We'll follow up within one business day. For faster response, call (808) 281-3018 directly.
                 </p>
               </div>
@@ -247,17 +257,22 @@ export default function Contact() {
               <form
                 onSubmit={handleSubmit}
                 style={{
-                  backgroundColor: 'hsl(220, 20%, 18%)',
-                  borderTop: '3px solid hsl(38, 85%, 55%)',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  borderTop: '3px solid var(--color-brass)',
                   padding: '2.5rem 2rem',
                 }}
               >
+                {/* Honeypot, hidden from real users, bots fill it */}
+                <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+                  <label htmlFor="company_website">Leave this field empty</label>
+                  <input type="text" id="company_website" name="company_website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                </div>
                 <h3
                   style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: '1.2rem',
                     fontWeight: 700,
-                    color: 'hsl(40, 20%, 96%)',
+                    color: 'var(--color-off-white)',
                     marginBottom: '0.5rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.05em',
@@ -265,7 +280,7 @@ export default function Contact() {
                 >
                   Request a Free Estimate
                 </h3>
-                <p style={{ color: 'hsl(220, 10%, 50%)', fontSize: '0.85rem', marginBottom: '2rem' }}>
+                <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', marginBottom: '2rem' }}>
                   Tell us about your project. We'll review and respond within one business day.
                 </p>
 
@@ -370,10 +385,10 @@ export default function Contact() {
         }
         input:focus, textarea:focus, select:focus {
           outline: none;
-          border-color: hsl(38, 85%, 55%) !important;
+          border-color: var(--color-brass) !important;
         }
         input::placeholder, textarea::placeholder {
-          color: hsl(220, 10%, 38%);
+          color: var(--color-warm-gray);
         }
       `}</style>
     </main>
@@ -387,15 +402,15 @@ const labelStyle: React.CSSProperties = {
   fontWeight: 600,
   letterSpacing: '0.14em',
   textTransform: 'uppercase',
-  color: 'hsl(220, 10%, 55%)',
+  color: 'var(--color-warm-gray)',
   marginBottom: '0.5rem',
 }
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
-  backgroundColor: 'hsl(220, 30%, 12%)',
-  border: '1px solid hsl(220, 15%, 28%)',
-  color: 'hsl(40, 20%, 90%)',
+  backgroundColor: 'var(--color-steel-deep)',
+  border: '1px solid var(--color-steel-light)',
+  color: 'var(--color-warm-gray)',
   fontFamily: 'var(--font-body)',
   fontSize: '0.9rem',
   padding: '0.75rem 1rem',

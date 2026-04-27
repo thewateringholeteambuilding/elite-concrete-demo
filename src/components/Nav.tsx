@@ -33,8 +33,8 @@ export default function Nav() {
         left: 0,
         right: 0,
         zIndex: 100,
-        backgroundColor: scrolled ? 'hsl(220, 30%, 8%)' : 'hsl(220, 30%, 10%)',
-        borderBottom: scrolled ? '1px solid hsl(220, 15%, 20%)' : '1px solid hsl(220, 15%, 16%)',
+        backgroundColor: scrolled ? 'var(--color-steel-deep)' : 'var(--color-steel-deep)',
+        borderBottom: scrolled ? '1px solid var(--color-steel-light)' : '1px solid var(--color-steel-light)',
         transition: 'background-color 200ms ease, border-color 200ms ease',
       }}
     >
@@ -57,13 +57,13 @@ export default function Nav() {
             fontFamily: 'var(--font-display)',
             fontSize: '1.1rem',
             fontWeight: 700,
-            color: 'hsl(40, 20%, 96%)',
+            color: 'var(--color-off-white)',
             textDecoration: 'none',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
           }}
         >
-          ELITE <span style={{ color: 'hsl(38, 85%, 55%)' }}>CONCRETE</span>
+          ELITE <span style={{ color: 'var(--color-brass)' }}>CONCRETE</span>
         </Link>
 
         {/* Desktop links */}
@@ -88,8 +88,8 @@ export default function Nav() {
                   textTransform: 'uppercase',
                   textDecoration: 'none',
                   color: location.pathname === link.to
-                    ? 'hsl(38, 85%, 55%)'
-                    : 'hsl(220, 10%, 65%)',
+                    ? 'var(--color-brass)'
+                    : 'var(--color-warm-gray)',
                   transition: 'color 150ms ease',
                 }}
               >
@@ -109,7 +109,7 @@ export default function Nav() {
             fontFamily: 'var(--font-display)',
             fontSize: '0.8rem',
             fontWeight: 700,
-            color: 'hsl(38, 85%, 55%)',
+            color: 'var(--color-brass)',
             textDecoration: 'none',
             letterSpacing: '0.05em',
           }}
@@ -129,7 +129,7 @@ export default function Nav() {
             background: 'none',
             border: 'none',
             cursor: 'pointer',
-            color: 'hsl(40, 20%, 96%)',
+            color: 'var(--color-off-white)',
             padding: '0.25rem',
           }}
           className="nav-hamburger"
@@ -142,8 +142,8 @@ export default function Nav() {
       {open && (
         <div
           style={{
-            backgroundColor: 'hsl(220, 30%, 8%)',
-            borderTop: '1px solid hsl(220, 15%, 18%)',
+            backgroundColor: 'var(--color-steel-deep)',
+            borderTop: '1px solid var(--color-steel-light)',
             padding: '1.5rem',
           }}
           className="nav-mobile-menu"
@@ -162,10 +162,10 @@ export default function Nav() {
                     textTransform: 'uppercase',
                     textDecoration: 'none',
                     color: location.pathname === link.to
-                      ? 'hsl(38, 85%, 55%)'
-                      : 'hsl(40, 20%, 85%)',
+                      ? 'var(--color-brass)'
+                      : 'var(--color-warm-gray)',
                     padding: '1rem 0',
-                    borderBottom: '1px solid hsl(220, 15%, 20%)',
+                    borderBottom: '1px solid var(--color-steel-light)',
                   }}
                 >
                   {link.label}
@@ -183,7 +183,7 @@ export default function Nav() {
               fontFamily: 'var(--font-display)',
               fontSize: '1rem',
               fontWeight: 700,
-              color: 'hsl(38, 85%, 55%)',
+              color: 'var(--color-brass)',
               textDecoration: 'none',
             }}
           >

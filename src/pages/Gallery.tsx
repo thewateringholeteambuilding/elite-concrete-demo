@@ -1,41 +1,41 @@
 const galleryItems = [
   {
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1616179058441-37aa58affac8?auto=format&fit=crop&w=900&q=80',
     caption: 'Foundation footing with rebar,residential addition, Wailuku',
     wide: true,
   },
   {
-    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80',
+    img: 'https://images.unsplash.com/photo-1694521787162-5373b598945c?auto=format&fit=crop&w=700&q=80',
     caption: 'Concrete pour in progress,commercial slab, Kahului',
     wide: false,
   },
   {
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80',
+    img: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=700&q=80',
     caption: 'Finished driveway,exposed aggregate, Makawao',
     wide: false,
   },
   {
-    img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?auto=format&fit=crop&w=900&q=80',
     caption: 'Retaining wall,hillside drainage system, Haiku',
     wide: true,
   },
   {
-    img: 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=700&q=80',
+    img: 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=700&q=80',
     caption: 'Stamped concrete lanai,residential, Paia',
     wide: false,
   },
   {
-    img: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=700&q=80',
+    img: 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9?auto=format&fit=crop&w=700&q=80',
     caption: 'Site prep and equipment,commercial job, Kahului',
     wide: false,
   },
   {
-    img: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1517011453931-c30f571a4fab?auto=format&fit=crop&w=900&q=80',
     caption: 'Warehouse floor slab,joints cut at 24 hours, Maui Lani',
     wide: true,
   },
   {
-    img: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=700&q=80',
+    img: 'https://images.unsplash.com/photo-1514514188727-ff38e839635e?auto=format&fit=crop&w=700&q=80',
     caption: 'Sidewalk flatwork,ADA-compliant ramp, Wailuku',
     wide: false,
   },
@@ -48,9 +48,9 @@ export default function Gallery() {
       <section
         aria-labelledby="gallery-heading"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           padding: '5rem 1.5rem 4rem',
-          borderBottom: '1px solid hsl(220, 15%, 18%)',
+          borderBottom: '1px solid var(--color-steel-light)',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -60,13 +60,13 @@ export default function Gallery() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2.5rem, 1.5rem + 5vw, 5rem)',
               fontWeight: 700,
-              color: 'hsl(40, 20%, 96%)',
+              color: 'var(--color-off-white)',
               marginBottom: '1rem',
             }}
           >
             BEFORE THE FORMS. AFTER THE CURE.
           </h1>
-          <p style={{ color: 'hsl(220, 10%, 60%)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '520px' }}>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '520px' }}>
             487 projects across Maui. Foundations, driveways, walls, and decorative concrete. License C-27903. BBB A+.
           </p>
         </div>
@@ -76,8 +76,8 @@ export default function Gallery() {
       <section
         aria-label="Portfolio metrics"
         style={{
-          backgroundColor: 'hsl(220, 20%, 13%)',
-          borderBottom: '1px solid hsl(220, 15%, 22%)',
+          backgroundColor: 'var(--color-steel-mid)',
+          borderBottom: '1px solid var(--color-steel-light)',
           padding: '2rem 1.5rem',
         }}
       >
@@ -103,7 +103,7 @@ export default function Gallery() {
                   fontFamily: 'var(--font-display)',
                   fontSize: '2rem',
                   fontWeight: 700,
-                  color: 'hsl(38, 85%, 55%)',
+                  color: 'var(--color-brass)',
                   lineHeight: 1,
                   marginBottom: '0.3rem',
                 }}
@@ -117,7 +117,7 @@ export default function Gallery() {
                   fontWeight: 600,
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
-                  color: 'hsl(220, 10%, 50%)',
+                  color: 'var(--color-warm-gray)',
                 }}
               >
                 {m.label}
@@ -131,7 +131,7 @@ export default function Gallery() {
       <section
         aria-label="Project gallery"
         style={{
-          backgroundColor: 'hsl(220, 20%, 13%)',
+          backgroundColor: 'var(--color-steel-mid)',
           padding: 'var(--space-section) 1.5rem',
         }}
       >
@@ -176,8 +176,8 @@ export default function Gallery() {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  backgroundColor: 'hsl(220, 30%, 10%)',
-                  borderTop: '2px solid hsl(38, 85%, 55%)',
+                  backgroundColor: 'var(--color-steel-deep)',
+                  borderTop: '2px solid var(--color-brass)',
                   padding: '0.65rem 1rem',
                 }}
               >
@@ -188,7 +188,7 @@ export default function Gallery() {
                     fontWeight: 600,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
-                    color: 'hsl(220, 10%, 55%)',
+                    color: 'var(--color-warm-gray)',
                   }}
                 >
                   {item.caption}
@@ -203,8 +203,8 @@ export default function Gallery() {
       <section
         aria-label="Gallery CTA"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
-          borderTop: '3px solid hsl(38, 85%, 55%)',
+          backgroundColor: 'var(--color-steel-deep)',
+          borderTop: '3px solid var(--color-brass)',
           padding: '4rem 1.5rem',
           textAlign: 'center',
         }}
@@ -215,13 +215,13 @@ export default function Gallery() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
               fontWeight: 700,
-              color: 'hsl(40, 20%, 96%)',
+              color: 'var(--color-off-white)',
               marginBottom: '1rem',
             }}
           >
             YOUR SLAB. YOUR TIMELINE. ONE CREW.
           </h2>
-          <p style={{ color: 'hsl(220, 10%, 55%)', marginBottom: '2.5rem', lineHeight: 1.7 }}>
+          <p style={{ color: 'var(--color-warm-gray)', marginBottom: '2.5rem', lineHeight: 1.7 }}>
             Driveway replacement, new foundation, retaining wall, or commercial slab. Free estimates across Maui.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -248,7 +248,7 @@ export default function Gallery() {
           transition: border-color 300ms ease;
         }
         .gallery-grid figure:hover {
-          border-left-color: hsl(38, 85%, 55%);
+          border-left-color: var(--color-brass);
         }
         .gallery-img:hover {
           transform: scale(1.03);

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elite-concrete-demo.thewateringhole.com/sitemap.xml

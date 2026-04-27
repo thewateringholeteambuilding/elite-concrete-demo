@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: 'hsl(220, 30%, 7%)',
-        borderTop: '3px solid hsl(38, 85%, 55%)',
+        backgroundColor: 'var(--color-steel-deep)',
+        borderTop: '3px solid var(--color-brass)',
         padding: '4rem 1.5rem 2rem',
         marginTop: 'auto',
       }}
@@ -28,15 +28,15 @@ export default function Footer() {
               fontFamily: 'var(--font-display)',
               fontSize: '1.2rem',
               fontWeight: 700,
-              color: 'hsl(40, 20%, 96%)',
+              color: 'var(--color-off-white)',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: '1rem',
             }}
           >
-            ELITE <span style={{ color: 'hsl(38, 85%, 55%)' }}>CONCRETE</span>
+            ELITE <span style={{ color: 'var(--color-brass)' }}>CONCRETE</span>
           </p>
-          <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '260px' }}>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '260px' }}>
             Wailuku-based concrete contractor. Foundations, driveways, retaining walls, and decorative work across Maui. Hawaii License C-27903.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function Footer() {
               fontWeight: 600,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'hsl(38, 85%, 55%)',
+              color: 'var(--color-brass)',
               marginBottom: '1.25rem',
             }}
           >
@@ -72,7 +72,52 @@ export default function Footer() {
                     fontSize: '0.85rem',
                     fontWeight: 600,
                     letterSpacing: '0.08em',
-                    color: 'hsl(220, 10%, 60%)',
+                    color: 'var(--color-warm-gray)',
+                    textDecoration: 'none',
+                    transition: 'color 150ms ease',
+                  }}
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Services (deep links) */}
+        <div>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Services
+          </p>
+          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {[
+              { label: 'Foundations', to: '/services#foundations' },
+              { label: 'Driveways', to: '/services#driveways' },
+              { label: 'Retaining Walls', to: '/services#retaining-walls' },
+              { label: 'Decorative', to: '/services#decorative' },
+              { label: 'Commercial Slabs', to: '/services#commercial-slabs' },
+              { label: 'Sidewalks', to: '/services#sidewalks' },
+              { label: 'Sawing', to: '/services#sawing' },
+            ].map((l) => (
+              <li key={l.to}>
+                <Link
+                  to={l.to}
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-warm-gray)',
                     textDecoration: 'none',
                     transition: 'color 150ms ease',
                   }}
@@ -93,7 +138,7 @@ export default function Footer() {
               fontWeight: 600,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'hsl(38, 85%, 55%)',
+              color: 'var(--color-brass)',
               marginBottom: '1.25rem',
             }}
           >
@@ -107,24 +152,24 @@ export default function Footer() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.6rem',
-                  color: 'hsl(40, 20%, 80%)',
+                  color: 'var(--color-warm-gray)',
                   textDecoration: 'none',
                   fontSize: '0.9rem',
                 }}
               >
-                <Phone size={14} style={{ color: 'hsl(38, 85%, 55%)', flexShrink: 0 }} />
+                <Phone size={14} style={{ color: 'var(--color-brass)', flexShrink: 0 }} />
                 (808) 281-3018
               </a>
             </li>
             <li>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem' }}>
-                <MapPin size={14} style={{ color: 'hsl(38, 85%, 55%)', flexShrink: 0, marginTop: '2px' }} />
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--color-warm-gray)', fontSize: '0.875rem' }}>
+                <MapPin size={14} style={{ color: 'var(--color-brass)', flexShrink: 0, marginTop: '2px' }} />
                 <span>750 Malaihi Rd<br />Wailuku, HI 96793</span>
               </div>
             </li>
             <li>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem' }}>
-                <Mail size={14} style={{ color: 'hsl(38, 85%, 55%)' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-warm-gray)', fontSize: '0.875rem' }}>
+                <Mail size={14} style={{ color: 'var(--color-brass)' }} />
                 License C-27903 · BBB A+
               </div>
             </li>
@@ -138,7 +183,7 @@ export default function Footer() {
           maxWidth: '1200px',
           margin: '0 auto',
           paddingTop: '2rem',
-          borderTop: '1px solid hsl(220, 15%, 16%)',
+          borderTop: '1px solid var(--color-steel-light)',
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
@@ -146,10 +191,10 @@ export default function Footer() {
           gap: '1rem',
         }}
       >
-        <p style={{ color: 'hsl(220, 10%, 40%)', fontSize: '0.8rem' }}>
+        <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem' }}>
           &copy; {new Date().getFullYear()} Elite Concrete LLC. All rights reserved.
         </p>
-        <p style={{ color: 'hsl(220, 10%, 40%)', fontSize: '0.8rem' }}>
+        <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem' }}>
           Wailuku, Maui, Hawaii
         </p>
       </div>

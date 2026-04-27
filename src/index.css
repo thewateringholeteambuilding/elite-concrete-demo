@@ -2,24 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Iron Edge × Brass-Navy Design Tokens ─────────────────────────────── */
+/* ── Editorial × Warm-Earth Design Tokens ─────────────────────────────────
+   Style: editorial (Libre Baskerville serif display, magazine rhythm)
+   Palette: warm-earth (cream surfaces, ink text, terracotta accent)
+   Swapped 2026-04-26 from industrial × iron-brass to diversify cohort.
+   Component class names retained for backward compatibility — values updated. */
 :root {
-  --font-display: 'Oswald', sans-serif;
-  --font-body: 'Archivo', sans-serif;
+  --font-display: 'Libre Baskerville', 'Georgia', serif;
+  --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+  --font-accent: 'Instrument Serif', 'Georgia', serif;
 
-  /* Palette */
-  --color-brass:        hsl(38, 85%, 55%);
-  --color-brass-dark:   hsl(34, 75%, 42%);
-  --color-steel-deep:   hsl(220, 30%, 10%);
-  --color-steel-mid:    hsl(220, 20%, 18%);
-  --color-steel-light:  hsl(220, 15%, 28%);
-  --color-off-white:    hsl(40, 20%, 96%);
-  --color-warm-gray:    hsl(220, 10%, 55%);
+  /* Palette — warm-earth: legacy variable names mapped to new colors so existing components don't break */
+  --color-brass:        #c23a22; /* terracotta accent (was: brass yellow) */
+  --color-brass-dark:   #a83020; /* terracotta deeper hover */
+  --color-steel-deep:   #faf8f5; /* cream background (was: steel near-black) */
+  --color-steel-mid:    #f2efe9; /* raised surface */
+  --color-steel-light:  #e8e3da; /* card surface */
+  --color-off-white:    #1a1a1a; /* ink text on cream (was: cream text on steel) */
+  --color-warm-gray:    #6b6560; /* muted text */
 
   /* Spacing */
   --space-section: clamp(4rem, 3rem + 4vw, 7rem);
 
-  /* Zero-radius (Iron Edge rule) */
+  /* Zero-radius (editorial style also uses zero-radius) */
   --radius: 0px;
 }
 
@@ -32,8 +37,8 @@
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-steel-deep);
-  color: var(--color-off-white);
+  background-color: var(--color-steel-deep); /* now cream */
+  color: var(--color-off-white); /* now ink */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -45,25 +50,28 @@ body {
 }
 
 /* ── Typography ─────────────────────────────────────────────────────────── */
+/* Editorial: serif display, generous leading, tight headline tracking */
 h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.05;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.02em; /* tight for serif display */
 }
 
 p {
-  line-height: 1.7;
+  line-height: 1.75; /* editorial body rhythm */
 }
 
 /* ── Utility classes ────────────────────────────────────────────────────── */
+/* .iron-label retained for backward compat — restyled for editorial accent */
 .iron-label {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-family: var(--font-accent); /* Instrument Serif italic for accents */
+  font-size: 0.75rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--color-brass);
+  color: var(--color-brass); /* terracotta */
 }
 
 .btn-brass {

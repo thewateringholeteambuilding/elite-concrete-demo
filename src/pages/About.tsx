@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Phone, ShieldCheck, Award } from 'lucide-react'
 
-const ABOUT_IMG = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80'
-const TEAM_IMG  = 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80'
+const ABOUT_IMG = 'https://images.unsplash.com/photo-1694521787162-5373b598945c?auto=format&fit=crop&w=900&q=80'
+const TEAM_IMG  = 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9?auto=format&fit=crop&w=800&q=80'
 
 export default function About() {
   return (
@@ -11,27 +11,27 @@ export default function About() {
       <section
         aria-labelledby="about-heading"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           padding: '5rem 1.5rem 4rem',
-          borderBottom: '1px solid hsl(220, 15%, 18%)',
+          borderBottom: '1px solid var(--color-steel-light)',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <p className="iron-label" style={{ marginBottom: '1rem' }}>§ About Us</p>
+          <p className="iron-label" style={{ marginBottom: '1rem' }}>About Us</p>
           <h1
             id="about-heading"
             style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2.5rem, 1.5rem + 5vw, 5rem)',
               fontWeight: 700,
-              color: 'hsl(40, 20%, 96%)',
+              color: 'var(--color-off-white)',
               marginBottom: '1.25rem',
             }}
           >
             WAILUKU-BASED.<br />
-            <span style={{ color: 'hsl(38, 85%, 55%)' }}>MAUI-ROOTED.</span>
+            <span style={{ color: 'var(--color-brass)' }}>MAUI-ROOTED.</span>
           </h1>
-          <p style={{ color: 'hsl(220, 10%, 60%)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '560px' }}>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '560px' }}>
             Elite Concrete LLC operates out of Wailuku, serving residential and commercial concrete needs across Maui County. Licensed, BBB A+ rated, and built on Central Maui's actual ground conditions.
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function About() {
       <section
         aria-label="Company story"
         style={{
-          backgroundColor: 'hsl(220, 20%, 13%)',
+          backgroundColor: 'var(--color-steel-mid)',
           padding: 'var(--space-section) 1.5rem',
         }}
       >
@@ -62,13 +62,13 @@ export default function About() {
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
                 fontWeight: 700,
-                color: 'hsl(40, 20%, 96%)',
+                color: 'var(--color-off-white)',
                 marginBottom: '1.5rem',
               }}
             >
               CONCRETE THAT HOLDS IN HAWAII
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'hsl(220, 10%, 60%)', fontSize: '0.975rem', lineHeight: 1.8 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'var(--color-warm-gray)', fontSize: '0.975rem', lineHeight: 1.8 }}>
               <p>
                 Elite Concrete LLC was started to do one thing: pour concrete that holds on Maui. Not mainland concrete work adapted for Hawaii, but work designed from the ground up for volcanic soil, salt air, tropical humidity, and the seismic loads this island actually sees.
               </p>
@@ -103,7 +103,7 @@ export default function About() {
                   left: 0,
                   right: 0,
                   height: '4px',
-                  backgroundColor: 'hsl(38, 85%, 55%)',
+                  backgroundColor: 'var(--color-brass)',
                 }}
               />
             </div>
@@ -121,9 +121,9 @@ export default function About() {
       <section
         aria-label="Licensing and credentials"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           padding: 'var(--space-section) 1.5rem',
-          borderTop: '1px solid hsl(220, 15%, 18%)',
+          borderTop: '1px solid var(--color-steel-light)',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -132,7 +132,7 @@ export default function About() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
               fontWeight: 700,
-              color: 'hsl(40, 20%, 96%)',
+              color: 'var(--color-off-white)',
               marginBottom: '3rem',
               textAlign: 'center',
             }}
@@ -149,17 +149,17 @@ export default function About() {
           >
             {[
               {
-                icon: <ShieldCheck size={22} style={{ color: 'hsl(38, 85%, 55%)' }} />,
+                icon: <ShieldCheck size={22} style={{ color: 'var(--color-brass)' }} />,
                 title: 'Hawaii Contractor License C-27903',
                 desc: 'Licensed by the Hawaii Department of Commerce and Consumer Affairs. Verified active. Concrete contracting and concrete sawing.',
               },
               {
-                icon: <Award size={22} style={{ color: 'hsl(38, 85%, 55%)' }} />,
+                icon: <Award size={22} style={{ color: 'var(--color-brass)' }} />,
                 title: 'BBB Accreditation',
                 desc: 'A+ rating with the Better Business Bureau. Rating reflects consistent resolution of client concerns.',
               },
               {
-                icon: <ShieldCheck size={22} style={{ color: 'hsl(38, 85%, 55%)' }} />,
+                icon: <ShieldCheck size={22} style={{ color: 'var(--color-brass)' }} />,
                 title: 'Fully Insured',
                 desc: 'General liability and workers compensation insurance maintained on all projects. Certificates of insurance available for GCs and property owners.',
               },
@@ -167,8 +167,8 @@ export default function About() {
               <div
                 key={item.title}
                 style={{
-                  backgroundColor: 'hsl(220, 20%, 18%)',
-                  borderTop: '3px solid hsl(38, 85%, 55%)',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  borderTop: '3px solid var(--color-brass)',
                   padding: '2rem',
                 }}
               >
@@ -178,7 +178,7 @@ export default function About() {
                     fontFamily: 'var(--font-display)',
                     fontSize: '1rem',
                     fontWeight: 700,
-                    color: 'hsl(40, 20%, 96%)',
+                    color: 'var(--color-off-white)',
                     marginBottom: '0.75rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.05em',
@@ -186,7 +186,7 @@ export default function About() {
                 >
                   {item.title}
                 </h3>
-                <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem', lineHeight: 1.65 }}>
+                <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
                   {item.desc}
                 </p>
               </div>
@@ -199,8 +199,8 @@ export default function About() {
       <section
         aria-label="Service area"
         style={{
-          backgroundColor: 'hsl(220, 20%, 13%)',
-          borderTop: '1px solid hsl(220, 15%, 22%)',
+          backgroundColor: 'var(--color-steel-mid)',
+          borderTop: '1px solid var(--color-steel-light)',
           padding: 'var(--space-section) 1.5rem',
         }}
       >
@@ -210,13 +210,13 @@ export default function About() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
               fontWeight: 700,
-              color: 'hsl(40, 20%, 96%)',
+              color: 'var(--color-off-white)',
               marginBottom: '1rem',
             }}
           >
             WE SERVE ALL OF MAUI
           </h2>
-          <p style={{ color: 'hsl(220, 10%, 55%)', maxWidth: '540px', margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
+          <p style={{ color: 'var(--color-warm-gray)', maxWidth: '540px', margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
             Based in Wailuku. Our crew travels for the right project. Residential, commercial, and contractor-direct work across Maui County.
           </p>
           <div
@@ -238,9 +238,9 @@ export default function About() {
                   fontWeight: 600,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  color: 'hsl(40, 20%, 80%)',
-                  backgroundColor: 'hsl(220, 20%, 18%)',
-                  border: '1px solid hsl(220, 15%, 28%)',
+                  color: 'var(--color-warm-gray)',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  border: '1px solid var(--color-steel-light)',
                   padding: '0.4rem 1rem',
                 }}
               >
@@ -257,7 +257,7 @@ export default function About() {
               fontFamily: 'var(--font-display)',
               fontWeight: 700,
               fontSize: '1rem',
-              color: 'hsl(38, 85%, 55%)',
+              color: 'var(--color-brass)',
               textDecoration: 'none',
               letterSpacing: '0.05em',
             }}

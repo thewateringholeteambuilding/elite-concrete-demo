@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Phone, Star, Award, ShieldCheck } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowRight, Phone, Star, Award, ShieldCheck, ChevronDown } from 'lucide-react'
 
 /* ── Photo constants (all confirmed working Unsplash IDs from niche guide) ─ */
-const HERO_IMG   = 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=900&q=80'
-const CTA_IMG    = 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=1920&q=80'
+const HERO_IMG   = 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9?auto=format&fit=crop&w=900&q=80'
+const CTA_IMG    = 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=1920&q=80'
 
 const stats = [
   { value: 'A+',    label: 'BBB Rating' },
@@ -18,37 +19,37 @@ const services = [
     title: 'Concrete Foundations',
     desc: 'Stem walls, grade beams, and slab-on-grade poured to Hawaii State seismic code. Red volcanic soil documented and drainage verified before any form goes up.',
     ideal: 'Homeowners adding square footage, new builds, ADU projects',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1616179058441-37aa58affac8?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Driveways & Parking',
     desc: 'Broom-finish, exposed aggregate, or stamped. Sub-base compacted to spec. Drainage slopes away from structure. Built for Maui rain events, not mainland averages.',
     ideal: 'Residential replacements, new construction, rental properties',
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Retaining Walls',
     desc: 'Gravity and poured-wall systems engineered for Wailuku hillsides and Iao Valley slopes. Drainage core standard on every job.',
     ideal: 'Hillside lots, erosion control, tiered landscaping',
-    img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Decorative Concrete',
     desc: 'Stamped, stained, and polished finishes for lanais, pool decks, and commercial lobbies. Pattern and color matched to your design before the pour.',
     ideal: 'Vacation rentals, restaurant patios, residential upgrades',
-    img: 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Commercial Slabs',
     desc: 'Warehouse floors, loading docks, and retail pads. Floor flatness specs documented. Joints cut at 24 hours. Re-temp protection on high-heat Maui afternoons.',
     ideal: 'Warehouses, retail build-outs, loading facilities',
-    img: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1517011453931-c30f571a4fab?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Concrete Sawing',
     desc: 'Precision saw-cutting for control joints, utility openings, and slab removal. Dust and slurry managed on-site. Available for contractor and owner-direct projects.',
     ideal: 'GCs needing sub work, utility installs, slab demolition',
-    img: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1514514188727-ff38e839635e?auto=format&fit=crop&w=800&q=80',
   },
 ]
 
@@ -83,7 +84,7 @@ export default function Home() {
       <section
         aria-labelledby="hero-heading"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           paddingTop: '68px',
           minHeight: '92vh',
           display: 'flex',
@@ -103,10 +104,10 @@ export default function Home() {
           }}
           className="hero-grid"
         >
-          {/* Left col — copy */}
+          {/* Left col, copy */}
           <div>
             <p className="iron-label" style={{ marginBottom: '1.5rem' }}>
-              § Wailuku, Maui
+              Wailuku, Maui
             </p>
             <h1
               id="hero-heading"
@@ -116,18 +117,18 @@ export default function Home() {
                 fontWeight: 700,
                 lineHeight: 1.0,
                 letterSpacing: '0.01em',
-                color: 'hsl(40, 20%, 96%)',
+                color: 'var(--color-off-white)',
                 marginBottom: '1.5rem',
               }}
             >
               MAUI CONCRETE,<br />
-              <span style={{ color: 'hsl(38, 85%, 55%)' }}>DONE SOLID.</span>
+              <span style={{ color: 'var(--color-brass)' }}>DONE SOLID.</span>
             </h1>
             <p
               style={{
                 fontSize: '1.05rem',
                 lineHeight: 1.75,
-                color: 'hsl(220, 10%, 65%)',
+                color: 'var(--color-warm-gray)',
                 maxWidth: '480px',
                 marginBottom: '2rem',
               }}
@@ -139,23 +140,23 @@ export default function Home() {
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
               <div style={{
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
-                backgroundColor: 'hsl(220, 20%, 18%)',
-                border: '1px solid hsl(220, 15%, 28%)',
+                backgroundColor: 'var(--color-steel-mid)',
+                border: '1px solid var(--color-steel-light)',
                 padding: '0.4rem 0.9rem',
               }}>
-                <ShieldCheck size={13} style={{ color: 'hsl(38, 85%, 55%)' }} />
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', color: 'hsl(40, 20%, 80%)' }}>
+                <ShieldCheck size={13} style={{ color: 'var(--color-brass)' }} />
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', color: 'var(--color-warm-gray)' }}>
                   LIC C-27903
                 </span>
               </div>
               <div style={{
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
-                backgroundColor: 'hsl(220, 20%, 18%)',
-                border: '1px solid hsl(220, 15%, 28%)',
+                backgroundColor: 'var(--color-steel-mid)',
+                border: '1px solid var(--color-steel-light)',
                 padding: '0.4rem 0.9rem',
               }}>
-                <Award size={13} style={{ color: 'hsl(38, 85%, 55%)' }} />
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', color: 'hsl(40, 20%, 80%)' }}>
+                <Award size={13} style={{ color: 'var(--color-brass)' }} />
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', color: 'var(--color-warm-gray)' }}>
                   BBB A+
                 </span>
               </div>
@@ -175,24 +176,24 @@ export default function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.6rem',
-                color: 'hsl(40, 20%, 80%)',
+                color: 'var(--color-warm-gray)',
                 textDecoration: 'none',
                 fontSize: '0.9rem',
               }}
             >
-              <Phone size={15} style={{ color: 'hsl(38, 85%, 55%)' }} />
+              <Phone size={15} style={{ color: 'var(--color-brass)' }} />
               <span>
                 Call direct:{' '}
-                <strong style={{ color: 'hsl(40, 20%, 96%)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem' }}>
+                <strong style={{ color: 'var(--color-off-white)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem' }}>
                   (808) 281-3018
                 </strong>
               </span>
             </a>
           </div>
 
-          {/* Right col — photo + trust badge */}
+          {/* Right col, photo + trust badge */}
           <div style={{ position: 'relative' }}>
-            {/* Brass border offset frame — top-right corner to distinguish from RVS */}
+            {/* Brass border offset frame, top-right corner to distinguish from RVS */}
             <div
               style={{
                 position: 'absolute',
@@ -200,7 +201,7 @@ export default function Home() {
                 right: '-12px',
                 width: '100%',
                 height: '100%',
-                border: '3px solid hsl(38, 85%, 55%)',
+                border: '3px solid var(--color-brass)',
                 zIndex: 0,
               }}
             />
@@ -221,14 +222,14 @@ export default function Home() {
                 zIndex: 1,
               }}
             />
-            {/* Floating trust badge — bottom-right instead of bottom-left */}
+            {/* Floating trust badge, bottom-right instead of bottom-left */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '2rem',
                 right: '-2.5rem',
-                backgroundColor: 'hsl(38, 85%, 55%)',
-                color: 'hsl(220, 30%, 10%)',
+                backgroundColor: 'var(--color-brass)',
+                color: 'var(--color-steel-deep)',
                 padding: '1rem 1.5rem',
                 zIndex: 2,
                 textAlign: 'center',
@@ -265,9 +266,9 @@ export default function Home() {
       <section
         aria-label="Credentials and numbers"
         style={{
-          backgroundColor: 'hsl(220, 20%, 18%)',
-          borderTop: '3px solid hsl(38, 85%, 55%)',
-          borderBottom: '1px solid hsl(220, 15%, 24%)',
+          backgroundColor: 'var(--color-steel-mid)',
+          borderTop: '3px solid var(--color-brass)',
+          borderBottom: '1px solid var(--color-steel-light)',
           padding: '2.5rem 1.5rem',
         }}
       >
@@ -287,7 +288,7 @@ export default function Home() {
                   fontFamily: 'var(--font-display)',
                   fontSize: s.value.length > 4 ? '1.8rem' : '2.8rem',
                   fontWeight: 700,
-                  color: 'hsl(38, 85%, 55%)',
+                  color: 'var(--color-brass)',
                   lineHeight: 1,
                   marginBottom: '0.4rem',
                 }}
@@ -301,7 +302,7 @@ export default function Home() {
                   fontWeight: 600,
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
-                  color: 'hsl(220, 10%, 55%)',
+                  color: 'var(--color-warm-gray)',
                 }}
               >
                 {s.label}
@@ -315,9 +316,9 @@ export default function Home() {
       <section
         aria-label="Industry affiliations"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           padding: '2rem 1.5rem',
-          borderBottom: '1px solid hsl(220, 15%, 18%)',
+          borderBottom: '1px solid var(--color-steel-light)',
         }}
       >
         <div
@@ -342,11 +343,11 @@ export default function Home() {
                 alignItems: 'center',
                 gap: '0.75rem',
                 padding: '0.75rem 1rem',
-                backgroundColor: 'hsl(220, 20%, 13%)',
-                border: '1px solid hsl(220, 15%, 22%)',
+                backgroundColor: 'var(--color-steel-mid)',
+                border: '1px solid var(--color-steel-light)',
               }}
             >
-              <span style={{ fontSize: '1.1rem', color: 'hsl(38, 85%, 55%)' }}>{a.icon}</span>
+              <span style={{ fontSize: '1.1rem', color: 'var(--color-brass)' }}>{a.icon}</span>
               <span
                 style={{
                   fontFamily: 'var(--font-display)',
@@ -354,7 +355,7 @@ export default function Home() {
                   fontWeight: 600,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: 'hsl(220, 10%, 55%)',
+                  color: 'var(--color-warm-gray)',
                 }}
               >
                 {a.label}
@@ -364,11 +365,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Services — 2-col layout: list nav left + featured card right ─ */}
+      {/* ── Services, 2-col layout: list nav left + featured card right ─ */}
       <section
         aria-labelledby="services-heading"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           padding: 'var(--space-section) 1.5rem',
         }}
       >
@@ -380,13 +381,13 @@ export default function Home() {
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 1.2rem + 3vw, 3.5rem)',
                 fontWeight: 700,
-                color: 'hsl(40, 20%, 96%)',
+                color: 'var(--color-off-white)',
                 marginBottom: '1rem',
               }}
             >
               WHAT WE BUILD
             </h2>
-            <p style={{ color: 'hsl(220, 10%, 55%)', maxWidth: '520px', lineHeight: 1.7 }}>
+            <p style={{ color: 'var(--color-warm-gray)', maxWidth: '520px', lineHeight: 1.7 }}>
               Seven concrete services. One crew that knows Maui's conditions from Wailuku to Wailea.
             </p>
           </div>
@@ -414,24 +415,24 @@ export default function Home() {
                 loading="lazy"
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, hsl(220,30%,6%) 0%, transparent 65%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--color-steel-deep) 0%, transparent 65%)' }} />
               <div style={{ position: 'relative', padding: '2rem' }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginBottom: '0.5rem' }}>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.5rem' }}>
                   Foundation Work
                 </p>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 700, color: 'hsl(40, 20%, 96%)', marginBottom: '0.75rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 700, color: 'var(--color-off-white)', marginBottom: '0.75rem' }}>
                   {services[0].title}
                 </h3>
-                <p style={{ color: 'hsl(40, 20%, 80%)', fontSize: '0.9rem', lineHeight: 1.65, maxWidth: '400px' }}>
+                <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', lineHeight: 1.65, maxWidth: '400px' }}>
                   {services[0].desc}
                 </p>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginTop: '0.75rem' }}>
-                  Ideal for: <span style={{ color: 'hsl(220, 10%, 55%)' }}>{services[0].ideal}</span>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-brass)', marginTop: '0.75rem' }}>
+                  Ideal for: <span style={{ color: 'var(--color-warm-gray)' }}>{services[0].ideal}</span>
                 </p>
               </div>
             </div>
 
-            {/* Sidebar card — Driveways */}
+            {/* Sidebar card, Driveways */}
             <ServiceCard service={services[1]} />
 
             {/* Row 2: 3 equal cards */}
@@ -439,39 +440,39 @@ export default function Home() {
               <ServiceCard key={s.title} service={s} />
             ))}
 
-            {/* Row 3: Full-width strip — Concrete Sawing (unique to Elite, not in RVS) */}
+            {/* Row 3: Full-width strip, Concrete Sawing (unique to Elite, not in RVS) */}
             <div
               style={{
                 gridColumn: '1 / -1',
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
                 gap: '0',
-                backgroundColor: 'hsl(220, 20%, 18%)',
-                borderLeft: '4px solid hsl(38, 85%, 55%)',
+                backgroundColor: 'var(--color-steel-mid)',
+                borderLeft: '4px solid var(--color-brass)',
                 overflow: 'hidden',
                 minHeight: '160px',
               }}
               className="strip-card"
             >
               <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginBottom: '0.5rem' }}>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.5rem' }}>
                   Specialized Service
                 </p>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, color: 'hsl(40, 20%, 96%)', marginBottom: '0.5rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-off-white)', marginBottom: '0.5rem' }}>
                   {services[5].title}
                 </h3>
-                <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem', lineHeight: 1.65 }}>
+                <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
                   {services[5].desc}
                 </p>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '2rem', borderLeft: '1px solid hsl(220, 15%, 26%)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '2rem', borderLeft: '1px solid var(--color-steel-light)' }}>
                 <Link
                   to="/services"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    color: 'hsl(38, 85%, 55%)',
+                    color: 'var(--color-brass)',
                     fontFamily: 'var(--font-display)',
                     fontSize: '0.8rem',
                     fontWeight: 600,
@@ -488,13 +489,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── How We Work — numbered approach (distinct from RVS checklist) ─ */}
+      {/* ── How We Work, numbered approach (distinct from RVS checklist) ─ */}
       <section
         aria-labelledby="how-heading"
         style={{
-          backgroundColor: 'hsl(220, 20%, 13%)',
+          backgroundColor: 'var(--color-steel-mid)',
           padding: 'var(--space-section) 1.5rem',
-          borderTop: '1px solid hsl(220, 15%, 22%)',
+          borderTop: '1px solid var(--color-steel-light)',
         }}
       >
         <div
@@ -517,7 +518,7 @@ export default function Home() {
                 fontWeight: 600,
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
-                color: 'hsl(38, 85%, 55%)',
+                color: 'var(--color-brass)',
                 marginBottom: '1rem',
               }}
             >
@@ -529,7 +530,7 @@ export default function Home() {
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 1.2rem + 3vw, 3.5rem)',
                 fontWeight: 700,
-                color: 'hsl(40, 20%, 96%)',
+                color: 'var(--color-off-white)',
                 marginBottom: '1rem',
               }}
             >
@@ -542,10 +543,10 @@ export default function Home() {
                 { phrase: 'Maui Heat Accelerates Set.', expansion: 'Afternoon pours get adjusted water-cement ratios. One shot to finish means no guessing.' },
               ].map((pillar) => (
                 <div key={pillar.phrase}>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.95rem', fontWeight: 700, color: 'hsl(40, 20%, 96%)', marginBottom: '0.2rem' }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-off-white)', marginBottom: '0.2rem' }}>
                     {pillar.phrase}
                   </p>
-                  <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem', lineHeight: 1.6 }}>
+                  <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.6 }}>
                     {pillar.expansion}
                   </p>
                 </div>
@@ -566,9 +567,9 @@ export default function Home() {
                     gridTemplateColumns: '3rem 1fr',
                     gap: '1rem',
                     padding: '1.25rem',
-                    backgroundColor: 'hsl(220, 20%, 18%)',
+                    backgroundColor: 'var(--color-steel-mid)',
                     borderTop: '2px solid transparent',
-                    borderImage: 'linear-gradient(to right, hsl(38,85%,55%) 0%, transparent 100%) 1',
+                    borderImage: 'linear-gradient(to right, var(--color-brass) 0%, transparent 100%) 1',
                   }}
                 >
                   <div
@@ -576,17 +577,17 @@ export default function Home() {
                       fontFamily: 'var(--font-display)',
                       fontSize: '1.4rem',
                       fontWeight: 700,
-                      color: 'hsl(38, 85%, 55%)',
+                      color: 'var(--color-brass)',
                       lineHeight: 1,
                     }}
                   >
                     {step.num}
                   </div>
                   <div>
-                    <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: 'hsl(40, 20%, 96%)', marginBottom: '0.25rem', fontSize: '0.9rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                    <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: 'var(--color-off-white)', marginBottom: '0.25rem', fontSize: '0.9rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                       {step.title}
                     </p>
-                    <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem', lineHeight: 1.6 }}>
+                    <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.6 }}>
                       {step.desc}
                     </p>
                   </div>
@@ -599,25 +600,25 @@ export default function Home() {
           <div>
             <div
               style={{
-                backgroundColor: 'hsl(220, 20%, 18%)',
-                border: '1px solid hsl(220, 15%, 28%)',
+                backgroundColor: 'var(--color-steel-mid)',
+                border: '1px solid var(--color-steel-light)',
                 padding: '2.5rem 2rem',
               }}
             >
-              <p className="iron-label" style={{ marginBottom: '1rem' }}>§ Free Estimates</p>
+              <p className="iron-label" style={{ marginBottom: '1rem' }}>Free Estimates</p>
               <h3
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '1.6rem',
                   fontWeight: 700,
-                  color: 'hsl(40, 20%, 96%)',
+                  color: 'var(--color-off-white)',
                   marginBottom: '1rem',
                   lineHeight: 1.1,
                 }}
               >
                 READY TO START YOUR PROJECT?
               </h3>
-              <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '2rem' }}>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '2rem' }}>
                 Free estimates for residential and commercial concrete work anywhere on Maui. Owner answers the phone.
               </p>
               <Link to="/contact" className="btn-brass" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem' }}>
@@ -630,7 +631,7 @@ export default function Home() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '0.5rem',
-                  color: 'hsl(38, 85%, 55%)',
+                  color: 'var(--color-brass)',
                   textDecoration: 'none',
                   fontFamily: 'var(--font-display)',
                   fontWeight: 700,
@@ -644,7 +645,7 @@ export default function Home() {
             </div>
             <div
               style={{
-                backgroundColor: 'hsl(38, 85%, 55%)',
+                backgroundColor: 'var(--color-brass)',
                 padding: '1rem 2rem',
                 marginTop: '0',
               }}
@@ -656,7 +657,7 @@ export default function Home() {
                   fontWeight: 600,
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
-                  color: 'hsl(220, 30%, 10%)',
+                  color: 'var(--color-steel-deep)',
                   textAlign: 'center',
                 }}
               >
@@ -671,9 +672,9 @@ export default function Home() {
       <section
         aria-label="Owner-operated business"
         style={{
-          backgroundColor: 'hsl(220, 20%, 13%)',
+          backgroundColor: 'var(--color-steel-mid)',
           padding: '3rem 1.5rem',
-          borderTop: '1px solid hsl(220, 15%, 22%)',
+          borderTop: '1px solid var(--color-steel-light)',
         }}
       >
         <div
@@ -691,7 +692,7 @@ export default function Home() {
             style={{
               width: '64px',
               height: '64px',
-              backgroundColor: 'hsl(38, 85%, 55%)',
+              backgroundColor: 'var(--color-brass)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -703,7 +704,7 @@ export default function Home() {
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.4rem',
                 fontWeight: 700,
-                color: 'hsl(220, 30%, 10%)',
+                color: 'var(--color-steel-deep)',
                 letterSpacing: '0.05em',
               }}
             >
@@ -716,7 +717,7 @@ export default function Home() {
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.1rem',
                 fontWeight: 700,
-                color: 'hsl(40, 20%, 96%)',
+                color: 'var(--color-off-white)',
                 marginBottom: '0.3rem',
                 letterSpacing: '0.04em',
                 textTransform: 'uppercase',
@@ -724,7 +725,7 @@ export default function Home() {
             >
               Owner-Operated. Owner on Every Job.
             </p>
-            <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.875rem', lineHeight: 1.65 }}>
+            <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
               The person who answers the phone is the person who runs the crew. One point of contact from estimate through final walkthrough. No project managers, no call centers, no handoffs.
             </p>
           </div>
@@ -734,7 +735,7 @@ export default function Home() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              color: 'hsl(38, 85%, 55%)',
+              color: 'var(--color-brass)',
               textDecoration: 'none',
               fontFamily: 'var(--font-display)',
               fontWeight: 700,
@@ -753,10 +754,10 @@ export default function Home() {
       <section
         aria-label="Service area"
         style={{
-          backgroundColor: 'hsl(220, 20%, 13%)',
+          backgroundColor: 'var(--color-steel-mid)',
           padding: '2.5rem 1.5rem',
-          borderTop: '1px solid hsl(220, 15%, 22%)',
-          borderBottom: '1px solid hsl(220, 15%, 22%)',
+          borderTop: '1px solid var(--color-steel-light)',
+          borderBottom: '1px solid var(--color-steel-light)',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
@@ -767,7 +768,7 @@ export default function Home() {
               fontWeight: 600,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'hsl(38, 85%, 55%)',
+              color: 'var(--color-brass)',
               marginBottom: '1.25rem',
             }}
           >
@@ -783,13 +784,13 @@ export default function Home() {
                 key={town}
                 style={{
                   padding: '0.35rem 0.85rem',
-                  backgroundColor: 'hsl(220, 20%, 18%)',
-                  border: '1px solid hsl(220, 15%, 28%)',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  border: '1px solid var(--color-steel-light)',
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.7rem',
                   fontWeight: 600,
                   letterSpacing: '0.08em',
-                  color: 'hsl(40, 20%, 80%)',
+                  color: 'var(--color-warm-gray)',
                   textTransform: 'uppercase',
                 }}
               >
@@ -804,7 +805,7 @@ export default function Home() {
       <section
         aria-label="Recent projects"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           padding: 'var(--space-section) 1.5rem',
         }}
       >
@@ -816,7 +817,7 @@ export default function Home() {
               fontWeight: 600,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'hsl(38, 85%, 55%)',
+              color: 'var(--color-brass)',
               marginBottom: '2rem',
             }}
           >
@@ -839,8 +840,8 @@ export default function Home() {
                 key={project.name}
                 style={{
                   padding: '1.75rem',
-                  backgroundColor: 'hsl(220, 20%, 13%)',
-                  borderTop: '3px solid hsl(38, 85%, 55%)',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  borderTop: '3px solid var(--color-brass)',
                 }}
               >
                 <h3
@@ -848,7 +849,7 @@ export default function Home() {
                     fontFamily: 'var(--font-display)',
                     fontSize: '1rem',
                     fontWeight: 700,
-                    color: 'hsl(40, 20%, 96%)',
+                    color: 'var(--color-off-white)',
                     marginBottom: '0.35rem',
                     lineHeight: 1.2,
                   }}
@@ -862,7 +863,7 @@ export default function Home() {
                     fontWeight: 600,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
-                    color: 'hsl(38, 85%, 55%)',
+                    color: 'var(--color-brass)',
                     marginBottom: '0.75rem',
                   }}
                 >
@@ -870,7 +871,7 @@ export default function Home() {
                 </p>
                 <p
                   style={{
-                    color: 'hsl(220, 10%, 55%)',
+                    color: 'var(--color-warm-gray)',
                     fontSize: '0.85rem',
                     lineHeight: 1.6,
                   }}
@@ -887,9 +888,9 @@ export default function Home() {
       <section
         aria-labelledby="testimonials-heading"
         style={{
-          backgroundColor: 'hsl(220, 30%, 10%)',
+          backgroundColor: 'var(--color-steel-deep)',
           padding: 'var(--space-section) 1.5rem',
-          borderTop: '1px solid hsl(220, 15%, 18%)',
+          borderTop: '1px solid var(--color-steel-light)',
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -911,13 +912,13 @@ export default function Home() {
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2rem, 1.2rem + 3vw, 3rem)',
                   fontWeight: 700,
-                  color: 'hsl(40, 20%, 96%)',
+                  color: 'var(--color-off-white)',
                   marginBottom: '0.5rem',
                 }}
               >
                 487 POURS. ZERO SURPRISES.
               </h2>
-              <p style={{ color: 'hsl(220, 10%, 55%)', fontSize: '0.9rem' }}>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem' }}>
                 Real jobs. Real outcomes. Real Maui clients.
               </p>
             </div>
@@ -929,8 +930,8 @@ export default function Home() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.6rem',
-                backgroundColor: 'hsl(220, 20%, 18%)',
-                border: '1px solid hsl(220, 15%, 28%)',
+                backgroundColor: 'var(--color-steel-mid)',
+                border: '1px solid var(--color-steel-light)',
                 padding: '0.65rem 1.25rem',
                 textDecoration: 'none',
                 flexShrink: 0,
@@ -938,7 +939,7 @@ export default function Home() {
             >
               <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#4285F4' }}>G</span>
               <span style={{ color: '#FFC107' }}>★★★★★</span>
-              <span style={{ color: 'hsl(40, 20%, 80%)', fontSize: '0.8rem', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
+              <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
                 5.0 from 31 Reviews
               </span>
             </a>
@@ -956,8 +957,8 @@ export default function Home() {
               <figure
                 key={t.name}
                 style={{
-                  backgroundColor: 'hsl(220, 20%, 15%)',
-                  borderLeft: '3px solid hsl(38, 85%, 55%)',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  borderLeft: '3px solid var(--color-brass)',
                   padding: '2rem',
                   margin: 0,
                 }}
@@ -969,7 +970,7 @@ export default function Home() {
                 </div>
                 <blockquote
                   style={{
-                    color: 'hsl(40, 20%, 80%)',
+                    color: 'var(--color-warm-gray)',
                     lineHeight: 1.75,
                     fontSize: '0.95rem',
                     fontStyle: 'normal',
@@ -984,7 +985,7 @@ export default function Home() {
                       style={{
                         fontFamily: 'var(--font-display)',
                         fontWeight: 600,
-                        color: 'hsl(40, 20%, 96%)',
+                        color: 'var(--color-off-white)',
                         fontSize: '0.9rem',
                       }}
                     >
@@ -993,7 +994,7 @@ export default function Home() {
                     <span
                       style={{
                         display: 'block',
-                        color: 'hsl(220, 10%, 50%)',
+                        color: 'var(--color-warm-gray)',
                         fontSize: '0.75rem',
                         marginTop: '0.2rem',
                         letterSpacing: '0.05em',
@@ -1024,7 +1025,7 @@ export default function Home() {
       <section
         aria-label="Workmanship warranty"
         style={{
-          backgroundColor: 'hsl(38, 85%, 55%)',
+          backgroundColor: 'var(--color-brass)',
           padding: '3.5rem 1.5rem',
         }}
       >
@@ -1042,7 +1043,7 @@ export default function Home() {
               fontWeight: 600,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: 'hsl(220, 30%, 10%)',
+              color: 'var(--color-steel-deep)',
               marginBottom: '1rem',
               opacity: 0.6,
             }}
@@ -1054,7 +1055,7 @@ export default function Home() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
               fontWeight: 700,
-              color: 'hsl(220, 30%, 10%)',
+              color: 'var(--color-steel-deep)',
               lineHeight: 1.05,
               marginBottom: '1.25rem',
             }}
@@ -1063,7 +1064,7 @@ export default function Home() {
           </h2>
           <p
             style={{
-              color: 'hsl(220, 30%, 20%)',
+              color: 'var(--color-steel-light)',
               fontSize: '1rem',
               lineHeight: 1.7,
               maxWidth: '560px',
@@ -1072,6 +1073,35 @@ export default function Home() {
           >
             Every project carries a written workmanship warranty. If something cracks, settles, or fails within the warranty period, we come back and make it right. No fine print, no exclusions for normal use.
           </p>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="faq-heading"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: 'var(--space-section) 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h2
+            id="faq-heading"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2rem, 1.2rem + 3vw, 3rem)',
+              fontWeight: 700,
+              color: 'var(--color-off-white)',
+              marginBottom: '0.75rem',
+            }}
+          >
+            COMMON QUESTIONS
+          </h2>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem' }}>
+            From Maui homeowners and property managers.
+          </p>
+          <FAQAccordion />
         </div>
       </section>
 
@@ -1103,7 +1133,7 @@ export default function Home() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2rem, 1rem + 4vw, 3.5rem)',
               fontWeight: 700,
-              color: 'hsl(40, 20%, 96%)',
+              color: 'var(--color-off-white)',
               lineHeight: 1.05,
               maxWidth: '700px',
               marginBottom: '1rem',
@@ -1193,26 +1223,126 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         loading="lazy"
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
       />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, hsl(220,30%,6%) 0%, transparent 60%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--color-steel-deep) 0%, transparent 60%)' }} />
       <div style={{ position: 'relative', padding: '1.5rem' }}>
         <h3
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: '1.1rem',
             fontWeight: 700,
-            color: 'hsl(40, 20%, 96%)',
+            color: 'var(--color-off-white)',
             marginBottom: '0.4rem',
           }}
         >
           {service.title}
         </h3>
-        <p style={{ color: 'hsl(40, 20%, 75%)', fontSize: '0.8rem', lineHeight: 1.6 }}>
+        <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.6 }}>
           {service.desc}
         </p>
-        <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'hsl(38, 85%, 55%)', marginTop: '0.5rem' }}>
-          Ideal for: <span style={{ color: 'hsl(220, 10%, 55%)' }}>{service.ideal}</span>
+        <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-brass)', marginTop: '0.5rem' }}>
+          Ideal for: <span style={{ color: 'var(--color-warm-gray)' }}>{service.ideal}</span>
         </p>
       </div>
+    </div>
+  )
+}
+
+const faqItems = [
+  {
+    q: 'How long does concrete need to cure before we can use it?',
+    a: "Initial set takes 24-48 hours depending on the mix and Maui\u2019s ambient temperature. Full structural cure is 28 days. In Kihei and Wailea where afternoon temps regularly exceed 90\u00B0F, we adjust water-cement ratios and may schedule pours before 10 AM to prevent rapid surface drying. Upcountry pours in Kula or Pukalani cure more predictably due to cooler air.",
+  },
+  {
+    q: 'How often should concrete be sealed on Maui?',
+    a: 'Coastal properties (Kihei, Wailea, Lahaina) should reseal every 2-3 years due to salt air exposure. Upcountry properties (Makawao, Kula, Pukalani) can go 4-5 years between applications. Decorative stamped or stained surfaces need resealing more frequently because UV breaks down color sealers faster in Hawaii than on the mainland. We specify UV-rated sealers on every decorative job.',
+  },
+  {
+    q: 'Do I need a permit for residential concrete work?',
+    a: 'Maui County requires permits for foundations, retaining walls over 4 feet, and any work affecting drainage or setbacks. Standard flatwork like driveways and patios under 200 sq ft typically does not require a permit, but we verify with the county on every job. Our License C-27903 covers all concrete work categories.',
+  },
+  {
+    q: 'What PSI concrete do you use?',
+    a: '4,000 PSI minimum for all residential flatwork and foundations. Commercial slabs spec to project requirements, typically 4,500-5,000 PSI. Coastal properties get corrosion-rated rebar (#4 at 12-inch centers standard) with increased concrete cover depth. Volcanic soil conditions on Maui can affect sub-base compaction, so we test to 95% modified Proctor before forming.',
+  },
+  {
+    q: 'Can you match existing concrete for additions or repairs?',
+    a: 'Color matching depends on the original mix, age, and exposure. We sample existing slabs and work with our batch plant to get within 90% color match on fresh pours. After 6-12 months of weathering, the match improves further. For decorative work, we do on-site color samples before committing to the full pour.',
+  },
+]
+
+function FAQAccordion() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+      {faqItems.map((item, i) => {
+        const isOpen = openIndex === i
+        return (
+          <div
+            key={i}
+            style={{
+              borderTop: i === 0 ? '1px solid var(--color-steel-light)' : 'none',
+              borderBottom: '1px solid var(--color-steel-light)',
+            }}
+          >
+            <button
+              onClick={() => setOpenIndex(isOpen ? null : i)}
+              aria-expanded={isOpen}
+              style={{
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '1rem',
+                padding: '1.25rem 0',
+                backgroundColor: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                textAlign: 'left',
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.95rem',
+                  fontWeight: 600,
+                  color: 'var(--color-off-white)',
+                  letterSpacing: '0.02em',
+                }}
+              >
+                {item.q}
+              </span>
+              <ChevronDown
+                size={16}
+                style={{
+                  color: 'var(--color-brass)',
+                  flexShrink: 0,
+                  transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'transform 200ms ease',
+                }}
+              />
+            </button>
+            <div
+              style={{
+                maxHeight: isOpen ? '400px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 300ms ease',
+              }}
+            >
+              <p
+                style={{
+                  color: 'var(--color-warm-gray)',
+                  fontSize: '0.9rem',
+                  lineHeight: 1.75,
+                  paddingBottom: '1.5rem',
+                }}
+              >
+                {item.a}
+              </p>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
