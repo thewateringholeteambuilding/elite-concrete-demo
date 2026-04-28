@@ -375,6 +375,7 @@ export default function Home() {
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ marginBottom: '3rem' }}>
+            <p className="iron-label" style={{ marginBottom: '1rem' }}>Our Services</p>
             <h2
               id="services-heading"
               style={{
@@ -481,7 +482,7 @@ export default function Home() {
                     textDecoration: 'none',
                   }}
                 >
-                  Full service list <ArrowRight size={13} />
+                  Full service list <ArrowRight size={13} className="strip-chevron" />
                 </Link>
               </div>
             </div>
@@ -906,6 +907,7 @@ export default function Home() {
             className="testimonials-header"
           >
             <div>
+              <p className="iron-label" style={{ marginBottom: '1rem' }}>Client Reviews</p>
               <h2
                 id="testimonials-heading"
                 style={{
@@ -1048,7 +1050,7 @@ export default function Home() {
               opacity: 0.6,
             }}
           >
-            Our Commitment
+            Precision · Integrity · Craft
           </p>
           <h2
             style={{
@@ -1086,6 +1088,7 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <p className="iron-label" style={{ marginBottom: '1rem' }}>FAQ</p>
           <h2
             id="faq-heading"
             style={{
@@ -1148,6 +1151,9 @@ export default function Home() {
             <Link to="/contact" className="btn-brass">
               Request a Free Estimate
             </Link>
+            <Link to="/gallery" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white' }}>
+              View Our Work
+            </Link>
             <a href="tel:+18082813018" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white' }}>
               (808) 281-3018
             </a>
@@ -1156,6 +1162,12 @@ export default function Home() {
       </section>
 
       <style>{`
+        .strip-chevron {
+          transition: transform 200ms ease;
+        }
+        a:hover .strip-chevron {
+          transform: translateX(4px);
+        }
         @keyframes kenBurnsZoom {
           0% { transform: scale(1); }
           100% { transform: scale(1.06); }

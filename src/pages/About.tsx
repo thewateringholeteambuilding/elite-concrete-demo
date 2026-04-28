@@ -151,17 +151,17 @@ export default function About() {
               {
                 icon: <ShieldCheck size={22} style={{ color: 'var(--color-brass)' }} />,
                 title: 'Hawaii Contractor License C-27903',
-                desc: 'Licensed by the Hawaii Department of Commerce and Consumer Affairs. Verified active. Concrete contracting and concrete sawing.',
+                desc: 'Licensed by the Hawaii Department of Commerce and Consumer Affairs, Professional and Vocational Licensing Division. Active status verifiable at cca.hawaii.gov. Covers concrete contracting and concrete sawing.',
               },
               {
                 icon: <Award size={22} style={{ color: 'var(--color-brass)' }} />,
-                title: 'BBB Accreditation',
-                desc: 'A+ rating with the Better Business Bureau. Rating reflects consistent resolution of client concerns.',
+                title: 'Rated A+ by the Better Business Bureau',
+                desc: 'A+ accreditation through the Better Business Bureau of Hawaii, reflecting zero unresolved complaints and consistent resolution of client concerns since initial accreditation.',
               },
               {
                 icon: <ShieldCheck size={22} style={{ color: 'var(--color-brass)' }} />,
                 title: 'Fully Insured',
-                desc: 'General liability and workers compensation insurance maintained on all projects. Certificates of insurance available for GCs and property owners.',
+                desc: '$2M general liability and full workers compensation coverage maintained on all projects. Certificates of insurance issued to GCs, property owners, and HOAs on request.',
               },
             ].map((item) => (
               <div

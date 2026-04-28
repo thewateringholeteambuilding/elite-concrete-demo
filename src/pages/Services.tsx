@@ -264,6 +264,7 @@ export default function Services() {
                 </div>
                 <Link
                   to="/contact"
+                  className="service-cta-link"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -275,9 +276,10 @@ export default function Services() {
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
                     textDecoration: 'none',
+                    transition: 'gap 200ms ease',
                   }}
                 >
-                  Get a quote <ArrowRight size={13} />
+                  Get a quote <ArrowRight size={13} className="service-cta-chevron" />
                 </Link>
               </div>
             </div>
@@ -310,9 +312,14 @@ export default function Services() {
           <p style={{ color: 'var(--color-warm-gray)', marginBottom: '2.5rem', lineHeight: 1.7 }}>
             Driveway replacement, new foundation, retaining wall, or commercial slab. Free estimates for all Maui projects. Owner-operated. License C-27903.
           </p>
-          <Link to="/contact" className="btn-brass">
-            Contact Us
-          </Link>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/contact" className="btn-brass">
+              Get a Free Estimate
+            </Link>
+            <Link to="/gallery" className="btn-outline">
+              View Our Work
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -320,6 +327,12 @@ export default function Services() {
         .service-pill:hover {
           border-color: var(--color-brass) !important;
           color: var(--color-brass) !important;
+        }
+        .service-cta-chevron {
+          transition: transform 200ms ease;
+        }
+        .service-cta-link:hover .service-cta-chevron {
+          transform: translateX(4px);
         }
         @media (max-width: 768px) {
           .service-article {

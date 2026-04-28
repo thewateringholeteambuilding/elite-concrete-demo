@@ -177,6 +177,30 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Values anchor */}
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto 0',
+          paddingBottom: '2rem',
+          textAlign: 'center',
+        }}
+      >
+        <p
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.7rem',
+            fontWeight: 600,
+            letterSpacing: '0.28em',
+            textTransform: 'uppercase',
+            color: 'var(--color-brass)',
+            opacity: 0.6,
+          }}
+        >
+          Precision · Integrity · Craft
+        </p>
+      </div>
+
       {/* Bottom bar */}
       <div
         style={{
