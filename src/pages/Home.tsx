@@ -10,7 +10,7 @@ const stats = [
   { value: 'A+',    label: 'BBB Rating' },
   { value: 'C-27903', label: 'Hawaii License' },
   { value: '487',   label: 'Maui Projects' },
-  { value: '100%',  label: 'Insured Crew' },
+  { value: '74K+',  label: 'Sq Ft Poured' },
 ]
 
 /* Services with distinct layout: left-side nav list + right featured panel */
@@ -727,7 +727,7 @@ export default function Home() {
               Owner-Operated. Owner on Every Job.
             </p>
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
-              The person who answers the phone is the person who runs the crew. One point of contact from estimate through final walkthrough. No project managers, no call centers, no handoffs.
+              I write every quote myself. I run the crew on every job. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
             </p>
           </div>
           <a
@@ -797,6 +797,63 @@ export default function Home() {
               >
                 {town}
               </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Recent Jobs (dated activity strip) ──────────────────────────── */}
+      <section
+        aria-label="Recent job activity"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '2rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Recent Jobs
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {[
+              { date: 'Apr 2025', job: 'Completed driveway tear-out and replacement, Kehalani' },
+              { date: 'Mar 2025', job: 'Stamped lanai pour, Wailea Ekolu Village' },
+              { date: 'Feb 2025', job: '120 ft retaining wall, Iao Valley hillside' },
+              { date: 'Jan 2025', job: 'Commercial slab, Kahului industrial park' },
+            ].map((entry) => (
+              <p
+                key={entry.date}
+                style={{
+                  color: 'var(--color-warm-gray)',
+                  fontSize: '0.8rem',
+                  lineHeight: 1.5,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontWeight: 600,
+                    color: 'var(--color-off-white)',
+                    fontSize: '0.75rem',
+                    letterSpacing: '0.05em',
+                    marginRight: '0.75rem',
+                  }}
+                >
+                  {entry.date}
+                </span>
+                {entry.job}
+              </p>
             ))}
           </div>
         </div>

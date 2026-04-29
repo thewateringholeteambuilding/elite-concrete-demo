@@ -1,6 +1,17 @@
 import { useState } from 'react'
 import { Phone, MapPin, Mail, Clock, Send } from 'lucide-react'
 
+const serviceHints: Record<string, string> = {
+  'Concrete Foundation': 'approximate square footage, number of stories, whether the lot has been graded.',
+  'Driveway or Parking': 'current surface material, approximate dimensions, desired finish (broom, exposed, stamped).',
+  'Retaining Wall': 'wall height needed, slope grade, whether water pools behind the area.',
+  'Decorative Concrete': 'desired finish (stamped, stained, polished), area dimensions, intended use (lanai, pool deck, patio).',
+  'Commercial Slab': 'building type, approximate sq footage, any flatness specs or load requirements.',
+  'Sidewalk or Walkway': 'total linear feet, width needed, whether ADA compliance is required.',
+  'Concrete Sawing': 'slab thickness, cut type (control joints, utility opening, full removal), number of cuts.',
+  'Other / Not Sure': 'a brief description and photos if you have them. We will help scope it.',
+}
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState({
@@ -344,6 +355,11 @@ export default function Contact() {
                       <option>Concrete Sawing</option>
                       <option>Other / Not Sure</option>
                     </select>
+                    {form.service && serviceHints[form.service] && (
+                      <p style={{ color: 'var(--color-brass)', fontSize: '0.75rem', marginTop: '0.5rem', lineHeight: 1.5, opacity: 0.85 }}>
+                        Helpful to mention: {serviceHints[form.service]}
+                      </p>
+                    )}
                   </div>
 
                   {/* Message */}

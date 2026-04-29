@@ -177,7 +177,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Values anchor */}
+      {/* Philosophy + confidence */}
       <div
         style={{
           maxWidth: '1200px',
@@ -195,9 +195,20 @@ export default function Footer() {
             textTransform: 'uppercase',
             color: 'var(--color-brass)',
             opacity: 0.6,
+            marginBottom: '0.75rem',
           }}
         >
-          Precision · Integrity · Craft
+          Test the soil. Set the forms. Pour it right.
+        </p>
+        <p
+          style={{
+            color: 'var(--color-warm-gray)',
+            fontSize: '0.8rem',
+            lineHeight: 1.6,
+            opacity: 0.7,
+          }}
+        >
+          487 pours across Maui and counting. We've probably already poured on your street.
         </p>
       </div>
 
