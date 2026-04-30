@@ -75,8 +75,34 @@ export default function About() {
               <p>
                 Our base is Wailuku, which puts us close to Central Maui's growth corridor and a short drive from Kahului, Kihei, and Upcountry. We work residential pours alongside commercial slabs and concrete sawing. The licensing, crew size, and mix engineering stay the same regardless of project scale.
               </p>
+            </div>
+            <blockquote
+              style={{
+                margin: '2rem 0',
+                padding: '1.5rem 0',
+                borderTop: '2px solid var(--color-brass)',
+                borderBottom: '2px solid var(--color-brass)',
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(1.3rem, 1rem + 1.5vw, 1.8rem)',
+                  fontWeight: 700,
+                  color: 'var(--color-brass)',
+                  lineHeight: 1.25,
+                  letterSpacing: '0.02em',
+                }}
+              >
+                "Same crew estimates, forms, pours, and finishes. One point of contact from quote to walkthrough."
+              </p>
+            </blockquote>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'var(--color-warm-gray)', fontSize: '0.975rem', lineHeight: 1.8 }}>
               <p>
                 Every quote comes with a site visit. We document soil conditions before we price the job. Drainage is engineered before any form gets set. That's the process on a $4,000 driveway and a $40,000 foundation.
+              </p>
+              <p>
+                We find the drainage gap, the loose fill, the corroded rebar, and the wrong sub-base depth before the pour. Concrete is permanent. The time to solve problems is before the truck arrives, not after the slab cracks.
               </p>
               <p>
                 Hawaii Contractor License C-27903. BBB A+ rated. Fully insured.

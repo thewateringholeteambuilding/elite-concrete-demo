@@ -365,6 +365,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Project Breakdown Strip ───────────────────────────────────── */}
+      <section
+        aria-label="Project type breakdown"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '1.75rem 1.5rem',
+          borderBottom: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '2.5rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.6,
+            }}
+          >
+            487 Projects by Type
+          </p>
+          {[
+            { type: 'Residential', count: 312 },
+            { type: 'Commercial', count: 94 },
+            { type: 'Retaining', count: 53 },
+            { type: 'Sawing', count: 28 },
+          ].map((cat) => (
+            <div key={cat.type} style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.1rem',
+                  fontWeight: 700,
+                  color: 'var(--color-brass)',
+                }}
+              >
+                {cat.count}
+              </span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.6rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-warm-gray)',
+                }}
+              >
+                {cat.type}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── Services, 2-col layout: list nav left + featured card right ─ */}
       <section
         aria-labelledby="services-heading"
@@ -890,18 +957,33 @@ export default function Home() {
             className="recent-work-grid"
           >
             {[
-              { name: 'Kehalani Residence Foundation', town: 'Wailuku', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.' },
-              { name: 'Maui Lani Driveway Replacement', town: 'Kahului', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.' },
-              { name: 'Wailea Resort Retaining Wall', town: 'Wailea', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.' },
+              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.' },
+              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.' },
+              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.' },
             ].map((project) => (
               <div
                 key={project.name}
+                className="recent-work-card"
                 style={{
                   padding: '1.75rem',
                   backgroundColor: 'var(--color-steel-mid)',
                   borderTop: '3px solid var(--color-brass)',
+                  transition: 'transform 250ms ease, box-shadow 250ms ease',
                 }}
               >
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.14em',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.5,
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  {project.ref}
+                </p>
                 <h3
                   style={{
                     fontFamily: 'var(--font-display)',
@@ -1234,6 +1316,10 @@ export default function Home() {
         }
         @media (prefers-reduced-motion: reduce) {
           .hero-ken-burns { animation: none; }
+        }
+        .recent-work-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.3), inset 0 3px 0 var(--color-brass);
         }
         @media (max-width: 768px) {
           .hero-grid {
