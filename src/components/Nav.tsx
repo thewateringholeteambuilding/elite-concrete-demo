@@ -91,6 +91,10 @@ export default function Nav() {
                     ? 'var(--color-brass)'
                     : 'var(--color-warm-gray)',
                   transition: 'color 150ms ease',
+                  paddingBottom: '4px',
+                  borderBottom: location.pathname === link.to
+                    ? '2px solid var(--color-brass)'
+                    : '2px solid transparent',
                 }}
               >
                 {link.label}

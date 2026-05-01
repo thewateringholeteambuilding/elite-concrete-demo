@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import { ArrowRight, Phone, Star, Award, ShieldCheck, ChevronDown } from 'lucide-react'
+import { ArrowRight, Phone, Star, Award, ShieldCheck, ChevronDown, ChevronsDown } from 'lucide-react'
 
 /* ── Photo constants (all confirmed working Unsplash IDs from niche guide) ─ */
 const HERO_IMG   = 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9?auto=format&fit=crop&w=900&q=80'
@@ -89,6 +89,7 @@ export default function Home() {
           minHeight: '92vh',
           display: 'flex',
           alignItems: 'center',
+          position: 'relative',
         }}
       >
         <div
@@ -138,28 +139,44 @@ export default function Home() {
 
             {/* Credential badges */}
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: '0.4rem',
-                backgroundColor: 'var(--color-steel-mid)',
-                border: '1px solid var(--color-steel-light)',
-                padding: '0.4rem 0.9rem',
-              }}>
+              <a
+                href="https://cca.hawaii.gov/pvl/holders/active-contractors/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '0.4rem',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  border: '1px solid var(--color-steel-light)',
+                  padding: '0.4rem 0.9rem',
+                  textDecoration: 'none',
+                  transition: 'border-color 150ms ease',
+                }}
+                className="credential-badge"
+              >
                 <ShieldCheck size={13} style={{ color: 'var(--color-brass)' }} />
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', color: 'var(--color-warm-gray)' }}>
                   LIC C-27903
                 </span>
-              </div>
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: '0.4rem',
-                backgroundColor: 'var(--color-steel-mid)',
-                border: '1px solid var(--color-steel-light)',
-                padding: '0.4rem 0.9rem',
-              }}>
+              </a>
+              <a
+                href="https://www.bbb.org/us/hi"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '0.4rem',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  border: '1px solid var(--color-steel-light)',
+                  padding: '0.4rem 0.9rem',
+                  textDecoration: 'none',
+                  transition: 'border-color 150ms ease',
+                }}
+                className="credential-badge"
+              >
                 <Award size={13} style={{ color: 'var(--color-brass)' }} />
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', color: 'var(--color-warm-gray)' }}>
                   BBB A+
                 </span>
-              </div>
+              </a>
             </div>
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
@@ -259,6 +276,24 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div
+          className="scroll-indicator"
+          style={{
+            position: 'absolute',
+            bottom: '2rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.25rem',
+            opacity: 0.5,
+          }}
+        >
+          <ChevronsDown size={20} style={{ color: 'var(--color-warm-gray)' }} />
         </div>
       </section>
 
@@ -485,7 +520,7 @@ export default function Home() {
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--color-steel-deep) 0%, transparent 65%)' }} />
               <div style={{ position: 'relative', padding: '2rem' }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.5rem' }}>
+                <p className="iron-label" style={{ marginBottom: '0.5rem' }}>
                   Foundation Work
                 </p>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 700, color: 'var(--color-off-white)', marginBottom: '0.75rem' }}>
@@ -523,7 +558,7 @@ export default function Home() {
               className="strip-card"
             >
               <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.5rem' }}>
+                <p className="iron-label" style={{ marginBottom: '0.5rem' }}>
                   Specialized Service
                 </p>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-off-white)', marginBottom: '0.5rem' }}>
@@ -579,17 +614,7 @@ export default function Home() {
         >
           {/* Left: numbered steps */}
           <div>
-            <p
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '0.65rem',
-                fontWeight: 600,
-                letterSpacing: '0.22em',
-                textTransform: 'uppercase',
-                color: 'var(--color-brass)',
-                marginBottom: '1rem',
-              }}
-            >
+            <p className="iron-label" style={{ marginBottom: '1rem' }}>
               FORM. POUR. FINISH.
             </p>
             <h2
@@ -684,10 +709,10 @@ export default function Home() {
                   lineHeight: 1.1,
                 }}
               >
-                READY TO START YOUR PROJECT?
+                WHAT DO YOU NEED POURED?
               </h3>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '2rem' }}>
-                Free estimates for residential and commercial concrete work anywhere on Maui. Owner answers the phone.
+                Driveway, foundation, retaining wall, lanai, or commercial slab. Tell us the job and we'll quote it within 48 hours. Owner answers the phone.
               </p>
               <Link to="/contact" className="btn-brass" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem' }}>
                 Request a Quote
@@ -1301,6 +1326,9 @@ export default function Home() {
       </section>
 
       <style>{`
+        .credential-badge:hover {
+          border-color: var(--color-brass) !important;
+        }
         .strip-chevron {
           transition: transform 200ms ease;
         }
@@ -1314,8 +1342,16 @@ export default function Home() {
         .hero-ken-burns {
           animation: kenBurnsZoom 12s ease-in-out infinite alternate;
         }
+        @keyframes scrollBounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(6px); }
+        }
+        .scroll-indicator {
+          animation: scrollBounce 2s ease-in-out infinite;
+        }
         @media (prefers-reduced-motion: reduce) {
           .hero-ken-burns { animation: none; }
+          .scroll-indicator { animation: none; }
         }
         .recent-work-card:hover {
           transform: translateY(-4px);
