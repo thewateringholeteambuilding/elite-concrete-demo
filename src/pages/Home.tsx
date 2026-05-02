@@ -11,6 +11,7 @@ const stats = [
   { value: 'C-27903', label: 'Hawaii License' },
   { value: '487',   label: 'Maui Projects' },
   { value: '74K+',  label: 'Sq Ft Poured' },
+  { value: '68%',   label: 'Repeat Clients' },
 ]
 
 /* Services with distinct layout: left-side nav list + right featured panel */
@@ -649,7 +650,7 @@ export default function Home() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
                 { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Compaction tested to 95% modified Proctor.' },
-                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for Maui humidity and pour-day temps. #4 rebar at 12-inch centers standard.' },
+                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for Maui humidity and pour-day temps. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului plant.' },
                 { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting.' },
                 { num: '04', title: 'Licensed & Insured', desc: 'Hawaii Contractor License C-27903. $2M general liability. Full workers comp on every project.' },
               ].map((step) => (
@@ -982,9 +983,9 @@ export default function Home() {
             className="recent-work-grid"
           >
             {[
-              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.' },
-              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.' },
-              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.' },
+              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.' },
+              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.' },
+              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.' },
             ].map((project) => (
               <div
                 key={project.name}
@@ -1029,10 +1030,23 @@ export default function Home() {
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
                     color: 'var(--color-brass)',
-                    marginBottom: '0.75rem',
+                    marginBottom: '0.35rem',
                   }}
                 >
                   {project.town}, Maui
+                </p>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.6,
+                    marginBottom: '0.75rem',
+                  }}
+                >
+                  {project.gc}
                 </p>
                 <p
                   style={{

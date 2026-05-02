@@ -5,6 +5,7 @@ interface Service {
   id: string
   title: string
   shortLabel: string
+  phase: string
   desc: string[]
   img: string
   tags: string[]
@@ -15,6 +16,7 @@ const services: Service[] = [
     id: 'foundations',
     title: 'Concrete Foundations',
     shortLabel: 'Foundations',
+    phase: 'Pre-Construction + Pour',
     desc: [
       'Stem walls, grade beams, continuous footings, and slab-on-grade systems. Every foundation starts with a soil profile and drainage assessment. Volcanic soils on Maui range from compact basalt to loose cinder, and each pours differently.',
       'Seismic zone requirements and Hawaii building code followed on all foundation work. Rebar schedule documented. Inspection-ready framing before pour day.',
@@ -26,6 +28,7 @@ const services: Service[] = [
     id: 'driveways',
     title: 'Driveways & Parking Areas',
     shortLabel: 'Driveways',
+    phase: 'Full Lifecycle',
     desc: [
       'Broom-finish, exposed aggregate, and stamped concrete driveways. Sub-base compacted and inspected. Drainage pitch engineered before forms are placed.',
       'Salt air and tropical moisture are factored into every mix design. Surface sealers specified for coastal exposure. Minimum 3,500 PSI mix on all flatwork.',
@@ -37,6 +40,7 @@ const services: Service[] = [
     id: 'retaining-walls',
     title: 'Retaining Walls',
     shortLabel: 'Retaining Walls',
+    phase: 'Pre-Construction + Pour',
     desc: [
       'Gravity and poured-concrete retaining walls for residential lots and hillside properties across Maui. Drainage core is standard on every wall, not an add-on.',
       'Upcountry slopes, Wailuku hillsides, and coastal lots all present different soil saturation profiles. Engineered to the conditions, not a standard template.',
@@ -48,6 +52,7 @@ const services: Service[] = [
     id: 'decorative',
     title: 'Decorative Concrete',
     shortLabel: 'Decorative',
+    phase: 'Pour + Finish',
     desc: [
       'Stamped, stained, acid-etched, and polished finishes for lanais, pool decks, walkways, and commercial lobbies. Pattern and color selection before the pour. Samples available.',
       "Hawaii's UV exposure bleaches untreated surfaces. Sealers rated for tropical conditions specified on every decorative job. Color holds for years with proper maintenance.",
@@ -59,6 +64,7 @@ const services: Service[] = [
     id: 'commercial-slabs',
     title: 'Commercial Slabs',
     shortLabel: 'Commercial',
+    phase: 'Full Lifecycle',
     desc: [
       'Warehouse floors, loading docks, retail slabs, and commercial parking. Floor flatness specifications documented. Control joints cut at 24 hours. Re-temp protection on hot Maui afternoons when rapid evaporation is a risk.',
       'Experience with GC-direct and owner-direct projects. Certificate of insurance available. Licensed C-27903.',
@@ -70,6 +76,7 @@ const services: Service[] = [
     id: 'sidewalks',
     title: 'Sidewalks & Walkways',
     shortLabel: 'Sidewalks',
+    phase: 'Pour + Finish',
     desc: [
       'Residential walkways, ADA-compliant ramps, and commercial pedestrian paving. Expansion joints placed to standard. Surface texture and slip resistance matched to application.',
       'Trenching and sub-base preparation included. Existing concrete sawing for tie-in work available.',
@@ -81,6 +88,7 @@ const services: Service[] = [
     id: 'sawing',
     title: 'Concrete Sawing',
     shortLabel: 'Sawing',
+    phase: 'Post-Pour',
     desc: [
       'Precision saw-cutting for control joints, utility access openings, and slab removal. Dry and wet cutting available. Dust and slurry contained and managed on-site.',
       'Available as a standalone service for GCs, property managers, and owner-direct clients. Core drilling also available for utility penetrations.',
@@ -218,6 +226,20 @@ export default function Services() {
 
               {/* Copy */}
               <div style={{ direction: 'ltr' }}>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-brass)',
+                    marginBottom: '0.75rem',
+                    opacity: 0.7,
+                  }}
+                >
+                  {service.phase}
+                </p>
                 <h2
                   style={{
                     fontFamily: 'var(--font-display)',

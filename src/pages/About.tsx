@@ -159,12 +159,23 @@ export default function About() {
               fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
               fontWeight: 700,
               color: 'var(--color-off-white)',
-              marginBottom: '3rem',
+              marginBottom: '1rem',
               textAlign: 'center',
             }}
           >
             LICENSED. INSURED. RATED.
           </h2>
+          <p
+            style={{
+              textAlign: 'center',
+              color: 'var(--color-warm-gray)',
+              fontSize: '0.85rem',
+              marginBottom: '3rem',
+              opacity: 0.7,
+            }}
+          >
+            2,400+ cubic yards poured across 487 Maui projects
+          </p>
 
           <div
             style={{
