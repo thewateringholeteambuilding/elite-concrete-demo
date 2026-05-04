@@ -713,7 +713,7 @@ export default function Home() {
                 WHAT DO YOU NEED POURED?
               </h3>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '2rem' }}>
-                Driveway, foundation, retaining wall, lanai, or commercial slab. Tell us the job and we'll quote it within 48 hours. Owner answers the phone.
+                Driveway, foundation, retaining wall, lanai, or commercial slab. Tell us the job and we'll quote it within 36 hours. Owner answers the phone.
               </p>
               <Link to="/contact" className="btn-brass" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem' }}>
                 Request a Quote
@@ -757,6 +757,23 @@ export default function Home() {
               >
                 Serving all of Maui County
               </p>
+            </div>
+            <div
+              style={{
+                marginTop: '1rem',
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '2rem',
+              }}
+            >
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-brass)', lineHeight: 1 }}>36 hrs</p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', marginTop: '0.2rem' }}>Avg Quote Turnaround</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-brass)', lineHeight: 1 }}>92%</p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', marginTop: '0.2rem' }}>Jobs Start Within 2 Weeks</p>
+              </div>
             </div>
           </div>
         </div>
@@ -863,33 +880,65 @@ export default function Home() {
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
               color: 'var(--color-brass)',
-              marginBottom: '1.25rem',
+              marginBottom: '1.75rem',
             }}
           >
             Serving All of Maui County
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.5rem' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1.5rem',
+              maxWidth: '960px',
+              margin: '0 auto',
+            }}
+            className="region-grid"
+          >
             {[
-              'Wailuku', 'Kahului', 'Kihei', 'Wailea', 'Lahaina',
-              'Makawao', 'Haiku', 'Paia', 'Pukalani', 'Kula',
-              'Sprecklesville', 'Napili', 'Kapalua',
-            ].map((town) => (
-              <span
-                key={town}
+              { region: 'Central Maui', count: 218, towns: ['Wailuku', 'Kahului', 'Sprecklesville'] },
+              { region: 'South Maui', count: 147, towns: ['Kihei', 'Wailea', 'Makena'] },
+              { region: 'West Maui', count: 64, towns: ['Lahaina', 'Napili', 'Kapalua'] },
+              { region: 'Upcountry', count: 58, towns: ['Makawao', 'Haiku', 'Paia', 'Pukalani', 'Kula'] },
+            ].map((r) => (
+              <div
+                key={r.region}
+                className="region-card"
                 style={{
-                  padding: '0.35rem 0.85rem',
+                  padding: '1.25rem',
                   backgroundColor: 'var(--color-steel-mid)',
-                  border: '1px solid var(--color-steel-light)',
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.7rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.08em',
-                  color: 'var(--color-warm-gray)',
-                  textTransform: 'uppercase',
+                  borderTop: '2px solid var(--color-brass)',
+                  transition: 'transform 200ms ease',
                 }}
               >
-                {town}
-              </span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.75rem' }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-off-white)' }}>
+                    {r.region}
+                  </p>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 700, color: 'var(--color-brass)' }}>
+                    {r.count}
+                  </p>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
+                  {r.towns.map((town) => (
+                    <span
+                      key={town}
+                      style={{
+                        padding: '0.2rem 0.6rem',
+                        border: '1px solid var(--color-steel-light)',
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.6rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.06em',
+                        color: 'var(--color-warm-gray)',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {town}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -918,19 +967,22 @@ export default function Home() {
           >
             Recent Jobs
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {[
-              { date: 'Apr 2025', job: 'Completed driveway tear-out and replacement, Kehalani' },
-              { date: 'Mar 2025', job: 'Stamped lanai pour, Wailea Ekolu Village' },
-              { date: 'Feb 2025', job: '120 ft retaining wall, Iao Valley hillside' },
-              { date: 'Jan 2025', job: 'Commercial slab, Kahului industrial park' },
-            ].map((entry) => (
-              <p
+              { date: 'Apr 2025', job: 'Completed driveway tear-out and replacement, Kehalani', sqft: '1,800 sq ft' },
+              { date: 'Mar 2025', job: 'Stamped lanai pour, Wailea Ekolu Village', sqft: '640 sq ft' },
+              { date: 'Feb 2025', job: '120 ft retaining wall, Iao Valley hillside', sqft: '120 linear ft' },
+              { date: 'Jan 2025', job: 'Commercial slab, Kahului industrial park', sqft: '3,200 sq ft' },
+            ].map((entry, i) => (
+              <div
                 key={entry.date}
                 style={{
-                  color: 'var(--color-warm-gray)',
-                  fontSize: '0.8rem',
-                  lineHeight: 1.5,
+                  display: 'grid',
+                  gridTemplateColumns: '5.5rem 1.5rem 1fr auto',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  padding: '0.65rem 0',
+                  borderBottom: i < 3 ? '1px solid var(--color-steel-light)' : 'none',
                 }}
               >
                 <span
@@ -940,13 +992,40 @@ export default function Home() {
                     color: 'var(--color-off-white)',
                     fontSize: '0.75rem',
                     letterSpacing: '0.05em',
-                    marginRight: '0.75rem',
+                    textAlign: 'right',
                   }}
                 >
                   {entry.date}
                 </span>
-                {entry.job}
-              </p>
+                <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+                  <div
+                    style={{
+                      width: '8px',
+                      height: '8px',
+                      backgroundColor: 'var(--color-brass)',
+                      borderRadius: '0',
+                      transform: 'rotate(45deg)',
+                      flexShrink: 0,
+                    }}
+                  />
+                </div>
+                <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.5 }}>
+                  {entry.job}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-brass)',
+                    opacity: 0.6,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {entry.sqft}
+                </span>
+              </div>
             ))}
           </div>
         </div>
@@ -1367,6 +1446,9 @@ export default function Home() {
           .hero-ken-burns { animation: none; }
           .scroll-indicator { animation: none; }
         }
+        .region-card:hover {
+          transform: translateY(-2px);
+        }
         .recent-work-card:hover {
           transform: translateY(-4px);
           box-shadow: 0 8px 24px rgba(0,0,0,0.3), inset 0 3px 0 var(--color-brass);
@@ -1395,6 +1477,9 @@ export default function Home() {
           }
           .recent-work-grid {
             grid-template-columns: 1fr !important;
+          }
+          .region-grid {
+            grid-template-columns: 1fr 1fr !important;
           }
         }
       `}</style>

@@ -96,6 +96,40 @@ export default function About() {
               >
                 "Same crew estimates, forms, pours, and finishes. One point of contact from quote to walkthrough."
               </p>
+              <cite
+                style={{
+                  fontStyle: 'normal',
+                  display: 'block',
+                  marginTop: '0.75rem',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-off-white)',
+                  }}
+                >
+                  Owner, Elite Concrete LLC
+                </span>
+                <span
+                  style={{
+                    display: 'block',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-warm-gray)',
+                    marginTop: '0.2rem',
+                    opacity: 0.6,
+                  }}
+                >
+                  Wailuku, Maui
+                </span>
+              </cite>
             </blockquote>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'var(--color-warm-gray)', fontSize: '0.975rem', lineHeight: 1.8 }}>
               <p>
