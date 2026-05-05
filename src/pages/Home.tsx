@@ -10,7 +10,7 @@ const stats = [
   { value: 'A+',    label: 'BBB Rating' },
   { value: 'C-27903', label: 'Hawaii License' },
   { value: '487',   label: 'Maui Projects' },
-  { value: '74K+',  label: 'Sq Ft Poured' },
+  { value: '73,840', label: 'Sq Ft Poured' },
   { value: '68%',   label: 'Repeat Clients' },
 ]
 
@@ -135,7 +135,7 @@ export default function Home() {
                 marginBottom: '2rem',
               }}
             >
-              Elite Concrete LLC handles foundations, driveways, retaining walls, decorative concrete, and precision saw-cutting across Maui. Licensed. BBB A+. Mix designed for Hawaii's volcanic soil and salt air.
+              Pouring Maui concrete since 2014. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting. Licensed. BBB A+. Mix designed for Hawaii's volcanic soil and salt air.
             </p>
 
             {/* Credential badges */}
@@ -775,6 +775,37 @@ export default function Home() {
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', marginTop: '0.2rem' }}>Jobs Start Within 2 Weeks</p>
               </div>
             </div>
+            {/* Delivery methods */}
+            <div
+              style={{
+                marginTop: '1.5rem',
+                padding: '1rem',
+                borderTop: '1px solid var(--color-steel-light)',
+              }}
+            >
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.6, marginBottom: '0.6rem', textAlign: 'center' }}>
+                We work as
+              </p>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+                {['Owner-Direct', 'GC Subcontractor', 'Design-Assist'].map((method) => (
+                  <span
+                    key={method}
+                    style={{
+                      padding: '0.3rem 0.7rem',
+                      border: '1px solid var(--color-steel-light)',
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.55rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.08em',
+                      color: 'var(--color-warm-gray)',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {method}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -839,6 +870,17 @@ export default function Home() {
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
               I write every quote myself. I run the crew on every job. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
             </p>
+            <div style={{ display: 'flex', gap: '1.5rem', marginTop: '0.75rem' }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
+                <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>11</span> yrs on Maui
+              </span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
+                <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>8</span> yr avg crew tenure
+              </span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
+                <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>0</span> sub-subcontractors
+              </span>
+            </div>
           </div>
           <a
             href="tel:+18082813018"
@@ -1573,6 +1615,9 @@ function FAQAccordion() {
             style={{
               borderTop: i === 0 ? '1px solid var(--color-steel-light)' : 'none',
               borderBottom: '1px solid var(--color-steel-light)',
+              borderLeft: isOpen ? '3px solid var(--color-brass)' : '3px solid transparent',
+              paddingLeft: isOpen ? '1rem' : '0',
+              transition: 'border-color 200ms ease, padding-left 200ms ease',
             }}
           >
             <button
