@@ -367,10 +367,10 @@ export default function Home() {
           }}
         >
           {[
-            { icon: '⬡', label: 'Licensed Hawaii Contractor' },
-            { icon: '◆', label: 'ACI Concrete Practices' },
-            { icon: '★', label: 'BBB Accredited Business' },
-            { icon: '◉', label: 'Fully Insured & Bonded' },
+            { label: 'Hawaii License C-27903', detail: 'DCCA Verified' },
+            { label: 'ACI Concrete Practices', detail: 'Industry Standard' },
+            { label: 'BBB A+ Accredited', detail: 'Zero Complaints' },
+            { label: '$2M General Liability', detail: 'Full Workers Comp' },
           ].map((a) => (
             <div
               key={a.label}
@@ -380,22 +380,37 @@ export default function Home() {
                 gap: '0.75rem',
                 padding: '0.75rem 1rem',
                 backgroundColor: 'var(--color-steel-mid)',
-                border: '1px solid var(--color-steel-light)',
+                borderLeft: '3px solid var(--color-brass)',
               }}
             >
-              <span style={{ fontSize: '1.1rem', color: 'var(--color-brass)' }}>{a.icon}</span>
-              <span
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.65rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--color-warm-gray)',
-                }}
-              >
-                {a.label}
-              </span>
+              <div>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-off-white)',
+                    display: 'block',
+                  }}
+                >
+                  {a.label}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.55rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.6,
+                  }}
+                >
+                  {a.detail}
+                </span>
+              </div>
             </div>
           ))}
         </div>
@@ -1104,9 +1119,9 @@ export default function Home() {
             className="recent-work-grid"
           >
             {[
-              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.' },
-              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.' },
-              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.' },
+              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', featured: true },
+              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', featured: false },
+              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', featured: false },
             ].map((project) => (
               <div
                 key={project.name}
@@ -1114,23 +1129,41 @@ export default function Home() {
                 style={{
                   padding: '1.75rem',
                   backgroundColor: 'var(--color-steel-mid)',
-                  borderTop: '3px solid var(--color-brass)',
+                  borderTop: project.featured ? '4px solid var(--color-brass)' : '3px solid var(--color-brass)',
                   transition: 'transform 250ms ease, box-shadow 250ms ease',
+                  boxShadow: project.featured ? 'inset 0 0 0 1px var(--color-steel-light)' : 'none',
                 }}
               >
-                <p
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '0.6rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.14em',
-                    color: 'var(--color-warm-gray)',
-                    opacity: 0.5,
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  {project.ref}
-                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.6rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.14em',
+                      color: 'var(--color-warm-gray)',
+                      opacity: 0.5,
+                    }}
+                  >
+                    {project.ref}
+                  </p>
+                  {project.featured && (
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.5rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.16em',
+                        textTransform: 'uppercase',
+                        color: 'var(--color-steel-deep)',
+                        backgroundColor: 'var(--color-brass)',
+                        padding: '0.15rem 0.5rem',
+                      }}
+                    >
+                      Featured
+                    </span>
+                  )}
+                </div>
                 <h3
                   style={{
                     fontFamily: 'var(--font-display)',
@@ -1217,10 +1250,10 @@ export default function Home() {
                   marginBottom: '0.5rem',
                 }}
               >
-                487 POURS. ZERO SURPRISES.
+                68% COME BACK. THE REST REFER.
               </h2>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem' }}>
-                Real jobs. Real outcomes. Real Maui clients.
+                Wailuku, Kihei, Haiku, Makawao. Real jobs, real outcomes.
               </p>
             </div>
             <a
@@ -1361,7 +1394,7 @@ export default function Home() {
               marginBottom: '1.25rem',
             }}
           >
-            WORKMANSHIP WARRANTY ON EVERY POUR.
+            POURED BY HAND. WARRANTED IN WRITING.
           </h2>
           <p
             style={{
@@ -1387,7 +1420,7 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <p className="iron-label" style={{ marginBottom: '1rem' }}>FAQ</p>
+          <p className="iron-label" style={{ marginBottom: '1rem' }}>Before You Pour</p>
           <h2
             id="faq-heading"
             style={{
@@ -1398,10 +1431,10 @@ export default function Home() {
               marginBottom: '0.75rem',
             }}
           >
-            COMMON QUESTIONS
+            WHAT MAUI HOMEOWNERS ASK
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem' }}>
-            From Maui homeowners and property managers.
+            Real questions from residential and commercial clients across the island.
           </p>
           <FAQAccordion />
         </div>
