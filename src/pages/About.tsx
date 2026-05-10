@@ -141,6 +141,9 @@ export default function About() {
               <p>
                 Hawaii Contractor License C-27903. BBB A+ rated. Fully insured.
               </p>
+              <p>
+                We pour for the community too. Two Habitat for Humanity Maui driveways poured pro-bono in 2024. Annual sidewalk repair at Wailuku Elementary, third year running.
+              </p>
             </div>
             <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn-brass">Request a Quote</Link>

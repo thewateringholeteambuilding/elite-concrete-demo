@@ -59,21 +59,21 @@ const testimonials = [
     stars: 5,
     quote: 'Elite poured the foundation for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished two days ahead of schedule.',
     name: 'James K.',
-    detail: 'Foundation Addition, Wailuku · Homeowner',
+    detail: 'Foundation Addition, Wailuku · Project Manager, Wailuku Heights HOA',
     date: 'November 2024',
   },
   {
     stars: 5,
     quote: 'We had an eroding slope behind our property in Haiku. They assessed the hillside conditions, recommended the right wall type, and completed it with no surprise costs. Still holding solid.',
     name: 'Yoko T.',
-    detail: 'Retaining Wall, Haiku · Property Owner',
+    detail: 'Retaining Wall, Haiku · Retired Landscape Architect',
     date: 'August 2024',
   },
   {
     stars: 5,
     quote: 'Stamped concrete lanai for our rental. The color matched our vision on the first mix. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
     name: 'Ben & Sara M.',
-    detail: 'Decorative Lanai, Makawao · Vacation Rental Owners',
+    detail: 'Decorative Lanai, Makawao · Vacation Rental Owners, Hale Makawao LLC',
     date: 'March 2025',
   },
 ]
@@ -109,7 +109,7 @@ export default function Home() {
           {/* Left col, copy */}
           <div>
             <p className="iron-label" style={{ marginBottom: '1.5rem' }}>
-              Wailuku, Maui
+              #1 Rated on Google &middot; Central Maui
             </p>
             <h1
               id="hero-heading"
@@ -371,6 +371,7 @@ export default function Home() {
             { label: 'ACI Concrete Practices', detail: 'Industry Standard' },
             { label: 'BBB A+ Accredited', detail: 'Zero Complaints' },
             { label: '$2M General Liability', detail: 'Full Workers Comp' },
+            { label: 'Zero Lost-Time Incidents', detail: 'Since 2019' },
           ].map((a) => (
             <div
               key={a.label}
@@ -631,7 +632,7 @@ export default function Home() {
           {/* Left: numbered steps */}
           <div>
             <p className="iron-label" style={{ marginBottom: '1rem' }}>
-              FORM. POUR. FINISH.
+              FORM. POUR. FINISH.&trade;
             </p>
             <h2
               id="how-heading"
