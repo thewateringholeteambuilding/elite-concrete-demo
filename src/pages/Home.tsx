@@ -135,7 +135,7 @@ export default function Home() {
                 marginBottom: '2rem',
               }}
             >
-              Pouring Maui concrete since 2014. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting. Licensed. BBB A+. Mix designed for Hawaii's volcanic soil and salt air.
+              Pouring Maui concrete since 2014, but small enough that the owner still answers the phone. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting. Licensed. BBB A+. Mix designed for Hawaii's volcanic soil and salt air.
             </p>
 
             {/* Credential badges */}
@@ -519,6 +519,7 @@ export default function Home() {
           >
             {/* Featured card */}
             <div
+              className="service-card"
               style={{
                 gridColumn: 'span 2',
                 position: 'relative',
@@ -535,7 +536,7 @@ export default function Home() {
                 loading="lazy"
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--color-steel-deep) 0%, transparent 65%)' }} />
+              <div className="service-gradient" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--color-steel-deep) 0%, transparent 65%)' }} />
               <div style={{ position: 'relative', padding: '2rem' }}>
                 <p className="iron-label" style={{ marginBottom: '0.5rem' }}>
                   Foundation Work
@@ -917,6 +918,89 @@ export default function Home() {
             (808) 281-3018
           </a>
         </div>
+      </section>
+
+      {/* ── Community Involvement ─────────────────────────────────────────── */}
+      <section
+        aria-label="Community involvement"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '2.5rem 1.5rem',
+          borderTop: '2px solid var(--color-brass)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '2rem',
+          }}
+          className="community-grid"
+        >
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+            <div
+              style={{
+                width: '36px',
+                height: '36px',
+                backgroundColor: 'var(--color-brass)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-steel-deep)' }}>2</span>
+            </div>
+            <div>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-off-white)', letterSpacing: '0.04em', marginBottom: '0.25rem' }}>
+                Habitat for Humanity Maui
+              </p>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.6 }}>
+                Two driveways poured pro-bono in 2024 for families transitioning to homeownership.
+              </p>
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+            <div
+              style={{
+                width: '36px',
+                height: '36px',
+                backgroundColor: 'var(--color-brass)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-steel-deep)' }}>3</span>
+            </div>
+            <div>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-off-white)', letterSpacing: '0.04em', marginBottom: '0.25rem' }}>
+                Wailuku Elementary Sidewalk Repair
+              </p>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.6 }}>
+                Annual sidewalk repair, third year running. Safe walking paths for students and staff.
+              </p>
+            </div>
+          </div>
+        </div>
+        <p
+          style={{
+            maxWidth: '1200px',
+            margin: '1.5rem auto 0',
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.55rem',
+            fontWeight: 600,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--color-warm-gray)',
+            opacity: 0.5,
+          }}
+        >
+          Giving Back to the Community We Pour For
+        </p>
       </section>
 
       {/* ── Service Area Strip ────────────────────────────────────────────── */}
@@ -1408,6 +1492,26 @@ export default function Home() {
           >
             Every project carries a written workmanship warranty. If something cracks, settles, or fails within the warranty period, we come back and make it right. No fine print, no exclusions for normal use.
           </p>
+          <Link
+            to="/contact"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              marginTop: '1.5rem',
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: 'var(--color-steel-deep)',
+              textDecoration: 'none',
+              borderBottom: '2px solid var(--color-steel-deep)',
+              paddingBottom: '0.2rem',
+            }}
+          >
+            Request Warranty Details <ArrowRight size={13} />
+          </Link>
         </div>
       </section>
 
@@ -1529,6 +1633,18 @@ export default function Home() {
           transform: translateY(-4px);
           box-shadow: 0 8px 24px rgba(0,0,0,0.3), inset 0 3px 0 var(--color-brass);
         }
+        .service-card .service-gradient {
+          transition: opacity 300ms ease;
+        }
+        .service-card:hover .service-gradient {
+          opacity: 0.6;
+        }
+        .service-card img {
+          transition: transform 400ms ease;
+        }
+        .service-card:hover img {
+          transform: scale(1.05);
+        }
         @media (max-width: 768px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
@@ -1556,6 +1672,9 @@ export default function Home() {
           }
           .region-grid {
             grid-template-columns: 1fr 1fr !important;
+          }
+          .community-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>
@@ -1589,7 +1708,7 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         loading="lazy"
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
       />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--color-steel-deep) 0%, transparent 60%)' }} />
+      <div className="service-gradient" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--color-steel-deep) 0%, transparent 60%)' }} />
       <div style={{ position: 'relative', padding: '1.5rem' }}>
         <h3
           style={{

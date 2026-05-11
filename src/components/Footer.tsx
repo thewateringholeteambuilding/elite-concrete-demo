@@ -54,7 +54,7 @@ export default function Footer() {
               marginBottom: '1.25rem',
             }}
           >
-            Pages
+            Navigate
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
@@ -97,7 +97,7 @@ export default function Footer() {
               marginBottom: '1.25rem',
             }}
           >
-            Services
+            What We Pour
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
@@ -142,7 +142,7 @@ export default function Footer() {
               marginBottom: '1.25rem',
             }}
           >
-            Contact
+            Reach Us
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <li>
