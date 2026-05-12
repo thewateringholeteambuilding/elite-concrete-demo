@@ -884,6 +884,9 @@ export default function Home() {
             >
               Owner-Operated. Owner on Every Job.
             </p>
+            <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.35rem' }}>
+              Eric Cantrell, Owner &amp; Licensed Contractor
+            </p>
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
               I write every quote myself. I run the crew on every job. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
             </p>
@@ -929,6 +932,20 @@ export default function Home() {
           borderTop: '2px solid var(--color-brass)',
         }}
       >
+        <div style={{ maxWidth: '1200px', margin: '0 auto', marginBottom: '1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Beyond the Job Site</p>
+          <h2
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1.4rem, 1rem + 2vw, 2rem)',
+              fontWeight: 700,
+              color: 'var(--color-off-white)',
+              lineHeight: 1.1,
+            }}
+          >
+            GIVING BACK TO THE COMMUNITY WE POUR FOR
+          </h2>
+        </div>
         <div
           style={{
             maxWidth: '1200px',
@@ -986,21 +1003,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <p
-          style={{
-            maxWidth: '1200px',
-            margin: '1.5rem auto 0',
-            fontFamily: 'var(--font-display)',
-            fontSize: '0.55rem',
-            fontWeight: 600,
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            color: 'var(--color-warm-gray)',
-            opacity: 0.5,
-          }}
-        >
-          Giving Back to the Community We Pour For
-        </p>
       </section>
 
       {/* ── Service Area Strip ────────────────────────────────────────────── */}
@@ -1118,13 +1120,16 @@ export default function Home() {
             ].map((entry, i) => (
               <div
                 key={entry.date}
+                className="timeline-row"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '5.5rem 1.5rem 1fr auto',
                   alignItems: 'center',
                   gap: '0.75rem',
-                  padding: '0.65rem 0',
+                  padding: '0.65rem 0.5rem',
                   borderBottom: i < 3 ? '1px solid var(--color-steel-light)' : 'none',
+                  borderLeft: '3px solid transparent',
+                  transition: 'border-color 200ms ease, background-color 200ms ease',
                 }}
               >
                 <span
@@ -1467,7 +1472,7 @@ export default function Home() {
               opacity: 0.6,
             }}
           >
-            Precision · Integrity · Craft
+            2014. One Crew. Every Pour.
           </p>
           <h2
             style={{
@@ -1582,7 +1587,7 @@ export default function Home() {
             FREE ESTIMATES. OWNER ANSWERS THE PHONE.
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', marginBottom: '2rem', maxWidth: '480px' }}>
-            Residential and commercial concrete work across Maui. Call or submit a project brief.
+            You bring the plans. We bring 487 pours of Maui experience. Same crew, same owner, same phone number since 2014.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link to="/contact" className="btn-brass">
@@ -1628,6 +1633,10 @@ export default function Home() {
         }
         .region-card:hover {
           transform: translateY(-2px);
+        }
+        .timeline-row:hover {
+          border-left-color: var(--color-brass) !important;
+          background-color: rgba(255, 255, 255, 0.02);
         }
         .recent-work-card:hover {
           transform: translateY(-4px);
