@@ -783,11 +783,11 @@ export default function Home() {
                 gap: '2rem',
               }}
             >
-              <div style={{ textAlign: 'center' }}>
+              <div className="cta-stat-box" style={{ textAlign: 'center', padding: '0.5rem 1rem', borderTop: '2px solid transparent', transition: 'border-color 200ms ease, transform 200ms ease', cursor: 'default' }}>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-brass)', lineHeight: 1 }}>36 hrs</p>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', marginTop: '0.2rem' }}>Avg Quote Turnaround</p>
               </div>
-              <div style={{ textAlign: 'center' }}>
+              <div className="cta-stat-box" style={{ textAlign: 'center', padding: '0.5rem 1rem', borderTop: '2px solid transparent', transition: 'border-color 200ms ease, transform 200ms ease', cursor: 'default' }}>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-brass)', lineHeight: 1 }}>92%</p>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', marginTop: '0.2rem' }}>Jobs Start Within 2 Weeks</p>
               </div>
@@ -1544,7 +1544,7 @@ export default function Home() {
             WHAT MAUI HOMEOWNERS ASK
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem' }}>
-            Real questions from residential and commercial clients across the island.
+            Answered on-site, by phone, and in writing across 487 projects.
           </p>
           <FAQAccordion />
         </div>
@@ -1594,7 +1594,7 @@ export default function Home() {
               Request a Free Estimate
             </Link>
             <Link to="/gallery" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white' }}>
-              View Our Work
+              See 487 Maui Pours
             </Link>
             <a href="tel:+18082813018" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white' }}>
               (808) 281-3018
@@ -1637,6 +1637,10 @@ export default function Home() {
         .timeline-row:hover {
           border-left-color: var(--color-brass) !important;
           background-color: rgba(255, 255, 255, 0.02);
+        }
+        .cta-stat-box:hover {
+          border-top-color: var(--color-brass) !important;
+          transform: translateY(-2px);
         }
         .recent-work-card:hover {
           transform: translateY(-4px);

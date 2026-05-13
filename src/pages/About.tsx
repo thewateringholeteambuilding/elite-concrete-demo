@@ -113,7 +113,7 @@ export default function About() {
                     color: 'var(--color-off-white)',
                   }}
                 >
-                  Owner, Elite Concrete LLC
+                  Eric Cantrell, Owner &amp; Licensed Contractor
                 </span>
                 <span
                   style={{
@@ -202,17 +202,51 @@ export default function About() {
           >
             LICENSED. INSURED. RATED.
           </h2>
-          <p
+          <div
             style={{
-              textAlign: 'center',
-              color: 'var(--color-warm-gray)',
-              fontSize: '0.85rem',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '3rem',
+              flexWrap: 'wrap',
               marginBottom: '3rem',
-              opacity: 0.7,
             }}
+            className="credentials-numbers"
           >
-            2,400+ cubic yards poured across 487 Maui projects
-          </p>
+            {[
+              { value: '487', label: 'Projects' },
+              { value: '2,400+', label: 'Cu Yd Poured' },
+              { value: '11', label: 'Years on Maui' },
+              { value: '0', label: 'Lost-Time Incidents' },
+            ].map((s) => (
+              <div key={s.label} style={{ textAlign: 'center' }}>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: s.value.length > 3 ? '1.6rem' : '2.2rem',
+                    fontWeight: 700,
+                    color: 'var(--color-brass)',
+                    lineHeight: 1,
+                    marginBottom: '0.3rem',
+                  }}
+                >
+                  {s.value}
+                </p>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.7,
+                  }}
+                >
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
 
           <div
             style={{
