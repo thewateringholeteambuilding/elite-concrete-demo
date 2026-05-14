@@ -371,7 +371,7 @@ export default function Home() {
             { label: 'ACI Concrete Practices', detail: 'Industry Standard' },
             { label: 'BBB A+ Accredited', detail: 'Zero Complaints' },
             { label: '$2M General Liability', detail: 'Full Workers Comp' },
-            { label: 'Zero Lost-Time Incidents', detail: 'Since 2019' },
+            { label: '2024 MCA Safety Recognition', detail: 'Maui Contractors Assoc.' },
           ].map((a) => (
             <div
               key={a.label}
@@ -1209,9 +1209,9 @@ export default function Home() {
             className="recent-work-grid"
           >
             {[
-              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', featured: true },
-              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', featured: false },
-              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', featured: false },
+              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', outcome: 'Completed 4 days ahead of schedule. Passed county inspection first attempt.', featured: true },
+              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', outcome: 'Zero settling after 14 months. Owner referred two neighbors.', featured: false },
+              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', outcome: 'Held through two winter storm seasons. No drainage backup.', featured: false },
             ].map((project) => (
               <div
                 key={project.name}
@@ -1300,6 +1300,26 @@ export default function Home() {
                   }}
                 >
                   {project.scope}
+                </p>
+                <p
+                  className="project-outcome"
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-brass)',
+                    marginTop: '0.75rem',
+                    paddingTop: '0.75rem',
+                    borderTop: '1px solid var(--color-steel-light)',
+                    opacity: 0,
+                    maxHeight: 0,
+                    overflow: 'hidden',
+                    transition: 'opacity 250ms ease, max-height 250ms ease',
+                  }}
+                >
+                  Outcome: <span style={{ color: 'var(--color-warm-gray)', fontWeight: 500 }}>{project.outcome}</span>
                 </p>
               </div>
             ))}
@@ -1397,7 +1417,8 @@ export default function Home() {
                     color: 'var(--color-warm-gray)',
                     lineHeight: 1.75,
                     fontSize: '0.95rem',
-                    fontStyle: 'normal',
+                    fontStyle: 'italic',
+                    fontFamily: 'Georgia, "Times New Roman", serif',
                     margin: '0 0 1.5rem 0',
                   }}
                 >
@@ -1495,7 +1516,7 @@ export default function Home() {
               margin: '0 auto',
             }}
           >
-            Every project carries a written workmanship warranty. If something cracks, settles, or fails within the warranty period, we come back and make it right. No fine print, no exclusions for normal use.
+            5-year structural warranty on foundations and retaining walls. 3-year cosmetic warranty on stamped, stained, and polished finishes. 2-year flatwork warranty on driveways, sidewalks, and slabs. If something cracks, settles, or fails within term, we come back and make it right. Written on every contract.
           </p>
           <Link
             to="/contact"
@@ -1645,6 +1666,10 @@ export default function Home() {
         .recent-work-card:hover {
           transform: translateY(-4px);
           box-shadow: 0 8px 24px rgba(0,0,0,0.3), inset 0 3px 0 var(--color-brass);
+        }
+        .recent-work-card:hover .project-outcome {
+          opacity: 1 !important;
+          max-height: 60px !important;
         }
         .service-card .service-gradient {
           transition: opacity 300ms ease;

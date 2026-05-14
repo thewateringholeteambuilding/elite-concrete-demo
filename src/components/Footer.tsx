@@ -129,6 +129,59 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* Areas Served */}
+        <div>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Areas Served
+          </p>
+          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {[
+              { label: 'Central Maui', count: 218 },
+              { label: 'South Maui', count: 147 },
+              { label: 'West Maui', count: 64 },
+              { label: 'Upcountry', count: 58 },
+            ].map((area) => (
+              <li key={area.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <Link
+                  to="/"
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-warm-gray)',
+                    textDecoration: 'none',
+                    transition: 'color 150ms ease',
+                  }}
+                >
+                  {area.label}
+                </Link>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.7rem',
+                    fontWeight: 700,
+                    color: 'var(--color-brass)',
+                    opacity: 0.5,
+                  }}
+                >
+                  {area.count}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Contact info */}
         <div>
           <p
