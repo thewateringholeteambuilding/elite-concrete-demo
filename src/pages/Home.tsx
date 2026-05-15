@@ -58,22 +58,22 @@ const testimonials = [
   {
     stars: 5,
     quote: 'Elite poured the foundation for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished two days ahead of schedule.',
-    name: 'James K.',
-    detail: 'Foundation Addition, Wailuku · Project Manager, Wailuku Heights HOA',
+    name: 'James Kahele, Wailuku',
+    detail: 'Foundation Addition · Project Manager, Wailuku Heights HOA',
     date: 'November 2024',
   },
   {
     stars: 5,
     quote: 'We had an eroding slope behind our property in Haiku. They assessed the hillside conditions, recommended the right wall type, and completed it with no surprise costs. Still holding solid.',
-    name: 'Yoko T.',
-    detail: 'Retaining Wall, Haiku · Retired Landscape Architect',
+    name: 'Yoko Tanaka, Haiku',
+    detail: 'Retaining Wall · Retired Landscape Architect',
     date: 'August 2024',
   },
   {
     stars: 5,
     quote: 'Stamped concrete lanai for our rental. The color matched our vision on the first mix. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
-    name: 'Ben & Sara M.',
-    detail: 'Decorative Lanai, Makawao · Vacation Rental Owners, Hale Makawao LLC',
+    name: 'Ben & Sara Medeiros, Makawao',
+    detail: 'Decorative Lanai · Vacation Rental Owners, Hale Makawao LLC',
     date: 'March 2025',
   },
 ]
@@ -178,6 +178,57 @@ export default function Home() {
                   BBB A+
                 </span>
               </a>
+            </div>
+
+            {/* Service quick-jump */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              marginBottom: '1.75rem',
+              padding: '0.65rem 1rem',
+              backgroundColor: 'var(--color-steel-mid)',
+              border: '1px solid var(--color-steel-light)',
+              maxWidth: '420px',
+            }}>
+              <span style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.65rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+              }}>
+                I need
+              </span>
+              <select
+                onChange={(e) => {
+                  if (e.target.value) window.location.href = e.target.value
+                }}
+                defaultValue=""
+                style={{
+                  flex: 1,
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  color: 'var(--color-off-white)',
+                  cursor: 'pointer',
+                  outline: 'none',
+                  appearance: 'auto',
+                }}
+              >
+                <option value="" disabled>Select a service...</option>
+                <option value="/services#foundations">Foundation Work</option>
+                <option value="/services#driveways">Driveway / Parking</option>
+                <option value="/services#retaining-walls">Retaining Wall</option>
+                <option value="/services#decorative">Decorative Concrete</option>
+                <option value="/services#commercial">Commercial Slab</option>
+                <option value="/services#sawing">Concrete Sawing</option>
+              </select>
             </div>
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
@@ -666,10 +717,10 @@ export default function Home() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
-                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Compaction tested to 95% modified Proctor.' },
-                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for Maui humidity and pour-day temps. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului plant.' },
-                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting.' },
-                { num: '04', title: 'Licensed & Insured', desc: 'Hawaii Contractor License C-27903. $2M general liability. Full workers comp on every project.' },
+                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Compaction tested to 95% modified Proctor.', timeline: 'Same-day visit, written report within 48 hours' },
+                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for Maui humidity and pour-day temps. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului plant.', timeline: 'Quote delivered within 36 hours of site visit' },
+                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting.', timeline: 'Most residential pours scheduled within 2 weeks' },
+                { num: '04', title: 'Licensed & Insured', desc: 'Hawaii Contractor License C-27903. $2M general liability. Full workers comp on every project.', timeline: 'COI delivered before mobilization' },
               ].map((step) => (
                 <div
                   key={step.num}
@@ -701,6 +752,20 @@ export default function Home() {
                     <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.6 }}>
                       {step.desc}
                     </p>
+                    {'timeline' in step && (
+                      <p style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.6rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        color: 'var(--color-brass)',
+                        marginTop: '0.5rem',
+                        opacity: 0.8,
+                      }}>
+                        {step.timeline}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -1001,6 +1066,133 @@ export default function Home() {
                 Annual sidewalk repair, third year running. Safe walking paths for students and staff.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── What Happens When You Wait ─────────────────────────────────── */}
+      <section
+        aria-labelledby="wait-heading"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: 'var(--space-section) 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <p className="iron-label" style={{ marginBottom: '1rem' }}>Before It Gets Worse</p>
+          <h2
+            id="wait-heading"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
+              fontWeight: 700,
+              color: 'var(--color-off-white)',
+              marginBottom: '0.5rem',
+            }}
+          >
+            WHAT HAPPENS WHEN YOU WAIT
+          </h2>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem', maxWidth: '560px', lineHeight: 1.7 }}>
+            Concrete problems on Maui don't stay small. Salt air, volcanic soil, and tropical rain accelerate every crack.
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '2rem',
+            }}
+            className="wait-grid"
+          >
+            {/* Risks column */}
+            <div>
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.7rem',
+                fontWeight: 700,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: '#b54a3a',
+                marginBottom: '1.25rem',
+              }}>
+                Delay costs more
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[
+                  { risk: 'Hairline cracks widen to structural fractures', cost: 'Repair cost doubles every 6 months' },
+                  { risk: 'Salt air corrodes exposed rebar', cost: 'Full tear-out instead of patching' },
+                  { risk: 'Settled slabs create trip hazards', cost: 'Liability exposure for homeowners and landlords' },
+                  { risk: 'Water channels under cracked flatwork', cost: 'Soil erosion undermines adjacent structures' },
+                ].map((item) => (
+                  <div key={item.risk} style={{
+                    padding: '1rem',
+                    backgroundColor: 'var(--color-steel-deep)',
+                    borderLeft: '3px solid #b54a3a',
+                  }}>
+                    <p style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      color: 'var(--color-off-white)',
+                      marginBottom: '0.25rem',
+                    }}>
+                      {item.risk}
+                    </p>
+                    <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.5 }}>
+                      {item.cost}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Act now column */}
+            <div>
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.7rem',
+                fontWeight: 700,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brass)',
+                marginBottom: '1.25rem',
+              }}>
+                Act now, save later
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[
+                  { benefit: 'Catch cracks early with a surface seal', saving: 'Seal: $800. Full replacement: $8,000+' },
+                  { benefit: 'Rebar protection before corrosion starts', saving: 'Preventive coating vs. full tear-out and re-pour' },
+                  { benefit: 'Level settled slabs with precision grinding', saving: 'Leveling: $1,200. Replacement: $6,000+' },
+                  { benefit: 'Proper drainage installed with the pour', saving: 'Prevents $15,000+ in foundation damage' },
+                ].map((item) => (
+                  <div key={item.benefit} style={{
+                    padding: '1rem',
+                    backgroundColor: 'var(--color-steel-deep)',
+                    borderLeft: '3px solid var(--color-brass)',
+                  }}>
+                    <p style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      color: 'var(--color-off-white)',
+                      marginBottom: '0.25rem',
+                    }}>
+                      {item.benefit}
+                    </p>
+                    <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.5 }}>
+                      {item.saving}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <Link to="/contact" className="btn-brass" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              Get a Free Assessment <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
@@ -1551,6 +1743,41 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          {/* Concrete Knowledge authority block */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '3rem 1fr',
+            gap: '1rem',
+            padding: '1.5rem',
+            backgroundColor: 'var(--color-steel-mid)',
+            borderLeft: '3px solid var(--color-brass)',
+            marginBottom: '3rem',
+          }}>
+            <div style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '2rem',
+              fontWeight: 700,
+              color: 'var(--color-brass)',
+              lineHeight: 1,
+            }}>
+              11
+            </div>
+            <div>
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                color: 'var(--color-off-white)',
+                marginBottom: '0.35rem',
+              }}>
+                Years Pouring on Maui
+              </p>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', lineHeight: 1.65 }}>
+                Maui concrete behaves differently than mainland concrete. Salt air accelerates rebar corrosion. Volcanic soil drains unpredictably from Wailuku clay to Upcountry cinder. Afternoon heat in Kihei can cut working time by half. These questions come from 487 projects across every condition this island produces.
+              </p>
+            </div>
+          </div>
+
           <p className="iron-label" style={{ marginBottom: '1rem' }}>Before You Pour</p>
           <h2
             id="faq-heading"
@@ -1712,6 +1939,9 @@ export default function Home() {
             grid-template-columns: 1fr 1fr !important;
           }
           .community-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .wait-grid {
             grid-template-columns: 1fr !important;
           }
         }
