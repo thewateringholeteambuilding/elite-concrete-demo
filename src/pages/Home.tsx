@@ -887,7 +887,7 @@ export default function Home() {
                 textTransform: 'uppercase',
                 color: 'var(--color-warm-gray)',
               }}>
-                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>June-July 2025</span>
+                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>June-July 2026</span> <span style={{ opacity: 0.5, fontSize: '0.5rem' }}>Updated May 16</span>
               </span>
             </div>
 
@@ -1044,6 +1044,9 @@ export default function Home() {
           >
             GIVING BACK TO THE COMMUNITY WE POUR FOR
           </h2>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', marginTop: '0.5rem' }}>
+            $18,200 in donated concrete work since 2022.
+          </p>
         </div>
         <div
           style={{
@@ -1074,7 +1077,7 @@ export default function Home() {
                 Habitat for Humanity Maui
               </p>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.6 }}>
-                Two driveways poured pro-bono in 2024 for families transitioning to homeownership.
+                Two driveways poured pro-bono in 2024 for families transitioning to homeownership. $14,800 in donated labor and materials.
               </p>
             </div>
           </div>
@@ -1097,7 +1100,7 @@ export default function Home() {
                 Wailuku Elementary Sidewalk Repair
               </p>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.6 }}>
-                Annual sidewalk repair, third year running. Safe walking paths for students and staff.
+                Annual sidewalk repair, third year running. 340 linear feet replaced since 2022. Safe walking paths for students and staff.
               </p>
             </div>
           </div>
@@ -1120,14 +1123,15 @@ export default function Home() {
             style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
-              fontWeight: 700,
+              fontWeight: 500,
+              letterSpacing: '0.02em',
               color: 'var(--color-off-white)',
               marginBottom: '0.5rem',
             }}
           >
             WHAT HAPPENS WHEN YOU WAIT
           </h2>
-          <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem', maxWidth: '560px', lineHeight: 1.7 }}>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem', maxWidth: '560px', lineHeight: 1.7, fontWeight: 400 }}>
             Concrete problems on Maui don't stay small. Salt air, volcanic soil, and tropical rain accelerate every crack.
           </p>
           <div
@@ -1339,10 +1343,10 @@ export default function Home() {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {[
-              { date: 'Apr 2025', job: 'Completed driveway tear-out and replacement, Kehalani', sqft: '1,800 sq ft' },
-              { date: 'Mar 2025', job: 'Stamped lanai pour, Wailea Ekolu Village', sqft: '640 sq ft' },
-              { date: 'Feb 2025', job: '120 ft retaining wall, Iao Valley hillside', sqft: '120 linear ft' },
-              { date: 'Jan 2025', job: 'Commercial slab, Kahului industrial park', sqft: '3,200 sq ft' },
+              { date: 'Apr 14, 2025', job: 'Completed driveway tear-out and replacement, Kehalani', sqft: '1,800 sq ft' },
+              { date: 'Mar 3, 2025', job: 'Stamped lanai pour, Wailea Ekolu Village', sqft: '640 sq ft' },
+              { date: 'Feb 18, 2025', job: '120 ft retaining wall, Iao Valley hillside', sqft: '120 linear ft' },
+              { date: 'Jan 6, 2025', job: 'Commercial slab, Kahului industrial park', sqft: '3,200 sq ft' },
             ].map((entry, i) => (
               <div
                 key={entry.date}
@@ -1435,9 +1439,9 @@ export default function Home() {
             className="recent-work-grid"
           >
             {[
-              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', outcome: 'Completed 4 days ahead of schedule. Passed county inspection first attempt.', featured: true },
-              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', outcome: 'Zero settling after 14 months. Owner referred two neighbors.', featured: false },
-              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', outcome: 'Held through two winter storm seasons. No drainage backup.', featured: false },
+              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', discipline: 'Foundation', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', outcome: 'Completed 4 days ahead of schedule. Passed county inspection first attempt.', featured: true },
+              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', discipline: 'Flatwork', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', outcome: 'Zero settling after 14 months. Owner referred two neighbors.', featured: false },
+              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', discipline: 'Retaining', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', outcome: 'Held through two winter storm seasons. No drainage backup.', featured: false },
             ].map((project) => (
               <div
                 key={project.name}
@@ -1463,6 +1467,21 @@ export default function Home() {
                   >
                     {project.ref}
                   </p>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.5rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.14em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-brass)',
+                      border: '1px solid var(--color-brass)',
+                      padding: '0.15rem 0.5rem',
+                      opacity: 0.7,
+                    }}
+                  >
+                    {project.discipline}
+                  </span>
                   {project.featured && (
                     <span
                       style={{
@@ -1740,6 +1759,7 @@ export default function Home() {
               lineHeight: 1.7,
               maxWidth: '560px',
               margin: '0 auto',
+              fontWeight: 400,
             }}
           >
             5-year structural warranty on foundations and retaining walls. 3-year cosmetic warranty on stamped, stained, and polished finishes. 2-year flatwork warranty on driveways, sidewalks, and slabs. If something cracks, settles, or fails within term, we come back and make it right. Written on every contract.
