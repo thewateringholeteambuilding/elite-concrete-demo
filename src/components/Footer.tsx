@@ -230,7 +230,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Philosophy + confidence */}
+      {/* Brand promise */}
       <div
         style={{
           maxWidth: '1200px',
@@ -242,16 +242,15 @@ export default function Footer() {
         <p
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '0.7rem',
-            fontWeight: 600,
-            letterSpacing: '0.28em',
+            fontSize: '1.1rem',
+            fontWeight: 700,
+            letterSpacing: '0.12em',
             textTransform: 'uppercase',
-            color: 'var(--color-brass)',
-            opacity: 0.6,
-            marginBottom: '0.75rem',
+            color: 'var(--color-off-white)',
+            marginBottom: '0.5rem',
           }}
         >
-          Test the soil. Set the forms. Pour it right.
+          Form. Pour. Finish.&trade;
         </p>
         <p
           style={{
@@ -261,7 +260,7 @@ export default function Footer() {
             opacity: 0.7,
           }}
         >
-          487 pours across Maui and counting. We've probably already poured on your street.
+          487 pours across Maui since 2014. One crew, one owner, one phone number.
         </p>
       </div>
 

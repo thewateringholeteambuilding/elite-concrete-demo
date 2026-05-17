@@ -135,7 +135,7 @@ export default function Home() {
                 marginBottom: '2rem',
               }}
             >
-              Pouring Maui concrete since 2014, but small enough that the owner still answers the phone. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting. Licensed. BBB A+. Mix designed for Hawaii's volcanic soil and salt air.
+              One crew. One owner. Every pour since 2014. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting across Maui County. Licensed C-27903. BBB A+. Mix designed for volcanic soil and salt air, not mainland averages.
             </p>
 
             {/* Credential badges */}
@@ -857,10 +857,44 @@ export default function Home() {
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', marginTop: '0.2rem' }}>Jobs Start Within 2 Weeks</p>
               </div>
             </div>
-            {/* Delivery methods */}
+            {/* Availability indicator */}
             <div
               style={{
                 marginTop: '1.5rem',
+                padding: '0.75rem 1rem',
+                backgroundColor: 'rgba(196, 160, 60, 0.08)',
+                border: '1px solid rgba(196, 160, 60, 0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.6rem',
+              }}
+            >
+              <span
+                className="booking-pulse"
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  backgroundColor: '#4ade80',
+                  display: 'inline-block',
+                  flexShrink: 0,
+                }}
+              />
+              <span style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.6rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+              }}>
+                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>June-July 2025</span>
+              </span>
+            </div>
+
+            {/* Delivery methods */}
+            <div
+              style={{
+                marginTop: '1rem',
                 padding: '1rem',
                 borderTop: '1px solid var(--color-steel-light)',
               }}
@@ -1861,6 +1895,13 @@ export default function Home() {
         a:hover .strip-chevron {
           transform: translateX(4px);
         }
+        @keyframes bookingPulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
+        }
+        .booking-pulse {
+          animation: bookingPulse 2s ease-in-out infinite;
+        }
         @keyframes kenBurnsZoom {
           0% { transform: scale(1); }
           100% { transform: scale(1.06); }
@@ -1878,6 +1919,7 @@ export default function Home() {
         @media (prefers-reduced-motion: reduce) {
           .hero-ken-burns { animation: none; }
           .scroll-indicator { animation: none; }
+          .booking-pulse { animation: none; }
         }
         .region-card:hover {
           transform: translateY(-2px);

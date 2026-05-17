@@ -33,8 +33,9 @@ export default function Nav() {
         left: 0,
         right: 0,
         zIndex: 100,
-        backgroundColor: scrolled ? 'var(--color-steel-deep)' : 'var(--color-steel-deep)',
-        borderBottom: scrolled ? '1px solid var(--color-steel-light)' : '1px solid var(--color-steel-light)',
+        backgroundColor: scrolled ? 'var(--color-steel-deep)' : 'transparent',
+        borderBottom: scrolled ? '1px solid var(--color-brass)' : '1px solid transparent',
+        boxShadow: scrolled ? '0 2px 12px rgba(0,0,0,0.3)' : 'none',
         transition: 'background-color 200ms ease, border-color 200ms ease',
       }}
     >
@@ -50,20 +51,40 @@ export default function Nav() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Logo */}
+        {/* Logo + tagline */}
         <Link
           to="/"
           style={{
+            textDecoration: 'none',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.1rem',
+          }}
+        >
+          <span style={{
             fontFamily: 'var(--font-display)',
             fontSize: '1.1rem',
             fontWeight: 700,
             color: 'var(--color-off-white)',
-            textDecoration: 'none',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
-          }}
-        >
-          ELITE <span style={{ color: 'var(--color-brass)' }}>CONCRETE</span>
+          }}>
+            ELITE <span style={{ color: 'var(--color-brass)' }}>CONCRETE</span>
+          </span>
+          <span
+            className="nav-tagline"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.5rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+            }}
+          >
+            Form. Pour. Finish.&trade;
+          </span>
         </Link>
 
         {/* Desktop links */}
@@ -202,6 +223,7 @@ export default function Nav() {
           .nav-desktop { display: none !important; }
           .nav-phone { display: none !important; }
           .nav-hamburger { display: flex !important; }
+          .nav-tagline { display: none !important; }
         }
         @media (min-width: 769px) {
           .nav-mobile-menu { display: none !important; }
