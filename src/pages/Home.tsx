@@ -7,11 +7,11 @@ const HERO_IMG   = 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9
 const CTA_IMG    = 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=1920&q=80'
 
 const stats = [
-  { value: 'A+',    label: 'BBB Rating' },
-  { value: 'C-27903', label: 'Hawaii License' },
-  { value: '487',   label: 'Maui Projects' },
-  { value: '73,840', label: 'Sq Ft Poured' },
-  { value: '68%',   label: 'Repeat Clients' },
+  { value: 'A+',    label: 'BBB Rating', context: 'Zero complaints filed' },
+  { value: 'C-27903', label: 'Hawaii License', context: 'DCCA verified, current' },
+  { value: '+487',   label: 'Maui Projects', context: 'Since 2014' },
+  { value: '73,840', label: 'Sq Ft Poured', context: '2024 calendar year' },
+  { value: '68%',   label: 'Repeat Clients', context: 'Across all service types' },
 ]
 
 /* Services with distinct layout: left-side nav list + right featured panel */
@@ -135,7 +135,7 @@ export default function Home() {
                 marginBottom: '2rem',
               }}
             >
-              One crew. One owner. Every pour since 2014. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting across Maui County. Licensed C-27903. BBB A+. Mix designed for volcanic soil and salt air, not mainland averages.
+              Pouring on Maui since 2014. One crew, one owner, 487 projects across every soil type this island produces. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting from Wailuku to Wailea. Licensed C-27903, BBB A+, mix engineered for volcanic soil and salt air.
             </p>
 
             {/* Credential badges */}
@@ -394,6 +394,19 @@ export default function Home() {
               >
                 {s.label}
               </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.55rem',
+                  fontWeight: 500,
+                  letterSpacing: '0.06em',
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.5,
+                  marginTop: '0.3rem',
+                }}
+              >
+                {s.context}
+              </p>
             </div>
           ))}
         </div>
@@ -426,6 +439,7 @@ export default function Home() {
           ].map((a) => (
             <div
               key={a.label}
+              className="affiliation-card"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -433,6 +447,8 @@ export default function Home() {
                 padding: '0.75rem 1rem',
                 backgroundColor: 'var(--color-steel-mid)',
                 borderLeft: '3px solid var(--color-brass)',
+                borderBottom: '2px solid transparent',
+                transition: 'transform 200ms ease, border-bottom-color 200ms ease, background-color 200ms ease',
               }}
             >
               <div>
@@ -556,7 +572,7 @@ export default function Home() {
                 marginBottom: '1rem',
               }}
             >
-              WHAT WE BUILD
+              <span style={{ fontWeight: 400 }}>WHAT WE</span> BUILD
             </h2>
             <p style={{ color: 'var(--color-warm-gray)', maxWidth: '520px', lineHeight: 1.7 }}>
               Seven concrete services. One crew that knows Maui's conditions from Wailuku to Wailea.
@@ -696,7 +712,7 @@ export default function Home() {
                 marginBottom: '1rem',
               }}
             >
-              ONE CREW. ONE SEQUENCE. EVERY JOB.
+              <span style={{ fontWeight: 400 }}>ONE CREW. ONE</span> SEQUENCE. <span style={{ fontWeight: 400 }}>EVERY JOB.</span>
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
               {[
@@ -1129,7 +1145,7 @@ export default function Home() {
               marginBottom: '0.5rem',
             }}
           >
-            WHAT HAPPENS WHEN YOU WAIT
+            <span style={{ fontWeight: 400 }}>WHAT HAPPENS</span> WHEN YOU WAIT
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem', maxWidth: '560px', lineHeight: 1.7, fontWeight: 400 }}>
             Concrete problems on Maui don't stay small. Salt air, volcanic soil, and tropical rain accelerate every crack.
@@ -1439,9 +1455,9 @@ export default function Home() {
             className="recent-work-grid"
           >
             {[
-              { ref: 'EC-087', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', discipline: 'Foundation', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', outcome: 'Completed 4 days ahead of schedule. Passed county inspection first attempt.', featured: true },
-              { ref: 'EC-091', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', discipline: 'Flatwork', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', outcome: 'Zero settling after 14 months. Owner referred two neighbors.', featured: false },
-              { ref: 'EC-094', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', discipline: 'Retaining', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', outcome: 'Held through two winter storm seasons. No drainage backup.', featured: false },
+              { ref: 'EC-087', narrative: 'From loose fill to level slab', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', discipline: 'Foundation', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', outcome: 'Completed 4 days ahead of schedule. Passed county inspection first attempt.', featured: true },
+              { ref: 'EC-091', narrative: 'Roots out, aggregate in', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', discipline: 'Flatwork', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', outcome: 'Zero settling after 14 months. Owner referred two neighbors.', featured: false },
+              { ref: 'EC-094', narrative: 'Holding the hillside through storm season', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', discipline: 'Retaining', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', outcome: 'Held through two winter storm seasons. No drainage backup.', featured: false },
             ].map((project) => (
               <div
                 key={project.name}
@@ -1499,6 +1515,20 @@ export default function Home() {
                     </span>
                   )}
                 </div>
+                {'narrative' in project && (
+                  <p
+                    style={{
+                      fontFamily: 'Georgia, "Times New Roman", serif',
+                      fontSize: '0.8rem',
+                      fontStyle: 'italic',
+                      color: 'var(--color-brass)',
+                      marginBottom: '0.4rem',
+                      opacity: 0.85,
+                    }}
+                  >
+                    {project.narrative}
+                  </p>
+                )}
                 <h3
                   style={{
                     fontFamily: 'var(--font-display)',
@@ -1605,7 +1635,7 @@ export default function Home() {
                   marginBottom: '0.5rem',
                 }}
               >
-                68% COME BACK. THE REST REFER.
+                68% COME BACK. <span style={{ fontWeight: 400 }}>THE REST</span> REFER.
               </h2>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem' }}>
                 Wailuku, Kihei, Haiku, Makawao. Real jobs, real outcomes.
@@ -1843,7 +1873,7 @@ export default function Home() {
               marginBottom: '0.75rem',
             }}
           >
-            WHAT MAUI HOMEOWNERS ASK
+            <span style={{ fontWeight: 400 }}>WHAT MAUI HOMEOWNERS</span> ASK
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem' }}>
             Answered on-site, by phone, and in writing across 487 projects.
@@ -1908,6 +1938,11 @@ export default function Home() {
       <style>{`
         .credential-badge:hover {
           border-color: var(--color-brass) !important;
+        }
+        .affiliation-card:hover {
+          transform: translateY(-2px);
+          border-bottom-color: var(--color-brass) !important;
+          background-color: rgba(196, 160, 60, 0.06) !important;
         }
         .strip-chevron {
           transition: transform 200ms ease;
