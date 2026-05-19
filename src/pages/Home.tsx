@@ -518,12 +518,29 @@ export default function Home() {
             487 Projects by Type
           </p>
           {[
-            { type: 'Residential', count: 312 },
-            { type: 'Commercial', count: 94 },
-            { type: 'Retaining', count: 53 },
-            { type: 'Sawing', count: 28 },
+            { type: 'Residential', count: 312, badge: 'R' },
+            { type: 'Commercial', count: 94, badge: 'C' },
+            { type: 'Retaining', count: 53, badge: 'W' },
+            { type: 'Sawing', count: 28, badge: 'S' },
           ].map((cat) => (
-            <div key={cat.type} style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
+            <div key={cat.type} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span
+                style={{
+                  width: '22px',
+                  height: '22px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: 'var(--color-brass)',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.6rem',
+                  fontWeight: 700,
+                  color: 'var(--color-steel-deep)',
+                  flexShrink: 0,
+                }}
+              >
+                {cat.badge}
+              </span>
               <span
                 style={{
                   fontFamily: 'var(--font-display)',
@@ -1002,6 +1019,9 @@ export default function Home() {
             <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-brass)', marginBottom: '0.35rem' }}>
               Eric Cantrell, Owner &amp; Licensed Contractor
             </p>
+            <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-warm-gray)', opacity: 0.5, marginBottom: '0.5rem' }}>
+              The person who answers the phone is the person who pours your concrete.
+            </p>
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
               I write every quote myself. I run the crew on every job. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
             </p>
@@ -1245,7 +1265,7 @@ export default function Home() {
 
           <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
             <Link to="/contact" className="btn-brass" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              Get a Free Assessment <ArrowRight size={14} />
+              Send Photos. Get a Same-Day Assessment. <ArrowRight size={14} />
             </Link>
           </div>
         </div>
@@ -1661,6 +1681,9 @@ export default function Home() {
               <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
                 5.0 from 31 Reviews
               </span>
+              <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.55rem', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.08em', opacity: 0.5 }}>
+                Verified May 2026
+              </span>
             </a>
           </div>
 
@@ -1721,6 +1744,21 @@ export default function Home() {
                       }}
                     >
                       {t.detail} · {t.date}
+                    </span>
+                    <span
+                      style={{
+                        display: 'block',
+                        fontSize: '0.6rem',
+                        fontFamily: 'var(--font-display)',
+                        fontWeight: 600,
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        color: 'var(--color-warm-gray)',
+                        opacity: 0.45,
+                        marginTop: '0.4rem',
+                      }}
+                    >
+                      via Google Reviews
                     </span>
                   </cite>
                 </figcaption>
