@@ -124,6 +124,11 @@ p {
   transform: translateY(-2px);
 }
 
+/* ── Stat link hover ──────────────────────────────────────────────────── */
+.stat-link:hover {
+  transform: translateY(-2px);
+}
+
 /* ── Scrollbar ──────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-steel-deep); }

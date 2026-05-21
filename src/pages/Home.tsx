@@ -7,11 +7,11 @@ const HERO_IMG   = 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9
 const CTA_IMG    = 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=1920&q=80'
 
 const stats = [
-  { value: 'A+',    label: 'BBB Rating', context: 'Zero complaints filed' },
-  { value: 'C-27903', label: 'Hawaii License', context: 'DCCA verified, current' },
-  { value: '+487',   label: 'Maui Projects', context: 'Since 2014' },
-  { value: '73,840', label: 'Sq Ft Poured', context: '2024 calendar year' },
-  { value: '68%',   label: 'Repeat Clients', context: 'Across all service types' },
+  { value: 'A+',    label: 'BBB Rating', context: 'Zero complaints filed', href: 'https://www.bbb.org/us/hi' },
+  { value: 'C-27903', label: 'Hawaii License', context: 'DCCA verified, current', href: 'https://cca.hawaii.gov/pvl/holders/active-contractors/' },
+  { value: '+487',   label: 'Maui Projects', context: 'Since 2014', href: '/gallery' },
+  { value: '73,840', label: 'Sq Ft Poured', context: '2024 (up 22% from 2023)', href: '/gallery' },
+  { value: '68%',   label: 'Repeat Clients', context: 'Across all service types', href: '/contact' },
 ]
 
 /* Services with distinct layout: left-side nav list + right featured panel */
@@ -61,6 +61,8 @@ const testimonials = [
     name: 'James Kahele, Wailuku',
     detail: 'Foundation Addition · Project Manager, Wailuku Heights HOA',
     date: 'November 2024',
+    source: 'via Google Reviews',
+    relationship: 'Client since 2021 · Third project together',
   },
   {
     stars: 5,
@@ -68,6 +70,8 @@ const testimonials = [
     name: 'Yoko Tanaka, Haiku',
     detail: 'Retaining Wall · Retired Landscape Architect',
     date: 'August 2024',
+    source: 'via direct referral',
+    relationship: 'Referred by Maui Architectural Group',
   },
   {
     stars: 5,
@@ -75,6 +79,8 @@ const testimonials = [
     name: 'Ben & Sara Medeiros, Makawao',
     detail: 'Decorative Lanai · Vacation Rental Owners, Hale Makawao LLC',
     date: 'March 2025',
+    source: 'via Yelp',
+    relationship: 'Second project · Driveway reseal scheduled 2026',
   },
 ]
 
@@ -109,7 +115,7 @@ export default function Home() {
           {/* Left col, copy */}
           <div>
             <p className="iron-label" style={{ marginBottom: '1.5rem' }}>
-              #1 Rated on Google &middot; Central Maui
+              #1 Reviewed Concrete Contractor on Google &middot; Wailuku, Maui
             </p>
             <h1
               id="hero-heading"
@@ -368,47 +374,59 @@ export default function Home() {
             gap: '2rem',
           }}
         >
-          {stats.map((s) => (
-            <div key={s.value} style={{ textAlign: 'center' }}>
-              <p
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: s.value.length > 4 ? '1.8rem' : '2.8rem',
-                  fontWeight: 700,
-                  color: 'var(--color-brass)',
-                  lineHeight: 1,
-                  marginBottom: '0.4rem',
-                }}
+          {stats.map((s) => {
+            const isExternal = s.href.startsWith('http')
+            const Wrapper = isExternal ? 'a' : Link
+            const linkProps = isExternal
+              ? { href: s.href, target: '_blank', rel: 'noopener noreferrer' }
+              : { to: s.href }
+            return (
+              <Wrapper
+                key={s.value}
+                {...linkProps as any}
+                className="stat-link"
+                style={{ textAlign: 'center', textDecoration: 'none', display: 'block', transition: 'transform 200ms ease' }}
               >
-                {s.value}
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.7rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  color: 'var(--color-warm-gray)',
-                }}
-              >
-                {s.label}
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.55rem',
-                  fontWeight: 500,
-                  letterSpacing: '0.06em',
-                  color: 'var(--color-warm-gray)',
-                  opacity: 0.5,
-                  marginTop: '0.3rem',
-                }}
-              >
-                {s.context}
-              </p>
-            </div>
-          ))}
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: s.value.length > 4 ? '1.8rem' : '2.8rem',
+                    fontWeight: 700,
+                    color: 'var(--color-brass)',
+                    lineHeight: 1,
+                    marginBottom: '0.4rem',
+                  }}
+                >
+                  {s.value}
+                </p>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.7rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                  }}
+                >
+                  {s.label}
+                </p>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.55rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.06em',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.5,
+                    marginTop: '0.3rem',
+                  }}
+                >
+                  {s.context}
+                </p>
+              </Wrapper>
+            )
+          })}
         </div>
       </section>
 
@@ -568,6 +586,80 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Who Hires Us strip ──────────────────────────────────────── */}
+      <section
+        aria-label="Client types"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '2rem 1.5rem',
+          borderBottom: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1rem',
+          }}
+        >
+          {[
+            { type: 'Homeowners', count: 274, note: 'Driveways, foundations, lanais' },
+            { type: 'General Contractors', count: 118, note: 'Sub work, commercial pours' },
+            { type: 'Property Managers', count: 62, note: 'Rental repairs, resurfacing' },
+            { type: 'HOAs & Community', count: 33, note: 'Sidewalks, common areas, ADA' },
+          ].map((client) => (
+            <div
+              key={client.type}
+              style={{
+                padding: '1.25rem',
+                backgroundColor: 'var(--color-steel-deep)',
+                borderTop: '2px solid var(--color-brass)',
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  color: 'var(--color-brass)',
+                  lineHeight: 1,
+                  marginBottom: '0.3rem',
+                }}
+              >
+                {client.count}
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-off-white)',
+                  marginBottom: '0.25rem',
+                }}
+              >
+                {client.type}
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.6rem',
+                  fontWeight: 500,
+                  letterSpacing: '0.06em',
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.6,
+                }}
+              >
+                {client.note}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── Services, 2-col layout: list nav left + featured card right ─ */}
       <section
         aria-labelledby="services-heading"
@@ -718,6 +810,19 @@ export default function Home() {
           <div>
             <p className="iron-label" style={{ marginBottom: '1rem' }}>
               FORM. POUR. FINISH.&trade;
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(1.1rem, 0.8rem + 1.5vw, 1.5rem)',
+                fontWeight: 700,
+                color: 'var(--color-brass)',
+                letterSpacing: '0.04em',
+                lineHeight: 1.3,
+                marginBottom: '1.25rem',
+              }}
+            >
+              CONCRETE IS PERMANENT. THE TIME TO SOLVE PROBLEMS IS BEFORE THE TRUCK ARRIVES.
             </p>
             <h2
               id="how-heading"
@@ -1020,7 +1125,7 @@ export default function Home() {
               Eric Cantrell, Owner &amp; Licensed Contractor
             </p>
             <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-warm-gray)', opacity: 0.5, marginBottom: '0.5rem' }}>
-              The person who answers the phone is the person who pours your concrete.
+              Engineering-grade documentation. Owner answers the phone.
             </p>
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
               I write every quote myself. I run the crew on every job. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
@@ -1758,8 +1863,24 @@ export default function Home() {
                         marginTop: '0.4rem',
                       }}
                     >
-                      via Google Reviews
+                      {t.source}
                     </span>
+                    {'relationship' in t && (
+                      <span
+                        style={{
+                          display: 'block',
+                          fontSize: '0.6rem',
+                          fontFamily: 'var(--font-display)',
+                          fontWeight: 600,
+                          letterSpacing: '0.08em',
+                          color: 'var(--color-brass)',
+                          opacity: 0.65,
+                          marginTop: '0.3rem',
+                        }}
+                      >
+                        {t.relationship}
+                      </span>
+                    )}
                   </cite>
                 </figcaption>
               </figure>
@@ -1806,7 +1927,7 @@ export default function Home() {
               opacity: 0.6,
             }}
           >
-            2014. One Crew. Every Pour.
+            2014–2026. One Crew. Every Pour.
           </p>
           <h2
             style={{

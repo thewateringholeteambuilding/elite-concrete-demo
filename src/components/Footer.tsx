@@ -258,10 +258,28 @@ export default function Footer() {
             fontSize: '0.8rem',
             lineHeight: 1.6,
             opacity: 0.7,
+            marginBottom: '1rem',
           }}
         >
           487 pours across Maui since 2014. One crew, one owner, one phone number.
         </p>
+        <a
+          href="tel:+18082813018"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            fontFamily: 'var(--font-display)',
+            fontSize: '1.1rem',
+            fontWeight: 700,
+            letterSpacing: '0.06em',
+            color: 'var(--color-brass)',
+            textDecoration: 'none',
+          }}
+        >
+          <Phone size={16} />
+          (808) 281-3018
+        </a>
       </div>
 
       {/* Bottom bar */}
