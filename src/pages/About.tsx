@@ -68,6 +68,19 @@ export default function About() {
             >
               CONCRETE THAT HOLDS IN HAWAII
             </h2>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(1rem, 0.85rem + 0.8vw, 1.2rem)',
+                fontWeight: 700,
+                color: 'var(--color-brass)',
+                lineHeight: 1.4,
+                marginBottom: '1.75rem',
+                maxWidth: '480px',
+              }}
+            >
+              Do the kind of work that makes clients call back for their next project. That principle started this company and still runs every pour.
+            </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'var(--color-warm-gray)', fontSize: '0.975rem', lineHeight: 1.8 }}>
               <p>
                 Elite Concrete LLC was started to do one thing: pour concrete that holds on Maui. Not mainland concrete work adapted for Hawaii, but work designed from the ground up for volcanic soil, salt air, tropical humidity, and the seismic loads this island actually sees.

@@ -303,6 +303,14 @@ export default function Footer() {
           Wailuku, Maui, Hawaii
         </p>
       </div>
+      <style>{`
+        footer a:hover {
+          color: var(--color-brass) !important;
+        }
+        footer a {
+          transition: color 150ms ease !important;
+        }
+      `}</style>
     </footer>
   )
 }

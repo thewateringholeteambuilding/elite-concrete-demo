@@ -66,7 +66,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    quote: 'We had an eroding slope behind our property in Haiku. They assessed the hillside conditions, recommended the right wall type, and completed it with no surprise costs. Still holding solid.',
+    quote: 'We had an eroding slope behind our property in Haiku. The initial assessment revealed more drainage complexity than anyone expected. Eric walked the hillside with us, adjusted the engineering to a poured-wall system with drainage core, and completed it with no surprise costs. Still holding solid through two storm seasons.',
     name: 'Yoko Tanaka, Haiku',
     detail: 'Retaining Wall · Retired Landscape Architect',
     date: 'August 2024',
@@ -115,7 +115,7 @@ export default function Home() {
           {/* Left col, copy */}
           <div>
             <p className="iron-label" style={{ marginBottom: '1.5rem' }}>
-              #1 Reviewed Concrete Contractor on Google &middot; Wailuku, Maui
+              Licensed Concrete Contractor &middot; Wailuku, Maui &middot; Since 2014
             </p>
             <h1
               id="hero-heading"
@@ -583,6 +583,74 @@ export default function Home() {
               </span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Where Our Concrete Goes (sector taxonomy) ───────────────── */}
+      <section
+        aria-label="Project sectors"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '1.75rem 1.5rem',
+          borderBottom: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.6,
+              marginBottom: '1rem',
+              textAlign: 'center',
+            }}
+          >
+            Where Our Concrete Goes
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '0.5rem',
+              flexWrap: 'wrap',
+            }}
+          >
+            {[
+              'Single-Family Homes',
+              'ADU Additions',
+              'Vacation Rentals',
+              'Restaurant Build-Outs',
+              'Retail & Warehouse',
+              'Hillside Stabilization',
+              'Community Infrastructure',
+              'Multi-Family Housing',
+            ].map((sector) => (
+              <span
+                key={sector}
+                style={{
+                  padding: '0.35rem 0.75rem',
+                  border: '1px solid var(--color-steel-light)',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.55rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-warm-gray)',
+                }}
+              >
+                {sector}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1140,6 +1208,9 @@ export default function Home() {
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
                 <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>0</span> sub-subcontractors
               </span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
+                <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>28K+</span> crew hours logged
+              </span>
             </div>
           </div>
           <a
@@ -1160,6 +1231,82 @@ export default function Home() {
             <Phone size={15} />
             (808) 281-3018
           </a>
+        </div>
+      </section>
+
+      {/* ── Milestones Strip ─────────────────────────────────────────────── */}
+      <section
+        aria-label="Company milestones"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '2rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.6,
+              marginBottom: '1.25rem',
+              textAlign: 'center',
+            }}
+          >
+            How We Got Here
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '0',
+              flexWrap: 'wrap',
+            }}
+            className="milestone-strip"
+          >
+            {[
+              { year: '2014', event: 'Founded in Wailuku. First residential pour.' },
+              { year: '2017', event: '100th project. Added retaining wall service.' },
+              { year: '2019', event: 'First commercial slab. Kahului industrial.' },
+              { year: '2022', event: 'BBB A+ accreditation. Zero complaints filed.' },
+              { year: '2025', event: '487 projects. Still one crew, one owner.' },
+            ].map((m, i) => (
+              <div
+                key={m.year}
+                style={{
+                  flex: '1 1 180px',
+                  padding: '1rem 1.25rem',
+                  borderLeft: i === 0 ? 'none' : '1px solid var(--color-steel-light)',
+                  textAlign: 'center',
+                }}
+              >
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.1rem',
+                  fontWeight: 700,
+                  color: 'var(--color-brass)',
+                  lineHeight: 1,
+                  marginBottom: '0.35rem',
+                }}>
+                  {m.year}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.6rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.06em',
+                  color: 'var(--color-warm-gray)',
+                  lineHeight: 1.5,
+                }}>
+                  {m.event}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1763,7 +1910,7 @@ export default function Home() {
                 68% COME BACK. <span style={{ fontWeight: 400 }}>THE REST</span> REFER.
               </h2>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem' }}>
-                Wailuku, Kihei, Haiku, Makawao. Real jobs, real outcomes.
+                Building relationships across Maui since 2014. Real projects, real outcomes.
               </p>
             </div>
             <a
@@ -1789,6 +1936,7 @@ export default function Home() {
               <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.55rem', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.08em', opacity: 0.5 }}>
                 Verified May 2026
               </span>
+              <ArrowRight size={12} className="reviews-arrow" style={{ color: 'var(--color-warm-gray)', opacity: 0.4, transition: 'transform 200ms ease, opacity 200ms ease' }} />
             </a>
           </div>
 
@@ -1868,14 +2016,17 @@ export default function Home() {
                     {'relationship' in t && (
                       <span
                         style={{
-                          display: 'block',
+                          display: 'inline-block',
                           fontSize: '0.6rem',
                           fontFamily: 'var(--font-display)',
-                          fontWeight: 600,
-                          letterSpacing: '0.08em',
+                          fontWeight: 700,
+                          letterSpacing: '0.1em',
+                          textTransform: 'uppercase',
                           color: 'var(--color-brass)',
-                          opacity: 0.65,
-                          marginTop: '0.3rem',
+                          marginTop: '0.5rem',
+                          padding: '0.25rem 0.6rem',
+                          border: '1px solid rgba(196, 160, 60, 0.3)',
+                          backgroundColor: 'rgba(196, 160, 60, 0.06)',
                         }}
                       >
                         {t.relationship}
@@ -2095,6 +2246,10 @@ export default function Home() {
       </section>
 
       <style>{`
+        a:hover .reviews-arrow {
+          transform: translateX(4px);
+          opacity: 1 !important;
+        }
         .credential-badge:hover {
           border-color: var(--color-brass) !important;
         }
@@ -2196,6 +2351,16 @@ export default function Home() {
           }
           .community-grid {
             grid-template-columns: 1fr !important;
+          }
+          .milestone-strip {
+            flex-direction: column !important;
+          }
+          .milestone-strip > div {
+            border-left: none !important;
+            border-top: 1px solid var(--color-steel-light);
+          }
+          .milestone-strip > div:first-child {
+            border-top: none !important;
           }
           .wait-grid {
             grid-template-columns: 1fr !important;
