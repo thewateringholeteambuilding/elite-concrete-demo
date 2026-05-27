@@ -83,7 +83,7 @@ export default function About() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'var(--color-warm-gray)', fontSize: '0.975rem', lineHeight: 1.8 }}>
               <p>
-                Elite Concrete LLC was started to do one thing: pour concrete that holds on Maui. Not mainland concrete work adapted for Hawaii, but work designed from the ground up for volcanic soil, salt air, tropical humidity, and the seismic loads this island actually sees.
+                First pour: a 2,400 square-foot residential slab in Wailuku Heights, 2014. The homeowner's previous contractor had cracked out twice on volcanic clay. We documented the soil, re-engineered the sub-base, and poured a foundation that's still level a decade later. That job became the template for every project since.
               </p>
               <p>
                 Our base is Wailuku, which puts us close to Central Maui's growth corridor and a short drive from Kahului, Kihei, and Upcountry. We work residential pours alongside commercial slabs and concrete sawing. The licensing, crew size, and mix engineering stay the same regardless of project scale.

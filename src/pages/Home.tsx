@@ -57,27 +57,27 @@ const services = [
 const testimonials = [
   {
     stars: 5,
-    quote: 'Elite poured the foundation for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished two days ahead of schedule.',
+    quote: 'Elite poured the 1,420 sq ft foundation for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished two days ahead of schedule.',
     name: 'James Kahele, Wailuku',
-    detail: 'Foundation Addition · Project Manager, Wailuku Heights HOA',
+    detail: '1,420 SF Foundation Addition · Project Manager, Wailuku Heights HOA',
     date: 'November 2024',
     source: 'via Google Reviews',
     relationship: 'Client since 2021 · Third project together',
   },
   {
     stars: 5,
-    quote: 'We had an eroding slope behind our property in Haiku. The initial assessment revealed more drainage complexity than anyone expected. Eric walked the hillside with us, adjusted the engineering to a poured-wall system with drainage core, and completed it with no surprise costs. Still holding solid through two storm seasons.',
+    quote: 'We had an eroding slope behind our property in Haiku. The initial assessment revealed more drainage complexity than anyone expected. Eric walked the 68 linear feet of hillside with us, adjusted the engineering to a poured-wall system with drainage core, and completed it with no surprise costs. Still holding solid through two storm seasons.',
     name: 'Yoko Tanaka, Haiku',
-    detail: 'Retaining Wall · Retired Landscape Architect',
+    detail: '68 LF Retaining Wall · Retired Landscape Architect',
     date: 'August 2024',
     source: 'via direct referral',
     relationship: 'Referred by Maui Architectural Group',
   },
   {
     stars: 5,
-    quote: 'Stamped concrete lanai for our rental. The color matched our vision on the first mix. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
+    quote: 'Stamped concrete lanai for our rental, 380 sq ft. The color matched our vision on the first mix. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
     name: 'Ben & Sara Medeiros, Makawao',
-    detail: 'Decorative Lanai · Vacation Rental Owners, Hale Makawao LLC',
+    detail: '380 SF Decorative Lanai · Vacation Rental Owners, Hale Makawao LLC',
     date: 'March 2025',
     source: 'via Yelp',
     relationship: 'Second project · Driveway reseal scheduled 2026',
@@ -618,37 +618,65 @@ export default function Home() {
           </p>
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '0.5rem',
-              flexWrap: 'wrap',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '0.75rem',
             }}
+            className="sector-grid"
           >
             {[
-              'Single-Family Homes',
-              'ADU Additions',
-              'Vacation Rentals',
-              'Restaurant Build-Outs',
-              'Retail & Warehouse',
-              'Hillside Stabilization',
-              'Community Infrastructure',
-              'Multi-Family Housing',
-            ].map((sector) => (
-              <span
-                key={sector}
+              { sector: 'Single-Family Homes', project: 'Kehalani Residence, 2,400 SF foundation', count: 187 },
+              { sector: 'ADU Additions', project: 'Wailuku Heights triple ADU, 4,260 SF', count: 43 },
+              { sector: 'Vacation Rentals', project: 'Hale Makawao lanai, 380 SF stamped', count: 62 },
+              { sector: 'Commercial & Retail', project: 'Kahului industrial park, 3,200 SF slab', count: 94 },
+              { sector: 'Hillside Stabilization', project: 'Iao Valley retaining wall, 120 LF', count: 53 },
+              { sector: 'Community Infrastructure', project: 'Wailuku Elementary sidewalks, 340 LF', count: 48 },
+            ].map((s) => (
+              <div
+                key={s.sector}
                 style={{
-                  padding: '0.35rem 0.75rem',
-                  border: '1px solid var(--color-steel-light)',
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.55rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: 'var(--color-warm-gray)',
+                  padding: '0.75rem 1rem',
+                  backgroundColor: 'var(--color-steel-deep)',
+                  borderLeft: '2px solid var(--color-brass)',
                 }}
               >
-                {sector}
-              </span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.25rem' }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.6rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-off-white)',
+                    }}
+                  >
+                    {s.sector}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      color: 'var(--color-brass)',
+                    }}
+                  >
+                    {s.count}
+                  </span>
+                </div>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.5rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.06em',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.6,
+                  }}
+                >
+                  e.g. {s.project}
+                </p>
+              </div>
             ))}
           </div>
         </div>
@@ -883,14 +911,14 @@ export default function Home() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(1.1rem, 0.8rem + 1.5vw, 1.5rem)',
-                fontWeight: 700,
+                fontWeight: 400,
                 color: 'var(--color-brass)',
                 letterSpacing: '0.04em',
                 lineHeight: 1.3,
                 marginBottom: '1.25rem',
               }}
             >
-              CONCRETE IS PERMANENT. THE TIME TO SOLVE PROBLEMS IS BEFORE THE TRUCK ARRIVES.
+              CONCRETE IS PERMANENT. <span style={{ fontWeight: 700 }}>THE TIME TO SOLVE PROBLEMS IS BEFORE THE TRUCK ARRIVES.</span>
             </p>
             <h2
               id="how-heading"
@@ -906,9 +934,9 @@ export default function Home() {
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
               {[
-                { phrase: 'Salt Air Corrodes Rebar.', expansion: 'Every pour uses corrosion-rated steel and cover depths above code minimum.' },
-                { phrase: 'Volcanic Soil Drains Different.', expansion: 'Sub-base spec changes from Wailuku clay to Upcountry cinder. We test before we quote.' },
-                { phrase: 'Maui Heat Accelerates Set.', expansion: 'Afternoon pours get adjusted water-cement ratios. One shot to finish means no guessing.' },
+                { phrase: 'Protect Against Salt Air.', expansion: 'Corrosion-rated steel and cover depths above code minimum on every pour. Rebar doesn\'t get a second chance.' },
+                { phrase: 'Adapt to Volcanic Soil.', expansion: 'Sub-base spec changes from Wailuku clay to Upcountry cinder. We test site conditions before we quote the job.' },
+                { phrase: 'Engineer for Maui Heat.', expansion: 'Afternoon pours get adjusted water-cement ratios and accelerated finishing schedules. One shot to get it right.' },
               ].map((pillar) => (
                 <div key={pillar.phrase}>
                   <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-off-white)', marginBottom: '0.2rem' }}>
@@ -1211,6 +1239,9 @@ export default function Home() {
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
                 <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>28K+</span> crew hours logged
               </span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
+                <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>0</span> OSHA recordables
+              </span>
             </div>
           </div>
           <a
@@ -1244,21 +1275,33 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <p
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '0.6rem',
-              fontWeight: 600,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'var(--color-warm-gray)',
-              opacity: 0.6,
-              marginBottom: '1.25rem',
-              textAlign: 'center',
-            }}
-          >
-            How We Got Here
-          </p>
+          <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2rem, 1.2rem + 3vw, 3.5rem)',
+                fontWeight: 700,
+                color: 'var(--color-brass)',
+                lineHeight: 1,
+                marginBottom: '0.3rem',
+              }}
+            >
+              11 YEARS
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.6rem',
+                fontWeight: 600,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+                opacity: 0.6,
+              }}
+            >
+              Pouring on Maui Since 2014
+            </p>
+          </div>
           <div
             style={{
               display: 'flex',
@@ -1269,11 +1312,11 @@ export default function Home() {
             className="milestone-strip"
           >
             {[
-              { year: '2014', event: 'Founded in Wailuku. First residential pour.' },
-              { year: '2017', event: '100th project. Added retaining wall service.' },
-              { year: '2019', event: 'First commercial slab. Kahului industrial.' },
-              { year: '2022', event: 'BBB A+ accreditation. Zero complaints filed.' },
-              { year: '2025', event: '487 projects. Still one crew, one owner.' },
+              { year: '2014', event: 'Founded in Wailuku. First residential pour. 2,400 SF.' },
+              { year: '2017', event: '100th project. 18,600 SF cumulative. Added retaining walls.' },
+              { year: '2019', event: 'First commercial slab. 4,200 SF Kahului industrial.' },
+              { year: '2022', event: 'BBB A+ accreditation. 52,000 SF that year alone.' },
+              { year: '2025', event: '487 projects. 73,840 SF in 2024. One crew, one owner.' },
             ].map((m, i) => (
               <div
                 key={m.year}
@@ -1391,6 +1434,90 @@ export default function Home() {
                 Annual sidewalk repair, third year running. 340 linear feet replaced since 2022. Safe walking paths for students and staff.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Featured Project ──────────────────────────────────────────── */}
+      <section
+        aria-label="Featured project"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '2.5rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '0',
+            overflow: 'hidden',
+          }}
+          className="featured-project-grid"
+        >
+          <div style={{ position: 'relative', minHeight: '280px' }}>
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
+              alt="Foundation pour on a Maui residential project"
+              loading="lazy"
+              width={800}
+              height={600}
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
+          <div style={{ padding: '2.5rem', backgroundColor: 'var(--color-steel-deep)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Featured Project</p>
+            <h3 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1.2rem, 0.8rem + 1.5vw, 1.8rem)',
+              fontWeight: 700,
+              color: 'var(--color-off-white)',
+              lineHeight: 1.15,
+              marginBottom: '1rem',
+            }}>
+              WAILUKU HEIGHTS ADU COMPLEX
+            </h3>
+            <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65, marginBottom: '1.25rem' }}>
+              Three ADU foundations poured across a single hillside lot. Stem walls engineered for 18-degree slope. Compaction tested to 97% modified Proctor on volcanic clay.
+            </p>
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              {[
+                { value: '4,260', unit: 'SF' },
+                { value: '3', unit: 'ADUs' },
+                { value: '14', unit: 'Days' },
+                { value: '18\u00B0', unit: 'Slope' },
+              ].map((metric) => (
+                <div key={metric.unit}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--color-brass)', lineHeight: 1 }}>
+                    {metric.value}
+                  </p>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', marginTop: '0.15rem' }}>
+                    {metric.unit}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <Link
+              to="/gallery"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                color: 'var(--color-brass)',
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.7rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                marginTop: '1.25rem',
+              }}
+            >
+              View all projects <ArrowRight size={12} />
+            </Link>
           </div>
         </div>
       </section>
@@ -1635,6 +1762,7 @@ export default function Home() {
               { date: 'Mar 3, 2025', job: 'Stamped lanai pour, Wailea Ekolu Village', sqft: '640 sq ft' },
               { date: 'Feb 18, 2025', job: '120 ft retaining wall, Iao Valley hillside', sqft: '120 linear ft' },
               { date: 'Jan 6, 2025', job: 'Commercial slab, Kahului industrial park', sqft: '3,200 sq ft' },
+              { date: 'Dec 11, 2024', job: '[Confidential] Resort pool deck and service corridor, South Maui (GC-direct, NDA)', sqft: '4,800 sq ft' },
             ].map((entry, i) => (
               <div
                 key={entry.date}
@@ -1645,7 +1773,7 @@ export default function Home() {
                   alignItems: 'center',
                   gap: '0.75rem',
                   padding: '0.65rem 0.5rem',
-                  borderBottom: i < 3 ? '1px solid var(--color-steel-light)' : 'none',
+                  borderBottom: i < 4 ? '1px solid var(--color-steel-light)' : 'none',
                   borderLeft: '3px solid transparent',
                   transition: 'border-color 200ms ease, background-color 200ms ease',
                 }}
