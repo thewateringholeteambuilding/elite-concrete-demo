@@ -355,6 +355,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Value Proposition Pause ────────────────────────────────────── */}
+      <section
+        aria-label="Value proposition"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '3rem 1.5rem',
+          borderBottom: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-accent)',
+              fontSize: 'clamp(1.1rem, 0.8rem + 1.2vw, 1.45rem)',
+              fontStyle: 'italic',
+              color: 'var(--color-warm-gray)',
+              lineHeight: 1.65,
+              letterSpacing: '0.01em',
+            }}
+          >
+            One owner. One crew. Every pour engineered for the soil, salt, and heat that only Maui produces.
+          </p>
+        </div>
+      </section>
+
       {/* ── Stats Strip ─────────────────────────────────────────────────── */}
       <section
         aria-label="Credentials and numbers"
@@ -365,6 +390,28 @@ export default function Home() {
           padding: '2.5rem 1.5rem',
         }}
       >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.55rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+              textAlign: 'center',
+              marginBottom: '1.5rem',
+            }}
+          >
+            The Numbers Behind 11 Years on Maui
+          </p>
+        </div>
         <div
           style={{
             maxWidth: '1200px',
@@ -625,19 +672,24 @@ export default function Home() {
             className="sector-grid"
           >
             {[
-              { sector: 'Single-Family Homes', project: 'Kehalani Residence, 2,400 SF foundation', count: 187 },
-              { sector: 'ADU Additions', project: 'Wailuku Heights triple ADU, 4,260 SF', count: 43 },
-              { sector: 'Vacation Rentals', project: 'Hale Makawao lanai, 380 SF stamped', count: 62 },
-              { sector: 'Commercial & Retail', project: 'Kahului industrial park, 3,200 SF slab', count: 94 },
-              { sector: 'Hillside Stabilization', project: 'Iao Valley retaining wall, 120 LF', count: 53 },
-              { sector: 'Community Infrastructure', project: 'Wailuku Elementary sidewalks, 340 LF', count: 48 },
+              { sector: 'Single-Family Homes', project: 'Kehalani Residence, 2,400 SF foundation', count: 187, href: '/services#foundations' },
+              { sector: 'ADU Additions', project: 'Wailuku Heights triple ADU, 4,260 SF', count: 43, href: '/services#foundations' },
+              { sector: 'Vacation Rentals', project: 'Hale Makawao lanai, 380 SF stamped', count: 62, href: '/services#decorative' },
+              { sector: 'Commercial & Retail', project: 'Kahului industrial park, 3,200 SF slab', count: 94, href: '/services#commercial' },
+              { sector: 'Hillside Stabilization', project: 'Iao Valley retaining wall, 120 LF', count: 53, href: '/services#retaining-walls' },
+              { sector: 'Community Infrastructure', project: 'Wailuku Elementary sidewalks, 340 LF', count: 48, href: '/gallery' },
             ].map((s) => (
-              <div
+              <Link
                 key={s.sector}
+                to={s.href}
+                className="sector-card"
                 style={{
                   padding: '0.75rem 1rem',
                   backgroundColor: 'var(--color-steel-deep)',
                   borderLeft: '2px solid var(--color-brass)',
+                  textDecoration: 'none',
+                  transition: 'transform 200ms ease, background-color 200ms ease',
+                  display: 'block',
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.25rem' }}>
@@ -676,7 +728,7 @@ export default function Home() {
                 >
                   e.g. {s.project}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -1121,7 +1173,7 @@ export default function Home() {
                 textTransform: 'uppercase',
                 color: 'var(--color-warm-gray)',
               }}>
-                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>June-July 2026</span> <span style={{ opacity: 0.5, fontSize: '0.5rem' }}>Updated May 16</span>
+                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>July-August 2026</span> <span style={{ opacity: 0.5, fontSize: '0.5rem' }}>Updated May 27</span>
               </span>
             </div>
 
@@ -1855,9 +1907,9 @@ export default function Home() {
             className="recent-work-grid"
           >
             {[
-              { ref: 'EC-087', narrative: 'From loose fill to level slab', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', discipline: 'Foundation', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', outcome: 'Completed 4 days ahead of schedule. Passed county inspection first attempt.', featured: true },
-              { ref: 'EC-091', narrative: 'Roots out, aggregate in', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', discipline: 'Flatwork', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', outcome: 'Zero settling after 14 months. Owner referred two neighbors.', featured: false },
-              { ref: 'EC-094', narrative: 'Holding the hillside through storm season', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', discipline: 'Retaining', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', outcome: 'Held through two winter storm seasons. No drainage backup.', featured: false },
+              { ref: 'EC-087', narrative: 'From loose fill to level slab', name: 'Kehalani Residence Foundation', town: 'Wailuku', gc: 'Architect: Maui Architectural Group', discipline: 'Foundation + Drainage', scope: '2,400 sq ft slab-on-grade. Previous grading left 3 ft of loose fill on the mauka side. We removed and recompacted before forming 28 stem wall footings with seismic tie-downs.', outcome: 'Completed 4 days ahead of schedule. Passed county inspection first attempt.', featured: true },
+              { ref: 'EC-091', narrative: 'Roots out, aggregate in', name: 'Maui Lani Driveway Replacement', town: 'Kahului', gc: 'GC: Arisumi Brothers', discipline: 'Flatwork + Root Mitigation', scope: '1,800 sq ft exposed aggregate. Original slab had settled 2 inches from root intrusion. Full removal, root barrier, recompacted base, new drainage slope away from the garage.', outcome: 'Zero settling after 14 months. Owner referred two neighbors.', featured: false },
+              { ref: 'EC-094', narrative: 'Holding the hillside through storm season', name: 'Wailea Resort Retaining Wall', town: 'Wailea', gc: 'GC: Swinerton Builders Hawaii', discipline: 'Retaining + Drainage', scope: '120 linear ft, 6 ft height. Hillside had a seasonal runoff channel cutting across the property. Engineered drainage core with 4-inch perforated pipe handles peak flow without hydrostatic pressure buildup.', outcome: 'Held through two winter storm seasons. No drainage backup.', featured: false },
             ].map((project) => (
               <div
                 key={project.name}
@@ -2417,6 +2469,10 @@ export default function Home() {
           .hero-ken-burns { animation: none; }
           .scroll-indicator { animation: none; }
           .booking-pulse { animation: none; }
+        }
+        .sector-card:hover {
+          transform: translateY(-2px);
+          background-color: rgba(196, 160, 60, 0.04) !important;
         }
         .region-card:hover {
           transform: translateY(-2px);
