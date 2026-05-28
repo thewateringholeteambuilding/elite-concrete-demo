@@ -230,13 +230,12 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Brand promise */}
+      {/* Brand promise — three-pillar messaging */}
       <div
         style={{
           maxWidth: '1200px',
           margin: '0 auto 0',
           paddingBottom: '2rem',
-          textAlign: 'center',
         }}
       >
         <p
@@ -247,39 +246,68 @@ export default function Footer() {
             letterSpacing: '0.12em',
             textTransform: 'uppercase',
             color: 'var(--color-off-white)',
-            marginBottom: '0.5rem',
+            marginBottom: '1.5rem',
+            textAlign: 'center',
           }}
         >
           Form. Pour. Finish.&trade;
         </p>
-        <p
+        <div
           style={{
-            color: 'var(--color-warm-gray)',
-            fontSize: '0.8rem',
-            lineHeight: 1.6,
-            opacity: 0.7,
-            marginBottom: '1rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '1.5rem',
+            marginBottom: '1.5rem',
           }}
+          className="footer-pillars"
         >
-          487 pours across Maui since 2014. One crew, one owner, one phone number.
-        </p>
-        <a
-          href="tel:+18082813018"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            fontFamily: 'var(--font-display)',
-            fontSize: '1.1rem',
-            fontWeight: 700,
-            letterSpacing: '0.06em',
-            color: 'var(--color-brass)',
-            textDecoration: 'none',
-          }}
-        >
-          <Phone size={16} />
-          (808) 281-3018
-        </a>
+          {[
+            { pillar: 'Form', desc: 'Soil tested. Drainage mapped. Rebar scheduled. Every project starts with site conditions, not assumptions.' },
+            { pillar: 'Pour', desc: 'One crew from estimate to finish. Mix engineered for Maui humidity, salt exposure, and pour-day temperature.' },
+            { pillar: 'Finish', desc: 'Control joints cut at 24 hours. Surface sealed for tropical UV. Cleanup complete before we leave the site.' },
+          ].map((p) => (
+            <div key={p.pillar} style={{ textAlign: 'center' }}>
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brass)',
+                marginBottom: '0.5rem',
+              }}>
+                {p.pillar}
+              </p>
+              <p style={{
+                color: 'var(--color-warm-gray)',
+                fontSize: '0.8rem',
+                lineHeight: 1.6,
+                opacity: 0.7,
+              }}>
+                {p.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <a
+            href="tel:+18082813018"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              fontFamily: 'var(--font-display)',
+              fontSize: '1.1rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              color: 'var(--color-brass)',
+              textDecoration: 'none',
+            }}
+          >
+            <Phone size={16} />
+            (808) 281-3018
+          </a>
+        </div>
       </div>
 
       {/* Bottom bar */}
@@ -309,6 +337,12 @@ export default function Footer() {
         }
         footer a {
           transition: color 150ms ease !important;
+        }
+        @media (max-width: 640px) {
+          .footer-pillars {
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+          }
         }
       `}</style>
     </footer>

@@ -141,7 +141,7 @@ export default function Home() {
                 marginBottom: '2rem',
               }}
             >
-              Pouring on Maui since 2014. One crew, one owner, 487 projects across every soil type this island produces. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting from Wailuku to Wailea. Licensed C-27903, BBB A+, mix engineered for volcanic soil and salt air.
+              487 projects. One crew, one owner, every soil type this island throws at a foundation. We pour from Wailuku to Wailea, Kahului to Kula. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting. Licensed C-27903. BBB A+. Every mix engineered for volcanic clay and salt air.
             </p>
 
             {/* Credential badges */}
@@ -239,10 +239,10 @@ export default function Home() {
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
               <Link to="/contact" className="btn-brass" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                Request a Quote <ArrowRight size={14} />
+                Start Your Project <ArrowRight size={14} />
               </Link>
-              <Link to="/services" className="btn-outline">
-                Our Services
+              <Link to="/gallery" className="btn-outline">
+                See Our Work
               </Link>
             </div>
             <a
@@ -375,7 +375,7 @@ export default function Home() {
               letterSpacing: '0.01em',
             }}
           >
-            One owner. One crew. Every pour engineered for the soil, salt, and heat that only Maui produces.
+            One owner. One crew. Every pour engineered for Wailuku clay, Kihei salt air, and Upcountry cinder.
           </p>
         </div>
       </section>
@@ -926,7 +926,7 @@ export default function Home() {
                     textDecoration: 'none',
                   }}
                 >
-                  Full service list <ArrowRight size={13} className="strip-chevron" />
+                  Explore all services <ArrowRight size={13} className="strip-chevron" />
                 </Link>
               </div>
             </div>
@@ -1003,9 +1003,9 @@ export default function Home() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
-                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Compaction tested to 95% modified Proctor.', timeline: 'Same-day visit, written report within 48 hours' },
-                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for Maui humidity and pour-day temps. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului plant.', timeline: 'Quote delivered within 36 hours of site visit' },
-                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting.', timeline: 'Most residential pours scheduled within 2 weeks' },
+                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Wailuku clay compacts differently than Haiku loam or Kihei coral fill. Compaction tested to 95% modified Proctor.', timeline: 'Same-day visit, written report within 48 hours' },
+                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for pour-day conditions at your specific site. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului.', timeline: 'Quote delivered within 36 hours of site visit' },
+                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting. Lahaina to Hana, one team shows up.', timeline: 'Most residential pours scheduled within 2 weeks' },
                 { num: '04', title: 'Licensed & Insured', desc: 'Hawaii Contractor License C-27903. $2M general liability. Full workers comp on every project.', timeline: 'COI delivered before mobilization' },
               ].map((step) => (
                 <div
@@ -1084,7 +1084,7 @@ export default function Home() {
                 Driveway, foundation, retaining wall, lanai, or commercial slab. Tell us the job and we'll quote it within 36 hours. Owner answers the phone.
               </p>
               <Link to="/contact" className="btn-brass" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem' }}>
-                Request a Quote
+                Get Your Free Estimate
               </Link>
               <a
                 href="tel:+18082813018"
@@ -2218,14 +2218,17 @@ export default function Home() {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Link to="/contact" className="btn-brass" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              Start your project <ArrowRight size={14} />
+            </Link>
             <a
               href="https://maps.google.com/?cid=4007577259043496869"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
             >
-              Leave a Google Review
+              Read all 31 reviews
             </a>
           </div>
         </div>
