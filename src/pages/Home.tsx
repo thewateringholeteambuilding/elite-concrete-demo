@@ -12,6 +12,7 @@ const stats = [
   { value: '+487',   label: 'Maui Projects', context: 'Since 2014', href: '/gallery' },
   { value: '73,840', label: 'Sq Ft Poured', context: '2024 (up 22% from 2023)', href: '/gallery' },
   { value: '68%',   label: 'Repeat Clients', context: 'Across all service types', href: '/contact' },
+  { value: '$1.2M', label: '2024 Revenue', context: 'Up from $940K in 2023', href: '/gallery' },
 ]
 
 /* Services with distinct layout: left-side nav list + right featured panel */
@@ -496,11 +497,11 @@ export default function Home() {
           }}
         >
           {[
-            { label: 'Hawaii License C-27903', detail: 'DCCA Verified' },
-            { label: 'ACI Concrete Practices', detail: 'Industry Standard' },
-            { label: 'BBB A+ Accredited', detail: 'Zero Complaints' },
-            { label: '$2M General Liability', detail: 'Full Workers Comp' },
-            { label: '2024 MCA Safety Recognition', detail: 'Maui Contractors Assoc.' },
+            { label: 'Hawaii License C-27903', detail: 'Renewed Feb 2025 · Active through Feb 2027' },
+            { label: 'ACI Concrete Practices', detail: 'Member since 2016' },
+            { label: 'BBB A+ Accredited', detail: 'A+ since 2022 · Zero complaints' },
+            { label: '$2M General Liability', detail: 'Policy EXP Dec 2026 · Full Workers Comp' },
+            { label: '2024 MCA Safety Recognition', detail: 'Maui Contractors Assoc. · Awarded Nov 2024' },
           ].map((a) => (
             <div
               key={a.label}
@@ -743,6 +744,22 @@ export default function Home() {
           borderBottom: '1px solid var(--color-steel-light)',
         }}
       >
+        <div style={{ maxWidth: '1200px', margin: '0 auto', marginBottom: '1.5rem' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.6,
+              textAlign: 'center',
+            }}
+          >
+            Who Hires Us
+          </p>
+        </div>
         <div
           style={{
             maxWidth: '1200px',
@@ -1173,7 +1190,7 @@ export default function Home() {
                 textTransform: 'uppercase',
                 color: 'var(--color-warm-gray)',
               }}>
-                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>July-August 2026</span> <span style={{ opacity: 0.5, fontSize: '0.5rem' }}>Updated May 27</span>
+                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>July-August 2026</span> <span style={{ opacity: 0.5, fontSize: '0.5rem' }}>Updated May 30</span>
               </span>
             </div>
 
@@ -1364,19 +1381,22 @@ export default function Home() {
             className="milestone-strip"
           >
             {[
-              { year: '2014', event: 'Founded in Wailuku. First residential pour. 2,400 SF.' },
-              { year: '2017', event: '100th project. 18,600 SF cumulative. Added retaining walls.' },
-              { year: '2019', event: 'First commercial slab. 4,200 SF Kahului industrial.' },
-              { year: '2022', event: 'BBB A+ accreditation. 52,000 SF that year alone.' },
-              { year: '2025', event: '487 projects. 73,840 SF in 2024. One crew, one owner.' },
+              { year: '2014', event: 'Founded in Wailuku. First residential pour. 2,400 SF.', detail: '3 projects · $42K revenue · 1 crew member' },
+              { year: '2017', event: '100th project. 18,600 SF cumulative. Added retaining walls.', detail: '38 projects that year · First GC subcontract' },
+              { year: '2019', event: 'First commercial slab. 4,200 SF Kahului industrial.', detail: '$480K revenue · Crew expanded to 4' },
+              { year: '2022', event: 'BBB A+ accreditation. 52,000 SF that year alone.', detail: '$820K revenue · Zero OSHA recordables' },
+              { year: '2025', event: '487 projects. 73,840 SF in 2024. One crew, one owner.', detail: '$1.2M in 2024 · 68% repeat clients' },
             ].map((m, i) => (
               <div
                 key={m.year}
+                className="milestone-item"
                 style={{
                   flex: '1 1 180px',
                   padding: '1rem 1.25rem',
                   borderLeft: i === 0 ? 'none' : '1px solid var(--color-steel-light)',
                   textAlign: 'center',
+                  transition: 'background-color 200ms ease',
+                  cursor: 'default',
                 }}
               >
                 <p style={{
@@ -1399,6 +1419,26 @@ export default function Home() {
                 }}>
                   {m.event}
                 </p>
+                {'detail' in m && (
+                  <p
+                    className="milestone-detail"
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.5rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-brass)',
+                      marginTop: '0.5rem',
+                      opacity: 0,
+                      maxHeight: 0,
+                      overflow: 'hidden',
+                      transition: 'opacity 250ms ease, max-height 250ms ease, margin-top 250ms ease',
+                    }}
+                  >
+                    {m.detail}
+                  </p>
+                )}
               </div>
             ))}
           </div>
@@ -1425,7 +1465,7 @@ export default function Home() {
               lineHeight: 1.1,
             }}
           >
-            GIVING BACK TO THE COMMUNITY WE POUR FOR
+            COMMUNITY WORK
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', marginTop: '0.5rem' }}>
             $18,200 in donated concrete work since 2022.
@@ -1510,14 +1550,14 @@ export default function Home() {
           }}
           className="featured-project-grid"
         >
-          <div style={{ position: 'relative', minHeight: '280px' }}>
+          <div className="featured-project-img" style={{ position: 'relative', minHeight: '280px', overflow: 'hidden' }}>
             <img
               src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
               alt="Foundation pour on a Maui residential project"
               loading="lazy"
               width={800}
               height={600}
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 500ms ease' }}
             />
           </div>
           <div style={{ padding: '2.5rem', backgroundColor: 'var(--color-steel-deep)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -2350,7 +2390,7 @@ export default function Home() {
                 Years Pouring on Maui
               </p>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', lineHeight: 1.65 }}>
-                Maui concrete behaves differently than mainland concrete. Salt air accelerates rebar corrosion. Volcanic soil drains unpredictably from Wailuku clay to Upcountry cinder. Afternoon heat in Kihei can cut working time by half. These questions come from 487 projects across every condition this island produces.
+                Maui concrete behaves differently than mainland concrete. Salt air accelerates rebar corrosion. Volcanic soil drains unpredictably from Wailuku clay to Upcountry cinder. Afternoon heat in Kihei can cut working time by half. These questions come from every soil type, every microclimate, and every elevation this island produces.
               </p>
             </div>
           </div>
@@ -2369,62 +2409,136 @@ export default function Home() {
             <span style={{ fontWeight: 400 }}>WHAT MAUI HOMEOWNERS</span> ASK
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem' }}>
-            Answered on-site, by phone, and in writing across 487 projects.
+            Answered on-site, by phone, and in writing since 2014.
           </p>
           <FAQAccordion />
         </div>
       </section>
 
-      {/* ── Pre-footer CTA Band ───────────────────────────────────────────── */}
+      {/* ── Multi-Intent CTA Panels ──────────────────────────────────────── */}
       <section
-        aria-label="Contact call to action"
-        style={{ position: 'relative', height: '420px', overflow: 'hidden' }}
+        aria-label="Contact options"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '0',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
       >
-        <img
-          src={CTA_IMG}
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-          style={{
-            position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
-          }}
-        />
-        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(13, 21, 32, 0.70)' }} />
         <div
           style={{
-            position: 'absolute', inset: 0,
-            display: 'flex', flexDirection: 'column',
-            alignItems: 'center', justifyContent: 'center',
-            textAlign: 'center', padding: '2rem 1.5rem', zIndex: 1,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '0',
           }}
+          className="cta-panels-grid"
         >
-          <h2
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2rem, 1rem + 4vw, 3.5rem)',
-              fontWeight: 700,
-              color: 'var(--color-off-white)',
-              lineHeight: 1.05,
-              maxWidth: '700px',
-              marginBottom: '1rem',
-            }}
-          >
-            FREE ESTIMATES. OWNER ANSWERS THE PHONE.
-          </h2>
-          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', marginBottom: '2rem', maxWidth: '480px' }}>
-            You bring the plans. We bring 487 pours of Maui experience. Same crew, same owner, same phone number since 2014.
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <Link to="/contact" className="btn-brass">
-              Request a Free Estimate
-            </Link>
-            <Link to="/gallery" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white' }}>
-              See 487 Maui Pours
-            </Link>
-            <a href="tel:+18082813018" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white' }}>
-              (808) 281-3018
-            </a>
-          </div>
+          {[
+            {
+              label: 'Homeowners',
+              heading: 'GET A FREE ESTIMATE',
+              body: 'Driveway, foundation, retaining wall, or lanai. Tell us the job and we quote it within 36 hours. Owner answers the phone.',
+              cta: 'Request Estimate',
+              href: '/contact',
+              isLink: true,
+            },
+            {
+              label: 'General Contractors',
+              heading: 'SUBCONTRACT WORK',
+              body: '118 GC projects completed. COI delivered before mobilization. Licensed C-27903 with $2M GL. We show up, pour clean, and close out.',
+              cta: 'Send a Scope',
+              href: '/contact',
+              isLink: true,
+            },
+            {
+              label: 'Emergency Repair',
+              heading: 'CRACKED, SETTLED, OR FAILING',
+              body: 'Send photos. Get a same-day assessment. Salt air and volcanic soil accelerate every crack on Maui. Earlier is cheaper.',
+              cta: '(808) 281-3018',
+              href: 'tel:+18082813018',
+              isLink: false,
+            },
+          ].map((panel, i) => (
+            <div
+              key={panel.label}
+              className="cta-panel"
+              style={{
+                padding: 'clamp(2rem, 4vw, 3rem)',
+                backgroundColor: i === 1 ? 'var(--color-steel-mid)' : 'var(--color-steel-deep)',
+                borderLeft: i > 0 ? '1px solid var(--color-steel-light)' : 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '280px',
+                transition: 'background-color 300ms ease',
+              }}
+            >
+              <div>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.55rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-brass)',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  {panel.label}
+                </p>
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'clamp(1.2rem, 0.8rem + 1.5vw, 1.6rem)',
+                    fontWeight: 700,
+                    color: 'var(--color-off-white)',
+                    lineHeight: 1.1,
+                    marginBottom: '0.75rem',
+                  }}
+                >
+                  {panel.heading}
+                </h3>
+                <p
+                  style={{
+                    color: 'var(--color-warm-gray)',
+                    fontSize: '0.85rem',
+                    lineHeight: 1.65,
+                  }}
+                >
+                  {panel.body}
+                </p>
+              </div>
+              {panel.isLink ? (
+                <Link
+                  to={panel.href}
+                  className="btn-brass"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', alignSelf: 'flex-start' }}
+                >
+                  {panel.cta} <ArrowRight size={13} />
+                </Link>
+              ) : (
+                <a
+                  href={panel.href}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    marginTop: '1.5rem',
+                    fontFamily: 'var(--font-display)',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    letterSpacing: '0.05em',
+                    color: 'var(--color-brass)',
+                    textDecoration: 'none',
+                    alignSelf: 'flex-start',
+                  }}
+                >
+                  <Phone size={15} />
+                  {panel.cta}
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -2496,6 +2610,20 @@ export default function Home() {
           opacity: 1 !important;
           max-height: 60px !important;
         }
+        .featured-project-img:hover img {
+          transform: scale(1.05);
+        }
+        .milestone-item:hover {
+          background-color: rgba(196, 160, 60, 0.04);
+        }
+        .milestone-item:hover .milestone-detail {
+          opacity: 0.7 !important;
+          max-height: 40px !important;
+          margin-top: 0.5rem !important;
+        }
+        .cta-panel:hover {
+          background-color: rgba(196, 160, 60, 0.03) !important;
+        }
         .service-card .service-gradient {
           transition: opacity 300ms ease;
         }
@@ -2551,6 +2679,14 @@ export default function Home() {
           }
           .wait-grid {
             grid-template-columns: 1fr !important;
+          }
+          .cta-panels-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .cta-panel {
+            min-height: auto !important;
+            border-left: none !important;
+            border-top: 1px solid var(--color-steel-light);
           }
         }
       `}</style>
