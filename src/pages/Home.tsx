@@ -368,6 +368,19 @@ export default function Home() {
         <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
           <p
             style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(0.65rem, 0.5rem + 0.5vw, 0.75rem)',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              marginBottom: '0.75rem',
+            }}
+          >
+            Our Purpose
+          </p>
+          <p
+            style={{
               fontFamily: 'var(--font-accent)',
               fontSize: 'clamp(1.1rem, 0.8rem + 1.2vw, 1.45rem)',
               fontStyle: 'italic',
@@ -1097,8 +1110,11 @@ export default function Home() {
               >
                 WHAT DO YOU NEED POURED?
               </h3>
-              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '2rem' }}>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '1rem' }}>
                 Driveway, foundation, retaining wall, lanai, or commercial slab. Tell us the job and we'll quote it within 36 hours. Owner answers the phone.
+              </p>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.75rem', lineHeight: 1.6, marginBottom: '2rem', opacity: 0.6 }}>
+                Maui soil conditions, drainage, and access vary by lot. Published pricing would either overcharge simple jobs or underquote complex ones. Every quote is site-specific.
               </p>
               <Link to="/contact" className="btn-brass" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem' }}>
                 Get Your Free Estimate
@@ -2271,6 +2287,74 @@ export default function Home() {
               Read all 31 reviews
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ── Join the Crew Strip ─────────────────────────────────────────── */}
+      <section
+        aria-label="Employment opportunities"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '2rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '2rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          <div>
+            <p
+              className="iron-label"
+              style={{ marginBottom: '0.5rem' }}
+            >
+              Now Hiring
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(1rem, 0.8rem + 1vw, 1.3rem)',
+                fontWeight: 700,
+                color: 'var(--color-off-white)',
+                lineHeight: 1.2,
+              }}
+            >
+              JOIN THE CREW
+            </p>
+            <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', lineHeight: 1.6, marginTop: '0.35rem', maxWidth: '520px' }}>
+              Average tenure: 8 years. Zero sub-subcontractors. If you know concrete and want steady work on Maui with one crew that stays together, call Eric directly.
+            </p>
+          </div>
+          <a
+            href="tel:+18082813018"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              textDecoration: 'none',
+              padding: '0.75rem 1.5rem',
+              border: '1px solid var(--color-brass)',
+              flexShrink: 0,
+              transition: 'background-color 200ms ease, color 200ms ease',
+            }}
+            className="btn-outline"
+          >
+            <Phone size={14} />
+            (808) 281-3018
+          </a>
         </div>
       </section>
 

@@ -39,6 +39,20 @@ export default function Footer() {
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '260px' }}>
             Wailuku-based concrete contractor. Foundations, driveways, retaining walls, and decorative work across Maui. Hawaii License C-27903.
           </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.7rem',
+              fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              marginTop: '0.75rem',
+              opacity: 0.7,
+            }}
+          >
+            Form. Pour. Finish.&trade;
+          </p>
         </div>
 
         {/* Navigation */}
@@ -227,6 +241,46 @@ export default function Footer() {
               </div>
             </li>
           </ul>
+          <div
+            style={{
+              marginTop: '1.25rem',
+              paddingTop: '1rem',
+              borderTop: '1px solid var(--color-steel-light)',
+            }}
+          >
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.6rem',
+                fontWeight: 600,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brass)',
+                marginBottom: '0.5rem',
+              }}
+            >
+              Office Hours
+            </p>
+            <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.7 }}>
+              Mon–Fri: 6:30 AM – 4:30 PM<br />
+              Sat: By appointment<br />
+              Sun: Closed
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.55rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+                opacity: 0.5,
+                marginTop: '0.5rem',
+              }}
+            >
+              Site visits by appointment · Owner on all estimates
+            </p>
+          </div>
         </div>
       </div>
 
