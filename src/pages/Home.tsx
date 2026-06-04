@@ -377,7 +377,7 @@ export default function Home() {
               marginBottom: '0.75rem',
             }}
           >
-            Our Purpose
+            The Elite Standard
           </p>
           <p
             style={{
@@ -1327,6 +1327,9 @@ export default function Home() {
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
                 <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>0</span> OSHA recordables
               </span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
+                <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>4,340</span> avg 28-day PSI break
+              </span>
             </div>
           </div>
           <a
@@ -2146,7 +2149,7 @@ export default function Home() {
                 68% COME BACK. <span style={{ fontWeight: 400 }}>THE REST</span> REFER.
               </h2>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem' }}>
-                Building relationships across Maui since 2014. Real projects, real outcomes.
+                Every project on this page started with a phone call from someone like you.
               </p>
             </div>
             <a
@@ -2329,7 +2332,7 @@ export default function Home() {
               JOIN THE CREW
             </p>
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', lineHeight: 1.6, marginTop: '0.35rem', maxWidth: '520px' }}>
-              Average tenure: 8 years. Zero sub-subcontractors. If you know concrete and want steady work on Maui with one crew that stays together, call Eric directly.
+              Concrete is a crew sport. Average tenure here is 8 years. Zero sub-subcontractors. If you know your way around forms and finishes and want steady work on Maui with one crew that stays together, call Eric directly.
             </p>
           </div>
           <a
@@ -2682,10 +2685,7 @@ export default function Home() {
           border-left-color: var(--color-brass) !important;
           background-color: rgba(255, 255, 255, 0.02);
         }
-        .cta-stat-box:hover {
-          border-top-color: var(--color-brass) !important;
-          transform: translateY(-2px);
-        }
+        /* cta-stat-box: no hover lift — non-interactive element, false affordance removed */
         .recent-work-card:hover {
           transform: translateY(-4px);
           box-shadow: 0 8px 24px rgba(0,0,0,0.3), inset 0 3px 0 var(--color-brass);
@@ -2697,9 +2697,7 @@ export default function Home() {
         .featured-project-img:hover img {
           transform: scale(1.05);
         }
-        .milestone-item:hover {
-          background-color: rgba(196, 160, 60, 0.04);
-        }
+        /* milestone-item: detail reveal kept, but no background hover — non-interactive */
         .milestone-item:hover .milestone-detail {
           opacity: 0.7 !important;
           max-height: 40px !important;
