@@ -85,7 +85,15 @@ const testimonials = [
   },
 ]
 
+/* Maui County zip codes (96708–96793) */
+const MAUI_ZIPS = new Set([
+  '96708','96713','96729','96732','96733','96753','96761','96763',
+  '96767','96768','96770','96779','96784','96788','96790','96793',
+])
+
 export default function Home() {
+  const [zipValue, setZipValue] = useState('')
+  const [zipResult, setZipResult] = useState<'idle' | 'yes' | 'no'>('idle')
   return (
     <main>
       {/* ── Hero ──────────────────────────────────────────────────────── */}
@@ -185,6 +193,19 @@ export default function Home() {
                   BBB A+
                 </span>
               </a>
+              <span
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '0.4rem',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  border: '1px solid var(--color-steel-light)',
+                  padding: '0.4rem 0.9rem',
+                }}
+              >
+                <ShieldCheck size={13} style={{ color: 'var(--color-brass)' }} />
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', color: 'var(--color-warm-gray)' }}>
+                  5-YR WARRANTY
+                </span>
+              </span>
             </div>
 
             {/* Service quick-jump */}
@@ -229,12 +250,12 @@ export default function Home() {
                 }}
               >
                 <option value="" disabled>Select a service...</option>
-                <option value="/services#foundations">Foundation Work</option>
-                <option value="/services#driveways">Driveway / Parking</option>
-                <option value="/services#retaining-walls">Retaining Wall</option>
-                <option value="/services#decorative">Decorative Concrete</option>
-                <option value="/services#commercial">Commercial Slab</option>
-                <option value="/services#sawing">Concrete Sawing</option>
+                <option value="/services#foundations">Foundation — Stem Wall / Grade Beam / Slab-on-Grade</option>
+                <option value="/services#driveways">Driveway — Broom Finish / Exposed Aggregate / Stamped</option>
+                <option value="/services#retaining-walls">Retaining Wall — Gravity / Poured / Hillside</option>
+                <option value="/services#decorative">Decorative — Stamped / Stained / Polished</option>
+                <option value="/services#commercial">Commercial — Warehouse / Loading Dock / Retail Pad</option>
+                <option value="/services#sawing">Sawing — Control Joints / Utility Openings / Slab Removal</option>
               </select>
             </div>
 
@@ -510,11 +531,11 @@ export default function Home() {
           }}
         >
           {[
-            { label: 'Hawaii License C-27903', detail: 'Renewed Feb 2025 · Active through Feb 2027' },
-            { label: 'ACI Concrete Practices', detail: 'Member since 2016' },
-            { label: 'BBB A+ Accredited', detail: 'A+ since 2022 · Zero complaints' },
-            { label: '$2M General Liability', detail: 'Policy EXP Dec 2026 · Full Workers Comp' },
-            { label: '2024 MCA Safety Recognition', detail: 'Maui Contractors Assoc. · Awarded Nov 2024' },
+            { label: 'Hawaii License C-27903', detail: 'Renewed Feb 2025 · Active through Feb 2027', icon: 'shield' as const },
+            { label: 'ACI Concrete Practices', detail: 'Member since 2016', icon: 'award' as const },
+            { label: 'BBB A+ Accredited', detail: 'A+ since 2022 · Zero complaints', icon: 'award' as const },
+            { label: '$2M General Liability', detail: 'Policy EXP Dec 2026 · Full Workers Comp', icon: 'shield' as const },
+            { label: '2024 MCA Safety Recognition', detail: 'Maui Contractors Assoc. · Awarded Nov 2024', icon: 'star' as const },
           ].map((a) => (
             <div
               key={a.label}
@@ -530,6 +551,19 @@ export default function Home() {
                 transition: 'transform 200ms ease, border-bottom-color 200ms ease, background-color 200ms ease',
               }}
             >
+              <div style={{
+                width: '28px',
+                height: '28px',
+                backgroundColor: 'var(--color-brass)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}>
+                {a.icon === 'shield' && <ShieldCheck size={14} style={{ color: 'var(--color-steel-deep)' }} />}
+                {a.icon === 'award' && <Award size={14} style={{ color: 'var(--color-steel-deep)' }} />}
+                {a.icon === 'star' && <Star size={14} fill="var(--color-steel-deep)" style={{ color: 'var(--color-steel-deep)' }} />}
+              </div>
               <div>
                 <span
                   style={{
@@ -783,10 +817,10 @@ export default function Home() {
           }}
         >
           {[
-            { type: 'Homeowners', count: 274, note: 'Driveways, foundations, lanais' },
-            { type: 'General Contractors', count: 118, note: 'Sub work, commercial pours' },
-            { type: 'Property Managers', count: 62, note: 'Rental repairs, resurfacing' },
-            { type: 'HOAs & Community', count: 33, note: 'Sidewalks, common areas, ADA' },
+            { type: 'Homeowners', count: 274, note: 'Driveways, foundations, lanais', examples: ['Kehalani Residence — 2,400 SF foundation', 'Hale Makawao — 380 SF stamped lanai'] },
+            { type: 'General Contractors', count: 118, note: 'Sub work, commercial pours', examples: ['Kahului Industrial Park — 3,200 SF slab', 'Wailea Resort retaining walls — 240 LF'] },
+            { type: 'Property Managers', count: 62, note: 'Rental repairs, resurfacing', examples: ['Kihei condo resurfacing — 1,800 SF', 'Wailuku rental ADA ramp replacement'] },
+            { type: 'HOAs & Community', count: 33, note: 'Sidewalks, common areas, ADA', examples: ['Wailuku Elementary — 340 LF sidewalk', 'Habitat for Humanity — 2 driveways pro-bono'] },
           ].map((client) => (
             <div
               key={client.type}
@@ -833,6 +867,23 @@ export default function Home() {
               >
                 {client.note}
               </p>
+              {'examples' in client && (
+                <div style={{ marginTop: '0.6rem', paddingTop: '0.5rem', borderTop: '1px solid var(--color-steel-light)' }}>
+                  {(client as any).examples.map((ex: string, i: number) => (
+                    <p key={i} style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.5rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.06em',
+                      color: 'var(--color-warm-gray)',
+                      opacity: 0.45,
+                      lineHeight: 1.8,
+                    }}>
+                      {ex}
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -1033,9 +1084,9 @@ export default function Home() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
-                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Wailuku clay compacts differently than Haiku loam or Kihei coral fill. Compaction tested to 95% modified Proctor.', timeline: 'Same-day visit, written report within 48 hours' },
-                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for pour-day conditions at your specific site. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului.', timeline: 'Quote delivered within 36 hours of site visit' },
-                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting. Lahaina to Hana, one team shows up.', timeline: 'Most residential pours scheduled within 2 weeks' },
+                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Wailuku clay compacts differently than Haiku loam or Kihei coral fill. Compaction tested to 95% modified Proctor.', timeline: 'Same-day visit, written report within 48 hours', evidence: 'Kehalani Residence: soil test revealed expansive clay at 18". Redesigned footing width from 12" to 16" before mobilization.' },
+                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for pour-day conditions at your specific site. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului. Formed with Symons steel-ply. Curing compound supplied by W.R. Meadows.', timeline: 'Quote delivered within 36 hours of site visit' },
+                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting. Lahaina to Hana, one team shows up.', timeline: 'Most residential pours scheduled within 2 weeks', evidence: 'Iao Valley retaining wall: same 4-man crew from site visit through final backfill. 68 LF completed in 9 working days.' },
                 { num: '04', title: 'Licensed & Insured', desc: 'Hawaii Contractor License C-27903. $2M general liability. Full workers comp on every project.', timeline: 'COI delivered before mobilization' },
               ].map((step) => (
                 <div
@@ -1082,6 +1133,20 @@ export default function Home() {
                         {step.timeline}
                       </p>
                     )}
+                    {'evidence' in step && (
+                      <p style={{
+                        fontSize: '0.75rem',
+                        fontStyle: 'italic',
+                        color: 'var(--color-warm-gray)',
+                        opacity: 0.6,
+                        marginTop: '0.5rem',
+                        lineHeight: 1.5,
+                        borderLeft: '2px solid var(--color-brass)',
+                        paddingLeft: '0.75rem',
+                      }}>
+                        {(step as any).evidence}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -1116,6 +1181,89 @@ export default function Home() {
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.75rem', lineHeight: 1.6, marginBottom: '2rem', opacity: 0.6 }}>
                 Maui soil conditions, drainage, and access vary by lot. Published pricing would either overcharge simple jobs or underquote complex ones. Every quote is site-specific.
               </p>
+              {/* Zip-code area check — micro-commitment before CTA */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label
+                  htmlFor="zip-check"
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    display: 'block',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Check if we serve your area
+                </label>
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <input
+                    id="zip-check"
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={5}
+                    placeholder="Zip code"
+                    value={zipValue}
+                    onChange={(e) => {
+                      const v = e.target.value.replace(/\D/g, '').slice(0, 5)
+                      setZipValue(v)
+                      if (v.length < 5) setZipResult('idle')
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && zipValue.length === 5) {
+                        setZipResult(MAUI_ZIPS.has(zipValue) ? 'yes' : 'no')
+                      }
+                    }}
+                    style={{
+                      flex: 1,
+                      padding: '0.5rem 0.75rem',
+                      border: '1px solid var(--color-steel-light)',
+                      backgroundColor: 'var(--color-steel-deep)',
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      color: 'var(--color-off-white)',
+                      letterSpacing: '0.1em',
+                      outline: 'none',
+                    }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (zipValue.length === 5) {
+                        setZipResult(MAUI_ZIPS.has(zipValue) ? 'yes' : 'no')
+                      }
+                    }}
+                    style={{
+                      padding: '0.5rem 1rem',
+                      backgroundColor: 'var(--color-brass)',
+                      color: 'var(--color-steel-deep)',
+                      border: 'none',
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.65rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Check
+                  </button>
+                </div>
+                {zipResult === 'yes' && (
+                  <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#4ade80', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
+                    We serve your area. Request your free estimate below.
+                  </p>
+                )}
+                {zipResult === 'no' && (
+                  <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: 'var(--color-brass)', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
+                    We currently serve Maui County only. Call us to discuss your project.
+                  </p>
+                )}
+              </div>
+
               <Link to="/contact" className="btn-brass" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem' }}>
                 Get Your Free Estimate
               </Link>
@@ -1206,7 +1354,21 @@ export default function Home() {
                 textTransform: 'uppercase',
                 color: 'var(--color-warm-gray)',
               }}>
-                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>July-August 2026</span> <span style={{ opacity: 0.5, fontSize: '0.5rem' }}>Updated May 30</span>
+                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>July-August 2026</span>
+              </span>
+              <span style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.5rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+                opacity: 0.5,
+                display: 'block',
+                marginTop: '0.25rem',
+                paddingLeft: '1.1rem',
+              }}>
+                Updated June 4, 2026
               </span>
             </div>
 
@@ -1350,6 +1512,58 @@ export default function Home() {
             <Phone size={15} />
             (808) 281-3018
           </a>
+        </div>
+      </section>
+
+      {/* ── Response-Time Guarantee Strip ──────────────────────────────── */}
+      <section
+        aria-label="Response time guarantee"
+        style={{
+          backgroundColor: 'var(--color-brass)',
+          padding: '1rem 1.5rem',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '3rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          {[
+            { label: 'Same-Day Site Visits', detail: 'Call before noon, we walk the lot that afternoon' },
+            { label: 'Quote in 36 Hours', detail: 'Written scope, not a ballpark' },
+            { label: 'Owner Answers the Phone', detail: 'No call center, no scheduler' },
+          ].map((g) => (
+            <div key={g.label} style={{ textAlign: 'center' }}>
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.7rem',
+                fontWeight: 700,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--color-steel-deep)',
+                lineHeight: 1.2,
+              }}>
+                {g.label}
+              </p>
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.5rem',
+                fontWeight: 600,
+                letterSpacing: '0.08em',
+                color: 'var(--color-steel-deep)',
+                opacity: 0.6,
+                marginTop: '0.15rem',
+              }}>
+                {g.detail}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -2152,31 +2366,60 @@ export default function Home() {
                 Every project on this page started with a phone call from someone like you.
               </p>
             </div>
-            <a
-              href="https://maps.google.com/?cid=4007577259043496869"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.6rem',
-                backgroundColor: 'var(--color-steel-mid)',
-                border: '1px solid var(--color-steel-light)',
-                padding: '0.65rem 1.25rem',
-                textDecoration: 'none',
-                flexShrink: 0,
-              }}
-            >
-              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#4285F4' }}>G</span>
-              <span style={{ color: '#FFC107' }}>★★★★★</span>
-              <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
-                5.0 from 31 Reviews
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', flexShrink: 0 }}>
+              <a
+                href="https://maps.google.com/?cid=4007577259043496869"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  border: '1px solid var(--color-steel-light)',
+                  padding: '0.65rem 1.25rem',
+                  textDecoration: 'none',
+                }}
+              >
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#4285F4' }}>G</span>
+                <span style={{ color: '#FFC107' }}>★★★★★</span>
+                <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
+                  5.0 from 31 Reviews
+                </span>
+                <ArrowRight size={12} className="reviews-arrow" style={{ color: 'var(--color-warm-gray)', opacity: 0.4, transition: 'transform 200ms ease, opacity 200ms ease' }} />
+              </a>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  border: '1px solid var(--color-steel-light)',
+                  padding: '0.65rem 1rem',
+                }}
+              >
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#D32323' }}>Y</span>
+                <span style={{ color: '#FFC107' }}>★★★★★</span>
+                <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.75rem', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
+                  5.0 · Yelp
+                </span>
               </span>
-              <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.55rem', fontFamily: 'var(--font-display)', fontWeight: 600, letterSpacing: '0.08em', opacity: 0.5 }}>
-                Verified May 2026
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  border: '1px solid var(--color-steel-light)',
+                  padding: '0.65rem 1rem',
+                }}
+              >
+                <Award size={13} style={{ color: '#0060DF' }} />
+                <span style={{ color: 'var(--color-warm-gray)', fontSize: '0.75rem', fontFamily: 'var(--font-display)', fontWeight: 600 }}>
+                  A+ BBB
+                </span>
               </span>
-              <ArrowRight size={12} className="reviews-arrow" style={{ color: 'var(--color-warm-gray)', opacity: 0.4, transition: 'transform 200ms ease, opacity 200ms ease' }} />
-            </a>
+            </div>
           </div>
 
           <div
