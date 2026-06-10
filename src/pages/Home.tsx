@@ -150,7 +150,7 @@ export default function Home() {
                 marginBottom: '2rem',
               }}
             >
-              487 projects. One crew, one owner, every soil type this island throws at a foundation. We pour from Wailuku to Wailea, Kahului to Kula. Foundations, driveways, retaining walls, decorative finishes, and precision saw-cutting. Licensed C-27903. BBB A+. Every mix engineered for volcanic clay and salt air.
+              What needs concrete? A driveway that outlasts Maui rain. A foundation that holds on volcanic clay. A retaining wall that stays put through storm season. 487 projects poured across this island, one crew, one owner. Licensed C-27903. BBB A+. Every mix engineered for the soil under your lot.
             </p>
 
             {/* Credential badges */}
@@ -594,6 +594,79 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Quality Standards Strip ──────────────────────────────────── */}
+      <section
+        aria-label="Quality standards"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '1.5rem 1.5rem',
+          borderBottom: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.55rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+              textAlign: 'center',
+              marginBottom: '1rem',
+            }}
+          >
+            Engineering Standards on Every Pour
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '2rem',
+              flexWrap: 'wrap',
+            }}
+          >
+            {[
+              { spec: '4,000 PSI', label: 'Minimum residential mix' },
+              { spec: '#4 @ 12" O.C.', label: 'Standard rebar spacing' },
+              { spec: '95%', label: 'Modified Proctor compaction' },
+              { spec: '0.45 W/C', label: 'Max water-cement ratio' },
+              { spec: '3" min', label: 'Rebar cover for salt air' },
+            ].map((s) => (
+              <div key={s.spec} style={{ textAlign: 'center' }}>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  color: 'var(--color-brass)',
+                  lineHeight: 1,
+                  marginBottom: '0.2rem',
+                }}>
+                  {s.spec}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.5rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.6,
+                }}>
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1368,7 +1441,7 @@ export default function Home() {
                 marginTop: '0.25rem',
                 paddingLeft: '1.1rem',
               }}>
-                Updated June 4, 2026
+                Updated June 10, 2026
               </span>
             </div>
 
@@ -1698,10 +1771,10 @@ export default function Home() {
               lineHeight: 1.1,
             }}
           >
-            COMMUNITY WORK
+            WE POUR. WE TEACH. WE GIVE BACK.
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', marginTop: '0.5rem' }}>
-            $18,200 in donated concrete work since 2022.
+            $18,200 in donated concrete work since 2022. Three community partnerships and counting.
           </p>
         </div>
         <div
@@ -2010,10 +2083,10 @@ export default function Home() {
             className="region-grid"
           >
             {[
-              { region: 'Central Maui', count: 218, towns: ['Wailuku', 'Kahului', 'Sprecklesville'] },
-              { region: 'South Maui', count: 147, towns: ['Kihei', 'Wailea', 'Makena'] },
-              { region: 'West Maui', count: 64, towns: ['Lahaina', 'Napili', 'Kapalua'] },
-              { region: 'Upcountry', count: 58, towns: ['Makawao', 'Haiku', 'Paia', 'Pukalani', 'Kula'] },
+              { region: 'Central Maui', count: 218, towns: ['Wailuku', 'Kahului', 'Sprecklesville'], active: '2 jobs active now' },
+              { region: 'South Maui', count: 147, towns: ['Kihei', 'Wailea', 'Makena'], active: '1 job in progress' },
+              { region: 'West Maui', count: 64, towns: ['Lahaina', 'Napili', 'Kapalua'], active: 'Scheduling Q3' },
+              { region: 'Upcountry', count: 58, towns: ['Makawao', 'Haiku', 'Paia', 'Pukalani', 'Kula'], active: '1 job active now' },
             ].map((r) => (
               <div
                 key={r.region}
@@ -2052,6 +2125,30 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+                {'active' in r && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.6rem' }}>
+                    <span
+                      style={{
+                        width: '6px',
+                        height: '6px',
+                        backgroundColor: r.active.includes('active') || r.active.includes('progress') ? '#4ade80' : 'var(--color-brass)',
+                        display: 'inline-block',
+                        flexShrink: 0,
+                      }}
+                    />
+                    <span style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.5rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-warm-gray)',
+                      opacity: 0.7,
+                    }}>
+                      {r.active}
+                    </span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -2083,11 +2180,11 @@ export default function Home() {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {[
-              { date: 'Apr 14, 2025', job: 'Completed driveway tear-out and replacement, Kehalani', sqft: '1,800 sq ft' },
-              { date: 'Mar 3, 2025', job: 'Stamped lanai pour, Wailea Ekolu Village', sqft: '640 sq ft' },
-              { date: 'Feb 18, 2025', job: '120 ft retaining wall, Iao Valley hillside', sqft: '120 linear ft' },
-              { date: 'Jan 6, 2025', job: 'Commercial slab, Kahului industrial park', sqft: '3,200 sq ft' },
-              { date: 'Dec 11, 2024', job: '[Confidential] Resort pool deck and service corridor, South Maui (GC-direct, NDA)', sqft: '4,800 sq ft' },
+              { date: 'Jun 2, 2025', job: 'ADU foundation pour, Sprecklesville. 4,200 PSI mix, 4-man crew, completed in 3 days.', sqft: '1,260 sq ft' },
+              { date: 'Apr 14, 2025', job: 'Driveway tear-out and replacement, Kehalani. Broom finish, 95% compaction verified.', sqft: '1,800 sq ft' },
+              { date: 'Mar 3, 2025', job: 'Stamped lanai pour, Wailea Ekolu Village. Ashlar slate pattern, W.R. Meadows cure.', sqft: '640 sq ft' },
+              { date: 'Feb 18, 2025', job: '120 ft retaining wall, Iao Valley hillside. Drainage core installed, 18-degree slope.', sqft: '120 linear ft' },
+              { date: 'Jan 6, 2025', job: 'Commercial slab, Kahului industrial park. Floor flatness FF35/FL25, joints cut at 22 hrs.', sqft: '3,200 sq ft' },
             ].map((entry, i) => (
               <div
                 key={entry.date}
