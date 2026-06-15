@@ -42,12 +42,26 @@ export default function Footer() {
           <p
             style={{
               fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              marginTop: '0.75rem',
+              opacity: 0.5,
+            }}
+          >
+            Est. 2014 &middot; Wailuku, Maui
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
               fontSize: '0.7rem',
               fontWeight: 700,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               color: 'var(--color-brass)',
-              marginTop: '0.75rem',
+              marginTop: '0.4rem',
               opacity: 0.7,
             }}
           >

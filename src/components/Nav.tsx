@@ -3,11 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Phone } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Services', to: '/services' },
-  { label: 'Gallery', to: '/gallery' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Home', to: '/', desc: 'Overview, credentials, testimonials' },
+  { label: 'About', to: '/about', desc: 'Eric Cantrell, crew, Maui roots' },
+  { label: 'Services', to: '/services', desc: 'Foundations, driveways, walls, decorative, sawing' },
+  { label: 'Gallery', to: '/gallery', desc: '487 projects across Maui' },
+  { label: 'Contact', to: '/contact', desc: 'Free estimate, owner answers' },
 ]
 
 export default function Nav() {
@@ -180,20 +180,36 @@ export default function Nav() {
                   to={link.to}
                   style={{
                     display: 'block',
+                    textDecoration: 'none',
+                    padding: '1rem 0',
+                    borderBottom: '1px solid var(--color-steel-light)',
+                  }}
+                >
+                  <span style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: '1rem',
                     fontWeight: 700,
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
-                    textDecoration: 'none',
                     color: location.pathname === link.to
                       ? 'var(--color-brass)'
                       : 'var(--color-warm-gray)',
-                    padding: '1rem 0',
-                    borderBottom: '1px solid var(--color-steel-light)',
-                  }}
-                >
-                  {link.label}
+                    display: 'block',
+                  }}>
+                    {link.label}
+                  </span>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.55rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.5,
+                    display: 'block',
+                    marginTop: '0.2rem',
+                  }}>
+                    {link.desc}
+                  </span>
                 </Link>
               </li>
             ))}

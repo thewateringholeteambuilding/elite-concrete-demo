@@ -123,8 +123,22 @@ export default function Home() {
         >
           {/* Left col, copy */}
           <div>
-            <p className="iron-label" style={{ marginBottom: '1.5rem' }}>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>
               Licensed Concrete Contractor &middot; Wailuku, Maui &middot; Since 2014
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(0.85rem, 0.6rem + 0.8vw, 1.05rem)',
+                fontWeight: 700,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+                marginBottom: '1rem',
+                opacity: 0.6,
+              }}
+            >
+              Foundations. Driveways. Walls.
             </p>
             <h1
               id="hero-heading"
@@ -141,17 +155,25 @@ export default function Home() {
               MAUI CONCRETE,<br />
               <span style={{ color: 'var(--color-brass)' }}>DONE SOLID.</span>
             </h1>
-            <p
+            <div
               style={{
-                fontSize: '1.05rem',
-                lineHeight: 1.75,
-                color: 'var(--color-warm-gray)',
                 maxWidth: '480px',
                 marginBottom: '2rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.6rem',
               }}
             >
-              What needs concrete? A driveway that outlasts Maui rain. A foundation that holds on volcanic clay. A retaining wall that stays put through storm season. 487 projects poured across this island, one crew, one owner. Licensed C-27903. BBB A+. Every mix engineered for the soil under your lot.
-            </p>
+              <p style={{ fontSize: '1.05rem', lineHeight: 1.75, color: 'var(--color-warm-gray)' }}>
+                What needs concrete?
+              </p>
+              <p style={{ fontSize: '1.05rem', lineHeight: 1.75, color: 'var(--color-warm-gray)' }}>
+                A driveway that outlasts Maui rain. A foundation that holds on volcanic clay. A retaining wall that stays put through storm season.
+              </p>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: 'var(--color-warm-gray)', opacity: 0.8 }}>
+                487 projects poured across this island. One crew, one owner. Licensed C-27903. BBB A+. Every mix engineered for the soil under your lot.
+              </p>
+            </div>
 
             {/* Credential badges */}
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
@@ -444,7 +466,7 @@ export default function Home() {
               marginBottom: '1.5rem',
             }}
           >
-            The Numbers Behind 11 Years on Maui
+            One Crew. 487 Pours. Every Number Earned.
           </p>
         </div>
         <div
