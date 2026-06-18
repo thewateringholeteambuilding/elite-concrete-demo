@@ -21,36 +21,42 @@ const services = [
     title: 'Concrete Foundations',
     desc: 'Stem walls, grade beams, and slab-on-grade poured to Hawaii State seismic code. Red volcanic soil documented and drainage verified before any form goes up.',
     ideal: 'Homeowners adding square footage, new builds, ADU projects',
+    typicalSize: 'Typical: 1,200–4,200 SF',
     img: 'https://images.unsplash.com/photo-1616179058441-37aa58affac8?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Driveways & Parking',
     desc: 'Broom-finish, exposed aggregate, or stamped. Sub-base compacted to spec. Drainage slopes away from structure. Built for Maui rain events, not mainland averages.',
     ideal: 'Residential replacements, new construction, rental properties',
+    typicalSize: 'Typical: 400–1,800 SF',
     img: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Retaining Walls',
     desc: 'Gravity and poured-wall systems engineered for Wailuku hillsides and Iao Valley slopes. Drainage core standard on every job.',
     ideal: 'Hillside lots, erosion control, tiered landscaping',
+    typicalSize: 'Typical: 40–120 LF',
     img: 'https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Decorative Concrete',
     desc: 'Stamped, stained, and polished finishes for lanais, pool decks, and commercial lobbies. Pattern and color matched to your design before the pour.',
     ideal: 'Vacation rentals, restaurant patios, residential upgrades',
+    typicalSize: 'Typical: 200–640 SF',
     img: 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Commercial Slabs',
     desc: 'Warehouse floors, loading docks, and retail pads. Floor flatness specs documented. Joints cut at 24 hours. Re-temp protection on high-heat Maui afternoons.',
     ideal: 'Warehouses, retail build-outs, loading facilities',
+    typicalSize: 'Typical: 2,000–5,400 SF',
     img: 'https://images.unsplash.com/photo-1517011453931-c30f571a4fab?auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Concrete Sawing',
     desc: 'Precision saw-cutting for control joints, utility openings, and slab removal. Dust and slurry managed on-site. Available for contractor and owner-direct projects.',
     ideal: 'GCs needing sub work, utility installs, slab demolition',
+    typicalSize: 'Typical: 50–300 LF of cuts',
     img: 'https://images.unsplash.com/photo-1514514188727-ff38e839635e?auto=format&fit=crop&w=800&q=80',
   },
 ]
@@ -168,7 +174,7 @@ export default function Home() {
                 What needs concrete?
               </p>
               <p style={{ fontSize: '1.05rem', lineHeight: 1.75, color: 'var(--color-warm-gray)' }}>
-                A driveway that outlasts Maui rain. A foundation that holds on volcanic clay. A retaining wall that stays put through storm season.
+                Your driveway takes Maui rain 300 days a year. Your foundation sits on volcanic clay that swells when it's wet and cracks when it dries. Retaining walls on this island hold hillsides, not just soil.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: 'var(--color-warm-gray)', opacity: 0.8 }}>
                 487 projects poured across this island. One crew, one owner. Licensed C-27903. BBB A+. Every mix engineered for the soil under your lot.
@@ -1050,6 +1056,9 @@ export default function Home() {
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-brass)', marginTop: '0.75rem' }}>
                   Ideal for: <span style={{ color: 'var(--color-warm-gray)' }}>{services[0].ideal}</span>
                 </p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-warm-gray)', opacity: 0.5, marginTop: '0.3rem' }}>
+                  {services[0].typicalSize}
+                </p>
               </div>
             </div>
 
@@ -1398,8 +1407,21 @@ export default function Home() {
                 )}
               </div>
 
-              <Link to="/contact" className="btn-brass" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem' }}>
+              <Link to="/contact" className="btn-brass" style={{ display: 'block', textAlign: 'center', marginBottom: '0.75rem' }}>
                 Get Your Free Estimate
+              </Link>
+              <Link
+                to="/contact"
+                className="btn-outline"
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  marginBottom: '1rem',
+                  fontSize: '0.75rem',
+                  padding: '0.6rem 1.25rem',
+                }}
+              >
+                Send Project Photos for Faster Assessment
               </Link>
               <a
                 href="tel:+18082813018"
@@ -1762,6 +1784,90 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 3 Steps to Start ─────────────────────────────────────────────── */}
+      <section
+        aria-label="How to get started"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '2.5rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+              marginBottom: '1.5rem',
+            }}
+          >
+            Ready? Three steps.
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '1.5rem',
+            }}
+            className="steps-to-start"
+          >
+            {[
+              { num: '1', action: 'Call or Submit', detail: '(808) 281-3018 or the contact form. Describe the job in plain language.', time: '2 minutes' },
+              { num: '2', action: 'Site Walk', detail: 'Eric walks your lot, tests soil conditions, photographs the scope. Same day if you call before noon.', time: 'Same day' },
+              { num: '3', action: 'Written Quote', detail: 'Itemized scope, timeline, and price. No verbal ballparks. Delivered to your inbox.', time: '36 hours' },
+            ].map((s) => (
+              <div key={s.num} style={{ textAlign: 'center' }}>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '2rem',
+                  fontWeight: 700,
+                  color: 'var(--color-brass)',
+                  lineHeight: 1,
+                  marginBottom: '0.5rem',
+                }}>
+                  {s.num}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-off-white)',
+                  marginBottom: '0.4rem',
+                }}>
+                  {s.action}
+                </p>
+                <p style={{
+                  color: 'var(--color-warm-gray)',
+                  fontSize: '0.8rem',
+                  lineHeight: 1.55,
+                  marginBottom: '0.4rem',
+                }}>
+                  {s.detail}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.55rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-brass)',
+                  opacity: 0.7,
+                }}>
+                  {s.time}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Milestones Strip ─────────────────────────────────────────────── */}
       <section
         aria-label="Company milestones"
@@ -2009,6 +2115,8 @@ export default function Home() {
                 { value: '3', unit: 'ADUs' },
                 { value: '14', unit: 'Days' },
                 { value: '18\u00B0', unit: 'Slope' },
+                { value: '4', unit: 'Man Crew' },
+                { value: '4,200', unit: 'PSI Mix' },
               ].map((metric) => (
                 <div key={metric.unit}>
                   <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--color-brass)', lineHeight: 1 }}>
@@ -3264,6 +3372,7 @@ interface ServiceItem {
   title: string
   desc: string
   ideal: string
+  typicalSize: string
   img: string
 }
 
@@ -3304,6 +3413,9 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         </p>
         <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-brass)', marginTop: '0.5rem' }}>
           Ideal for: <span style={{ color: 'var(--color-warm-gray)' }}>{service.ideal}</span>
+        </p>
+        <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.5rem', fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-warm-gray)', opacity: 0.5, marginTop: '0.3rem' }}>
+          {service.typicalSize}
         </p>
       </div>
     </div>
