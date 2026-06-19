@@ -134,6 +134,9 @@ p {
   .featured-project-grid { grid-template-columns: 1fr !important; }
 }
 
+/* ── Source verification links ─────────────────────────────────────────── */
+.source-link:hover { opacity: 0.7 !important; }
+
 /* ── Scrollbar ──────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-steel-deep); }

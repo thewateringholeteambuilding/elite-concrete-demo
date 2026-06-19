@@ -1321,8 +1321,21 @@ export default function Home() {
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '1rem' }}>
                 Driveway, foundation, retaining wall, lanai, or commercial slab. Tell us the job and we'll quote it within 36 hours. Owner answers the phone.
               </p>
-              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.75rem', lineHeight: 1.6, marginBottom: '2rem', opacity: 0.6 }}>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.75rem', lineHeight: 1.6, marginBottom: '1rem', opacity: 0.6 }}>
                 Maui soil conditions, drainage, and access vary by lot. Published pricing would either overcharge simple jobs or underquote complex ones. Every quote is site-specific.
+              </p>
+              <p style={{
+                fontSize: '0.65rem',
+                fontFamily: 'var(--font-display)',
+                fontWeight: 600,
+                letterSpacing: '0.08em',
+                color: 'var(--color-brass)',
+                marginBottom: '2rem',
+                padding: '0.5rem 0.75rem',
+                border: '1px solid rgba(196, 160, 60, 0.2)',
+                backgroundColor: 'rgba(196, 160, 60, 0.04)',
+              }}>
+                Payment plans available on jobs over $5,000. 50/30/20 schedule standard. No finance charges for returning clients.
               </p>
               {/* Zip-code area check — micro-commitment before CTA */}
               <div style={{ marginBottom: '1.5rem' }}>
@@ -1528,6 +1541,37 @@ export default function Home() {
               </span>
             </div>
 
+            {/* Before you call checklist */}
+            <div
+              style={{
+                marginTop: '1rem',
+                padding: '1rem',
+                borderTop: '1px solid var(--color-steel-light)',
+              }}
+            >
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.6, marginBottom: '0.6rem' }}>
+                Before You Call — Have These Ready
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                {[
+                  'Photos of the area (phone photos are fine)',
+                  'Approximate square footage or dimensions',
+                  'Property survey or TMK if available',
+                  'Your timeline preference (flexible helps scheduling)',
+                ].map((item) => (
+                  <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'baseline' }}>
+                    <span style={{ color: 'var(--color-brass)', fontSize: '0.5rem', flexShrink: 0 }}>✓</span>
+                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 500, color: 'var(--color-warm-gray)', opacity: 0.7, lineHeight: 1.5 }}>
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.5rem', fontWeight: 600, letterSpacing: '0.06em', color: 'var(--color-warm-gray)', opacity: 0.4, marginTop: '0.5rem' }}>
+                Don't have all of these? Call anyway. We'll figure it out on the site walk.
+              </p>
+            </div>
+
             {/* Delivery methods */}
             <div
               style={{
@@ -1668,6 +1712,78 @@ export default function Home() {
             <Phone size={15} />
             (808) 281-3018
           </a>
+        </div>
+      </section>
+
+      {/* ── Materials We Trust ──────────────────────────────────────────── */}
+      <section
+        aria-label="Materials and suppliers"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '1.5rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.55rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.4,
+              textAlign: 'center',
+              marginBottom: '1rem',
+            }}
+          >
+            Materials We Trust
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '1.5rem',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+            }}
+          >
+            {[
+              { name: 'HC&D Kahului', role: 'Batch Plant' },
+              { name: 'Simpson Strong-Tie', role: 'Anchors & Connectors' },
+              { name: 'W.R. Meadows', role: 'Curing & Sealants' },
+              { name: 'Sika', role: 'Admixtures & Repair' },
+              { name: 'Symons', role: 'Steel-Ply Formwork' },
+            ].map((supplier) => (
+              <div key={supplier.name} style={{ textAlign: 'center' }}>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.6,
+                  lineHeight: 1,
+                }}>
+                  {supplier.name}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.45rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.35,
+                  marginTop: '0.15rem',
+                }}>
+                  {supplier.role}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -2828,21 +2944,67 @@ export default function Home() {
                     >
                       {t.detail} · {t.date}
                     </span>
-                    <span
-                      style={{
-                        display: 'block',
-                        fontSize: '0.6rem',
-                        fontFamily: 'var(--font-display)',
-                        fontWeight: 600,
-                        letterSpacing: '0.1em',
-                        textTransform: 'uppercase',
-                        color: 'var(--color-warm-gray)',
-                        opacity: 0.45,
-                        marginTop: '0.4rem',
-                      }}
-                    >
-                      {t.source}
-                    </span>
+                    {t.source === 'via Google Reviews' ? (
+                      <a
+                        href="https://maps.google.com/?cid=4007577259043496869"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'block',
+                          fontSize: '0.6rem',
+                          fontFamily: 'var(--font-display)',
+                          fontWeight: 600,
+                          letterSpacing: '0.1em',
+                          textTransform: 'uppercase',
+                          color: 'var(--color-warm-gray)',
+                          opacity: 0.45,
+                          marginTop: '0.4rem',
+                          textDecoration: 'none',
+                          transition: 'opacity 200ms ease',
+                        }}
+                        className="source-link"
+                      >
+                        {t.source} ↗
+                      </a>
+                    ) : t.source === 'via Yelp' ? (
+                      <a
+                        href="https://www.yelp.com/biz/elite-concrete-llc-wailuku"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'block',
+                          fontSize: '0.6rem',
+                          fontFamily: 'var(--font-display)',
+                          fontWeight: 600,
+                          letterSpacing: '0.1em',
+                          textTransform: 'uppercase',
+                          color: 'var(--color-warm-gray)',
+                          opacity: 0.45,
+                          marginTop: '0.4rem',
+                          textDecoration: 'none',
+                          transition: 'opacity 200ms ease',
+                        }}
+                        className="source-link"
+                      >
+                        {t.source} ↗
+                      </a>
+                    ) : (
+                      <span
+                        style={{
+                          display: 'block',
+                          fontSize: '0.6rem',
+                          fontFamily: 'var(--font-display)',
+                          fontWeight: 600,
+                          letterSpacing: '0.1em',
+                          textTransform: 'uppercase',
+                          color: 'var(--color-warm-gray)',
+                          opacity: 0.45,
+                          marginTop: '0.4rem',
+                        }}
+                      >
+                        {t.source}
+                      </span>
+                    )}
                     {'relationship' in t && (
                       <span
                         style={{
@@ -3091,6 +3253,78 @@ export default function Home() {
             Answered on-site, by phone, and in writing since 2014.
           </p>
           <FAQAccordion />
+        </div>
+      </section>
+
+      {/* ── What We Don't Pour (scope transparency) ────────────────────── */}
+      <section
+        aria-label="Service scope limitations"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '1.5rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.55rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.4,
+              textAlign: 'center',
+              marginBottom: '0.75rem',
+            }}
+          >
+            What We Don't Pour
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '1.25rem',
+              flexWrap: 'wrap',
+            }}
+          >
+            {[
+              'Asphalt or bituminous paving',
+              'CMU / masonry block walls',
+              'Pool shells or gunite',
+              'Epoxy floor coatings',
+              'Structural steel or welding',
+            ].map((item) => (
+              <span
+                key={item}
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.55rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.4,
+                  textTransform: 'uppercase',
+                }}
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.5rem',
+              fontWeight: 500,
+              color: 'var(--color-warm-gray)',
+              opacity: 0.35,
+              textAlign: 'center',
+              marginTop: '0.6rem',
+            }}
+          >
+            We do one thing. Poured concrete. If your project needs any of the above, we can refer you to a trusted Maui specialist.
+          </p>
         </div>
       </section>
 
