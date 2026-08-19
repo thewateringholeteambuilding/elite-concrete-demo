@@ -64,6 +64,7 @@ const services = [
 const testimonials = [
   {
     stars: 5,
+    tag: 'FOUNDATION · WAILUKU',
     quote: 'Elite poured the 1,420 sq ft foundation for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished two days ahead of schedule.',
     name: 'James Kahele, Wailuku',
     detail: '1,420 SF Foundation Addition · Project Manager, Wailuku Heights HOA',
@@ -73,6 +74,7 @@ const testimonials = [
   },
   {
     stars: 5,
+    tag: 'RETAINING WALL · HAIKU',
     quote: 'We had an eroding slope behind our property in Haiku. The initial assessment revealed more drainage complexity than anyone expected. Eric walked the 68 linear feet of hillside with us, adjusted the engineering to a poured-wall system with drainage core, and completed it with no surprise costs. Still holding solid through two storm seasons.',
     name: 'Yoko Tanaka, Haiku',
     detail: '68 LF Retaining Wall · Retired Landscape Architect',
@@ -82,6 +84,7 @@ const testimonials = [
   },
   {
     stars: 5,
+    tag: 'DECORATIVE · MAKAWAO',
     quote: 'Stamped concrete lanai for our rental, 380 sq ft. The color matched our vision on the first mix. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
     name: 'Ben & Sara Medeiros, Makawao',
     detail: '380 SF Decorative Lanai · Vacation Rental Owners, Hale Makawao LLC',
@@ -718,19 +721,27 @@ export default function Home() {
             flexWrap: 'wrap',
           }}
         >
-          <p
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '0.6rem',
-              fontWeight: 600,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'var(--color-warm-gray)',
-              opacity: 0.6,
-            }}
-          >
-            487 Projects by Type
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginRight: 'auto' }}>
+            <span style={{
+              width: '3px',
+              height: '24px',
+              backgroundColor: 'var(--color-brass)',
+              display: 'block',
+              flexShrink: 0,
+            }} />
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: 'var(--color-off-white)',
+              }}
+            >
+              487 Projects by Type
+            </p>
+          </div>
           {[
             { type: 'Residential', count: 312, badge: 'R' },
             { type: 'Commercial', count: 94, badge: 'C' },
@@ -1140,7 +1151,7 @@ export default function Home() {
               letterSpacing: '0.01em',
             }}
           >
-            Every slab is someone's foundation. Every driveway is someone's first impression. Every wall holds someone's hillside. We pour them all the same way.
+            Concrete doesn't forgive shortcuts. The soil under your lot, the salt in Maui's air, the afternoon heat that flash-sets a bad mix — we've solved these problems 487 times. That's why the work holds.
           </p>
           <p
             style={{
@@ -1832,12 +1843,12 @@ export default function Home() {
                 key={partner}
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '0.7rem',
+                  fontSize: '0.8rem',
                   fontWeight: 600,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
                   color: 'var(--color-warm-gray)',
-                  opacity: 0.55,
+                  opacity: 0.75,
                   whiteSpace: 'nowrap',
                 }}
               >
@@ -2019,6 +2030,21 @@ export default function Home() {
               }}
             >
               Pouring on Maui Since 2014
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.45rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+                opacity: 0.35,
+                marginTop: '0.5rem',
+              }}
+              className="hide-mobile"
+            >
+              Hover a year for detail
             </p>
           </div>
           <div
@@ -2883,6 +2909,16 @@ export default function Home() {
                   margin: 0,
                 }}
               >
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.55rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.14em',
+                  color: 'var(--color-brass)',
+                  marginBottom: '0.75rem',
+                }}>
+                  {t.tag}
+                </p>
                 <div style={{ display: 'flex', gap: '2px', marginBottom: '1rem' }}>
                   {Array.from({ length: t.stars }).map((_, i) => (
                     <Star key={i} size={13} fill="#FFC107" color="#FFC107" />
