@@ -1534,7 +1534,7 @@ export default function Home() {
                 textTransform: 'uppercase',
                 color: 'var(--color-warm-gray)',
               }}>
-                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>July-August 2026</span>
+                Now Booking: <span style={{ color: 'var(--color-off-white)', fontWeight: 700 }}>September-October 2026</span>
               </span>
               <span style={{
                 fontFamily: 'var(--font-display)',
@@ -1548,7 +1548,7 @@ export default function Home() {
                 marginTop: '0.25rem',
                 paddingLeft: '1.1rem',
               }}>
-                Updated June 10, 2026
+                Updated August 22, 2026
               </span>
             </div>
 
@@ -2047,76 +2047,107 @@ export default function Home() {
               Hover a year for detail
             </p>
           </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '0',
-              flexWrap: 'wrap',
-            }}
-            className="milestone-strip"
-          >
-            {[
-              { year: '2014', event: 'Founded in Wailuku. First residential pour. 2,400 SF.', detail: '3 projects · $42K revenue · 1 crew member' },
-              { year: '2017', event: '100th project. 18,600 SF cumulative. Added retaining walls.', detail: '38 projects that year · First GC subcontract' },
-              { year: '2019', event: 'First commercial slab. 4,200 SF Kahului industrial.', detail: '$480K revenue · Crew expanded to 4' },
-              { year: '2022', event: 'BBB A+ accreditation. 52,000 SF that year alone.', detail: '$820K revenue · Zero OSHA recordables' },
-              { year: '2025', event: '487 projects. 73,840 SF in 2024. One crew, one owner.', detail: '$1.2M in 2024 · 68% repeat clients' },
-            ].map((m, i) => (
-              <div
-                key={m.year}
-                className="milestone-item"
-                style={{
-                  flex: '1 1 180px',
-                  padding: '1rem 1.25rem',
-                  borderLeft: i === 0 ? 'none' : '1px solid var(--color-steel-light)',
-                  textAlign: 'center',
-                  transition: 'background-color 200ms ease',
-                  cursor: 'default',
-                }}
-              >
-                <p style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '1.1rem',
-                  fontWeight: 700,
-                  color: 'var(--color-brass)',
-                  lineHeight: 1,
-                  marginBottom: '0.35rem',
-                }}>
-                  {m.year}
-                </p>
-                <p style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.6rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.06em',
-                  color: 'var(--color-warm-gray)',
-                  lineHeight: 1.5,
-                }}>
-                  {m.event}
-                </p>
-                {'detail' in m && (
-                  <p
-                    className="milestone-detail"
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: '0.5rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      color: 'var(--color-brass)',
-                      marginTop: '0.5rem',
-                      opacity: 0,
-                      maxHeight: 0,
-                      overflow: 'hidden',
-                      transition: 'opacity 250ms ease, max-height 250ms ease, margin-top 250ms ease',
-                    }}
-                  >
-                    {m.detail}
+          {/* Timeline connector bar */}
+          <div style={{ position: 'relative', maxWidth: '960px', margin: '0 auto' }}>
+            {/* Horizontal brass line */}
+            <div
+              className="timeline-connector"
+              style={{
+                position: 'absolute',
+                top: '1.65rem',
+                left: '10%',
+                right: '10%',
+                height: '2px',
+                backgroundColor: 'var(--color-brass)',
+                opacity: 0.3,
+                zIndex: 0,
+              }}
+            />
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '0',
+                flexWrap: 'wrap',
+                position: 'relative',
+                zIndex: 1,
+              }}
+              className="milestone-strip"
+            >
+              {[
+                { year: '2014', event: 'Founded in Wailuku. First residential pour. 2,400 SF.', detail: '3 projects · $42K revenue · 1 crew member' },
+                { year: '2017', event: '100th project. 18,600 SF cumulative. Added retaining walls.', detail: '38 projects that year · First GC subcontract' },
+                { year: '2019', event: 'First commercial slab. 4,200 SF Kahului industrial.', detail: '$480K revenue · Crew expanded to 4' },
+                { year: '2022', event: 'BBB A+ accreditation. 52,000 SF that year alone.', detail: '$820K revenue · Zero OSHA recordables' },
+                { year: '2025', event: '487 projects. 73,840 SF in 2024. One crew, one owner.', detail: '$1.2M in 2024 · 68% repeat clients' },
+              ].map((m, i) => (
+                <div
+                  key={m.year}
+                  className="milestone-item"
+                  style={{
+                    flex: '1 1 180px',
+                    padding: '1rem 1.25rem',
+                    textAlign: 'center',
+                    transition: 'background-color 200ms ease',
+                    cursor: 'default',
+                  }}
+                >
+                  {/* Brass dot on timeline */}
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}>
+                    <span
+                      style={{
+                        width: '10px',
+                        height: '10px',
+                        backgroundColor: 'var(--color-brass)',
+                        border: '2px solid var(--color-steel-deep)',
+                        display: 'block',
+                        flexShrink: 0,
+                      }}
+                    />
+                  </div>
+                  <p style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.1rem',
+                    fontWeight: 700,
+                    color: 'var(--color-brass)',
+                    lineHeight: 1,
+                    marginBottom: '0.35rem',
+                  }}>
+                    {m.year}
                   </p>
-                )}
-              </div>
-            ))}
+                  <p style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.06em',
+                    color: 'var(--color-warm-gray)',
+                    lineHeight: 1.5,
+                  }}>
+                    {m.event}
+                  </p>
+                  {'detail' in m && (
+                    <p
+                      className="milestone-detail"
+                      style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.5rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        color: 'var(--color-brass)',
+                        marginTop: '0.5rem',
+                        opacity: 0,
+                        maxHeight: 0,
+                        overflow: 'hidden',
+                        transition: 'opacity 250ms ease, max-height 250ms ease, margin-top 250ms ease',
+                      }}
+                    >
+                      {m.detail}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -2986,21 +3017,27 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
-                          display: 'block',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
                           fontSize: '0.6rem',
                           fontFamily: 'var(--font-display)',
                           fontWeight: 600,
                           letterSpacing: '0.1em',
                           textTransform: 'uppercase',
                           color: 'var(--color-warm-gray)',
-                          opacity: 0.45,
+                          opacity: 0.6,
                           marginTop: '0.4rem',
                           textDecoration: 'none',
                           transition: 'opacity 200ms ease',
+                          padding: '0.2rem 0.5rem',
+                          backgroundColor: 'rgba(66, 133, 244, 0.08)',
+                          border: '1px solid rgba(66, 133, 244, 0.2)',
                         }}
                         className="source-link"
                       >
-                        {t.source} ↗
+                        <span style={{ width: '6px', height: '6px', backgroundColor: '#4285F4', display: 'inline-block', flexShrink: 0 }} />
+                        Google Review ↗
                       </a>
                     ) : t.source === 'via Yelp' ? (
                       <a
@@ -3008,37 +3045,49 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
-                          display: 'block',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
                           fontSize: '0.6rem',
                           fontFamily: 'var(--font-display)',
                           fontWeight: 600,
                           letterSpacing: '0.1em',
                           textTransform: 'uppercase',
                           color: 'var(--color-warm-gray)',
-                          opacity: 0.45,
+                          opacity: 0.6,
                           marginTop: '0.4rem',
                           textDecoration: 'none',
                           transition: 'opacity 200ms ease',
+                          padding: '0.2rem 0.5rem',
+                          backgroundColor: 'rgba(211, 35, 35, 0.08)',
+                          border: '1px solid rgba(211, 35, 35, 0.2)',
                         }}
                         className="source-link"
                       >
-                        {t.source} ↗
+                        <span style={{ width: '6px', height: '6px', backgroundColor: '#D32323', display: 'inline-block', flexShrink: 0 }} />
+                        Yelp Review ↗
                       </a>
                     ) : (
                       <span
                         style={{
-                          display: 'block',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
                           fontSize: '0.6rem',
                           fontFamily: 'var(--font-display)',
                           fontWeight: 600,
                           letterSpacing: '0.1em',
                           textTransform: 'uppercase',
                           color: 'var(--color-warm-gray)',
-                          opacity: 0.45,
+                          opacity: 0.6,
                           marginTop: '0.4rem',
+                          padding: '0.2rem 0.5rem',
+                          backgroundColor: 'rgba(196, 160, 60, 0.06)',
+                          border: '1px solid rgba(196, 160, 60, 0.2)',
                         }}
                       >
-                        {t.source}
+                        <span style={{ width: '6px', height: '6px', backgroundColor: 'var(--color-brass)', display: 'inline-block', flexShrink: 0 }} />
+                        {t.source.replace('via ', '')}
                       </span>
                     )}
                     {'relationship' in t && (

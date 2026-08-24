@@ -378,6 +378,78 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Seasonal tips signup */}
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          paddingTop: '2rem',
+          paddingBottom: '2rem',
+          borderTop: '1px solid var(--color-steel-light)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1.5rem',
+          flexWrap: 'wrap',
+        }}
+      >
+        <div style={{ textAlign: 'center' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              marginBottom: '0.25rem',
+            }}
+          >
+            Seasonal Concrete Tips
+          </p>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.7rem', opacity: 0.5 }}>
+            Maintenance advice for Maui homeowners. Twice a year.
+          </p>
+        </div>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          style={{ display: 'flex', gap: '0.5rem' }}
+        >
+          <input
+            type="email"
+            placeholder="your@email.com"
+            aria-label="Email for seasonal tips"
+            style={{
+              padding: '0.5rem 0.75rem',
+              border: '1px solid var(--color-steel-light)',
+              backgroundColor: 'var(--color-steel-mid)',
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.75rem',
+              color: 'var(--color-off-white)',
+              outline: 'none',
+              minWidth: '200px',
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: 'var(--color-brass)',
+              color: 'var(--color-steel-deep)',
+              border: 'none',
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+            }}
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+
       {/* Bottom bar */}
       <div
         style={{
@@ -397,6 +469,17 @@ export default function Footer() {
         </p>
         <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem' }}>
           Wailuku, Maui, Hawaii
+        </p>
+        <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.65rem', opacity: 0.4 }}>
+          Website by{' '}
+          <a
+            href="https://thewateringhole.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--color-warm-gray)', textDecoration: 'none', borderBottom: '1px solid transparent', transition: 'border-color 150ms ease' }}
+          >
+            The Watering Hole
+          </a>
         </p>
       </div>
       <style>{`
