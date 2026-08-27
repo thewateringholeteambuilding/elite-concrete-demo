@@ -22,6 +22,7 @@ const services = [
     desc: 'Stem walls, grade beams, and slab-on-grade poured to Hawaii State seismic code. Red volcanic soil documented and drainage verified before any form goes up.',
     ideal: 'Homeowners adding square footage, new builds, ADU projects',
     typicalSize: 'Typical: 1,200–4,200 SF',
+    startingAt: 'Starting at $8,400 for standard slab-on-grade',
     img: 'https://images.unsplash.com/photo-1616179058441-37aa58affac8?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -29,6 +30,7 @@ const services = [
     desc: 'Broom-finish, exposed aggregate, or stamped. Sub-base compacted to spec. Drainage slopes away from structure. Built for Maui rain events, not mainland averages.',
     ideal: 'Residential replacements, new construction, rental properties',
     typicalSize: 'Typical: 400–1,800 SF',
+    startingAt: 'Starting at $4,200 for 400 SF broom-finish',
     img: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -36,6 +38,7 @@ const services = [
     desc: 'Gravity and poured-wall systems engineered for Wailuku hillsides and Iao Valley slopes. Drainage core standard on every job.',
     ideal: 'Hillside lots, erosion control, tiered landscaping',
     typicalSize: 'Typical: 40–120 LF',
+    startingAt: 'Starting at $3,800 for 40 LF gravity wall',
     img: 'https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -43,6 +46,7 @@ const services = [
     desc: 'Stamped, stained, and polished finishes for lanais, pool decks, and commercial lobbies. Pattern and color matched to your design before the pour.',
     ideal: 'Vacation rentals, restaurant patios, residential upgrades',
     typicalSize: 'Typical: 200–640 SF',
+    startingAt: 'Starting at $3,200 for 200 SF stamped lanai',
     img: 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -443,6 +447,54 @@ export default function Home() {
           >
             One owner. One crew. Every pour engineered for Wailuku clay, Kihei salt air, and Upcountry cinder.
           </p>
+        </div>
+      </section>
+
+      {/* ── Quick Trust Strip (6 items, Agundez-style) ────────────────── */}
+      <section
+        aria-label="Quick trust indicators"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '1rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '2rem',
+            flexWrap: 'wrap',
+          }}
+          className="trust-strip"
+        >
+          {[
+            'Since 2014',
+            'Licensed C-27903',
+            '5-Year Warranty',
+            '4.9 from 47 Reviews',
+            'Free Site Visits',
+            'Permits Handled',
+          ].map((item) => (
+            <span
+              key={item}
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.6rem',
+                fontWeight: 700,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+                opacity: 0.65,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {item}
+            </span>
+          ))}
         </div>
       </section>
 
@@ -1882,6 +1934,7 @@ export default function Home() {
             { label: 'Same-Day Site Visits', detail: 'Call before noon, we walk the lot that afternoon' },
             { label: 'Quote in 36 Hours', detail: 'Written scope, not a ballpark' },
             { label: 'Owner Answers the Phone', detail: 'No call center, no scheduler' },
+            { label: 'Lic. C-27903', detail: 'DCCA verified, current through 2026' },
           ].map((g) => (
             <div key={g.label} style={{ textAlign: 'center' }}>
               <p style={{
@@ -1944,9 +1997,9 @@ export default function Home() {
             className="steps-to-start"
           >
             {[
-              { num: '1', action: 'Call or Submit', detail: '(808) 281-3018 or the contact form. Describe the job in plain language.', time: '2 minutes' },
+              { num: '1', action: 'Describe the Job', detail: '(808) 281-3018 or the form. Tell us what you need poured, where on the lot, and when you need it done. No technical language required.', time: '2 minutes' },
               { num: '2', action: 'Site Walk', detail: 'Eric walks your lot, tests soil conditions, photographs the scope. Same day if you call before noon.', time: 'Same day' },
-              { num: '3', action: 'Written Quote', detail: 'Itemized scope, timeline, and price. No verbal ballparks. Delivered to your inbox.', time: '36 hours' },
+              { num: '3', action: 'Written Quote', detail: 'Itemized scope, timeline, and price. We handle Maui County permits. No verbal ballparks. Delivered to your inbox.', time: '36 hours' },
             ].map((s) => (
               <div key={s.num} style={{ textAlign: 'center' }}>
                 <p style={{
@@ -2555,6 +2608,20 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.55rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+              marginTop: '1.5rem',
+            }}
+          >
+            Free site visit anywhere on Maui. No travel surcharge for Hana or Upcountry lots.
+          </p>
         </div>
       </section>
 
@@ -3692,6 +3759,7 @@ interface ServiceItem {
   desc: string
   ideal: string
   typicalSize: string
+  startingAt?: string
   img: string
 }
 
@@ -3736,6 +3804,11 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.5rem', fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-warm-gray)', opacity: 0.5, marginTop: '0.3rem' }}>
           {service.typicalSize}
         </p>
+        {service.startingAt && (
+          <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.06em', color: 'var(--color-brass)', marginTop: '0.4rem', opacity: 0.85 }}>
+            {service.startingAt}
+          </p>
+        )}
       </div>
     </div>
   )
