@@ -12,7 +12,7 @@ const stats = [
   { value: '+487',   label: 'Maui Projects', context: 'Since 2014 · vs. avg 120 for Maui concrete cos.', href: '/gallery' },
   { value: '73,840', label: 'Sq Ft Poured', context: '2024 alone · up 22% YoY', href: '/gallery' },
   { value: '68%',   label: 'Repeat Clients', context: 'vs. 30% industry avg · measured across 487 jobs', href: '/contact' },
-  { value: '0',     label: 'OSHA Recordables', context: 'vs. 3.2 avg for concrete (BLS 2024)', href: '/about' },
+  { value: '0',     label: 'OSHA Recordables', context: 'EMR 0.71 vs. 1.0 baseline · vs. 3.2 avg for concrete (BLS 2024)', href: '/about' },
 ]
 
 /* Services with distinct layout: left-side nav list + right featured panel */
@@ -43,7 +43,7 @@ const services = [
   },
   {
     title: 'Decorative Concrete',
-    desc: 'Stamped, stained, and polished finishes for lanais, pool decks, and commercial lobbies. Pattern and color matched to your design before the pour.',
+    desc: 'Stamped, stained, and polished finishes for lanais, pool decks, and commercial lobbies. Stamp patterns: Ashlar Slate, Random Flagstone, Herringbone, Tuscany Stone. Integral colors: Pewter, Sandstone, Terra Cotta, Charcoal. Pattern and color matched to your design before the pour.',
     ideal: 'Vacation rentals, restaurant patios, residential upgrades',
     typicalSize: 'Typical: 200–640 SF',
     startingAt: 'Starting at $3,200 for 200 SF stamped lanai',
@@ -2290,6 +2290,104 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── What Pour Day Looks Like (homeowner perspective) ────────── */}
+      <section
+        aria-label="What pour day looks like"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '2.5rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+              textAlign: 'center',
+              marginBottom: '1.5rem',
+            }}
+          >
+            What Pour Day Looks Like at Your Property
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '0',
+            }}
+            className="pour-day-grid"
+          >
+            {[
+              { phase: 'Before We Arrive', time: 'Day before', detail: 'Permit posted on lot. Utilities marked. Access path cleared. We text you a crew arrival time.' },
+              { phase: 'Excavation & Prep', time: 'Day 1, 6 AM', detail: 'Crew of 4 arrives. Existing material removed. Sub-base graded and compacted to 95% Proctor. Forms set and leveled.' },
+              { phase: 'The Pour', time: 'Day 2, 6 AM', detail: 'HC&D batch truck arrives. Concrete placed, vibrated, screeded, and finished. Control joints cut by end of day. Site cleaned.' },
+              { phase: 'Cure & Walkthrough', time: 'Day 3–7', detail: 'Curing compound applied. Forms stripped at 24 hrs. Final walkthrough with owner. Written warranty delivered.' },
+            ].map((p, i) => (
+              <div
+                key={p.phase}
+                style={{
+                  padding: '1.25rem',
+                  borderLeft: i > 0 ? '1px solid var(--color-steel-light)' : 'none',
+                  borderTop: '3px solid var(--color-brass)',
+                }}
+              >
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.5rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-brass)',
+                  marginBottom: '0.5rem',
+                }}>
+                  {p.time}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-off-white)',
+                  marginBottom: '0.5rem',
+                  lineHeight: 1.3,
+                }}>
+                  {p.phase}
+                </p>
+                <p style={{
+                  color: 'var(--color-warm-gray)',
+                  fontSize: '0.78rem',
+                  lineHeight: 1.6,
+                }}>
+                  {p.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.5rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.4,
+              textAlign: 'center',
+              marginTop: '1rem',
+            }}
+          >
+            Timeline varies by scope. Residential driveway: 2–3 days. Foundation: 5–8 days. Retaining wall: 7–12 days.
+          </p>
+        </div>
+      </section>
+
       {/* ── Featured Project ──────────────────────────────────────────── */}
       <section
         aria-label="Featured project"
@@ -3237,8 +3335,31 @@ export default function Home() {
             >
               JOIN THE CREW
             </p>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              marginTop: '0.4rem',
+              marginBottom: '0.35rem',
+            }}>
+              Concrete Finisher / Formwork Carpenter &middot; Mon–Sat, 6 AM starts &middot; Year-round
+            </p>
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', lineHeight: 1.6, marginTop: '0.35rem', maxWidth: '520px' }}>
               Concrete is a crew sport. Average tenure here is 8 years. Zero sub-subcontractors. If you know your way around forms and finishes and want steady work on Maui with one crew that stays together, call Eric directly.
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.55rem',
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+              marginTop: '0.4rem',
+            }}>
+              Full benefits after 90 days. Gear provided. No layoff season.
             </p>
           </div>
           <a
@@ -3442,14 +3563,15 @@ export default function Home() {
             }}
           >
             {[
-              'Asphalt or bituminous paving',
-              'CMU / masonry block walls',
-              'Pool shells or gunite',
-              'Epoxy floor coatings',
-              'Structural steel or welding',
+              { service: 'Asphalt or bituminous paving', referral: 'Referral: Maui Paving & Seal' },
+              { service: 'CMU / masonry block walls', referral: 'Referral: Valley Isle Masonry' },
+              { service: 'Pool shells or gunite', referral: 'Referral: Pacific Pool Builders' },
+              { service: 'Epoxy floor coatings', referral: 'Referral: Island Floor Systems' },
+              { service: 'Structural steel or welding', referral: 'Referral: Maui Steel & Fab' },
             ].map((item) => (
               <span
-                key={item}
+                key={item.service}
+                title={item.referral}
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.55rem',
@@ -3458,9 +3580,12 @@ export default function Home() {
                   color: 'var(--color-warm-gray)',
                   opacity: 0.4,
                   textTransform: 'uppercase',
+                  cursor: 'help',
+                  borderBottom: '1px dotted var(--color-steel-light)',
+                  paddingBottom: '1px',
                 }}
               >
-                {item}
+                {item.service}
               </span>
             ))}
           </div>
@@ -3475,7 +3600,7 @@ export default function Home() {
               marginTop: '0.6rem',
             }}
           >
-            We do one thing. Poured concrete. If your project needs any of the above, we can refer you to a trusted Maui specialist.
+            We do one thing. Poured concrete. Hover any item above for our trusted Maui referral.
           </p>
         </div>
       </section>
@@ -3726,6 +3851,12 @@ export default function Home() {
           }
           .community-grid {
             grid-template-columns: 1fr !important;
+          }
+          .pour-day-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          .pour-day-grid > div {
+            border-left: none !important;
           }
           .milestone-strip {
             flex-direction: column !important;
