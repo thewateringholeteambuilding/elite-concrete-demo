@@ -20,6 +20,7 @@ const services = [
   {
     title: 'Concrete Foundations',
     desc: 'Stem walls, grade beams, and slab-on-grade poured to Hawaii State seismic code. Red volcanic soil documented and drainage verified before any form goes up.',
+    benefits: ['Seismic-rated for Hawaii building code', 'Volcanic soil profiled before forming', 'Inspection-ready rebar documentation'],
     ideal: 'Homeowners adding square footage, new builds, ADU projects',
     typicalSize: 'Typical: 1,200–4,200 SF',
     startingAt: 'Starting at $8,400 for standard slab-on-grade',
@@ -28,6 +29,7 @@ const services = [
   {
     title: 'Driveways & Parking',
     desc: 'Broom-finish, exposed aggregate, or stamped. Sub-base compacted to spec. Drainage slopes away from structure. Built for Maui rain events, not mainland averages.',
+    benefits: ['Drainage engineered for 300+ rain days', 'Three finish options to match your home', 'Salt-air sealers specified for coastal lots'],
     ideal: 'Residential replacements, new construction, rental properties',
     typicalSize: 'Typical: 400–1,800 SF',
     startingAt: 'Starting at $4,200 for 400 SF broom-finish',
@@ -36,6 +38,7 @@ const services = [
   {
     title: 'Retaining Walls',
     desc: 'Gravity and poured-wall systems engineered for Wailuku hillsides and Iao Valley slopes. Drainage core standard on every job.',
+    benefits: ['Drainage core included on every wall', 'Engineered for Maui slope conditions', 'Holds through storm seasons'],
     ideal: 'Hillside lots, erosion control, tiered landscaping',
     typicalSize: 'Typical: 40–120 LF',
     startingAt: 'Starting at $3,800 for 40 LF gravity wall',
@@ -44,6 +47,7 @@ const services = [
   {
     title: 'Decorative Concrete',
     desc: 'Stamped, stained, and polished finishes for lanais, pool decks, and commercial lobbies. Stamp patterns: Ashlar Slate, Random Flagstone, Herringbone, Tuscany Stone. Integral colors: Pewter, Sandstone, Terra Cotta, Charcoal. Pattern and color matched to your design before the pour.',
+    benefits: ['On-site color samples before committing', 'UV-rated sealers for tropical sun', '4 stamp patterns, 4 integral colors'],
     ideal: 'Vacation rentals, restaurant patios, residential upgrades',
     typicalSize: 'Typical: 200–640 SF',
     startingAt: 'Starting at $3,200 for 200 SF stamped lanai',
@@ -52,6 +56,7 @@ const services = [
   {
     title: 'Commercial Slabs',
     desc: 'Warehouse floors, loading docks, and retail pads. Floor flatness specs documented. Joints cut at 24 hours. Re-temp protection on high-heat Maui afternoons.',
+    benefits: ['Floor flatness specs documented', 'COI delivered before mobilization', 'GC-direct and owner-direct projects'],
     ideal: 'Warehouses, retail build-outs, loading facilities',
     typicalSize: 'Typical: 2,000–5,400 SF',
     img: 'https://images.unsplash.com/photo-1517011453931-c30f571a4fab?auto=format&fit=crop&w=800&q=80',
@@ -59,6 +64,7 @@ const services = [
   {
     title: 'Concrete Sawing',
     desc: 'Precision saw-cutting for control joints, utility openings, and slab removal. Dust and slurry managed on-site. Available for contractor and owner-direct projects.',
+    benefits: ['Dust and slurry contained on-site', 'Available for sub and owner-direct work', 'Precision cuts for utility access'],
     ideal: 'GCs needing sub work, utility installs, slab demolition',
     typicalSize: 'Typical: 50–300 LF of cuts',
     img: 'https://images.unsplash.com/photo-1514514188727-ff38e839635e?auto=format&fit=crop&w=800&q=80',
@@ -89,7 +95,7 @@ const testimonials = [
   {
     stars: 5,
     tag: 'DECORATIVE · MAKAWAO',
-    quote: 'Stamped concrete lanai for our rental, 380 sq ft. The color matched our vision on the first mix. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
+    quote: 'Stamped concrete lanai for our rental, 380 sq ft. Kai mixed the first color sample on-site and it matched our vision exactly. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
     name: 'Ben & Sara Medeiros, Makawao',
     detail: '380 SF Decorative Lanai · Vacation Rental Owners, Hale Makawao LLC',
     date: 'March 2025',
@@ -478,6 +484,7 @@ export default function Home() {
             '4.9 from 47 Reviews',
             'Free Site Visits',
             'Permits Handled',
+            'Financing Available',
           ].map((item) => (
             <span
               key={item}
@@ -3888,6 +3895,7 @@ export default function Home() {
 interface ServiceItem {
   title: string
   desc: string
+  benefits?: string[]
   ideal: string
   typicalSize: string
   startingAt?: string
@@ -3929,6 +3937,18 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.6 }}>
           {service.desc}
         </p>
+        {service.benefits && (
+          <div style={{ marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+            {service.benefits.map((b) => (
+              <div key={b} style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
+                <span style={{ color: 'var(--color-brass)', fontSize: '0.45rem', flexShrink: 0 }}>■</span>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.06em', color: 'var(--color-warm-gray)', opacity: 0.8 }}>
+                  {b}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
         <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-brass)', marginTop: '0.5rem' }}>
           Ideal for: <span style={{ color: 'var(--color-warm-gray)' }}>{service.ideal}</span>
         </p>
@@ -3940,6 +3960,25 @@ function ServiceCard({ service }: { service: ServiceItem }) {
             {service.startingAt}
           </p>
         )}
+        <Link
+          to="/services"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.35rem',
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.55rem',
+            fontWeight: 700,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--color-brass)',
+            textDecoration: 'none',
+            marginTop: '0.6rem',
+            transition: 'opacity 200ms ease',
+          }}
+        >
+          Explore {service.title} <ArrowRight size={10} />
+        </Link>
       </div>
     </div>
   )
