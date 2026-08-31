@@ -81,6 +81,18 @@ const testimonials = [
     date: 'November 2024',
     source: 'via Google Reviews',
     relationship: 'Client since 2021 · Third project together',
+    photos: 4,
+  },
+  {
+    stars: 5,
+    tag: 'DRIVEWAY · KIHEI',
+    quote: 'Tore out a 20-year-old slab that had settled almost 3 inches on the ocean side. Eric brought in a transit level, documented the grade, and poured 1,640 sq ft of broom-finish with a proper drainage slope toward the street. Five years later, zero cracks, zero settling. We just had them back for a lanai.',
+    name: 'Tom & Linda Ogawa, Kihei',
+    detail: '1,640 SF Driveway Replacement · Retired, Kamaole Sands',
+    date: 'February 2021',
+    source: 'via Google Reviews',
+    relationship: 'Client since 2021 · Returned for lanai 2025',
+    photos: 6,
   },
   {
     stars: 5,
@@ -91,6 +103,7 @@ const testimonials = [
     date: 'August 2024',
     source: 'via direct referral',
     relationship: 'Referred by Maui Architectural Group',
+    photos: 3,
   },
   {
     stars: 5,
@@ -101,6 +114,7 @@ const testimonials = [
     date: 'March 2025',
     source: 'via Yelp',
     relationship: 'Second project · Driveway reseal scheduled 2026',
+    photos: 5,
   },
 ]
 
@@ -626,6 +640,8 @@ export default function Home() {
             { label: 'BBB A+ Accredited', detail: 'A+ since 2022 · Zero complaints', icon: 'award' as const },
             { label: '$2M General Liability', detail: 'Policy EXP Dec 2026 · Full Workers Comp', icon: 'shield' as const },
             { label: '2024 MCA Safety Recognition', detail: 'Maui Contractors Assoc. · Awarded Nov 2024', icon: 'star' as const },
+            { label: 'ASCC Member', detail: 'American Society of Concrete Contractors · Since 2018', icon: 'award' as const },
+            { label: 'Decorative Concrete Council', detail: 'ASCC specialty division · Stamped & stained certified', icon: 'award' as const },
           ].map((a) => (
             <div
               key={a.label}
@@ -3281,6 +3297,29 @@ export default function Home() {
                         {t.relationship}
                       </span>
                     )}
+                    {'photos' in t && t.photos > 0 && (
+                      <Link
+                        to="/gallery"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.4rem',
+                          fontSize: '0.6rem',
+                          fontFamily: 'var(--font-display)',
+                          fontWeight: 600,
+                          letterSpacing: '0.08em',
+                          textTransform: 'uppercase',
+                          color: 'var(--color-warm-gray)',
+                          opacity: 0.55,
+                          marginTop: '0.4rem',
+                          textDecoration: 'none',
+                          transition: 'opacity 200ms ease',
+                        }}
+                        className="source-link"
+                      >
+                        ▪ {t.photos} project photos → Gallery
+                      </Link>
+                    )}
                     </div>
                   </cite>
                 </figcaption>
@@ -3422,7 +3461,7 @@ export default function Home() {
               opacity: 0.6,
             }}
           >
-            2014–2026. One Crew. Every Pour.
+            The Elite Concrete Warranty
           </p>
           <h2
             style={{
@@ -3444,9 +3483,23 @@ export default function Home() {
               maxWidth: '560px',
               margin: '0 auto',
               fontWeight: 400,
+              marginBottom: '1rem',
             }}
           >
-            5-year structural warranty on foundations and retaining walls. 3-year cosmetic warranty on stamped, stained, and polished finishes. 2-year flatwork warranty on driveways, sidewalks, and slabs. If something cracks, settles, or fails within term, we come back and make it right. Written on every contract.
+            5-year structural warranty on foundations and retaining walls. 3-year cosmetic warranty on stamped, stained, and polished finishes. 2-year flatwork warranty on driveways, sidewalks, and slabs. If our workmanship fails within term, we come back and make it right. Written on every contract.
+          </p>
+          <p
+            style={{
+              color: 'var(--color-steel-light)',
+              fontSize: '0.8rem',
+              lineHeight: 1.7,
+              maxWidth: '520px',
+              margin: '0 auto',
+              fontWeight: 400,
+              opacity: 0.7,
+            }}
+          >
+            Concrete is a natural material. Hairline surface cracks, minor color variation, and weathering from Maui salt air and UV exposure are part of how concrete ages on this island. We warrant our craft, not the climate. That honesty is why 68% of our clients come back.
           </p>
           <Link
             to="/contact"
