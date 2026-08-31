@@ -57,6 +57,20 @@ export default function About() {
           className="story-grid"
         >
           <div>
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.6rem',
+                fontWeight: 600,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brass)',
+                marginBottom: '0.75rem',
+                opacity: 0.7,
+              }}
+            >
+              Assess. Pour. Stand.
+            </p>
             <h2
               style={{
                 fontFamily: 'var(--font-display)',
@@ -309,6 +323,159 @@ export default function About() {
                 </h3>
                 <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
                   {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Crew spotlight ─────────────────────────────────────────── */}
+      <section
+        aria-label="Crew members"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: 'var(--space-section) 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.6,
+              marginBottom: '1rem',
+            }}
+          >
+            The Crew
+          </p>
+          <h2
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1.8rem, 1rem + 3vw, 3rem)',
+              fontWeight: 700,
+              color: 'var(--color-off-white)',
+              marginBottom: '2rem',
+            }}
+          >
+            SAME FOUR. EVERY POUR.
+          </h2>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '1.5rem',
+            }}
+          >
+            {[
+              {
+                initials: 'EC',
+                name: 'Eric Cantrell',
+                role: 'Owner & Licensed Contractor',
+                tenure: 'Founded Elite in 2014',
+                detail: 'Writes every quote. Runs every pour. 487 projects completed.',
+              },
+              {
+                initials: 'KN',
+                name: 'Kai Nakamura',
+                role: 'Lead Foreman',
+                tenure: '6 years with Elite',
+                detail: '312 residential pours led. Finishing specialist. Born and raised on Maui.',
+              },
+              {
+                initials: 'MR',
+                name: 'Marcus Reyes',
+                role: 'Forming & Rebar Lead',
+                tenure: '5 years with Elite',
+                detail: 'Handles all rebar layout and forming. Previously with HC&D Kahului.',
+              },
+              {
+                initials: 'DK',
+                name: 'Derek Kaeo',
+                role: 'Equipment Operator',
+                tenure: '4 years with Elite',
+                detail: 'Runs all excavation and sub-base compaction. CDL certified.',
+              },
+            ].map((member) => (
+              <div
+                key={member.name}
+                style={{
+                  backgroundColor: 'var(--color-steel-mid)',
+                  borderLeft: '3px solid var(--color-brass)',
+                  padding: '1.5rem',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                  <div
+                    style={{
+                      width: '36px',
+                      height: '36px',
+                      backgroundColor: 'var(--color-brass)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        color: 'var(--color-steel-deep)',
+                      }}
+                    >
+                      {member.initials}
+                    </span>
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.85rem',
+                        fontWeight: 700,
+                        color: 'var(--color-off-white)',
+                        letterSpacing: '0.04em',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {member.name}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.55rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        color: 'var(--color-brass)',
+                      }}
+                    >
+                      {member.role}
+                    </p>
+                  </div>
+                </div>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.55rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.6,
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  {member.tenure}
+                </p>
+                <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.6 }}>
+                  {member.detail}
                 </p>
               </div>
             ))}

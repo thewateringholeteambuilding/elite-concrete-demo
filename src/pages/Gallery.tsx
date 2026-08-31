@@ -1,42 +1,50 @@
 const galleryItems = [
   {
     img: 'https://images.unsplash.com/photo-1616179058441-37aa58affac8?auto=format&fit=crop&w=900&q=80',
-    caption: 'Foundation footing with rebar,residential addition, Wailuku',
+    caption: 'Foundation footing with rebar, 1,420 SF residential addition, Wailuku Heights',
+    spec: 'Completed Nov 2024 · 4,000 PSI · #4 rebar at 12" O.C.',
     wide: true,
   },
   {
     img: 'https://images.unsplash.com/photo-1694521787162-5373b598945c?auto=format&fit=crop&w=700&q=80',
-    caption: 'Concrete pour in progress,commercial slab, Kahului',
+    caption: 'Concrete pour in progress, 3,200 SF commercial slab, Kahului Industrial Park',
+    spec: 'Completed Jan 2025 · 4,500 PSI',
     wide: false,
   },
   {
     img: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=700&q=80',
-    caption: 'Finished driveway,exposed aggregate, Makawao',
+    caption: 'Finished driveway, 640 SF exposed aggregate, Makawao',
+    spec: 'Completed Sept 2024 · Sealed for UV',
     wide: false,
   },
   {
     img: 'https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?auto=format&fit=crop&w=900&q=80',
-    caption: 'Retaining wall,hillside drainage system, Haiku',
+    caption: 'Retaining wall, 68 LF poured wall with drainage core, Haiku',
+    spec: 'Completed Aug 2024 · Engineered for slope drainage',
     wide: true,
   },
   {
     img: 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=700&q=80',
-    caption: 'Stamped concrete lanai,residential, Paia',
+    caption: 'Stamped concrete lanai, 380 SF Ashlar Slate pattern, Paia',
+    spec: 'Completed Mar 2025 · UV-rated sealer',
     wide: false,
   },
   {
     img: 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9?auto=format&fit=crop&w=700&q=80',
-    caption: 'Site prep and equipment,commercial job, Kahului',
+    caption: 'Site prep and equipment staging, commercial job, Kahului',
+    spec: '95% modified Proctor compaction verified',
     wide: false,
   },
   {
     img: 'https://images.unsplash.com/photo-1517011453931-c30f571a4fab?auto=format&fit=crop&w=900&q=80',
-    caption: 'Warehouse floor slab,joints cut at 24 hours, Maui Lani',
+    caption: 'Warehouse floor slab, 2,800 SF, joints cut at 24 hours, Maui Lani',
+    spec: 'Completed Dec 2024 · Floor flatness spec documented',
     wide: true,
   },
   {
     img: 'https://images.unsplash.com/photo-1514514188727-ff38e839635e?auto=format&fit=crop&w=700&q=80',
-    caption: 'Sidewalk flatwork,ADA-compliant ramp, Wailuku',
+    caption: 'Sidewalk flatwork, 120 LF ADA-compliant ramp, Wailuku Elementary',
+    spec: 'Completed Feb 2025 · Community project, third year',
     wide: false,
   },
 ]
@@ -193,9 +201,115 @@ export default function Gallery() {
                 >
                   {item.caption}
                 </figcaption>
+                {'spec' in item && (
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.5rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-warm-gray)',
+                      opacity: 0.5,
+                      marginTop: '0.2rem',
+                    }}
+                  >
+                    {item.spec}
+                  </p>
+                )}
               </div>
             </figure>
           ))}
+        </div>
+      </section>
+
+      {/* ── Recent completions timeline ─────────────────────────────── */}
+      <section
+        aria-label="Recent project completions"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '3rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.6,
+              marginBottom: '1.5rem',
+              textAlign: 'center',
+            }}
+          >
+            Recent Completions
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            {[
+              { date: 'Mar 2025', project: '380 SF Stamped Lanai', location: 'Hale Makawao, Paia', type: 'Decorative' },
+              { date: 'Feb 2025', project: '120 LF Sidewalk Repair', location: 'Wailuku Elementary', type: 'Community' },
+              { date: 'Jan 2025', project: '3,200 SF Commercial Slab', location: 'Kahului Industrial Park', type: 'Commercial' },
+              { date: 'Dec 2024', project: '2,800 SF Warehouse Floor', location: 'Maui Lani Business Park', type: 'Commercial' },
+              { date: 'Nov 2024', project: '1,420 SF Foundation Addition', location: 'Wailuku Heights', type: 'Residential' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '80px 3px 1fr',
+                  gap: '1rem',
+                  padding: '1rem 0',
+                  borderBottom: '1px solid var(--color-steel-light)',
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-brass)',
+                    textAlign: 'right',
+                    paddingTop: '0.15rem',
+                  }}
+                >
+                  {item.date}
+                </p>
+                <div style={{ backgroundColor: 'var(--color-brass)', width: '3px' }} />
+                <div>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      color: 'var(--color-off-white)',
+                      letterSpacing: '0.04em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {item.project}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.55rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.08em',
+                      color: 'var(--color-warm-gray)',
+                      opacity: 0.6,
+                    }}
+                  >
+                    {item.location} · {item.type}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
@@ -185,7 +186,41 @@ export default function Services() {
 
       {/* ── Services list, alternating layout ────────────────────────── */}
       <section aria-label="Services list" style={{ backgroundColor: 'var(--color-steel-mid)' }}>
-        {services.map((service, i) => (
+        {services.map((service, i) => {
+          const phaseBreaks: Record<number, string> = {
+            0: 'Pre-Construction + Pour',
+            3: 'Pour + Finish',
+            4: 'Full Lifecycle',
+            6: 'Post-Pour',
+          }
+          return (
+          <Fragment key={service.id}>
+          {phaseBreaks[i] && (
+            <div
+              style={{
+                backgroundColor: 'var(--color-steel-deep)',
+                padding: '1.25rem 1.5rem',
+                borderBottom: '1px solid var(--color-steel-light)',
+              }}
+            >
+              <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{ width: '3px', height: '16px', backgroundColor: 'var(--color-brass)', flexShrink: 0 }} />
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.6,
+                  }}
+                >
+                  {phaseBreaks[i]}
+                </p>
+              </div>
+            </div>
+          )}
           <article
             key={service.title}
             id={service.id}
@@ -306,7 +341,8 @@ export default function Services() {
               </div>
             </div>
           </article>
-        ))}
+          </Fragment>
+        )})}
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
