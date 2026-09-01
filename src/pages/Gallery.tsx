@@ -313,6 +313,128 @@ export default function Gallery() {
         </div>
       </section>
 
+      {/* ── Structures Still Standing ──────────────────────────────────── */}
+      <section
+        aria-label="Oldest projects still in service"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '2.5rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.6,
+              marginBottom: '0.3rem',
+              textAlign: 'center',
+            }}
+          >
+            Structures Still Standing
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.5rem',
+              fontWeight: 500,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.4,
+              textAlign: 'center',
+              marginBottom: '1.5rem',
+            }}
+          >
+            Our earliest pours, verified in service
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '0.75rem',
+            }}
+            className="legacy-grid"
+          >
+            {[
+              { year: '2014', age: '11 yrs', project: 'Wailuku Heights Residence', scope: '2,400 SF slab-on-grade foundation', status: 'Zero cracks, zero settling' },
+              { year: '2015', age: '10 yrs', project: 'Kahului Auto Repair', scope: '1,800 SF commercial floor slab', status: 'Original surface, no resurfacing needed' },
+              { year: '2016', age: '9 yrs', project: 'Iao Valley Hillside Home', scope: '84 LF gravity retaining wall', status: 'Held through 3 major storm seasons' },
+              { year: '2017', age: '8 yrs', project: 'Kihei Vacation Rental', scope: '520 SF broom-finish driveway', status: 'Owner rebooked for lanai 2023' },
+            ].map((legacy) => (
+              <div
+                key={legacy.year}
+                style={{
+                  padding: '1rem',
+                  backgroundColor: 'var(--color-steel-deep)',
+                  borderLeft: '3px solid var(--color-brass)',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.3rem' }}>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.2rem',
+                    fontWeight: 700,
+                    color: 'var(--color-brass)',
+                  }}>
+                    {legacy.year}
+                  </span>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.55rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.5,
+                  }}>
+                    {legacy.age} in service
+                  </span>
+                </div>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.7rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-off-white)',
+                  marginBottom: '0.2rem',
+                }}>
+                  {legacy.project}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.55rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.06em',
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.6,
+                  marginBottom: '0.3rem',
+                }}>
+                  {legacy.scope}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.5rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: '#4ade80',
+                  opacity: 0.8,
+                }}>
+                  ✓ {legacy.status}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
       <section
         aria-label="Gallery CTA"

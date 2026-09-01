@@ -28,11 +28,25 @@ export default function About() {
               marginBottom: '1.25rem',
             }}
           >
-            WAILUKU-BASED.<br />
-            <span style={{ color: 'var(--color-brass)' }}>MAUI-ROOTED.</span>
+            BUILT ON<br />
+            <span style={{ color: 'var(--color-brass)' }}>MAUI GROUND.</span>
           </h1>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              opacity: 0.7,
+              marginBottom: '1rem',
+            }}
+          >
+            Wailuku, HI · Since 2014 · License C-27903
+          </p>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '560px' }}>
-            Elite Concrete LLC operates out of Wailuku, serving residential and commercial concrete needs across Maui County. Licensed, BBB A+ rated, and built on Central Maui's actual ground conditions.
+            A used F-250, a rented saw, and a crew of four. That's how Elite Concrete started in 2014. Every year since, the work has grown because the first pours held. Licensed, BBB A+ rated, and built on the same volcanic ground we pour on.
           </p>
         </div>
       </section>
@@ -97,7 +111,7 @@ export default function About() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'var(--color-warm-gray)', fontSize: '0.975rem', lineHeight: 1.8 }}>
               <p>
-                First pour: a 2,400 square-foot residential slab in Wailuku Heights, 2014. The homeowner's previous contractor had cracked out twice on volcanic clay. We documented the soil, re-engineered the sub-base, and poured a foundation that's still level a decade later. That job became the template for every project since.
+                First pour: a 2,400 square-foot residential slab in Wailuku Heights, 2014. One used F-250, a rented concrete saw, and a four-man crew that included Eric's brother. The homeowner's previous contractor had cracked out twice on volcanic clay. We documented the soil, re-engineered the sub-base, and poured a foundation that's still level a decade later. That truck and that saw are both still running. So is that slab.
               </p>
               <p>
                 Our base is Wailuku, which puts us close to Central Maui's growth corridor and a short drive from Kahului, Kihei, and Upcountry. We work residential pours alongside commercial slabs and concrete sawing. The licensing, crew size, and mix engineering stay the same regardless of project scale.

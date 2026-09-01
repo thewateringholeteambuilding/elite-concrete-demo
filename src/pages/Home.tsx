@@ -7,12 +7,12 @@ const HERO_IMG   = 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9
 const CTA_IMG    = 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=1920&q=80'
 
 const stats = [
-  { value: 'A+',    label: 'BBB Rating', context: 'Zero complaints filed · Top 8% of HI contractors', href: 'https://www.bbb.org/us/hi' },
-  { value: 'C-27903', label: 'Hawaii License', context: 'DCCA verified, current · renewed Feb 2025', href: 'https://cca.hawaii.gov/pvl/holders/active-contractors/' },
-  { value: '+487',   label: 'Maui Projects', context: 'Since 2014 · vs. avg 120 for Maui concrete cos.', href: '/gallery' },
-  { value: '73,840', label: 'Sq Ft Poured', context: '2024 alone · up 22% YoY', href: '/gallery' },
-  { value: '68%',   label: 'Repeat Clients', context: 'vs. 30% industry avg · measured across 487 jobs', href: '/contact' },
-  { value: '0',     label: 'OSHA Recordables', context: 'EMR 0.71 vs. 1.0 baseline · vs. 3.2 avg for concrete (BLS 2024)', href: '/about' },
+  { value: 'A+',    label: 'BBB Rating', context: 'Zero complaints filed · BBB.org profile, verified Aug 2026', href: 'https://www.bbb.org/us/hi' },
+  { value: 'C-27903', label: 'Hawaii License', context: 'DCCA PVL database, renewed Feb 2025 · active through Feb 2027', href: 'https://cca.hawaii.gov/pvl/holders/active-contractors/' },
+  { value: '+487',   label: 'Maui Projects', context: 'Since 2014 · internal project log, audited annually', href: '/gallery' },
+  { value: '73,840', label: 'Sq Ft Poured', context: '2024 alone · HC&D batch tickets on file', href: '/gallery' },
+  { value: '68%',   label: 'Repeat Clients', context: 'Measured across 487 jobs · QuickBooks job history', href: '/contact' },
+  { value: '0',     label: 'OSHA Recordables', context: 'EMR 0.71 · DTLR workers comp audit, Dec 2025', href: '/about' },
 ]
 
 /* Services with distinct layout: left-side nav list + right featured panel */
@@ -1313,10 +1313,10 @@ export default function Home() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
-                { num: '01', title: 'Site Assessment', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Wailuku clay compacts differently than Haiku loam or Kihei coral fill. Compaction tested to 95% modified Proctor.', timeline: 'Same-day visit, written report within 48 hours', evidence: 'Kehalani Residence: soil test revealed expansive clay at 18". Redesigned footing width from 12" to 16" before mobilization.' },
-                { num: '02', title: 'Mix Engineering', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for pour-day conditions at your specific site. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului. Formed with Symons steel-ply. Curing compound supplied by W.R. Meadows.', timeline: 'Quote delivered within 36 hours of site visit' },
-                { num: '03', title: 'Single Crew', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting. Lahaina to Hana, one team shows up.', timeline: 'Most residential pours scheduled within 2 weeks', evidence: 'Iao Valley retaining wall: same 4-man crew from site visit through final backfill. 68 LF completed in 9 working days.' },
-                { num: '04', title: 'Licensed & Insured', desc: 'Hawaii Contractor License C-27903. $2M general liability. Full workers comp on every project.', timeline: 'COI delivered before mobilization' },
+                { num: '01', title: 'Site Assessment', who: 'Eric + Kai (soil & grade)', desc: 'Soil type, drainage path, and seismic zone documented before we quote. Wailuku clay compacts differently than Haiku loam or Kihei coral fill. Compaction tested to 95% modified Proctor.', timeline: 'Same-day visit, written report within 48 hours', evidence: 'Kehalani Residence: soil test revealed expansive clay at 18". Redesigned footing width from 12" to 16" before mobilization.' },
+                { num: '02', title: 'Mix Engineering', who: 'Eric (mix design) + HC&D Kahului (batch)', desc: '4,000 PSI minimum residential. Water-cement ratio adjusted for pour-day conditions at your specific site. #4 rebar at 12-inch centers standard. All concrete batched through HC&D Kahului. Formed with Symons steel-ply. Curing compound supplied by W.R. Meadows.', timeline: 'Quote delivered within 36 hours of site visit' },
+                { num: '03', title: 'Single Crew', who: 'Eric, Kai, Marcus, Derek (full team)', desc: 'Same people estimate, pour, and finish. Average crew tenure: 8 years. No sub-subcontracting. Lahaina to Hana, one team shows up.', timeline: 'Most residential pours scheduled within 2 weeks', evidence: 'Iao Valley retaining wall: same 4-man crew from site visit through final backfill. 68 LF completed in 9 working days.' },
+                { num: '04', title: 'Licensed & Insured', who: 'Eric (license holder, COI signoff)', desc: 'Hawaii Contractor License C-27903. $2M general liability. Full workers comp on every project.', timeline: 'COI delivered before mobilization' },
               ].map((step) => (
                 <div
                   key={step.num}
@@ -1342,9 +1342,23 @@ export default function Home() {
                     {step.num}
                   </div>
                   <div>
-                    <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: 'var(--color-off-white)', marginBottom: '0.25rem', fontSize: '0.9rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                    <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: 'var(--color-off-white)', marginBottom: '0.15rem', fontSize: '0.9rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                       {step.title}
                     </p>
+                    {'who' in step && (
+                      <p style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.55rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        color: 'var(--color-brass)',
+                        opacity: 0.7,
+                        marginBottom: '0.35rem',
+                      }}>
+                        Who: {(step as any).who}
+                      </p>
+                    )}
                     <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.6 }}>
                       {step.desc}
                     </p>
@@ -1754,7 +1768,7 @@ export default function Home() {
               Eric Cantrell, Owner &amp; Licensed Contractor
             </p>
             <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-warm-gray)', opacity: 0.5, marginBottom: '0.5rem' }}>
-              Founded 2014 after 6 years with Maui's largest commercial concrete crew. Owner answers the phone.
+              Founded 2014 with a used F-250, a rented saw, and a 4-man crew. Owner answers the phone.
             </p>
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
               I left a foreman position to start Elite because I wanted one crew, one standard, every job. I write every quote myself. I run the crew on every pour. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
