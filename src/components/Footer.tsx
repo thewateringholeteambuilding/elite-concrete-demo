@@ -174,10 +174,10 @@ export default function Footer() {
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
-              { label: 'Central Maui', count: 218, towns: 'Wailuku, Kahului, Waikapu' },
-              { label: 'South Maui', count: 147, towns: 'Kihei, Wailea, Makena' },
-              { label: 'West Maui', count: 64, towns: 'Lahaina, Ka\'anapali, Napili' },
-              { label: 'Upcountry', count: 58, towns: 'Makawao, Kula, Pukalani, Haiku' },
+              { label: 'Central Maui', count: 218, towns: 'Wailuku, Kahului, Waikapu', soil: 'Expansive clay, high water table' },
+              { label: 'South Maui', count: 147, towns: 'Kihei, Wailea, Makena', soil: 'Coral fill over sand, salt air exposure' },
+              { label: 'West Maui', count: 64, towns: 'Lahaina, Ka\'anapali, Napili', soil: 'Coastal rock, wind-driven salt spray' },
+              { label: 'Upcountry', count: 58, towns: 'Makawao, Kula, Pukalani, Haiku', soil: 'Volcanic cinder, steep grades' },
             ].map((area) => (
               <li key={area.label}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
@@ -217,6 +217,17 @@ export default function Footer() {
                   marginTop: '0.15rem',
                 }}>
                   {area.towns}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.48rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.06em',
+                  color: 'var(--color-brass)',
+                  opacity: 0.4,
+                  marginTop: '0.1rem',
+                }}>
+                  {area.soil}
                 </p>
               </li>
             ))}

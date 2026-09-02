@@ -1773,6 +1773,18 @@ export default function Home() {
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
               I left a foreman position to start Elite because I wanted one crew, one standard, every job. I write every quote myself. I run the crew on every pour. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
             </p>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              color: 'var(--color-off-white)',
+              marginTop: '0.75rem',
+              paddingTop: '0.75rem',
+              borderTop: '1px solid var(--color-steel-light)',
+            }}>
+              Nobody gets hurt on my job site. That's not a policy. That's the standard.
+            </p>
             <div style={{ display: 'flex', gap: '1.5rem', marginTop: '0.75rem' }}>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.7 }}>
                 <span style={{ color: 'var(--color-brass)', fontWeight: 700, fontSize: '0.75rem' }}>11</span> yrs on Maui
@@ -1850,13 +1862,13 @@ export default function Home() {
             }}
           >
             {[
-              { name: 'HC&D Kahului', role: 'Batch Plant' },
-              { name: 'Simpson Strong-Tie', role: 'Anchors & Connectors' },
-              { name: 'W.R. Meadows', role: 'Curing & Sealants' },
-              { name: 'Sika', role: 'Admixtures & Repair' },
-              { name: 'Symons', role: 'Steel-Ply Formwork' },
+              { name: 'HC&D Kahului', role: 'Batch Plant', why: 'Only certified batch plant on Maui. Every load ticketed and timestamped.' },
+              { name: 'Simpson Strong-Tie', role: 'Anchors & Connectors', why: 'Seismic-rated connectors spec\'d for Hawaii building code.' },
+              { name: 'W.R. Meadows', role: 'Curing & Sealants', why: 'UV-rated curing compounds formulated for tropical exposure.' },
+              { name: 'Sika', role: 'Admixtures & Repair', why: 'Salt-resistant admixtures for coastal Maui pours.' },
+              { name: 'Symons', role: 'Steel-Ply Formwork', why: 'Reusable steel forms. Tighter tolerances than wood.' },
             ].map((supplier) => (
-              <div key={supplier.name} style={{ textAlign: 'center' }}>
+              <div key={supplier.name} style={{ textAlign: 'center', maxWidth: '180px' }}>
                 <p style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.65rem',
@@ -1880,6 +1892,18 @@ export default function Home() {
                   marginTop: '0.15rem',
                 }}>
                   {supplier.role}
+                </p>
+                <p style={{
+                  fontSize: '0.45rem',
+                  fontWeight: 500,
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.3,
+                  marginTop: '0.2rem',
+                  lineHeight: 1.4,
+                  textTransform: 'none',
+                  letterSpacing: '0.02em',
+                }}>
+                  {supplier.why}
                 </p>
               </div>
             ))}
@@ -1922,27 +1946,49 @@ export default function Home() {
             }}
           >
             {[
-              'Arisumi Brothers',
-              'Swinerton Builders Hawaii',
-              'Maui Architectural Group',
-              'Habitat for Humanity Maui',
-              'Wailuku Heights HOA',
+              { name: 'Arisumi Brothers', context: 'GC on 14 projects since 2017' },
+              { name: 'Swinerton Builders Hawaii', context: 'Sub on 3 commercial builds since 2021' },
+              { name: 'Maui Architectural Group', context: 'Referred 9 residential clients since 2019' },
+              { name: 'Habitat for Humanity Maui', context: '2 pro-bono driveways, 2023 & 2024' },
+              { name: 'Wailuku Heights HOA', context: 'Sidewalk & ADA contract, renewed annually since 2022' },
             ].map((partner) => (
-              <span
-                key={partner}
+              <div
+                key={partner.name}
                 style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--color-warm-gray)',
-                  opacity: 0.75,
+                  textAlign: 'center',
                   whiteSpace: 'nowrap',
                 }}
               >
-                {partner}
-              </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.75,
+                    display: 'block',
+                  }}
+                >
+                  {partner.name}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.45rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.4,
+                    display: 'block',
+                    marginTop: '0.15rem',
+                  }}
+                >
+                  {partner.context}
+                </span>
+              </div>
             ))}
           </div>
         </div>
@@ -2023,7 +2069,7 @@ export default function Home() {
               marginBottom: '1.5rem',
             }}
           >
-            Ready? Three steps.
+            Site Walk to Signed Quote
           </p>
           <div
             style={{
