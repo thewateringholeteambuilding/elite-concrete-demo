@@ -46,7 +46,7 @@ const services = [
   },
   {
     title: 'Decorative Concrete',
-    desc: 'Stamped, stained, and polished finishes for lanais, pool decks, and commercial lobbies. Stamp patterns: Ashlar Slate, Random Flagstone, Herringbone, Tuscany Stone. Integral colors: Pewter, Sandstone, Terra Cotta, Charcoal. Pattern and color matched to your design before the pour.',
+    desc: 'Most people think concrete means gray and flat. Stamped, stained, and polished finishes turn lanais, pool decks, and commercial lobbies into surfaces guests ask about. Stamp patterns: Ashlar Slate, Random Flagstone, Herringbone, Tuscany Stone. Integral colors: Pewter, Sandstone, Terra Cotta, Charcoal. Pattern and color matched to your design before the pour.',
     benefits: ['On-site color samples before committing', 'UV-rated sealers for tropical sun', '4 stamp patterns, 4 integral colors'],
     ideal: 'Vacation rentals, restaurant patios, residential upgrades',
     typicalSize: 'Typical: 200–640 SF',
@@ -896,7 +896,7 @@ export default function Home() {
               textAlign: 'center',
             }}
           >
-            Where Our Concrete Goes
+            See Where We've Poured
           </p>
           <div
             style={{
@@ -2017,7 +2017,7 @@ export default function Home() {
             { label: 'Same-Day Site Visits', detail: 'Call before noon, we walk the lot that afternoon' },
             { label: 'Quote in 36 Hours', detail: 'Written scope, not a ballpark' },
             { label: 'Owner Answers the Phone', detail: 'No call center, no scheduler' },
-            { label: 'Lic. C-27903', detail: 'DCCA verified, current through 2026' },
+            { label: 'Lic. C-27903', detail: 'DCCA verified, active through Feb 2027' },
           ].map((g) => (
             <div key={g.label} style={{ textAlign: 'center' }}>
               <p style={{
@@ -2211,11 +2211,11 @@ export default function Home() {
               className="milestone-strip"
             >
               {[
-                { year: '2014', event: 'Founded in Wailuku. First residential pour. 2,400 SF.', detail: '3 projects · $42K revenue · 1 crew member' },
+                { year: '2014', event: 'Founded in Wailuku. First residential pour. 2,400 SF.', detail: '3 projects · Used F-250 · 1 crew member' },
                 { year: '2017', event: '100th project. 18,600 SF cumulative. Added retaining walls.', detail: '38 projects that year · First GC subcontract' },
-                { year: '2019', event: 'First commercial slab. 4,200 SF Kahului industrial.', detail: '$480K revenue · Crew expanded to 4' },
-                { year: '2022', event: 'BBB A+ accreditation. 52,000 SF that year alone.', detail: '$820K revenue · Zero OSHA recordables' },
-                { year: '2025', event: '487 projects. 73,840 SF in 2024. One crew, one owner.', detail: '$1.2M in 2024 · 68% repeat clients' },
+                { year: '2019', event: 'First commercial slab. 4,200 SF Kahului industrial.', detail: 'Bought first Symons steel-ply set · Crew expanded to 4' },
+                { year: '2022', event: 'BBB A+ accredited. 52,000 SF that year alone.', detail: 'MCA Safety Recognition · Zero OSHA recordables' },
+                { year: '2025', event: '487 projects. 73,840 SF in 2024. One crew, one owner.', detail: '68% repeat clients · 8-yr avg crew tenure' },
               ].map((m, i) => (
                 <div
                   key={m.year}
@@ -2383,20 +2383,33 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <p
+          <p className="iron-label" style={{ textAlign: 'center', marginBottom: '0.75rem' }}>
+            Your Property, Pour Day
+          </p>
+          <h2
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '0.6rem',
-              fontWeight: 600,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'var(--color-warm-gray)',
-              opacity: 0.5,
+              fontSize: 'clamp(1.4rem, 1rem + 2vw, 2.2rem)',
+              fontWeight: 700,
+              color: 'var(--color-off-white)',
               textAlign: 'center',
-              marginBottom: '1.5rem',
+              lineHeight: 1.15,
+              marginBottom: '0.5rem',
             }}
           >
-            What Pour Day Looks Like at Your Property
+            HERE'S EXACTLY WHAT HAPPENS
+          </h2>
+          <p
+            style={{
+              color: 'var(--color-warm-gray)',
+              fontSize: '0.9rem',
+              lineHeight: 1.65,
+              textAlign: 'center',
+              maxWidth: '540px',
+              margin: '0 auto 2rem',
+            }}
+          >
+            No surprises. You'll know the crew count, the truck schedule, and the cleanup plan before we mobilize.
           </p>
           <div
             style={{
