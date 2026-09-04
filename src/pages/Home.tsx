@@ -75,7 +75,7 @@ const testimonials = [
   {
     stars: 5,
     tag: 'FOUNDATION · WAILUKU',
-    quote: 'Elite poured the 1,420 sq ft foundation for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished two days ahead of schedule.',
+    quote: 'Elite poured the <strong>1,420 sq ft foundation</strong> for our Wailuku home addition. Everything was level, drainage was handled before the forms went up, and they finished <strong>two days ahead of schedule</strong>.',
     name: 'James Kahele, Wailuku',
     detail: '1,420 SF Foundation Addition · Project Manager, Wailuku Heights HOA',
     date: 'November 2024',
@@ -86,7 +86,7 @@ const testimonials = [
   {
     stars: 5,
     tag: 'DRIVEWAY · KIHEI',
-    quote: 'Tore out a 20-year-old slab that had settled almost 3 inches on the ocean side. Eric brought in a transit level, documented the grade, and poured 1,640 sq ft of broom-finish with a proper drainage slope toward the street. Five years later, zero cracks, zero settling. We just had them back for a lanai.',
+    quote: 'Tore out a 20-year-old slab that had settled almost <strong>3 inches on the ocean side</strong>. Eric brought in a transit level, documented the grade, and poured <strong>1,640 sq ft of broom-finish</strong> with a proper drainage slope toward the street. Five years later, <strong>zero cracks, zero settling</strong>. We just had them back for a lanai.',
     name: 'Tom & Linda Ogawa, Kihei',
     detail: '1,640 SF Driveway Replacement · Retired, Kamaole Sands',
     date: 'February 2021',
@@ -97,7 +97,7 @@ const testimonials = [
   {
     stars: 5,
     tag: 'RETAINING WALL · HAIKU',
-    quote: 'We had an eroding slope behind our property in Haiku. The initial assessment revealed more drainage complexity than anyone expected. Eric walked the 68 linear feet of hillside with us, adjusted the engineering to a poured-wall system with drainage core, and completed it with no surprise costs. Still holding solid through two storm seasons.',
+    quote: 'We had an eroding slope behind our property in Haiku. The initial assessment revealed more drainage complexity than anyone expected. Eric walked the <strong>68 linear feet of hillside</strong> with us, adjusted the engineering to a poured-wall system with drainage core, and completed it with <strong>no surprise costs</strong>. Still holding solid through two storm seasons.',
     name: 'Yoko Tanaka, Haiku',
     detail: '68 LF Retaining Wall · Retired Landscape Architect',
     date: 'August 2024',
@@ -108,7 +108,7 @@ const testimonials = [
   {
     stars: 5,
     tag: 'DECORATIVE · MAKAWAO',
-    quote: 'Stamped concrete lanai for our rental, 380 sq ft. Kai mixed the first color sample on-site and it matched our vision exactly. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
+    quote: 'Stamped concrete lanai for our rental, <strong>380 sq ft</strong>. Kai mixed the first color sample on-site and it <strong>matched our vision exactly</strong>. Cleanup was thorough. Phone calls got answered every time. Rare on Maui.',
     name: 'Ben & Sara Medeiros, Makawao',
     detail: '380 SF Decorative Lanai · Vacation Rental Owners, Hale Makawao LLC',
     date: 'March 2025',
@@ -321,6 +321,29 @@ export default function Home() {
               <Link to="/gallery" className="btn-outline">
                 See Our Work
               </Link>
+              <a
+                href="https://www.youtube.com/@eliteconcretemaui"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  color: 'var(--color-warm-gray)',
+                  textDecoration: 'none',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.65rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  opacity: 0.7,
+                  transition: 'opacity 200ms ease',
+                }}
+                className="video-link"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+                Watch a Pour
+              </a>
             </div>
             <a
               href="tel:+18082813018"
@@ -465,7 +488,7 @@ export default function Home() {
               letterSpacing: '0.01em',
             }}
           >
-            One owner. One crew. Every pour engineered for Wailuku clay, Kihei salt air, and Upcountry cinder.
+            From the first soil test to the final broom stroke, one crew handles it. Wailuku clay, Kihei salt air, Upcountry cinder. Every mix engineered for the ground under your lot.
           </p>
         </div>
       </section>
@@ -1171,9 +1194,24 @@ export default function Home() {
               className="strip-card"
             >
               <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <p className="iron-label" style={{ marginBottom: '0.5rem' }}>
-                  Specialized Service
-                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                  <p className="iron-label" style={{ margin: 0 }}>
+                    Specialized Service
+                  </p>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.45rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-steel-deep)',
+                    backgroundColor: 'var(--color-brass)',
+                    padding: '0.15rem 0.5rem',
+                    lineHeight: 1.4,
+                  }}>
+                    Now Offered Standalone
+                  </span>
+                </div>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-off-white)', marginBottom: '0.5rem' }}>
                   {services[5].title}
                 </h3>
@@ -1771,7 +1809,7 @@ export default function Home() {
               Founded 2014 with a used F-250, a rented saw, and a 4-man crew. Owner answers the phone.
             </p>
             <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.875rem', lineHeight: 1.65 }}>
-              I left a foreman position to start Elite because I wanted one crew, one standard, every job. I write every quote myself. I run the crew on every pour. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
+              I left a foreman position to start Elite because I wanted one crew, one standard, every job. I write every quote myself. Before the batch truck backs in, I walk the forms with a transit level and check string lines against the survey pins. If the grade is off by a quarter inch, we fix it before the concrete moves. You call this number, you're talking to me, not a scheduler. One point of contact from estimate through final walkthrough.
             </p>
             <p style={{
               fontFamily: 'var(--font-display)',
@@ -3225,9 +3263,8 @@ export default function Home() {
                     fontFamily: 'Georgia, "Times New Roman", serif',
                     margin: '0 0 1.5rem 0',
                   }}
-                >
-                  "{t.quote}"
-                </blockquote>
+                  dangerouslySetInnerHTML={{ __html: `\u201c${t.quote}\u201d` }}
+                />
                 <figcaption>
                   <cite style={{ fontStyle: 'normal', display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                     <span
