@@ -1016,6 +1016,19 @@ export default function Home() {
           >
             Who Hires Us
           </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: 'var(--color-off-white)',
+              textAlign: 'center',
+              marginTop: '0.5rem',
+              lineHeight: 1.6,
+            }}
+          >
+            Trusted by architects, general contractors, property managers, HOA boards, vacation rental owners, and 274 Maui homeowners.
+          </p>
         </div>
         <div
           style={{
@@ -1117,13 +1130,23 @@ export default function Home() {
                 fontSize: 'clamp(2rem, 1.2rem + 3vw, 3.5rem)',
                 fontWeight: 700,
                 color: 'var(--color-off-white)',
-                marginBottom: '1rem',
+                marginBottom: '0.5rem',
               }}
             >
-              <span style={{ fontWeight: 400 }}>WHAT WE</span> BUILD
+              WE POUR CONCRETE ON MAUI.
             </h2>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(0.85rem, 0.6rem + 0.8vw, 1.1rem)',
+              fontWeight: 600,
+              letterSpacing: '0.04em',
+              color: 'var(--color-brass)',
+              marginBottom: '1rem',
+            }}>
+              That is the only thing we have done since 2014.
+            </p>
             <p style={{ color: 'var(--color-warm-gray)', maxWidth: '520px', lineHeight: 1.7 }}>
-              Seven concrete services. One crew that knows Maui's conditions from Wailuku to Wailea.
+              Seven services. One crew. One island. Every mix, every form, every finish calibrated for Maui soil, Maui salt, Maui heat.
             </p>
           </div>
 
@@ -3559,20 +3582,27 @@ export default function Home() {
             textAlign: 'center',
           }}
         >
-          <p
-            style={{
+          {/* Branded guarantee badge */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            padding: '0.6rem 1.5rem',
+            border: '2px solid var(--color-steel-deep)',
+            marginBottom: '1.5rem',
+          }}>
+            <ShieldCheck size={22} style={{ color: 'var(--color-steel-deep)', flexShrink: 0 }} />
+            <span style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '0.65rem',
-              fontWeight: 600,
-              letterSpacing: '0.22em',
+              fontSize: '0.7rem',
+              fontWeight: 700,
+              letterSpacing: '0.18em',
               textTransform: 'uppercase',
               color: 'var(--color-steel-deep)',
-              marginBottom: '1rem',
-              opacity: 0.6,
-            }}
-          >
-            The Elite Concrete Warranty
-          </p>
+            }}>
+              Island Pour Guarantee
+            </span>
+          </div>
           <h2
             style={{
               fontFamily: 'var(--font-display)',
@@ -3585,6 +3615,44 @@ export default function Home() {
           >
             POURED BY HAND. WARRANTED IN WRITING.
           </h2>
+          {/* Structured 3-part commitment */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '2rem',
+            marginBottom: '1.5rem',
+            flexWrap: 'wrap',
+          }}>
+            {[
+              { term: '5 yr', scope: 'Structural' },
+              { term: '3 yr', scope: 'Cosmetic' },
+              { term: '2 yr', scope: 'Flatwork' },
+            ].map((w) => (
+              <div key={w.scope} style={{ textAlign: 'center' }}>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  color: 'var(--color-steel-deep)',
+                  lineHeight: 1,
+                }}>
+                  {w.term}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.6rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-steel-deep)',
+                  opacity: 0.6,
+                  marginTop: '0.2rem',
+                }}>
+                  {w.scope}
+                </p>
+              </div>
+            ))}
+          </div>
           <p
             style={{
               color: 'var(--color-steel-light)',
@@ -3596,7 +3664,7 @@ export default function Home() {
               marginBottom: '1rem',
             }}
           >
-            5-year structural warranty on foundations and retaining walls. 3-year cosmetic warranty on stamped, stained, and polished finishes. 2-year flatwork warranty on driveways, sidewalks, and slabs. If our workmanship fails within term, we come back and make it right. Written on every contract.
+            Foundations and retaining walls. Stamped, stained, and polished finishes. Driveways, sidewalks, and slabs. If our workmanship fails within term, we come back and make it right. Written on every contract.
           </p>
           <p
             style={{
@@ -3712,17 +3780,31 @@ export default function Home() {
           <p
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '0.55rem',
+              fontSize: '0.7rem',
+              fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--color-off-white)',
+              textAlign: 'center',
+              marginBottom: '0.35rem',
+            }}
+          >
+            We don't do coatings. We don't do asphalt. We pour concrete.
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.5rem',
               fontWeight: 600,
-              letterSpacing: '0.2em',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
               color: 'var(--color-warm-gray)',
-              opacity: 0.4,
+              opacity: 0.5,
               textAlign: 'center',
               marginBottom: '0.75rem',
             }}
           >
-            What We Don't Pour
+            If it's outside our scope, we'll refer you to someone we trust.
           </p>
           <div
             style={{
@@ -4149,23 +4231,23 @@ function ServiceCard({ service }: { service: ServiceItem }) {
 
 const faqItems = [
   {
-    q: 'How long does concrete need to cure before we can use it?',
-    a: "Initial set takes 24-48 hours depending on the mix and Maui\u2019s ambient temperature. Full structural cure is 28 days. In Kihei and Wailea where afternoon temps regularly exceed 90\u00B0F, we adjust water-cement ratios and may schedule pours before 10 AM to prevent rapid surface drying. Upcountry pours in Kula or Pukalani cure more predictably due to cooler air.",
+    q: 'How long before I can park on new concrete?',
+    a: "Initial set takes 24-48 hours depending on the mix and Maui\u2019s ambient temperature. Light foot traffic at 24 hours. Vehicles at 7 days minimum. Full structural cure is 28 days. In Kihei and Wailea where afternoon temps regularly exceed 90\u00B0F, we adjust water-cement ratios and may schedule pours before 10 AM to prevent rapid surface drying. Upcountry pours in Kula or Pukalani cure more predictably due to cooler air.",
   },
   {
-    q: 'How often should concrete be sealed on Maui?',
+    q: 'How often do you reseal concrete in Hawaii?',
     a: 'Coastal properties (Kihei, Wailea, Lahaina) should reseal every 2-3 years due to salt air exposure. Upcountry properties (Makawao, Kula, Pukalani) can go 4-5 years between applications. Decorative stamped or stained surfaces need resealing more frequently because UV breaks down color sealers faster in Hawaii than on the mainland. We specify UV-rated sealers on every decorative job.',
   },
   {
-    q: 'Do I need a permit for residential concrete work?',
+    q: 'Do I need a permit for a concrete driveway on Maui?',
     a: 'Maui County requires permits for foundations, retaining walls over 4 feet, and any work affecting drainage or setbacks. Standard flatwork like driveways and patios under 200 sq ft typically does not require a permit, but we verify with the county on every job. Our License C-27903 covers all concrete work categories.',
   },
   {
-    q: 'What PSI concrete do you use?',
+    q: 'What PSI should my driveway or foundation be?',
     a: '4,000 PSI minimum for all residential flatwork and foundations. Commercial slabs spec to project requirements, typically 4,500-5,000 PSI. Coastal properties get corrosion-rated rebar (#4 at 12-inch centers standard) with increased concrete cover depth. Volcanic soil conditions on Maui can affect sub-base compaction, so we test to 95% modified Proctor before forming.',
   },
   {
-    q: 'Can you match existing concrete for additions or repairs?',
+    q: 'Can you match my existing concrete color?',
     a: 'Color matching depends on the original mix, age, and exposure. We sample existing slabs and work with our batch plant to get within 90% color match on fresh pours. After 6-12 months of weathering, the match improves further. For decorative work, we do on-site color samples before committing to the full pour.',
   },
 ]
