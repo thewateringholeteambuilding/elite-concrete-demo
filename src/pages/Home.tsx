@@ -1146,7 +1146,7 @@ export default function Home() {
               That is the only thing we have done since 2014.
             </p>
             <p style={{ color: 'var(--color-warm-gray)', maxWidth: '520px', lineHeight: 1.7 }}>
-              Seven services. One crew. One island. Every mix, every form, every finish calibrated for Maui soil, Maui salt, Maui heat.
+              Seven services. One crew. One island. Every mix, every form, every finish calibrated for Maui soil, Maui salt, Maui heat. Broom-finish to stamped, 400 square feet to 5,000. We pour for every budget and every lot on this island.
             </p>
           </div>
 
@@ -2078,6 +2078,7 @@ export default function Home() {
             { label: 'Same-Day Site Visits', detail: 'Call before noon, we walk the lot that afternoon' },
             { label: 'Quote in 36 Hours', detail: 'Written scope, not a ballpark' },
             { label: 'Owner Answers the Phone', detail: 'No call center, no scheduler' },
+            { label: 'Nightly Project Review', detail: 'Eric reviews every active project file each evening' },
             { label: 'Lic. C-27903', detail: 'DCCA verified, active through Feb 2027' },
           ].map((g) => (
             <div key={g.label} style={{ textAlign: 'center' }}>
@@ -2127,10 +2128,23 @@ export default function Home() {
               textTransform: 'uppercase',
               color: 'var(--color-warm-gray)',
               opacity: 0.5,
-              marginBottom: '1.5rem',
+              marginBottom: '0.5rem',
             }}
           >
             Site Walk to Signed Quote
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.55rem',
+              fontWeight: 500,
+              letterSpacing: '0.08em',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.4,
+              marginBottom: '1.5rem',
+            }}
+          >
+            Current scheduling: March–October 6–10 weeks out · November–February 3–5 weeks · Updated Sep 2026
           </p>
           <div
             style={{
@@ -3679,6 +3693,21 @@ export default function Home() {
           >
             Concrete is a natural material. Hairline surface cracks, minor color variation, and weathering from Maui salt air and UV exposure are part of how concrete ages on this island. We warrant our craft, not the climate. That honesty is why 68% of our clients come back.
           </p>
+          <p
+            style={{
+              color: 'var(--color-steel-light)',
+              fontSize: '0.8rem',
+              lineHeight: 1.7,
+              maxWidth: '520px',
+              margin: '0.75rem auto 0',
+              fontWeight: 600,
+              opacity: 0.85,
+              fontFamily: 'var(--font-display)',
+              letterSpacing: '0.02em',
+            }}
+          >
+            No deposit until pour day. Once concrete is in the ground, there is no easy redo. Your leverage is your payment. We earn it before we collect it.
+          </p>
           <Link
             to="/contact"
             style={{
@@ -3878,7 +3907,7 @@ export default function Home() {
             {
               label: 'Homeowners',
               heading: 'GET A FREE ESTIMATE',
-              body: 'Driveway, foundation, retaining wall, or lanai. Tell us the job and we quote it within 36 hours. Owner answers the phone.',
+              body: 'Driveway, foundation, retaining wall, or lanai. Tell us the job and we quote it within 36 hours. Owner answers the phone. Financing available for projects over $5,000.',
               cta: 'Request Estimate',
               href: '/contact',
               isLink: true,
