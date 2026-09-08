@@ -7,6 +7,7 @@ interface Service {
   title: string
   shortLabel: string
   phase: string
+  finishSystem?: string
   desc: string[]
   img: string
   tags: string[]
@@ -18,6 +19,7 @@ const services: Service[] = [
     title: 'Concrete Foundations',
     shortLabel: 'Foundations',
     phase: 'Pre-Construction + Pour',
+    finishSystem: 'Structural Slab-on-Grade System',
     desc: [
       'Stem walls, grade beams, continuous footings, and slab-on-grade systems. Every foundation starts with a soil profile and drainage assessment. Volcanic soils on Maui range from compact basalt to loose cinder, and each pours differently.',
       'Seismic zone requirements and Hawaii building code followed on all foundation work. Rebar schedule documented. Inspection-ready framing before pour day.',
@@ -30,6 +32,7 @@ const services: Service[] = [
     title: 'Driveways & Parking Areas',
     shortLabel: 'Driveways',
     phase: 'Full Lifecycle',
+    finishSystem: 'Broom + Trowel · Exposed Aggregate · Stamped',
     desc: [
       'Broom-finish, exposed aggregate, and stamped concrete driveways. Sub-base compacted and inspected. Drainage pitch engineered before forms are placed.',
       'Salt air and tropical moisture are factored into every mix design. Surface sealers specified for coastal exposure. Minimum 3,500 PSI mix on all flatwork.',
@@ -54,6 +57,7 @@ const services: Service[] = [
     title: 'Decorative Concrete',
     shortLabel: 'Decorative',
     phase: 'Pour + Finish',
+    finishSystem: 'Stamped + Stained · Polished + Sealed',
     desc: [
       'Stamped, stained, acid-etched, and polished finishes for lanais, pool decks, walkways, and commercial lobbies. Pattern and color selection before the pour. Samples available.',
       "Hawaii's UV exposure bleaches untreated surfaces. Sealers rated for tropical conditions specified on every decorative job. Color holds for years with proper maintenance.",
@@ -66,6 +70,7 @@ const services: Service[] = [
     title: 'Commercial Slabs',
     shortLabel: 'Commercial',
     phase: 'Full Lifecycle',
+    finishSystem: 'Commercial Flatwork · Polished + Sealed',
     desc: [
       'Warehouse floors, loading docks, retail slabs, and commercial parking. Floor flatness specifications documented. Control joints cut at 24 hours. Re-temp protection on hot Maui afternoons when rapid evaporation is a risk.',
       'Experience with GC-direct and owner-direct projects. Certificate of insurance available. Licensed C-27903.',
@@ -184,6 +189,102 @@ export default function Services() {
         </div>
       </nav>
 
+      {/* ── Finish Systems Taxonomy (Bomanite-style system classification) ── */}
+      <section
+        aria-label="Concrete finish systems"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '2.5rem 1.5rem',
+          borderBottom: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brass)',
+              marginBottom: '1.25rem',
+              textAlign: 'center',
+            }}
+          >
+            Finish Systems
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '1rem',
+            }}
+            className="finish-systems-grid"
+          >
+            {[
+              { system: 'Broom + Trowel', code: 'BT', desc: 'Standard residential and commercial flatwork. Slip-resistant texture for driveways, sidewalks, and garage slabs. The workhorse finish.', psi: '3,500–4,500 PSI' },
+              { system: 'Exposed Aggregate', code: 'EA', desc: 'Natural stone texture revealed through surface wash. Decorative and durable for driveways and pool decks. Matches Hawaii landscape tones.', psi: '4,000 PSI min' },
+              { system: 'Stamped + Stained', code: 'SS', desc: 'Pattern-imprinted and color-integrated concrete for lanais, patios, and commercial lobbies. Four patterns, four integral colors, UV-rated sealers.', psi: '4,000 PSI min' },
+              { system: 'Polished + Sealed', code: 'PS', desc: 'Diamond-ground and sealed surfaces for commercial interiors, showrooms, and retail floors. High-gloss or matte finish to spec.', psi: '4,500 PSI min' },
+            ].map((f) => (
+              <div
+                key={f.code}
+                style={{
+                  padding: '1.25rem',
+                  backgroundColor: 'var(--color-steel-deep)',
+                  borderTop: '3px solid var(--color-brass)',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.6rem' }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.55rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.14em',
+                      color: 'var(--color-brass)',
+                      border: '1px solid var(--color-brass)',
+                      padding: '0.15rem 0.4rem',
+                      opacity: 0.7,
+                    }}
+                  >
+                    {f.code}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.75rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-off-white)',
+                    }}
+                  >
+                    {f.system}
+                  </span>
+                </div>
+                <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.6, marginBottom: '0.5rem' }}>
+                  {f.desc}
+                </p>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.5rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.5,
+                  }}
+                >
+                  {f.psi}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Services list, alternating layout ────────────────────────── */}
       <section aria-label="Services list" style={{ backgroundColor: 'var(--color-steel-mid)' }}>
         {services.map((service, i) => {
@@ -269,12 +370,28 @@ export default function Services() {
                     letterSpacing: '0.14em',
                     textTransform: 'uppercase',
                     color: 'var(--color-brass)',
-                    marginBottom: '0.75rem',
+                    marginBottom: service.finishSystem ? '0.4rem' : '0.75rem',
                     opacity: 0.7,
                   }}
                 >
                   {service.phase}
                 </p>
+                {service.finishSystem && (
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.5rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-warm-gray)',
+                      opacity: 0.5,
+                      marginBottom: '0.75rem',
+                    }}
+                  >
+                    Finish: {service.finishSystem}
+                  </p>
+                )}
                 <h2
                   style={{
                     fontFamily: 'var(--font-display)',
@@ -399,6 +516,14 @@ export default function Services() {
           }
           .service-pills {
             justify-content: flex-start !important;
+          }
+          .finish-systems-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .finish-systems-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

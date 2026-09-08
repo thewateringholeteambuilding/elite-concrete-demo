@@ -1,50 +1,82 @@
 const galleryItems = [
   {
     img: 'https://images.unsplash.com/photo-1616179058441-37aa58affac8?auto=format&fit=crop&w=900&q=80',
-    caption: 'Foundation footing with rebar, 1,420 SF residential addition, Wailuku Heights',
-    spec: 'Completed Nov 2024 · 4,000 PSI · #4 rebar at 12" O.C.',
+    headline: 'Three Feet of Loose Fill, Then Solid Ground',
+    caption: '1,420 SF residential foundation addition, Wailuku Heights',
+    system: 'Structural Slab-on-Grade',
+    scope: '1,420 SF · 4,000 PSI · #4 rebar at 12" O.C.',
+    attribution: 'Architect: Maui Architectural Group',
+    completed: 'Nov 2024',
     wide: true,
   },
   {
     img: 'https://images.unsplash.com/photo-1694521787162-5373b598945c?auto=format&fit=crop&w=700&q=80',
-    caption: 'Concrete pour in progress, 3,200 SF commercial slab, Kahului Industrial Park',
-    spec: 'Completed Jan 2025 · 4,500 PSI',
+    headline: 'Loading Dock Ready by Lease Date',
+    caption: '3,200 SF commercial slab, Kahului Industrial Park',
+    system: 'Commercial Flatwork',
+    scope: '3,200 SF · 4,500 PSI · FF35/FL25 spec',
+    attribution: 'GC: Arisumi Brothers',
+    completed: 'Jan 2025',
     wide: false,
   },
   {
     img: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=700&q=80',
-    caption: 'Finished driveway, 640 SF exposed aggregate, Makawao',
-    spec: 'Completed Sept 2024 · Sealed for UV',
+    headline: 'Twenty Years of Settling, Solved',
+    caption: '640 SF exposed aggregate driveway, Makawao',
+    system: 'Exposed Aggregate Flatwork',
+    scope: '640 SF · Root barrier installed · UV-sealed',
+    attribution: 'Owner-direct residential',
+    completed: 'Sept 2024',
     wide: false,
   },
   {
     img: 'https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?auto=format&fit=crop&w=900&q=80',
-    caption: 'Retaining wall, 68 LF poured wall with drainage core, Haiku',
-    spec: 'Completed Aug 2024 · Engineered for slope drainage',
+    headline: 'Holding a Hillside Through Storm Season',
+    caption: '68 LF poured retaining wall with drainage core, Haiku',
+    system: 'Engineered Retaining',
+    scope: '68 LF · 6 ft height · 4" perforated drainage core',
+    attribution: 'Referred by Maui Architectural Group',
+    completed: 'Aug 2024',
     wide: true,
   },
   {
     img: 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=700&q=80',
-    caption: 'Stamped concrete lanai, 380 SF Ashlar Slate pattern, Paia',
-    spec: 'Completed Mar 2025 · UV-rated sealer',
+    headline: 'Color-Matched on the First Sample',
+    caption: '380 SF stamped lanai, Ashlar Slate pattern, Paia',
+    system: 'Decorative Stamped',
+    scope: '380 SF · Ashlar Slate · UV-rated sealer',
+    attribution: 'Client: Hale Makawao LLC',
+    completed: 'Mar 2025',
     wide: false,
   },
   {
     img: 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9?auto=format&fit=crop&w=700&q=80',
-    caption: 'Site prep and equipment staging, commercial job, Kahului',
-    spec: '95% modified Proctor compaction verified',
+    headline: 'Compaction Verified Before Any Forms',
+    caption: 'Site prep and sub-base staging, Kahului commercial lot',
+    system: 'Pre-Construction',
+    scope: '95% modified Proctor · Transit-leveled grade',
+    attribution: 'GC: Swinerton Builders Hawaii',
+    completed: 'In progress',
     wide: false,
   },
   {
     img: 'https://images.unsplash.com/photo-1517011453931-c30f571a4fab?auto=format&fit=crop&w=900&q=80',
-    caption: 'Warehouse floor slab, 2,800 SF, joints cut at 24 hours, Maui Lani',
-    spec: 'Completed Dec 2024 · Floor flatness spec documented',
+    headline: 'Joints Cut at Twenty-Two Hours',
+    caption: '2,800 SF warehouse floor slab, Maui Lani Business Park',
+    system: 'Commercial Flatwork',
+    scope: '2,800 SF · Floor flatness documented · Re-temp protected',
+    attribution: 'Owner-direct commercial',
+    completed: 'Dec 2024',
     wide: true,
   },
   {
     img: 'https://images.unsplash.com/photo-1514514188727-ff38e839635e?auto=format&fit=crop&w=700&q=80',
-    caption: 'Sidewalk flatwork, 120 LF ADA-compliant ramp, Wailuku Elementary',
-    spec: 'Completed Feb 2025 · Community project, third year',
+    headline: 'ADA Ramp for the Third Year Running',
+    caption: '120 LF sidewalk flatwork, Wailuku Elementary',
+    system: 'Community Flatwork',
+    scope: '120 LF · ADA-compliant slope · Pro-bono',
+    attribution: 'Wailuku Elementary School',
+    completed: 'Feb 2025',
     wide: false,
   },
 ]
@@ -177,7 +209,7 @@ export default function Gallery() {
                 }}
                 className="gallery-img"
               />
-              {/* Brass bottom bar */}
+              {/* Project info bar */}
               <div
                 style={{
                   position: 'absolute',
@@ -186,37 +218,85 @@ export default function Gallery() {
                   right: 0,
                   backgroundColor: 'var(--color-steel-deep)',
                   borderTop: '2px solid var(--color-brass)',
-                  padding: '0.65rem 1rem',
+                  padding: '0.75rem 1rem 0.65rem',
                 }}
               >
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.8rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.06em',
+                    color: 'var(--color-off-white)',
+                    lineHeight: 1.2,
+                    marginBottom: '0.2rem',
+                  }}
+                >
+                  {item.headline}
+                </p>
                 <figcaption
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '0.7rem',
+                    fontSize: '0.6rem',
                     fontWeight: 600,
-                    letterSpacing: '0.1em',
+                    letterSpacing: '0.08em',
                     textTransform: 'uppercase',
                     color: 'var(--color-warm-gray)',
+                    opacity: 0.7,
                   }}
                 >
                   {item.caption}
                 </figcaption>
-                {'spec' in item && (
-                  <p
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '0.5rem',
+                    alignItems: 'center',
+                    marginTop: '0.35rem',
+                  }}
+                >
+                  <span
                     style={{
                       fontFamily: 'var(--font-display)',
-                      fontSize: '0.5rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.08em',
+                      fontSize: '0.45rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.12em',
                       textTransform: 'uppercase',
-                      color: 'var(--color-warm-gray)',
-                      opacity: 0.5,
-                      marginTop: '0.2rem',
+                      color: 'var(--color-brass)',
+                      border: '1px solid var(--color-brass)',
+                      padding: '0.1rem 0.4rem',
+                      opacity: 0.8,
                     }}
                   >
-                    {item.spec}
-                  </p>
-                )}
+                    {item.system}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.45rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.06em',
+                      color: 'var(--color-warm-gray)',
+                      opacity: 0.5,
+                    }}
+                  >
+                    {item.scope}
+                  </span>
+                </div>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.45rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.06em',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.4,
+                    marginTop: '0.2rem',
+                  }}
+                >
+                  {item.attribution} · {item.completed}
+                </p>
               </div>
             </figure>
           ))}
