@@ -24,6 +24,7 @@ const services = [
     ideal: 'Homeowners adding square footage, new builds, ADU projects',
     typicalSize: 'Typical: 1,200–4,200 SF',
     startingAt: 'Starting at $8,400 for standard slab-on-grade',
+    recentProject: 'Recent: Kehalani Residence, 2,400 SF slab-on-grade · Nov 2024',
     img: 'https://images.unsplash.com/photo-1616179058441-37aa58affac8?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -33,6 +34,7 @@ const services = [
     ideal: 'Residential replacements, new construction, rental properties',
     typicalSize: 'Typical: 400–1,800 SF',
     startingAt: 'Starting at $4,200 for 400 SF broom-finish',
+    recentProject: 'Recent: Ogawa Residence, Kihei, 1,640 SF broom-finish · Feb 2021',
     img: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -42,6 +44,7 @@ const services = [
     ideal: 'Hillside lots, erosion control, tiered landscaping',
     typicalSize: 'Typical: 40–120 LF',
     startingAt: 'Starting at $3,800 for 40 LF gravity wall',
+    recentProject: 'Recent: Tanaka Residence, Haiku, 68 LF poured wall · Aug 2024',
     img: 'https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -51,6 +54,7 @@ const services = [
     ideal: 'Vacation rentals, restaurant patios, residential upgrades',
     typicalSize: 'Typical: 200–640 SF',
     startingAt: 'Starting at $3,200 for 200 SF stamped lanai',
+    recentProject: 'Recent: Hale Makawao LLC, 380 SF Ashlar Slate lanai · Mar 2025',
     img: 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -59,6 +63,7 @@ const services = [
     benefits: ['Floor flatness specs documented', 'COI delivered before mobilization', 'GC-direct and owner-direct projects'],
     ideal: 'Warehouses, retail build-outs, loading facilities',
     typicalSize: 'Typical: 2,000–5,400 SF',
+    recentProject: 'Recent: Kahului Industrial Park, 3,200 SF via Arisumi Brothers · Jan 2025',
     img: 'https://images.unsplash.com/photo-1517011453931-c30f571a4fab?auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -67,6 +72,7 @@ const services = [
     benefits: ['Dust and slurry contained on-site', 'Available for sub and owner-direct work', 'Precision cuts for utility access'],
     ideal: 'GCs needing sub work, utility installs, slab demolition',
     typicalSize: 'Typical: 50–300 LF of cuts',
+    recentProject: 'Recent: Maui Lani Business Park, 2,800 SF warehouse joints · Dec 2024',
     img: 'https://images.unsplash.com/photo-1514514188727-ff38e839635e?auto=format&fit=crop&w=800&q=80',
   },
 ]
@@ -665,6 +671,8 @@ export default function Home() {
             { label: '2024 MCA Safety Recognition', detail: 'Maui Contractors Assoc. · Awarded Nov 2024', icon: 'star' as const },
             { label: 'ASCC Member', detail: 'American Society of Concrete Contractors · Since 2018', icon: 'award' as const },
             { label: 'Decorative Concrete Council', detail: 'ASCC specialty division · Stamped & stained certified', icon: 'award' as const },
+            { label: 'HC&D Ready-Mix® Supplier', detail: 'Exclusive Maui batch plant · Mix designs on file', icon: 'shield' as const },
+            { label: 'Sakrete® Certified Applicator', detail: 'Repair products & overlay systems · Since 2019', icon: 'award' as const },
           ].map((a) => (
             <div
               key={a.label}
@@ -1191,6 +1199,11 @@ export default function Home() {
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-warm-gray)', opacity: 0.5, marginTop: '0.3rem' }}>
                   {services[0].typicalSize}
                 </p>
+                {services[0].recentProject && (
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.5rem', fontWeight: 600, letterSpacing: '0.06em', color: 'var(--color-warm-gray)', opacity: 0.4, marginTop: '0.3rem' }}>
+                    {services[0].recentProject}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -4173,6 +4186,7 @@ interface ServiceItem {
   ideal: string
   typicalSize: string
   startingAt?: string
+  recentProject?: string
   img: string
 }
 
@@ -4232,6 +4246,11 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         {service.startingAt && (
           <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.06em', color: 'var(--color-brass)', marginTop: '0.4rem', opacity: 0.85 }}>
             {service.startingAt}
+          </p>
+        )}
+        {service.recentProject && (
+          <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.45rem', fontWeight: 600, letterSpacing: '0.06em', color: 'var(--color-warm-gray)', opacity: 0.45, marginTop: '0.3rem' }}>
+            {service.recentProject}
           </p>
         )}
         <Link

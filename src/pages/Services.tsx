@@ -8,6 +8,7 @@ interface Service {
   shortLabel: string
   phase: string
   finishSystem?: string
+  recentRef?: string
   desc: string[]
   img: string
   tags: string[]
@@ -20,6 +21,7 @@ const services: Service[] = [
     shortLabel: 'Foundations',
     phase: 'Pre-Construction + Pour',
     finishSystem: 'Structural Slab-on-Grade System',
+    recentRef: 'As poured at Kehalani Residence, Wailuku Heights · 1,420 SF · Nov 2024',
     desc: [
       'Stem walls, grade beams, continuous footings, and slab-on-grade systems. Every foundation starts with a soil profile and drainage assessment. Volcanic soils on Maui range from compact basalt to loose cinder, and each pours differently.',
       'Seismic zone requirements and Hawaii building code followed on all foundation work. Rebar schedule documented. Inspection-ready framing before pour day.',
@@ -33,6 +35,7 @@ const services: Service[] = [
     shortLabel: 'Driveways',
     phase: 'Full Lifecycle',
     finishSystem: 'Broom + Trowel · Exposed Aggregate · Stamped',
+    recentRef: 'As poured at Ogawa Residence, Kihei · 1,640 SF broom-finish · Feb 2021',
     desc: [
       'Broom-finish, exposed aggregate, and stamped concrete driveways. Sub-base compacted and inspected. Drainage pitch engineered before forms are placed.',
       'Salt air and tropical moisture are factored into every mix design. Surface sealers specified for coastal exposure. Minimum 3,500 PSI mix on all flatwork.',
@@ -45,6 +48,7 @@ const services: Service[] = [
     title: 'Retaining Walls',
     shortLabel: 'Retaining Walls',
     phase: 'Pre-Construction + Pour',
+    recentRef: 'As poured at Tanaka Residence, Haiku · 68 LF poured wall · Aug 2024',
     desc: [
       'Gravity and poured-concrete retaining walls for residential lots and hillside properties across Maui. Drainage core is standard on every wall, not an add-on.',
       'Upcountry slopes, Wailuku hillsides, and coastal lots all present different soil saturation profiles. Engineered to the conditions, not a standard template.',
@@ -58,6 +62,7 @@ const services: Service[] = [
     shortLabel: 'Decorative',
     phase: 'Pour + Finish',
     finishSystem: 'Stamped + Stained · Polished + Sealed',
+    recentRef: 'As poured at Hale Makawao LLC, Paia · 380 SF Ashlar Slate · Mar 2025',
     desc: [
       'Stamped, stained, acid-etched, and polished finishes for lanais, pool decks, walkways, and commercial lobbies. Pattern and color selection before the pour. Samples available.',
       "Hawaii's UV exposure bleaches untreated surfaces. Sealers rated for tropical conditions specified on every decorative job. Color holds for years with proper maintenance.",
@@ -71,6 +76,7 @@ const services: Service[] = [
     shortLabel: 'Commercial',
     phase: 'Full Lifecycle',
     finishSystem: 'Commercial Flatwork · Polished + Sealed',
+    recentRef: 'As poured at Kahului Industrial Park via Arisumi Brothers · 3,200 SF · Jan 2025',
     desc: [
       'Warehouse floors, loading docks, retail slabs, and commercial parking. Floor flatness specifications documented. Control joints cut at 24 hours. Re-temp protection on hot Maui afternoons when rapid evaporation is a risk.',
       'Experience with GC-direct and owner-direct projects. Certificate of insurance available. Licensed C-27903.',
@@ -83,6 +89,7 @@ const services: Service[] = [
     title: 'Sidewalks & Walkways',
     shortLabel: 'Sidewalks',
     phase: 'Pour + Finish',
+    recentRef: 'As poured at Wailuku Elementary · 120 LF ADA-compliant · Feb 2025',
     desc: [
       'Residential walkways, ADA-compliant ramps, and commercial pedestrian paving. Expansion joints placed to standard. Surface texture and slip resistance matched to application.',
       'Trenching and sub-base preparation included. Existing concrete sawing for tie-in work available.',
@@ -95,6 +102,7 @@ const services: Service[] = [
     title: 'Concrete Sawing',
     shortLabel: 'Sawing',
     phase: 'Post-Pour',
+    recentRef: 'As cut at Maui Lani Business Park · 2,800 SF warehouse joints · Dec 2024',
     desc: [
       'Precision saw-cutting for control joints, utility access openings, and slab removal. Dry and wet cutting available. Dust and slurry contained and managed on-site.',
       'Available as a standalone service for GCs, property managers, and owner-direct clients. Core drilling also available for utility penetrations.',
@@ -398,12 +406,28 @@ export default function Services() {
                     fontSize: 'clamp(1.5rem, 1rem + 2vw, 2.2rem)',
                     fontWeight: 700,
                     color: 'var(--color-off-white)',
-                    marginBottom: '1.5rem',
+                    marginBottom: service.recentRef ? '0.5rem' : '1.5rem',
                     textTransform: 'uppercase',
                   }}
                 >
                   {service.title}
                 </h2>
+                {service.recentRef && (
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.5rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-warm-gray)',
+                      opacity: 0.45,
+                      marginBottom: '1.5rem',
+                    }}
+                  >
+                    {service.recentRef}
+                  </p>
+                )}
                 {service.desc.map((para, j) => (
                   <p
                     key={j}

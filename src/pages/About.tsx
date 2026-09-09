@@ -519,7 +519,7 @@ export default function About() {
             WE SERVE ALL OF MAUI
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', maxWidth: '540px', margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
-            Based in Wailuku. Our crew travels for the right project. Residential, commercial, and contractor-direct work across Maui County.
+            Based in Wailuku, Central Maui. Most jobs run the Kahului corridor through Kihei, up the Haleakala slope to Makawao and Pukalani, and west through Lahaina to Kaanapali. We drive the truck, not the quote.
           </p>
           <div
             style={{

@@ -67,9 +67,62 @@ export default function Contact() {
             LET'S TALK<br />
             <span style={{ color: 'var(--color-brass)' }}>CONCRETE.</span>
           </h1>
-          <p style={{ color: 'var(--color-warm-gray)', fontSize: '1.05rem', lineHeight: 1.75, maxWidth: '520px' }}>
+          <p style={{ color: 'var(--color-warm-gray)', fontSize: '1.05rem', lineHeight: 1.75, maxWidth: '520px', marginBottom: '2rem' }}>
             Free estimates for Maui concrete work. Owner answers the phone. Call direct or use the form below.
           </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '1rem',
+              maxWidth: '720px',
+            }}
+            className="stakeholder-grid"
+          >
+            {[
+              { role: 'Homeowners', action: 'Get a free estimate', detail: 'Driveways, foundations, lanais, retaining walls. Site visit included.' },
+              { role: 'General Contractors', action: 'Request specs + COI', detail: 'Sub pricing, insurance certificates, and crew availability for your timeline.' },
+              { role: 'Architects & Engineers', action: 'Discuss mix design', detail: 'Finish systems, structural specs, and sample coordination for your project.' },
+            ].map((s) => (
+              <div
+                key={s.role}
+                style={{
+                  padding: '1rem',
+                  backgroundColor: 'var(--color-steel-mid)',
+                  borderTop: '2px solid var(--color-brass)',
+                }}
+              >
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-brass)',
+                  marginBottom: '0.3rem',
+                }}>
+                  {s.role}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  color: 'var(--color-off-white)',
+                  marginBottom: '0.3rem',
+                }}>
+                  {s.action}
+                </p>
+                <p style={{
+                  fontSize: '0.8rem',
+                  color: 'var(--color-warm-gray)',
+                  lineHeight: 1.5,
+                  opacity: 0.7,
+                }}>
+                  {s.detail}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -396,6 +449,9 @@ export default function Contact() {
             grid-template-columns: 1fr !important;
           }
           .form-row {
+            grid-template-columns: 1fr !important;
+          }
+          .stakeholder-grid {
             grid-template-columns: 1fr !important;
           }
         }
