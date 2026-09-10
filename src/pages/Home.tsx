@@ -524,7 +524,7 @@ export default function Home() {
             'Since 2014',
             'Licensed C-27903',
             '5-Year Warranty',
-            '4.9 from 47 Reviews',
+            '4.9 · 31 Google + 12 Yelp + 4 Referral',
             'Free Site Visits',
             'Permits Handled',
             'Financing Available',
@@ -2461,6 +2461,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Your First Call ──────────────────────────────────────────── */}
+      <section
+        aria-label="Your first call"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '2rem 1.5rem',
+          borderTop: '2px solid var(--color-brass)',
+        }}
+      >
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <div style={{ flex: '0 0 auto' }}>
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.55rem',
+                fontWeight: 600,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brass)',
+                marginBottom: '0.3rem',
+              }}>
+                Before the estimate
+              </p>
+              <p style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(1rem, 0.8rem + 0.8vw, 1.3rem)',
+                fontWeight: 700,
+                color: 'var(--color-off-white)',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+              }}>
+                YOUR FIRST CALL: 12 MINUTES
+              </p>
+            </div>
+            <div style={{ flex: 1, minWidth: '280px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="first-call-grid">
+              {[
+                { step: '1', label: 'You describe the job', detail: 'Driveway, foundation, wall, or slab. Square footage if you know it. Photos help.' },
+                { step: '2', label: 'Eric asks 4 questions', detail: 'Soil type (we can guess by town). Access width. Slope. Timeline.' },
+                { step: '3', label: 'You get a range same day', detail: 'Ballpark cost, crew size, and the earliest available pour date. Written quote after site visit.' },
+              ].map((s) => (
+                <div key={s.step} style={{ padding: '0.75rem', borderLeft: '2px solid var(--color-brass)' }}>
+                  <p style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.55rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-brass)',
+                    marginBottom: '0.25rem',
+                  }}>
+                    Step {s.step}
+                  </p>
+                  <p style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    color: 'var(--color-off-white)',
+                    letterSpacing: '0.04em',
+                    marginBottom: '0.25rem',
+                  }}>
+                    {s.label}
+                  </p>
+                  <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.75rem', lineHeight: 1.5 }}>
+                    {s.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── What Pour Day Looks Like (homeowner perspective) ────────── */}
       <section
         aria-label="What pour day looks like"
@@ -2821,10 +2893,10 @@ export default function Home() {
             className="region-grid"
           >
             {[
-              { region: 'Central Maui', count: 218, towns: ['Wailuku', 'Kahului', 'Sprecklesville'], active: '2 jobs active now' },
-              { region: 'South Maui', count: 147, towns: ['Kihei', 'Wailea', 'Makena'], active: '1 job in progress' },
-              { region: 'West Maui', count: 64, towns: ['Lahaina', 'Napili', 'Kapalua'], active: 'Scheduling Q3' },
-              { region: 'Upcountry', count: 58, towns: ['Makawao', 'Haiku', 'Paia', 'Pukalani', 'Kula'], active: '1 job active now' },
+              { region: 'Central Maui', count: 218, towns: ['Wailuku', 'Kahului', 'Sprecklesville', 'Waikapu', 'Waihee', 'Wailuku Heights'], zips: '96793 · 96732', active: '2 jobs active now' },
+              { region: 'South Maui', count: 147, towns: ['Kihei', 'Wailea', 'Makena', 'Maui Meadows', 'Kamaole'], zips: '96753', active: '1 job in progress' },
+              { region: 'West Maui', count: 64, towns: ['Lahaina', 'Napili', 'Kapalua', 'Kaanapali', 'Kahana', 'Olowalu'], zips: '96761 · 96768', active: 'Scheduling Q3' },
+              { region: 'Upcountry', count: 58, towns: ['Makawao', 'Haiku', 'Paia', 'Pukalani', 'Kula', 'Haliimaile', 'Keokea'], zips: '96708 · 96768 · 96790', active: '1 job active now' },
             ].map((r) => (
               <div
                 key={r.region}
@@ -2863,6 +2935,19 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+                {'zips' in r && (
+                  <p style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.5rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.06em',
+                    color: 'var(--color-warm-gray)',
+                    opacity: 0.4,
+                    marginTop: '0.5rem',
+                  }}>
+                    ZIP: {r.zips}
+                  </p>
+                )}
                 {'active' in r && (
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.6rem' }}>
                     <span
@@ -3783,8 +3868,11 @@ export default function Home() {
               }}>
                 Years Pouring on Maui
               </p>
+              <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', lineHeight: 1.65, marginBottom: '0.5rem' }}>
+                Maui sits on basaltic lava flows overlaid with laterite clay, decomposed cinder, and coral fill. These soil types drain at wildly different rates depending on whether you're in Wailuku (dense red clay, poor drainage, shrink-swell cycles) or Kihei (porous coral, fast drainage, salt intrusion from 6 ft below grade). Add 300+ rain days a year in Haiku versus 40 in Lahaina, and you have an island where a concrete spec that works at sea level fails at 2,200 feet.
+              </p>
               <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.85rem', lineHeight: 1.65 }}>
-                Maui concrete behaves differently than mainland concrete. Salt air accelerates rebar corrosion. Volcanic soil drains unpredictably from Wailuku clay to Upcountry cinder. Afternoon heat in Kihei can cut working time by half. These questions come from every soil type, every microclimate, and every elevation this island produces.
+                These questions come from every soil type, every microclimate, and every elevation this island produces. The answers come from 487 pours across all of them.
               </p>
             </div>
           </div>
@@ -4297,6 +4385,18 @@ const faqItems = [
   {
     q: 'Can you match my existing concrete color?',
     a: 'Color matching depends on the original mix, age, and exposure. We sample existing slabs and work with our batch plant to get within 90% color match on fresh pours. After 6-12 months of weathering, the match improves further. For decorative work, we do on-site color samples before committing to the full pour.',
+  },
+  {
+    q: 'What happens if it rains during the pour?',
+    a: 'Rain on fresh concrete washes out cement paste and weakens the surface. We monitor NOAA marine forecasts 72 hours ahead and postpone if rain probability exceeds 40% during our pour window. If an unexpected shower hits mid-pour, we cover exposed sections with polyethylene sheeting within minutes. Every truck carries 200 linear feet of 6-mil poly. In Haiku and Upcountry where afternoon showers are near-daily from November through March, we schedule pours for the 6 AM to 11 AM dry window.',
+  },
+  {
+    q: 'How much does a concrete driveway cost on Maui?',
+    a: 'A standard broom-finish driveway on Maui runs $10.50 to $14.00 per square foot installed, depending on access, sub-base condition, and slope. A 600 SF single-car driveway typically falls in the $6,300 to $8,400 range. Stamped or exposed aggregate adds $3 to $5 per square foot. Maui pricing runs 20 to 35% above mainland averages because all concrete, rebar, and formwork ships by barge from Honolulu or the mainland. We include sub-base prep, forms, pour, finish, and curing in every quote.',
+  },
+  {
+    q: 'Do you work on hillside lots?',
+    a: 'Hillside work is a significant part of our project load. Wailuku Heights, Iao Valley, Haiku, and Upcountry lots regularly require engineered retaining walls, stepped foundations, and custom drainage solutions. Slopes over 15 degrees get a geotechnical assessment before we quote. We pour gravity walls and formed-and-poured walls up to 8 feet. Above 8 feet or in high-erosion zones, we partner with a licensed structural engineer and handle the concrete scope under their stamped drawings.',
   },
 ]
 
