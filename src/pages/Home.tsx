@@ -210,7 +210,7 @@ export default function Home() {
                 Your driveway takes Maui rain 300 days a year. Your foundation sits on volcanic clay that swells when it's wet and cracks when it dries. Retaining walls on this island hold hillsides, not just soil.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: 'var(--color-warm-gray)', opacity: 0.8 }}>
-                487 projects poured across this island. One crew, one owner. Licensed C-27903. BBB A+. Every mix engineered for the soil under your lot.
+                First ones in, last ones out. 487 projects poured across this island. One crew, one owner. Licensed C-27903. BBB A+. Every mix engineered for the soil under your lot.
               </p>
             </div>
 
@@ -370,6 +370,19 @@ export default function Home() {
                 </strong>
               </span>
             </a>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+              marginTop: '0.4rem',
+              paddingLeft: '2.15rem',
+            }}>
+              Mon&ndash;Sat 6 AM&ndash;5 PM &middot; Eric answers directly
+            </p>
           </div>
 
           {/* Right col, photo + trust badge */}
@@ -494,7 +507,7 @@ export default function Home() {
               letterSpacing: '0.01em',
             }}
           >
-            From the first soil test to the final broom stroke, one crew handles it. Wailuku clay, Kihei salt air, Upcountry cinder. Every mix engineered for the ground under your lot.
+            From the first soil test to the final broom stroke, one crew handles it. Wailuku clay, Kihei salt air, Upcountry cinder. Every mix engineered for the ground under your lot. Only licensed C-27 on Maui with in-house sawing, so your project never waits on a subcontractor.
           </p>
         </div>
       </section>
@@ -523,7 +536,7 @@ export default function Home() {
           {[
             'Since 2014',
             'Licensed C-27903',
-            '5-Year Warranty',
+            '2,400+ CY Batched',
             '4.9 · 31 Google + 12 Yelp + 4 Referral',
             'Free Site Visits',
             'Permits Handled',
@@ -1035,7 +1048,7 @@ export default function Home() {
               lineHeight: 1.6,
             }}
           >
-            Trusted by architects, general contractors, property managers, HOA boards, vacation rental owners, and 274 Maui homeowners.
+            Trusted by architects, general contractors, property managers, HOA boards, vacation rental owners, and 274 Maui homeowners. GC partners include Arisumi Brothers, Maui Kupono Builders, and Hale Koa Construction.
           </p>
         </div>
         <div
@@ -1183,6 +1196,11 @@ export default function Home() {
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
               />
               <div className="service-gradient" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--color-steel-deep) 0%, transparent 65%)' }} />
+              <span style={{
+                position: 'absolute', top: '1rem', right: '1.25rem', zIndex: 2,
+                fontFamily: 'var(--font-display)', fontSize: '0.5rem', fontWeight: 600,
+                letterSpacing: '0.1em', color: 'var(--color-off-white)', opacity: 0.4,
+              }}>01/06</span>
               <div style={{ position: 'relative', padding: '2rem' }}>
                 <p className="iron-label" style={{ marginBottom: '0.5rem' }}>
                   Foundation Work
@@ -1208,11 +1226,11 @@ export default function Home() {
             </div>
 
             {/* Sidebar card, Driveways */}
-            <ServiceCard service={services[1]} />
+            <ServiceCard service={services[1]} index={2} total={6} />
 
             {/* Row 2: 3 equal cards */}
-            {services.slice(2, 5).map((s) => (
-              <ServiceCard key={s.title} service={s} />
+            {services.slice(2, 5).map((s, i) => (
+              <ServiceCard key={s.title} service={s} index={i + 3} total={6} />
             ))}
 
             {/* Row 3: Full-width strip, Concrete Sawing (unique to Elite, not in RVS) */}
@@ -1370,11 +1388,15 @@ export default function Home() {
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
               {[
-                { phrase: 'Protect Against Salt Air.', expansion: 'Corrosion-rated steel and cover depths above code minimum on every pour. Rebar doesn\'t get a second chance.' },
-                { phrase: 'Adapt to Volcanic Soil.', expansion: 'Sub-base spec changes from Wailuku clay to Upcountry cinder. We test site conditions before we quote the job.' },
-                { phrase: 'Engineer for Maui Heat.', expansion: 'Afternoon pours get adjusted water-cement ratios and accelerated finishing schedules. One shot to get it right.' },
+                { category: 'DURABILITY', phrase: 'Protect Against Salt Air.', expansion: 'Corrosion-rated steel and cover depths above code minimum on every pour. Rebar doesn\'t get a second chance.' },
+                { category: 'SITE WORK', phrase: 'Adapt to Volcanic Soil.', expansion: 'Sub-base spec changes from Wailuku clay to Upcountry cinder. We test site conditions before we quote the job.' },
+                { category: 'EXECUTION', phrase: 'Engineer for Maui Heat.', expansion: 'Afternoon pours get adjusted water-cement ratios and accelerated finishing schedules. One shot to get it right.' },
+                { category: 'SAFETY', phrase: 'Zero OSHA Recordables.', expansion: 'EMR 0.71. Full workers comp on every project. COR-equivalent safety program backed by company-wide buy-in.' },
               ].map((pillar) => (
                 <div key={pillar.phrase}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.2em', color: 'var(--color-brass)', marginBottom: '0.35rem', opacity: 0.7 }}>
+                    {pillar.category}
+                  </p>
                   <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-off-white)', marginBottom: '0.2rem' }}>
                     {pillar.phrase}
                   </p>
@@ -2009,6 +2031,21 @@ export default function Home() {
             }}
           >
             Trusted By
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.5rem',
+              fontWeight: 600,
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.35,
+              textAlign: 'center',
+              marginBottom: '1rem',
+            }}
+          >
+            5 Organizations &middot; 31 Joint Projects &middot; 80% Return Rate
           </p>
           <div
             style={{
@@ -2752,7 +2789,7 @@ export default function Home() {
               marginBottom: '0.5rem',
             }}
           >
-            <span style={{ fontWeight: 400 }}>WHAT HAPPENS</span> WHEN YOU WAIT
+            <span style={{ fontWeight: 400 }}>WHAT HAPPENS</span> IF YOU WAIT?
           </h2>
           <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.9rem', marginBottom: '2.5rem', maxWidth: '560px', lineHeight: 1.7, fontWeight: 400 }}>
             Concrete problems on Maui don't stay small. Salt air, volcanic soil, and tropical rain accelerate every crack.
@@ -3364,7 +3401,7 @@ export default function Home() {
               marginBottom: '2.5rem',
             }}
           >
-            {testimonials.map((t) => (
+            {testimonials.map((t, idx) => (
               <figure
                 key={t.name}
                 style={{
@@ -3372,8 +3409,22 @@ export default function Home() {
                   borderLeft: '3px solid var(--color-brass)',
                   padding: '2rem',
                   margin: 0,
+                  position: 'relative',
                 }}
               >
+                <span style={{
+                  position: 'absolute',
+                  top: '1rem',
+                  right: '1.25rem',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.5rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.1em',
+                  color: 'var(--color-warm-gray)',
+                  opacity: 0.3,
+                }}>
+                  {String(idx + 1).padStart(2, '0')}/{String(testimonials.length).padStart(2, '0')}
+                </span>
                 <p style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.55rem',
@@ -3583,6 +3634,27 @@ export default function Home() {
               className="btn-outline"
             >
               Read all 31 reviews
+            </a>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+            <a
+              href="https://maps.google.com/?cid=4007577259043496869"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.6rem',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--color-warm-gray)',
+                opacity: 0.5,
+                textDecoration: 'none',
+                transition: 'opacity 200ms ease',
+              }}
+              className="review-invite-link"
+            >
+              Past client? Share your experience on Google →
             </a>
           </div>
         </div>
@@ -4127,6 +4199,9 @@ export default function Home() {
           border-bottom-color: var(--color-brass) !important;
           background-color: rgba(196, 160, 60, 0.06) !important;
         }
+        .review-invite-link:hover {
+          opacity: 0.8 !important;
+        }
         .strip-chevron {
           transition: transform 200ms ease;
         }
@@ -4278,7 +4353,7 @@ interface ServiceItem {
   img: string
 }
 
-function ServiceCard({ service }: { service: ServiceItem }) {
+function ServiceCard({ service, index, total }: { service: ServiceItem; index?: number; total?: number }) {
   return (
     <div
       className="service-card"
@@ -4291,6 +4366,15 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         justifyContent: 'flex-end',
       }}
     >
+      {index != null && total != null && (
+        <span style={{
+          position: 'absolute', top: '0.75rem', right: '1rem', zIndex: 2,
+          fontFamily: 'var(--font-display)', fontSize: '0.5rem', fontWeight: 600,
+          letterSpacing: '0.1em', color: 'var(--color-off-white)', opacity: 0.4,
+        }}>
+          {String(index).padStart(2, '0')}/{String(total).padStart(2, '0')}
+        </span>
+      )}
       <img
         src={service.img}
         alt={service.title}
