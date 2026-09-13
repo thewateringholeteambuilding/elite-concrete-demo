@@ -126,6 +126,88 @@ export default function Contact() {
         </div>
       </section>
 
+      {/* ── What's in Every Quote ─────────────────────────────────────── */}
+      <section
+        aria-label="What is included in every quote"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '2.5rem 1.5rem',
+          borderBottom: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.6rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.6,
+              textAlign: 'center',
+              marginBottom: '1.5rem',
+            }}
+          >
+            What's in Every Quote
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '1rem',
+            }}
+            className="quote-includes-grid"
+          >
+            {[
+              { step: '01', title: 'Site Visit', desc: 'Eric walks your lot, documents soil conditions, slope, and drainage before writing a number.' },
+              { step: '02', title: 'Soil Assessment', desc: 'Volcanic clay, cinder, coral fill. We identify what is under your slab and spec the sub-base accordingly.' },
+              { step: '03', title: 'Drainage Plan', desc: 'Water flows away from your structure. Grade, swales, and daylight points documented before forming.' },
+              { step: '04', title: 'Written Scope', desc: 'Line-item quote: mix design, rebar schedule, finish type, timeline, payment terms. No surprises.' },
+            ].map((item) => (
+              <div
+                key={item.step}
+                style={{
+                  padding: '1.25rem',
+                  backgroundColor: 'var(--color-steel-deep)',
+                  borderTop: '3px solid var(--color-brass)',
+                }}
+              >
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  color: 'var(--color-brass)',
+                  lineHeight: 1,
+                  marginBottom: '0.5rem',
+                  opacity: 0.4,
+                }}>
+                  {item.step}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-off-white)',
+                  marginBottom: '0.4rem',
+                }}>
+                  {item.title}
+                </p>
+                <p style={{
+                  fontSize: '0.85rem',
+                  color: 'var(--color-warm-gray)',
+                  lineHeight: 1.6,
+                }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Contact section ──────────────────────────────────────────── */}
       <section
         aria-label="Contact information and form"
@@ -453,6 +535,9 @@ export default function Contact() {
           }
           .stakeholder-grid {
             grid-template-columns: 1fr !important;
+          }
+          .quote-includes-grid {
+            grid-template-columns: 1fr 1fr !important;
           }
         }
         input:focus, textarea:focus, select:focus {

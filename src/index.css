@@ -137,6 +137,15 @@ p {
 /* ── Source verification links ─────────────────────────────────────────── */
 .source-link:hover { opacity: 0.7 !important; }
 
+/* ── Scroll indicator bounce ──────────────────────────────────────────── */
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+.scroll-indicator {
+  animation: gentle-bounce 2.4s ease-in-out infinite;
+}
+
 /* ── Scrollbar ──────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-steel-deep); }

@@ -264,7 +264,7 @@ export default function Home() {
               >
                 <ShieldCheck size={13} style={{ color: 'var(--color-brass)' }} />
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', color: 'var(--color-warm-gray)' }}>
-                  5-YR WARRANTY
+                  LEVEL TO ⅛″ OR WE RE-POUR
                 </span>
               </span>
             </div>
@@ -1048,7 +1048,7 @@ export default function Home() {
               lineHeight: 1.6,
             }}
           >
-            Trusted by architects, general contractors, property managers, HOA boards, vacation rental owners, and 274 Maui homeowners. GC partners include Arisumi Brothers, Maui Kupono Builders, and Hale Koa Construction.
+            92% of our work comes from referrals or returning clients. Trusted by architects, general contractors, property managers, HOA boards, vacation rental owners, and 274 Maui homeowners. GC partners include Arisumi Brothers, Maui Kupono Builders, and Hale Koa Construction.
           </p>
         </div>
         <div
@@ -3298,6 +3298,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Now Scheduling strip ──────────────────────────────────────── */}
+      <section
+        aria-label="Current availability"
+        style={{
+          backgroundColor: 'var(--color-brass)',
+          padding: '1.25rem 1.5rem',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '2rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{
+              width: '8px',
+              height: '8px',
+              backgroundColor: '#22c55e',
+              borderRadius: '50%',
+              flexShrink: 0,
+            }} />
+            <span style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--color-steel-deep)',
+            }}>
+              Now Scheduling: October &amp; November 2026
+            </span>
+          </div>
+          <span style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.6rem',
+            fontWeight: 600,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--color-steel-deep)',
+            opacity: 0.7,
+          }}>
+            2 residential slots open this month
+          </span>
+          <a
+            href="tel:+18082813018"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--color-steel-deep)',
+              textDecoration: 'none',
+              borderBottom: '1px solid var(--color-steel-deep)',
+              paddingBottom: '1px',
+            }}
+          >
+            Call to Reserve: (808) 281-3018
+          </a>
+        </div>
+      </section>
+
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
       <section
         aria-labelledby="testimonials-heading"
@@ -3848,7 +3916,7 @@ export default function Home() {
               marginBottom: '1rem',
             }}
           >
-            Foundations and retaining walls. Stamped, stained, and polished finishes. Driveways, sidewalks, and slabs. If our workmanship fails within term, we come back and make it right. Written on every contract.
+            Level to ⅛″ tolerance on every slab, verified with a 10-foot straightedge before we leave the site. If it's off, we re-pour at our cost. Foundations, retaining walls, driveways, decorative finishes. If our workmanship fails within term, we come back and make it right. Written on every contract.
           </p>
           <p
             style={{
