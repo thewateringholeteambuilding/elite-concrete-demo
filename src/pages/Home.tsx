@@ -88,6 +88,7 @@ const testimonials = [
     source: 'via Google Reviews',
     relationship: 'Client since 2021 · Third project together',
     photos: 4,
+    galleryCategory: 'Foundations',
   },
   {
     stars: 5,
@@ -99,6 +100,7 @@ const testimonials = [
     source: 'via Google Reviews',
     relationship: 'Client since 2021 · Returned for lanai 2025',
     photos: 6,
+    galleryCategory: 'Driveways',
   },
   {
     stars: 5,
@@ -110,6 +112,7 @@ const testimonials = [
     source: 'via direct referral',
     relationship: 'Referred by Maui Architectural Group',
     photos: 3,
+    galleryCategory: 'Retaining Walls',
   },
   {
     stars: 5,
@@ -121,6 +124,7 @@ const testimonials = [
     source: 'via Yelp',
     relationship: 'Second project · Driveway reseal scheduled 2026',
     photos: 5,
+    galleryCategory: 'Decorative',
   },
 ]
 
@@ -1748,23 +1752,28 @@ export default function Home() {
               <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-warm-gray)', opacity: 0.6, marginBottom: '0.6rem' }}>
                 Before You Call — Have These Ready
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 {[
-                  'Photos of the area (phone photos are fine)',
-                  'Approximate square footage or dimensions',
-                  'Property survey or TMK if available',
-                  'Your timeline preference (flexible helps scheduling)',
-                ].map((item) => (
-                  <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'baseline' }}>
-                    <span style={{ color: 'var(--color-brass)', fontSize: '0.5rem', flexShrink: 0 }}>✓</span>
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 500, color: 'var(--color-warm-gray)', opacity: 0.7, lineHeight: 1.5 }}>
-                      {item}
-                    </span>
+                  { item: 'Photos from at least 2 angles', why: 'One straight down for area, one showing the drainage path toward or away from structures' },
+                  { item: 'Rough dimensions or square footage', why: 'Paces are fine. 10 ft = about 3 adult steps. We square it up on the site walk.' },
+                  { item: 'Property survey or TMK number, if you have it', why: 'Setback rules vary by lot. A survey prevents rework.' },
+                  { item: 'Your hard deadline, if any', why: 'Landscaping, event, or HOA deadline — tells us whether standard scheduling works or not' },
+                ].map(({ item, why }) => (
+                  <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                    <span style={{ color: 'var(--color-brass)', fontSize: '0.5rem', flexShrink: 0, marginTop: '0.2rem' }}>✓</span>
+                    <div>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 600, color: 'var(--color-warm-gray)', opacity: 0.85, lineHeight: 1.4, display: 'block' }}>
+                        {item}
+                      </span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.48rem', fontWeight: 500, color: 'var(--color-warm-gray)', opacity: 0.45, lineHeight: 1.4, display: 'block' }}>
+                        {why}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
               <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.5rem', fontWeight: 600, letterSpacing: '0.06em', color: 'var(--color-warm-gray)', opacity: 0.4, marginTop: '0.5rem' }}>
-                Don't have all of these? Call anyway. We'll figure it out on the site walk.
+                Don't have all of these? Call anyway. We'll sort it out on the site walk.
               </p>
             </div>
 
@@ -3664,6 +3673,7 @@ export default function Home() {
                     {'photos' in t && t.photos > 0 && (
                       <Link
                         to="/gallery"
+                        state={{ category: (t as any).galleryCategory }}
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -3681,7 +3691,7 @@ export default function Home() {
                         }}
                         className="source-link"
                       >
-                        ▪ {t.photos} project photos → Gallery
+                        ▪ {t.photos} project photos → {(t as any).galleryCategory} Gallery
                       </Link>
                     )}
                     </div>
@@ -3966,6 +3976,125 @@ export default function Home() {
           >
             Request Warranty Details <ArrowRight size={13} />
           </Link>
+        </div>
+      </section>
+
+      {/* ── Your Concrete's First Year ──────────────────────────────────── */}
+      <section
+        aria-label="Post-pour maintenance timeline"
+        style={{
+          backgroundColor: 'var(--color-steel-mid)',
+          padding: '2.5rem 1.5rem',
+          borderTop: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.55rem',
+              fontWeight: 600,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--color-warm-gray)',
+              opacity: 0.5,
+              textAlign: 'center',
+              marginBottom: '0.5rem',
+            }}
+          >
+            After Your Pour
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1rem, 0.8rem + 0.8vw, 1.25rem)',
+              fontWeight: 700,
+              color: 'var(--color-off-white)',
+              textAlign: 'center',
+              marginBottom: '2rem',
+              letterSpacing: '0.04em',
+            }}
+          >
+            YOUR CONCRETE'S FIRST YEAR ON MAUI
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1px',
+              backgroundColor: 'var(--color-steel-light)',
+            }}
+          >
+            {[
+              {
+                timing: 'Day 1–7',
+                title: 'Initial Cure',
+                action: 'Keep traffic off. Cover with curing blankets in Kihei/Wailea heat over 88°F.',
+                why: 'Concrete reaches roughly 70% strength in 7 days. Surface damage from traffic at this stage is permanent.',
+              },
+              {
+                timing: 'Day 28',
+                title: 'Full Strength',
+                action: 'Normal vehicle traffic is fine. No heavy equipment for 60 days on standard residential mix.',
+                why: '28-day cure is the standard lab benchmark. Our mix averages 4,340 PSI at 28 days against a 4,000 PSI spec.',
+              },
+              {
+                timing: '6–12 Months',
+                title: 'First Inspection',
+                action: 'Check control joints for widening. Inspect sealer on decorative surfaces. Call us if a crack is wider than 1/16″.',
+                why: 'Hairline surface cracks are normal as concrete settles into the sub-base. Structural cracks are different — width, direction, and step offset tell the story.',
+              },
+              {
+                timing: 'Year 2–3',
+                title: 'First Reseal (Coastal)',
+                action: 'Coastal properties (Kihei, Wailea, Lahaina) should reseal at year 2. Upcountry lots can wait until year 4–5.',
+                why: 'Salt air accelerates sealer breakdown. A $200 reseal extends the finish 5+ years. Neglecting it costs a full resurfacing job.',
+              },
+            ].map((step) => (
+              <div
+                key={step.timing}
+                style={{
+                  padding: '1.5rem',
+                  backgroundColor: 'var(--color-steel-deep)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.5rem',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.25rem' }}>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.55rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-steel-deep)',
+                    backgroundColor: 'var(--color-brass)',
+                    padding: '0.1rem 0.5rem',
+                    whiteSpace: 'nowrap',
+                  }}>
+                    {step.timing}
+                  </span>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-off-white)',
+                  }}>
+                    {step.title}
+                  </span>
+                </div>
+                <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.8rem', lineHeight: 1.65 }}>
+                  {step.action}
+                </p>
+                <p style={{ color: 'var(--color-warm-gray)', fontSize: '0.7rem', lineHeight: 1.55, opacity: 0.55, fontStyle: 'italic' }}>
+                  {step.why}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -4549,6 +4678,10 @@ const faqItems = [
   {
     q: 'Do you work on hillside lots?',
     a: 'Hillside work is a significant part of our project load. Wailuku Heights, Iao Valley, Haiku, and Upcountry lots regularly require engineered retaining walls, stepped foundations, and custom drainage solutions. Slopes over 15 degrees get a geotechnical assessment before we quote. We pour gravity walls and formed-and-poured walls up to 8 feet. Above 8 feet or in high-erosion zones, we partner with a licensed structural engineer and handle the concrete scope under their stamped drawings.',
+  },
+  {
+    q: 'What does the warranty not cover?',
+    a: 'The Island Pour Guarantee covers workmanship defects — structural failures, settlement cracking from inadequate sub-base preparation, and flatness deviations beyond our ⅛″ tolerance. It does not cover: hairline surface (shrinkage) cracks under 1/16″ width, which are normal in concrete and do not affect structural integrity; color variation or efflorescence from salt air and UV exposure on decorative finishes; damage from tree root intrusion after installation; spalling or delamination caused by de-icing chemicals (we don\'t use salt on Maui, but visitors do); or any work you have added, modified, or repaired yourself after our final walkthrough. If you see a crack and aren\'t sure which category it falls in, call us. We\'ll come look at it.',
   },
 ]
 

@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+
 const galleryItems = [
   {
     img: 'https://images.unsplash.com/photo-1616179058441-37aa58affac8?auto=format&fit=crop&w=900&q=80',
@@ -8,6 +11,7 @@ const galleryItems = [
     attribution: 'Architect: Maui Architectural Group',
     completed: 'Nov 2024',
     wide: true,
+    category: 'Foundations',
   },
   {
     img: 'https://images.unsplash.com/photo-1694521787162-5373b598945c?auto=format&fit=crop&w=700&q=80',
@@ -18,6 +22,7 @@ const galleryItems = [
     attribution: 'GC: Arisumi Brothers',
     completed: 'Jan 2025',
     wide: false,
+    category: 'Commercial',
   },
   {
     img: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=700&q=80',
@@ -28,6 +33,7 @@ const galleryItems = [
     attribution: 'Owner-direct residential',
     completed: 'Sept 2024',
     wide: false,
+    category: 'Driveways',
   },
   {
     img: 'https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?auto=format&fit=crop&w=900&q=80',
@@ -38,6 +44,7 @@ const galleryItems = [
     attribution: 'Referred by Maui Architectural Group',
     completed: 'Aug 2024',
     wide: true,
+    category: 'Retaining Walls',
   },
   {
     img: 'https://images.unsplash.com/photo-1574757987642-5755f0839101?auto=format&fit=crop&w=700&q=80',
@@ -48,6 +55,7 @@ const galleryItems = [
     attribution: 'Client: Hale Makawao LLC',
     completed: 'Mar 2025',
     wide: false,
+    category: 'Decorative',
   },
   {
     img: 'https://images.unsplash.com/photo-1575971637203-d6255d9947a9?auto=format&fit=crop&w=700&q=80',
@@ -58,6 +66,7 @@ const galleryItems = [
     attribution: 'GC: Swinerton Builders Hawaii',
     completed: 'In progress',
     wide: false,
+    category: 'Commercial',
   },
   {
     img: 'https://images.unsplash.com/photo-1517011453931-c30f571a4fab?auto=format&fit=crop&w=900&q=80',
@@ -68,6 +77,7 @@ const galleryItems = [
     attribution: 'Owner-direct commercial',
     completed: 'Dec 2024',
     wide: true,
+    category: 'Commercial',
   },
   {
     img: 'https://images.unsplash.com/photo-1514514188727-ff38e839635e?auto=format&fit=crop&w=700&q=80',
@@ -78,10 +88,32 @@ const galleryItems = [
     attribution: 'Wailuku Elementary School',
     completed: 'Feb 2025',
     wide: false,
+    category: 'Driveways',
   },
 ]
 
+const CATEGORIES = ['All', 'Foundations', 'Driveways', 'Retaining Walls', 'Decorative', 'Commercial']
+
+const CATEGORY_COUNTS = CATEGORIES.slice(1).reduce<Record<string, number>>((acc, cat) => {
+  acc[cat] = galleryItems.filter((item) => item.category === cat).length
+  return acc
+}, {})
+
 export default function Gallery() {
+  const location = useLocation()
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  useEffect(() => {
+    const incomingCategory = (location.state as { category?: string } | null)?.category
+    if (incomingCategory && CATEGORIES.includes(incomingCategory)) {
+      setActiveCategory(incomingCategory)
+    }
+  }, [location.state])
+
+  const filtered = activeCategory === 'All'
+    ? galleryItems
+    : galleryItems.filter((item) => item.category === activeCategory)
+
   return (
     <main style={{ paddingTop: '68px' }}>
       {/* ── Page header ─────────────────────────────────────────────── */}
@@ -167,6 +199,75 @@ export default function Gallery() {
         </div>
       </section>
 
+      {/* ── Category Filter ───────────────────────────────────────────── */}
+      <section
+        aria-label="Filter by project type"
+        style={{
+          backgroundColor: 'var(--color-steel-deep)',
+          padding: '1.25rem 1.5rem',
+          borderBottom: '1px solid var(--color-steel-light)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            gap: '0.5rem',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+          }}
+        >
+          <span style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.55rem',
+            fontWeight: 600,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: 'var(--color-warm-gray)',
+            opacity: 0.5,
+            marginRight: '0.25rem',
+          }}>
+            Filter:
+          </span>
+          {CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat
+            const count = cat === 'All' ? galleryItems.length : CATEGORY_COUNTS[cat]
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                style={{
+                  padding: '0.3rem 0.75rem',
+                  backgroundColor: isActive ? 'var(--color-brass)' : 'transparent',
+                  border: isActive ? '1px solid var(--color-brass)' : '1px solid var(--color-steel-light)',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.6rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: isActive ? 'var(--color-steel-deep)' : 'var(--color-warm-gray)',
+                  cursor: 'pointer',
+                  transition: 'all 150ms ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                }}
+              >
+                {cat}
+                <span style={{
+                  fontSize: '0.5rem',
+                  opacity: isActive ? 0.7 : 0.5,
+                  fontWeight: 600,
+                }}>
+                  {count}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      </section>
+
       {/* ── Gallery grid ─────────────────────────────────────────────── */}
       <section
         aria-label="Project gallery"
@@ -185,7 +286,7 @@ export default function Gallery() {
           }}
           className="gallery-grid"
         >
-          {galleryItems.map((item, i) => (
+          {filtered.map((item, i) => (
             <figure
               key={i}
               style={{
